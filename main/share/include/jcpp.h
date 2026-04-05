@@ -765,7 +765,7 @@ inline ::java::lang::String* $str(T value) {
 }
 // used in catch()
 template<typename T, $enable_if($is_base_of(::java::lang::Throwable, T))>
-inline ::java::lang::String* $str(const T& value) {
+inline ::java::lang::String* $str(T& value) {
 	T* ex = $tryCast<T>(value);
 	return ::java::lang::String::valueOf(ex);
 }
