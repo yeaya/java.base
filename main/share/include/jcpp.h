@@ -294,8 +294,8 @@ To* $tryCast(From* from) {
 }
 
 template<typename To, typename From>
-inline To* $tryCast(const $volatile(From*)& f) {
-	return $tryCast<To>(f.get());
+inline To* $tryCast(const $volatile(From*)& from) {
+	return $tryCast<To>(from.get());
 }
 
 template<typename To>
@@ -759,9 +759,28 @@ inline T* $new(T& ex) {
 #define $new(x, ...) $new<x>(__VA_ARGS__)
 #define $$new(x, ...) $ref($new<x>(__VA_ARGS__))
 
+template<typename T>
+inline ::java::lang::String* $str(T value) {
+	return ::java::lang::String::valueOf(value);
+}
+inline ::java::lang::String* $str(const ::std::initializer_list<int32_t>& codePoints) {
+	return ::java::lang::String::valueOf(codePoints);
+}
+inline ::java::lang::String* $str(const ::std::initializer_list<Object$*>& objects) {
+	return ::java::lang::String::valueOf(objects);
+}
+// used in catch()
+template<typename T, $enable_if($is_base_of(::java::lang::Throwable, T))>
+inline ::java::lang::String* $str(const T& value) {
+	T* ex = $tryCast<T>(v);
+	return ::java::lang::String::valueOf(ex);
+}
+template<typename T>
+inline ::java::lang::String* $str(const $volatile(T)& value) {
+	return ::java::lang::String::valueOf(value.get());
+}
+#define $$str(...) $ref($str(__VA_ARGS__))
 #define $cstr(...) ::java::lang::String::constValueOf(__VA_ARGS__)
-#define $str(...) ::java::lang::String::valueOf(__VA_ARGS__)
-#define $$str(...) $ref(::java::lang::String::valueOf(__VA_ARGS__))
 
 inline ::java::lang::String* operator "" _s(const char* s, ::std::size_t size) {
 	return ::java::lang::String::literalOf(s);
