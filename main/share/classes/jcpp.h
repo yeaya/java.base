@@ -759,21 +759,21 @@ inline T* $new(T& ex) {
 #define $new(x, ...) $new<x>(__VA_ARGS__)
 #define $$new(x, ...) $ref($new<x>(__VA_ARGS__))
 
-template<typename T>
+template<typename T, $enable_if(!$is_base_of(::java::lang::Throwable, T))>
 inline ::java::lang::String* $str(T value) {
 	return ::java::lang::String::valueOf(value);
-}
-inline ::java::lang::String* $str(const ::std::initializer_list<int32_t>& codePoints) {
-	return ::java::lang::String::valueOf(codePoints);
-}
-inline ::java::lang::String* $str(const ::std::initializer_list<Object$*>& objects) {
-	return ::java::lang::String::valueOf(objects);
 }
 // used in catch()
 template<typename T, $enable_if($is_base_of(::java::lang::Throwable, T))>
 inline ::java::lang::String* $str(const T& value) {
 	T* ex = $tryCast<T>(value);
 	return ::java::lang::String::valueOf(ex);
+}
+inline ::java::lang::String* $str(const ::std::initializer_list<int32_t>& codePoints) {
+	return ::java::lang::String::valueOf(codePoints);
+}
+inline ::java::lang::String* $str(const ::std::initializer_list<Object$*>& objects) {
+	return ::java::lang::String::valueOf(objects);
 }
 template<typename T>
 inline ::java::lang::String* $str(const $volatile(T)& value) {
