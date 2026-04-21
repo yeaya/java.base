@@ -53,7 +53,6 @@ public:
 	int32_t numInvocations = 0;
 	$volatile(int32_t) generated = 0;
 	virtual $Object* invokeSpecial(Object$* obj, $ObjectArray* args) override;
-	virtual $Value invokev(Object$* obj, $Value* argv) override;
 };
 
 		} // reflect

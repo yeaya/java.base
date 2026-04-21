@@ -1036,6 +1036,7 @@ $LocaleArray* JRELocaleProviderAdapter::createAvailableLocales() {
 	$var($StringTokenizer, localeStringTokenizer, $new($StringTokenizer, supportedLocaleString));
 	int32_t length = localeStringTokenizer->countTokens();
 	$var($LocaleArray, locales, $new($LocaleArray, length + 1));
+	$init($Locale);
 	locales->set(0, $Locale::ROOT);
 	for (int32_t i = 1; i <= length; ++i) {
 		$var($String, currentToken, localeStringTokenizer->nextToken());

@@ -124,10 +124,14 @@ public:
 	static void* getOpt(const Object$* obj);
 	static void* getVirtualInvokeAddress(Object$* obj, int32_t offset, int32_t index);
 	static bool setVirtualInvokeAddress(::java::lang::reflect::Method* method);
-	static void* getVirtualInvokeAddress(Object$* obj, ::java::lang::reflect::Method* method);
+	static void initInstance(::java::lang::reflect::Constructor* constructor, Object$* instance, $ObjectArray* args);
+	static $Object* invokeSpecial(::java::lang::reflect::Method* method, Object$* obj, $ObjectArray* args);
+	static $Object* invoke(::java::lang::reflect::Method* method, Object$* obj, $ObjectArray* args);
 	static $Value invokev(bool special, ::java::lang::reflect::Method* method, Object$* obj, $Value* argv);
 	static $Value invokeJni(bool special, ::java::lang::reflect::Method* method, Object$* jobj, va_list args);
+	static $Value invokeStaticJni(::java::lang::reflect::Method* method, va_list args);
 	static $Value invokeJni(bool special, ::java::lang::reflect::Method* method, Object$* jobj, const jvalue* args);
+	static $Value invokeStaticJni(::java::lang::reflect::Method* method, const jvalue* args);
 	static $Object* invoke(::java::lang::reflect::Method* method, Object$* obj, $Value* argv);
 	static $Object* invokeSpecial(::java::lang::reflect::Method* method, Object$* obj, $Value* argv);
 	static void initInstance(::java::lang::reflect::Constructor* constructor, Object$* obj, $Value* argv);

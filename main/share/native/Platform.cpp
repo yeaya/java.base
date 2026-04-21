@@ -413,7 +413,7 @@ void merge($ArrayList* targetMethods, int32_t begin, $Method* method) {
 }
 
 $MethodArray* getVirtualMethods0(Class* clazz, $ArrayList* baseMethods) {
-	$var($ArrayList, methods, $new<$ArrayList>());
+	$var($ArrayList, methods, $new($ArrayList));
 	$var(Class, primaryBase, nullptr);
 	Class* superClass = clazz->getSuperclass();
 	if (superClass != nullptr && superClass != Object::class$) {
@@ -492,7 +492,7 @@ $MethodArray* getVirtualMethods0(Class* clazz, $ArrayList* baseMethods) {
 }
 
 $MethodArray* Platform::getVirtualMethods(Class* clazz) {
-	$var($ArrayList, baseMethods, $new<$ArrayList>());
+	$var($ArrayList, baseMethods, $new($ArrayList));
 	return getVirtualMethods0(clazz, baseMethods);
 }
 
@@ -500,7 +500,7 @@ $MethodArray* Platform::getBaseClassVirtualMethods(Class* clazz, Class* baseClas
 	if (clazz == baseClass) {
 		return getVirtualMethods(clazz);
 	}
-	$var($ArrayList, methods, $new<$ArrayList>());
+	$var($ArrayList, methods, $new($ArrayList));
 	$var($MethodArray, methods2, getVirtualMethods(baseClass));
 	for (int32_t i = 0; i < methods2->length; i++) {
 		$var($Method, method, methods2->get(i));
@@ -525,7 +525,7 @@ $MethodArray* Platform::getBaseClassVirtualMethods(Class* clazz, Class* baseClas
 	return $fcast<$MethodArray>(methods->toArray($$new($MethodArray, 0)));
 }
 
-bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
+bool Platform::setVirtualInvokeAddress($Method* method) {
 	$var($ClassArray, classes, method->clazz->getPrimaryBaseClasses());
 	for (int32_t i = 0; i < classes->length; i++) {
 		Class* clazz = classes->get(i);
@@ -558,6 +558,7 @@ bool Platform::setVirtualInvokeAddress(::java::lang::reflect::Method* method) {
 				void* invokeAddress = getVirtualInvokeAddress(instance0, offset, virtualIndex);
 				$synchronized(method) {
 					method->invokeAddress = invokeAddress;
+					method->virtualMethod = true;
 					method->virtualOffset = offset;
 					method->virtualIndex = virtualIndex;
 				}
@@ -632,7 +633,7 @@ $bytes* Platform::makeVirtualFunctionTable(int32_t objectOffset, int32_t count, 
 	RTTIEx head(opt);
 	head.setObject0Offset(objectOffset);
 	int32_t dataSize = head.size() + (count + 1) * sizeof(void*);
-	$var($bytes, data, $new<$bytes>(dataSize));
+	$var($bytes, data, $new($bytes, dataSize));
 	int8_t* begin = data->begin();
 	head.encode(begin);
 	void** vfts = (void**)(begin + head.size());
@@ -650,9 +651,7 @@ int8_t* Platform::makeRTTIAndVFTable(Object$* obj, int32_t objectOffset, int32_t
 	head.setRTTI(vfth);
 	head.setObject0Offset(objectOffset);
 	int32_t dataSize = head.size() + (count + 1) * sizeof(void*);
-	//$var($bytes, data, $new<$bytes>(dataSize));
 	int8_t* begin = $allocRawStatic<int8_t>(dataSize);
-	//int8_t* begin = data->begin();
 	head.encode(begin);
 	void** vfts = (void**)(begin + head.size());
 	for (int32_t i = 0; i < count; i++) {
@@ -660,7 +659,6 @@ int8_t* Platform::makeRTTIAndVFTable(Object$* obj, int32_t objectOffset, int32_t
 	}
 	vfts[count] = nullptr;
 	return begin;
-	//return data;
 }
 
 void** Platform::rttiToVFTable(int8_t* rttiData) {
@@ -698,10 +696,6 @@ void* Platform::getVirtualInvokeAddress(Object$* obj, int32_t offset, int32_t in
 	void*** pVtabByteCode0 = (void***)((int8_t*)obj + offset);
 	void* invokeAddress = pVtabByteCode0[0][index];
 	return invokeAddress;
-}
-
-void* Platform::getVirtualInvokeAddress(Object$* obj, ::java::lang::reflect::Method* method) {
-	return getVirtualInvokeAddress(obj, method->virtualOffset, method->virtualIndex);
 }
 
 ffi_type prepareReturnType(Class* type) {
@@ -841,165 +835,205 @@ void prepareArgsJni($ClassArray* parameterTypes, void** ffiArgs, $Value* argv, c
 	}
 }
 
+void* getStaticInvokeAddress($Method* method) {
+	return method->invokeAddress;
+}
+
+void* getInvokeAddress(bool special, $Method* method, Object$* caller) {
+	if (!special && method->virtualMethod) {
+		return Platform::getVirtualInvokeAddress(caller, 0, method->virtualIndex);
+	}
+	return method->invokeAddress;
+}
+
+Object* getCaller($Method* method, Object$* obj) {
+	Object* obj2 = method->clazz->cast(obj);
+	if (method->invokeAddress == nullptr) {
+		Platform::setVirtualInvokeAddress(method);
+	}
+	int8_t* caller = (int8_t*)obj2 + method->virtualOffset;
+	return (Object*)caller;
+}
+
 $Value Platform::invokev(bool special, $Method* method, Object$* obj, $Value* argv) {
+	if (special) {
+		$InvokeSpecialFunction invokeSpecialFunction = method->clazz->invokeSpecialFunction;
+		if (invokeSpecialFunction != nullptr) {
+			return invokeSpecialFunction(method, obj, argv);
+		}
+	} else {
+		$InvokeFunction invokeFunction = method->clazz->invokeFunction;
+		if (invokeFunction != nullptr) {
+			return invokeFunction(method, obj, argv);
+		}
+	}
+	bool isStaticMethod = method->isStatic();
 	//	::java::lang::System::out->println(method->getDescriptor());
-	//	if (method->name->equals("setUninterruptible")) {
-	//		method->name->toString();
-	//	}
-	//	$Object0* obj0 = nullptr;
-	//	if (!method->isStatic()) {
-		//	obj0 = $toObject0(obj);
-	//		obj = Class::sure(method->clazz, obj);
-	//	}
-	void(*invokeAddress)() = (void(*)())method->invokeAddress;
-	if (method->virtualIndex > 0) {
-		if (!special) {
-			invokeAddress = (void(*)())getVirtualInvokeAddress(obj, method);
-		}
-	} else if (invokeAddress == nullptr) {
-		setVirtualInvokeAddress(method);
-		if (special) {
-			invokeAddress = (void(*)())method->invokeAddress;
-		} else {
-			invokeAddress = (void(*)())getVirtualInvokeAddress(obj, method);
-		}
+	//if (method->name->equals("get")) {
+	//	method->name->toString();
+	//}
+	Object* caller = nullptr;
+	void(*invokeAddress)();
+	if (!isStaticMethod) {
+		caller = getCaller(method, obj);
+		invokeAddress = (void(*)())getInvokeAddress(special, method, caller);
+	} else {
+		invokeAddress = (void(*)())getStaticInvokeAddress(method);
 	}
 
 	$ClassArray* parameterTypes = method->getSharedParameterTypes();
 	int32_t parameterTypesLength = parameterTypes->length;
 	int32_t argCount = parameterTypesLength;
-	if (!method->isStatic()) {
+	if (!isStaticMethod) {
 		argCount++;
 	}
-	$var($bytes, typeBytes, prepareParameterTypes(method->isStatic(), parameterTypes));
+	$var($bytes, typeBytes, prepareParameterTypes(isStaticMethod, parameterTypes));
 	ffi_type** types = (ffi_type**)typeBytes->begin();
 
-	Class* returnType = method->getReturnType();
-	ffi_type retType = prepareReturnType(returnType);
-
-	$var($bytes, argsBytes, $new<$bytes>(sizeof(ffi_type*) * argCount));
+	$var($bytes, argsBytes, $new($bytes, sizeof(ffi_type*) * argCount));
 	void** ffiArgs = (void**)argsBytes->begin();
-	int32_t index = 0;
-	if (!method->isStatic()) {
-		if (method->virtualOffset > 0) { // since the virtual method maybe change this address
-			obj = (int8_t*)obj + method->virtualOffset;
-		}
-		ffiArgs[index] = &obj;
-		index++;
+	if (!isStaticMethod) {
+		ffiArgs[0] = &caller;
 		prepareArgs(parameterTypes, ffiArgs + 1, argv);
 	} else {
 		prepareArgs(parameterTypes, ffiArgs, argv);
 	}
 
 	ffi_cif cif;
+	ffi_type retType = prepareReturnType(method->returnType);
 	ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, &retType, types);
-
 	$Value ret;
 	ffi_call(&cif, invokeAddress, &ret, ffiArgs);
 	return ret;
 }
 
-$Value Platform::invokeJni(bool special, ::java::lang::reflect::Method* method, Object$* jobj, va_list args) {
+$Value Platform::invokeJni(bool special, $Method* method, Object$* jobj, va_list args) {
+	bool isStaticMethod = method->isStatic();
+
 	$var(Object, obj, resolveRef(jobj));
-	void(*invokeAddress)() = (void(*)())method->invokeAddress;
-	if (method->virtualIndex > 0) {
-		if (!special) {
-			invokeAddress = (void(*)())getVirtualInvokeAddress(obj, method);
-		}
-	} else if (invokeAddress == nullptr) {
-		setVirtualInvokeAddress(method);
-		if (special) {
-			invokeAddress = (void(*)())method->invokeAddress;
-		} else {
-			invokeAddress = (void(*)())getVirtualInvokeAddress(obj, method);
-		}
+	Object* caller = nullptr;
+	void(*invokeAddress)();
+	if (!isStaticMethod) {
+		caller = getCaller(method, obj);
+		invokeAddress = (void(*)())getInvokeAddress(special, method, caller);
+	} else {
+		invokeAddress = (void(*)())getStaticInvokeAddress(method);
 	}
 
 	$ClassArray* parameterTypes = method->getSharedParameterTypes();
 	int32_t parameterTypesLength = parameterTypes->length;
 	int32_t argCount = parameterTypesLength;
-	if (!method->isStatic()) {
+	if (!isStaticMethod) {
 		argCount++;
 	}
-	$var($bytes, typeBytes, prepareParameterTypes(method->isStatic(), parameterTypes));
+	$var($bytes, typeBytes, prepareParameterTypes(isStaticMethod, parameterTypes));
 	ffi_type** types = (ffi_type**)typeBytes->begin();
 
-	Class* returnType = method->getReturnType();
-	ffi_type retType = prepareReturnType(returnType);
-
-	$var($bytes, argsBytes, $new<$bytes>(sizeof(ffi_type*) * argCount));
+	$var($bytes, argsBytes, $new($bytes, sizeof(ffi_type*) * argCount));
 	void** ffiArgs = (void**)argsBytes->begin();
-	$var($bytes, argvBytes, $new<$bytes>(sizeof($Value*) * parameterTypesLength));
+	$var($bytes, argvBytes, $new($bytes, sizeof($Value*) * parameterTypesLength));
 	$Value* argv = ($Value*)argvBytes->begin();
-	$var(ObjectArray, globalRefed, $new<ObjectArray>(parameterTypesLength));
-	int32_t index = 0;
-	if (!method->isStatic()) {
-		if (method->virtualOffset > 0) { // since the obj should be right before call this function, need not change with offset
-			//			obj = (int8_t*)obj + method->virtualOffset;
-		}
-		ffiArgs[index] = &obj;
-		index++;
+	$var(ObjectArray, globalRefed, $new(ObjectArray, parameterTypesLength));
+	if (!isStaticMethod) {
+		ffiArgs[0] = &caller;
 		prepareArgsJni(parameterTypes, ffiArgs + 1, argv, args, globalRefed);
 	} else {
 		prepareArgsJni(parameterTypes, ffiArgs, argv, args, globalRefed);
 	}
 
 	ffi_cif cif;
+	ffi_type retType = prepareReturnType(method->returnType);
 	ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, &retType, types);
-
 	$Value ret;
 	ffi_call(&cif, invokeAddress, &ret, ffiArgs);
 	return ret;
 }
 
-$Value Platform::invokeJni(bool special, ::java::lang::reflect::Method* method, Object$* jobj, const jvalue* args) {
+$Value Platform::invokeStaticJni($Method* method, va_list args) {
+	void(*invokeAddress)() = (void(*)())getStaticInvokeAddress(method);
+
+	$ClassArray* parameterTypes = method->getSharedParameterTypes();
+	int32_t parameterTypesLength = parameterTypes->length;
+	int32_t argCount = parameterTypesLength;
+	$var($bytes, typeBytes, prepareParameterTypes(true, parameterTypes));
+	ffi_type** types = (ffi_type**)typeBytes->begin();
+
+	$var($bytes, argsBytes, $new($bytes, sizeof(ffi_type*) * argCount));
+	void** ffiArgs = (void**)argsBytes->begin();
+	$var($bytes, argvBytes, $new($bytes, sizeof($Value*) * parameterTypesLength));
+	$Value* argv = ($Value*)argvBytes->begin();
+	$var(ObjectArray, globalRefed, $new(ObjectArray, parameterTypesLength));
+	prepareArgsJni(parameterTypes, ffiArgs, argv, args, globalRefed);
+
+	ffi_cif cif;
+	ffi_type retType = prepareReturnType(method->returnType);
+	ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, &retType, types);
+	$Value ret;
+	ffi_call(&cif, invokeAddress, &ret, ffiArgs);
+	return ret;
+}
+
+$Value Platform::invokeJni(bool special, $Method* method, Object$* jobj, const jvalue* args) {
+	bool isStaticMethod = method->isStatic();
+
 	$var(Object, obj, resolveRef(jobj));
-	void(*invokeAddress)() = (void(*)())method->invokeAddress;
-	if (method->virtualIndex > 0) {
-		if (!special) {
-			invokeAddress = (void(*)())getVirtualInvokeAddress(obj, method);
-		}
-	} else if (invokeAddress == nullptr) {
-		setVirtualInvokeAddress(method);
-		if (special) {
-			invokeAddress = (void(*)())method->invokeAddress;
-		} else {
-			invokeAddress = (void(*)())getVirtualInvokeAddress(obj, method);
-		}
+	Object* caller = nullptr;
+	void(*invokeAddress)();
+	if (!isStaticMethod) {
+		caller = getCaller(method, obj);
+		invokeAddress = (void(*)())getInvokeAddress(special, method, caller);
+	} else {
+		invokeAddress = (void(*)())getStaticInvokeAddress(method);
 	}
 
 	$ClassArray* parameterTypes = method->getSharedParameterTypes();
 	int32_t parameterTypesLength = parameterTypes->length;
 	int32_t argCount = parameterTypesLength;
-	if (!method->isStatic()) {
+	if (!isStaticMethod) {
 		argCount++;
 	}
-	$var($bytes, typeBytes, prepareParameterTypes(method->isStatic(), parameterTypes));
+	$var($bytes, typeBytes, prepareParameterTypes(isStaticMethod, parameterTypes));
 	ffi_type** types = (ffi_type**)typeBytes->begin();
 
-	Class* returnType = method->getReturnType();
-	ffi_type retType = prepareReturnType(returnType);
-
-	$var($bytes, argsBytes, $new<$bytes>(sizeof(ffi_type*) * argCount));
+	$var($bytes, argsBytes, $new($bytes, sizeof(ffi_type*) * argCount));
 	void** ffiArgs = (void**)argsBytes->begin();
-	$var($bytes, argvBytes, $new<$bytes>(sizeof($Value*) * parameterTypesLength));
+	$var($bytes, argvBytes, $new($bytes, sizeof($Value*) * parameterTypesLength));
 	$Value* argv = ($Value*)argvBytes->begin();
-	$var(ObjectArray, globalRefed, $new<ObjectArray>(parameterTypesLength));
-	int32_t index = 0;
-	if (!method->isStatic()) {
-		if (method->virtualOffset > 0) { // since the obj should be right before call this function, need not change with offset
-			//			obj = (int8_t*)obj + method->virtualOffset;
-		}
-		ffiArgs[index] = &obj;
-		index++;
+	$var(ObjectArray, globalRefed, $new(ObjectArray, parameterTypesLength));
+	if (!isStaticMethod) {
+		ffiArgs[0] = &caller;
 		prepareArgsJni(parameterTypes, ffiArgs + 1, argv, args, globalRefed);
 	} else {
 		prepareArgsJni(parameterTypes, ffiArgs, argv, args, globalRefed);
 	}
 
 	ffi_cif cif;
+	ffi_type retType = prepareReturnType(method->returnType);
 	ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, &retType, types);
+	$Value ret;
+	ffi_call(&cif, invokeAddress, &ret, ffiArgs);
+	return ret;
+}
 
+$Value Platform::invokeStaticJni($Method* method, const jvalue* args) {
+	void(*invokeAddress)() = (void(*)())getStaticInvokeAddress(method);
+
+	$ClassArray* parameterTypes = method->getSharedParameterTypes();
+	int32_t parameterTypesLength = parameterTypes->length;
+	int32_t argCount = parameterTypesLength;
+	$var($bytes, typeBytes, prepareParameterTypes(true, parameterTypes));
+	ffi_type** types = (ffi_type**)typeBytes->begin();
+
+	$var($bytes, argsBytes, $new($bytes, sizeof(ffi_type*) * argCount));
+	void** ffiArgs = (void**)argsBytes->begin();
+	$var($bytes, argvBytes, $new($bytes, sizeof($Value*) * parameterTypesLength));
+	$Value* argv = ($Value*)argvBytes->begin();
+	$var(ObjectArray, globalRefed, $new(ObjectArray, parameterTypesLength));
+	prepareArgsJni(parameterTypes, ffiArgs, argv, args, globalRefed);
+
+	ffi_cif cif;
+	ffi_type retType = prepareReturnType(method->returnType);
+	ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, &retType, types);
 	$Value ret;
 	ffi_call(&cif, invokeAddress, &ret, ffiArgs);
 	return ret;
@@ -1032,6 +1066,647 @@ $Object* of($Value var, Class* type) {
 	}
 }
 
+#define MAX_VAR_UNION_LENGTH 16
+
+bool needConvert(Class* type, Object0* arg) {
+	if (arg == nullptr) {
+		if (type->isPrimitive()) {
+			$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+		}
+		return false;
+	}
+	if (type->isPrimitive()) {
+		Class* argClass = arg->getClass();
+		if (type == Integer::TYPE) {
+			return argClass != Integer::class$;
+		}
+		if (type == Long::TYPE) {
+			return argClass != Long::class$;
+		}
+		if (type == Byte::TYPE) {
+			return argClass != Byte::class$;
+		}
+		if (type == Short::TYPE) {
+			return argClass != Short::class$;
+		}
+		if (type == Character::TYPE) {
+			return argClass != Character::class$;
+		}
+		if (type == Float::TYPE) {
+			return argClass != Float::class$;
+		}
+		if (type == Double::TYPE) {
+			return argClass != Double::class$;
+		}
+		if (type == Boolean::TYPE) {
+			return argClass != Boolean::class$;
+		}
+	}
+	return !type->isInstance(arg);
+}
+
+Object0* convert(Class* type, Object0* arg) {
+	if (arg == nullptr) {
+		return nullptr;
+	}
+	if (type->isPrimitive()) {
+		Class* argClass = arg->getClass();
+		if (type == Integer::TYPE) {
+			int32_t value = 0;
+			if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (int32_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (int32_t)$doubleValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (int32_t)$longValue(arg);
+			} else if (argClass == Integer::class$) {
+				return arg;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return $of(Integer::valueOf(value));
+		}
+		if (type == Long::TYPE) {
+			int64_t value = 0;
+			if (argClass == Integer::class$) {
+				value = $intValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (int64_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (int64_t)$doubleValue(arg);
+			} else if (argClass == Long::class$) {
+				return arg;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return $of(Long::valueOf(value));
+		}
+		if (type == Byte::TYPE) {
+			int8_t value = 0;
+			if (argClass == Integer::class$) {
+				value = (int8_t)$intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (int8_t)$longValue(arg);
+			} else if (argClass == Short::class$) {
+				value = (int8_t)$shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = (int8_t)$booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = (int8_t)$charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (int8_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (int8_t)$doubleValue(arg);
+			} else if (argClass == Byte::class$) {
+				return arg;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return $of(Byte::valueOf(value));
+		}
+		if (type == Short::TYPE) {
+			int16_t value = 0;
+			if (argClass == Integer::class$) {
+				value = (int16_t)$intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (int16_t)$longValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = (int16_t)$byteValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = (int16_t)$booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = (int16_t)$charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (int16_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (int16_t)$doubleValue(arg);
+			} else if (argClass == Short::class$) {
+				return arg;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return $of(Short::valueOf(value));
+		}
+		if (type == Character::TYPE) {
+			char16_t value = 0;
+			if (argClass == Integer::class$) {
+				value = (char16_t)$intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (char16_t)$longValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = (char16_t)$byteValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = (char16_t)$booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Short::class$) {
+				value = (char16_t)$shortValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (char16_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (char16_t)$doubleValue(arg);
+			} else if (argClass == Character::class$) {
+				return arg;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return $of(Character::valueOf(value));
+		}
+		if (type == Float::TYPE) {
+			float value = 0;
+			if (argClass == Double::class$) {
+				value = (float)$doubleValue(arg);
+			} else if (argClass == Integer::class$) {
+				value = (float)$intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (float)$longValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) ? 1.0f : 0.0f;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else if (argClass == Float::class$) {
+				return arg;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return $of(Float::valueOf(value));
+		}
+		if (type == Double::TYPE) {
+			double value = 0;
+			if (argClass == Float::class$) {
+				value = $floatValue(arg);
+			} else if (argClass == Integer::class$) {
+				value = $intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (double)$longValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else if (argClass == Double::class$) {
+				return arg;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return $of(Double::valueOf(value));
+		}
+		if (type == Boolean::TYPE) {
+			bool value = false;
+			if (argClass == Integer::class$) {
+				value = $intValue(arg) != 0;
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg) != 0;
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg) != 0;
+			} else if (argClass == Long::class$) {
+				value = $longValue(arg) != 0;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg) != 0;
+			} else if (argClass == Float::class$) {
+				value = $floatValue(arg) != 0;
+			} else if (argClass == Double::class$) {
+				value = $doubleValue(arg) != 0;
+			} else if (argClass == Boolean::class$) {
+				return arg;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return $of(Boolean::valueOf(value));
+		}
+		$shouldNotReachHere();
+	} else {
+		if (!type->isInstance(arg)) {
+			$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+		}
+		return arg;
+	}
+}
+
+$Value prepareArg(Class* type, Object0* arg) {
+	if (arg == nullptr) {
+		return nullptr;
+	}
+	if (type->isPrimitive()) {
+		Class* argClass = arg->getClass();
+		if (type == Integer::TYPE) {
+			int32_t value = 0;
+			if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (int32_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (int32_t)$doubleValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (int32_t)$longValue(arg);
+			} else if (argClass == Integer::class$) {
+				value = $intValue(arg);
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return value;
+		}
+		if (type == Long::TYPE) {
+			int64_t value = 0;
+			if (argClass == Integer::class$) {
+				value = $intValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (int64_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (int64_t)$doubleValue(arg);
+			} else if (argClass == Long::class$) {
+				value = $longValue(arg);
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return value;
+		}
+		if (type == Byte::TYPE) {
+			int8_t value = 0;
+			if (argClass == Integer::class$) {
+				value = (int8_t)$intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (int8_t)$longValue(arg);
+			} else if (argClass == Short::class$) {
+				value = (int8_t)$shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = (int8_t)$booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = (int8_t)$charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (int8_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (int8_t)$doubleValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return value;
+		}
+		if (type == Short::TYPE) {
+			int16_t value = 0;
+			if (argClass == Integer::class$) {
+				value = (int16_t)$intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (int16_t)$longValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = (int16_t)$byteValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = (int16_t)$booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = (int16_t)$charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (int16_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (int16_t)$doubleValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return value;
+		}
+		if (type == Character::TYPE) {
+			char16_t value = 0;
+			if (argClass == Integer::class$) {
+				value = (char16_t)$intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (char16_t)$longValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = (char16_t)$byteValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = (char16_t)$booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Short::class$) {
+				value = (char16_t)$shortValue(arg);
+			} else if (argClass == Float::class$) {
+				value = (char16_t)$floatValue(arg);
+			} else if (argClass == Double::class$) {
+				value = (char16_t)$doubleValue(arg);
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return value;
+		}
+		if (type == Float::TYPE) {
+			float value = 0;
+			if (argClass == Double::class$) {
+				value = (float)$doubleValue(arg);
+			} else if (argClass == Integer::class$) {
+				value = (float)$intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (float)$longValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) ? 1.0f : 0.0f;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else if (argClass == Float::class$) {
+				value = $floatValue(arg);
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return value;
+		}
+		if (type == Double::TYPE) {
+			double value = 0;
+			if (argClass == Float::class$) {
+				value = $floatValue(arg);
+			} else if (argClass == Integer::class$) {
+				value = $intValue(arg);
+			} else if (argClass == Long::class$) {
+				value = (double)$longValue(arg);
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg);
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg);
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) ? 1 : 0;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg);
+			} else if (argClass == Double::class$) {
+				value = $doubleValue(arg);
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return value;
+		}
+		if (type == Boolean::TYPE) {
+			bool value = false;
+			if (argClass == Integer::class$) {
+				value = $intValue(arg) != 0;
+			} else if (argClass == Byte::class$) {
+				value = $byteValue(arg) != 0;
+			} else if (argClass == Short::class$) {
+				value = $shortValue(arg) != 0;
+			} else if (argClass == Long::class$) {
+				value = $longValue(arg) != 0;
+			} else if (argClass == Character::class$) {
+				value = $charValue(arg) != 0;
+			} else if (argClass == Float::class$) {
+				value = $floatValue(arg) != 0;
+			} else if (argClass == Double::class$) {
+				value = $doubleValue(arg) != 0;
+			} else if (argClass == Boolean::class$) {
+				value = $booleanValue(arg) != 0;
+			} else {
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+			}
+			return value;
+		}
+		$shouldNotReachHere();
+	} else {
+		if (!type->isInstance(arg)) {
+			$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+		}
+		return type->cast(arg);
+	}
+}
+
+Object* toObject(Class* type, $Value var) {
+	if (type == Void::TYPE) {
+		return Void::VOID$;
+	}
+	if (type == Integer::TYPE) {
+		return $of(var.intValue());
+	}
+	if (type == Long::TYPE) {
+		return $of(var.longValue());
+	}
+	if (type == Byte::TYPE) {
+		return $of(var.byteValue());
+	}
+	if (type == Short::TYPE) {
+		return $of(var.shortValue());
+	}
+	if (type == Character::TYPE) {
+		return $of(var.charValue());
+	}
+	if (type == Float::TYPE) {
+		return $of(var.floatValue());
+	}
+	if (type == Double::TYPE) {
+		return $of(var.doubleValue());
+	}
+	if (type == Boolean::TYPE) {
+		return $of(var.booleanValue());
+	}
+	return var.is<$Object>();
+}
+
+void prepareArgs($ClassArray* types, $ObjectArray* args, $Value* output) {
+	if (args == nullptr) {
+		if (types->length == 0) {
+			return;
+		}
+		$throwNew(IllegalArgumentException);
+	} else if (types->length > args->length) {
+		$throwNew(IllegalArgumentException);
+	}
+	int32_t fixArgCount = types->length;
+	for (int32_t i = 0; i < fixArgCount; i++) {
+		Class* type = types->get(i);
+		Object0* arg = args->get(i);
+		output[i] = prepareArg(type, arg);
+	}
+}
+
+Object* prepareArgsWithVarArgs($ClassArray* types, $ObjectArray* args, $Value* output) {
+	int32_t fixArgCount = types->length - 1;
+	Class* varArgClazz = types->get(fixArgCount);
+	Class* componentType = varArgClazz->getComponentType();
+	if (args == nullptr) {
+		if (types->length == 1) {
+			$var($ObjectArray, args0, $new($ObjectArray, 1));
+			args0->set(0, $ObjectArray::create(componentType, 0));
+			output[0] = args0;
+			return args0;
+		}
+		$throwNew(IllegalArgumentException);
+	}
+	if (args->length < fixArgCount) {
+		$throwNew(IllegalArgumentException);
+	}
+	for (int32_t i = 0; i < fixArgCount; i++) {
+		Class* type = types->get(i);
+		Object0* arg = args->get(i);
+		output[i] = prepareArg(type, arg);
+	}
+	int32_t varArgsCount = args->length - fixArgCount;
+	if (varArgsCount == 0) {
+		if (fixArgCount == 0) {
+			if (varArgClazz->isInstance(args)) {
+				output[0] = args;
+				return nullptr;
+			}
+		}
+	} else if (varArgsCount == 1) {
+		if (fixArgCount == 0) {
+			if (varArgClazz->isInstance(args)) {
+				output[0] = args;
+				return nullptr;
+			}
+		}
+		Object0* arg = args->get(fixArgCount);
+		if (varArgClazz->isInstance(arg)) {
+			output[fixArgCount] = arg;
+			return nullptr;
+		}
+	}
+	$var($ObjectArray, varArgs, $ObjectArray::create(componentType, varArgsCount));
+	for (int32_t i = 0; i < varArgs->length; i++) {
+		Object0* arg = args->get(i + fixArgCount);
+		if (needConvert(componentType, arg)) {
+			varArgs->set(i, convert(componentType, arg));
+		} else {
+			varArgs->set(i, arg);
+		}
+	}
+	output[fixArgCount] = varArgs;
+	return varArgs;
+}
+
+inline void initInstance0($Constructor* constructor, Object$* inst, $ObjectArray* args, $Value* argv) {
+	Class* clazz = constructor->clazz;
+	clazz->ensureClassInitialized();
+	Object0* obj = $toObject0($nc(inst));
+	if (constructor->isVarArgs()) {
+		$var($Object, save, prepareArgsWithVarArgs(constructor->parameterTypes, args, argv));
+		if (clazz->initInstanceFunction != nullptr) {
+			clazz->initInstanceFunction(constructor, obj, argv);
+		} else {
+			Platform::initInstance(constructor, obj, argv);
+		}
+	} else {
+		prepareArgs(constructor->parameterTypes, args, argv);
+		if (clazz->initInstanceFunction != nullptr) {
+			clazz->initInstanceFunction(constructor, obj, argv);
+		} else {
+			Platform::initInstance(constructor, obj, argv);
+		}
+	}
+}
+
+void Platform::initInstance($Constructor* constructor, Object$* inst, $ObjectArray* args) {
+	if (constructor->parameterTypes->length <= MAX_VAR_UNION_LENGTH) {
+		$Value argv[MAX_VAR_UNION_LENGTH];
+		initInstance0(constructor, inst, args, argv);
+	} else {
+		$var($bytes, data, $new($bytes, constructor->parameterTypes->length * sizeof($Value)));
+		$Value* argv = ($Value*)data->begin();
+		initInstance0(constructor, inst, args, argv);
+	}
+}
+
+inline $Object* invokeSpecial0($Method* method, Object$* obj, $ObjectArray* args, $Value* argv) {
+	Class* clazz = method->clazz;
+	obj = clazz->cast($toObject0($nc(obj)));
+	if (method->isVarArgs()) {
+		$var($Object, save, prepareArgsWithVarArgs(method->parameterTypes, args, argv));
+		if (clazz->invokeSpecialFunction != nullptr) {
+			$Value ret = clazz->invokeSpecialFunction(method, obj, argv);
+			return toObject(method->returnType, ret);
+		} else {
+			return Platform::invokeSpecial(method, obj, argv);
+		}
+	} else {
+		prepareArgs(method->parameterTypes, args, argv);
+		if (clazz->invokeSpecialFunction != nullptr) {
+			$Value ret = clazz->invokeSpecialFunction(method, obj, argv);
+			return toObject(method->returnType, ret);
+		} else {
+			return Platform::invokeSpecial(method, obj, argv);
+		}
+	}
+}
+
+$Object* Platform::invokeSpecial($Method* method, Object$* obj, $ObjectArray* args) {
+	if (method->parameterTypes->length <= MAX_VAR_UNION_LENGTH) {
+		$Value argv[MAX_VAR_UNION_LENGTH];
+		return invokeSpecial0(method, obj, args, argv);
+	} else {
+		$var($bytes, data, $new($bytes, method->parameterTypes->length * sizeof($Value)));
+		$Value* argv = ($Value*)data->begin();
+		return invokeSpecial0(method, obj, args, argv);
+	}
+}
+
+inline $Object* invoke0($Method* method, Object$* obj, $ObjectArray* args, $Value* argv) {
+	bool isStaticMethod = method->isStatic();
+	Class* clazz = method->clazz;
+	if (!isStaticMethod) {
+		obj = clazz->cast($toObject0($nc(obj)));
+	}
+	if (method->isVarArgs()) {
+		$var($Object, save, prepareArgsWithVarArgs(method->parameterTypes, args, argv));
+		if (clazz->invokeFunction != nullptr) {
+			$Value ret = clazz->invokeFunction(method, obj, argv);
+			return toObject(method->returnType, ret);
+		} else {
+			return Platform::invoke(method, obj, argv);
+		}
+	} else {
+		prepareArgs(method->parameterTypes, args, argv);
+		if (clazz->invokeFunction != nullptr) {
+			$Value ret = clazz->invokeFunction(method, obj, argv);
+			return toObject(method->returnType, ret);
+		} else {
+			return Platform::invoke(method, obj, argv);
+		}
+	}
+}
+
+$Object* Platform::invoke($Method* method, Object$* obj, $ObjectArray* args) {
+	if (method->parameterTypes->length <= MAX_VAR_UNION_LENGTH) {
+		$Value argv[MAX_VAR_UNION_LENGTH];
+		return invoke0(method, obj, args, argv);
+	} else {
+		$var($bytes, data, $new($bytes, method->parameterTypes->length * sizeof($Value)));
+		$Value* argv = ($Value*)data->begin();
+		return invoke0(method, obj, args, argv);
+	}
+}
+
 $Object* Platform::invoke($Method* method, Object$* obj, $Value* argv) {
 	$Value ret = invokev(false, method, obj, argv);
 	return of(ret, method->getReturnType());
@@ -1043,60 +1718,46 @@ $Object* Platform::invokeSpecial($Method* method, Object$* obj, $Value* argv) {
 }
 
 void Platform::initInstance($Constructor* constructor, Object$* obj, $Value* argv) {
-	void(*invokeAddress)() = (void(*)())$nullcheck(constructor)->invokeAddress;
-	$nullcheck(obj);
-	if (invokeAddress == nullptr) {
-		//	setVirtualInvokeAddress(constructor);
-		//	invokeAddress= (void(*)())method->invokeAddress;
-	}
+	void(*invokeAddress)() = (void(*)())$nc(constructor)->invokeAddress;
+	$nc(obj);
 	$ClassArray* parameterTypes = constructor->getSharedParameterTypes();
 	int32_t argCount = parameterTypes->length + 1;
 	$var($bytes, typeBytes, prepareParameterTypes(false, parameterTypes));
 	ffi_type** types = (ffi_type**)typeBytes->begin();
-	ffi_type* retType = &ffi_type_void;
 
-	$var($bytes, argsBytes, $new<$bytes>(sizeof(ffi_type*) * argCount));
+	$var($bytes, argsBytes, $new($bytes, sizeof(ffi_type*) * argCount));
 	void** ffiArgs = (void**)argsBytes->begin();
-	int32_t index = 0;
-	ffiArgs[index] = &obj;
-	index++;
+	ffiArgs[0] = &obj;
 
 	prepareArgs(parameterTypes, ffiArgs + 1, argv);
 
 	ffi_cif cif;
+	ffi_type* retType = &ffi_type_void;
 	ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, retType, types);
-
 	$Value ret;
 	ffi_call(&cif, invokeAddress, &ret, ffiArgs);
 }
 
 void Platform::initInstanceJni($Constructor* constructor, Object$* jobj, va_list args) {
 	$var(Object, obj, resolveRef(jobj));
-	void(*invokeAddress)() = (void(*)())$nullcheck(constructor)->invokeAddress;
-	$nullcheck(obj);
-	if (invokeAddress == nullptr) {
-		//	setVirtualInvokeAddress(constructor);
-		//	invokeAddress= (void(*)())method->invokeAddress;
-	}
+	void(*invokeAddress)() = (void(*)())$nc(constructor)->invokeAddress;
+	$nc(obj);
 	$ClassArray* parameterTypes = constructor->getSharedParameterTypes();
 	int32_t argCount = parameterTypes->length + 1;
 	$var($bytes, typeBytes, prepareParameterTypes(false, parameterTypes));
-	$var($bytes, argvBytes, $new<$bytes>(sizeof($Value*) * parameterTypes->length));
+	$var($bytes, argvBytes, $new($bytes, sizeof($Value*) * parameterTypes->length));
 	$Value* argv = ($Value*)argvBytes->begin();
 	ffi_type** types = (ffi_type**)typeBytes->begin();
-	ffi_type* retType = &ffi_type_void;
 
-	$var($bytes, argsBytes, $new<$bytes>(sizeof(ffi_type*) * argCount));
+	$var($bytes, argsBytes, $new($bytes, sizeof(ffi_type*) * argCount));
 	void** ffiArgs = (void**)argsBytes->begin();
-	int32_t index = 0;
-	ffiArgs[index] = &obj;
-	index++;
-	$var(ObjectArray, globalRefed, $new<ObjectArray>(parameterTypes->length));
+	ffiArgs[0] = &obj;
+	$var(ObjectArray, globalRefed, $new(ObjectArray, parameterTypes->length));
 	prepareArgsJni(parameterTypes, ffiArgs + 1, argv, args, globalRefed);
 
 	ffi_cif cif;
+	ffi_type* retType = &ffi_type_void;
 	ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, retType, types);
-
 	$Value ret;
 	ffi_call(&cif, invokeAddress, &ret, ffiArgs);
 }
@@ -1104,30 +1765,23 @@ void Platform::initInstanceJni($Constructor* constructor, Object$* jobj, va_list
 void Platform::initInstanceJni($Constructor* constructor, Object$* jobj, const jvalue* args) {
 	$var(Object, obj, resolveRef(jobj));
 	void(*invokeAddress)() = (void(*)())constructor->invokeAddress;
-	if (invokeAddress == nullptr) {
-		//	setVirtualInvokeAddress(constructor);
-		//	invokeAddress= (void(*)())method->invokeAddress;
-	}
 	$ClassArray* parameterTypes = constructor->getSharedParameterTypes();
 	int32_t argCount = parameterTypes->length + 1;
 	$var($bytes, typeBytes, prepareParameterTypes(false, parameterTypes));
-	$var($bytes, argvBytes, $new<$bytes>(sizeof($Value*) * parameterTypes->length));
+	$var($bytes, argvBytes, $new($bytes, sizeof($Value*) * parameterTypes->length));
 	$Value* argv = ($Value*)argvBytes->begin();
 	ffi_type** types = (ffi_type**)typeBytes->begin();
-	ffi_type* retType = &ffi_type_void;
 
-	$var($bytes, argsBytes, $new<$bytes>(sizeof(ffi_type*) * argCount));
+	$var($bytes, argsBytes, $new($bytes, sizeof(ffi_type*) * argCount));
 	void** ffiArgs = (void**)argsBytes->begin();
-	int32_t index = 0;
-	ffiArgs[index] = &obj;
-	index++;
+	ffiArgs[0] = &obj;
 
-	$var(ObjectArray, globalRefed, $new<ObjectArray>(parameterTypes->length));
+	$var(ObjectArray, globalRefed, $new(ObjectArray, parameterTypes->length));
 	prepareArgsJni(parameterTypes, ffiArgs + 1, argv, args, globalRefed);
 
 	ffi_cif cif;
+	ffi_type* retType = &ffi_type_void;
 	ffi_prep_cif(&cif, FFI_DEFAULT_ABI, argCount, retType, types);
-
 	$Value ret;
 	ffi_call(&cif, invokeAddress, &ret, ffiArgs);
 }
@@ -1137,7 +1791,7 @@ $bytes* Platform::prepareParameterTypes(bool isStatic, $ClassArray* parameterTyp
 	if (!isStatic) {
 		argCount++;
 	}
-	$var($bytes, typeBytes, $new<$bytes>(sizeof(ffi_type*) * argCount));
+	$var($bytes, typeBytes, $new($bytes, sizeof(ffi_type*) * argCount));
 	ffi_type** types;
 	types = (ffi_type**)typeBytes->begin();
 	int32_t index = 0;
@@ -1178,14 +1832,14 @@ public:
 	ffi_type retType;
 	ffi_closure* closure = nullptr;
 	void* functionEntry = nullptr;
-	::java::lang::reflect::Method* method = nullptr;
+	$Method* method = nullptr;
 	int32_t toObject0Offset = 0;
 };
 
 void memberFunction0(ffi_cif* cif, void* ret, void** args, void* userdata) {
 	FFIClosure* ffiClosure = (FFIClosure*)userdata;
 	Object* self = *(Object**)args[0];
-	$Value retValue = ffiClosure->method->invokev(self, nullptr);
+	$Value retValue = Platform::invokev(false, ffiClosure->method, self, nullptr);
 	*($Value*)ret = retValue;
 }
 
@@ -1212,14 +1866,14 @@ void memberFunction16(ffi_cif* cif, void* ret, void** args, void* userdata) {
 			argv[i] = *($Object**)args[i];
 		}
 	}
-	$Value retValue = ffiClosure->method->invokev(argv[0].is<$Object>(), argv + 1);
+	$Value retValue = Platform::invokev(false, ffiClosure->method, argv[0].is<$Object>(), argv + 1);
 	*($Value*)ret = retValue;
 }
 
 void memberFunction(ffi_cif* cif, void* ret, void** args, void* userdata) {
 	FFIClosure* ffiClosure = (FFIClosure*)userdata;
 	ffi_type** argTypes = cif->arg_types;
-	$var($bytes, data, $new<$bytes>(cif->nargs * sizeof($Value)));
+	$var($bytes, data, $new($bytes, cif->nargs * sizeof($Value)));
 	$Value* argv = ($Value*)data->begin();
 	for (uint32_t i = 0; i < cif->nargs; i++) {
 		if (argTypes[i] == &ffi_type_sint8) {
@@ -1240,12 +1894,12 @@ void memberFunction(ffi_cif* cif, void* ret, void** args, void* userdata) {
 			argv[i] = *($Object**)args[i];
 		}
 	}
-	$Value retValue = ffiClosure->method->invokev(argv[0].is<$Object>(), argv + 1);
+	$Value retValue = Platform::invokev(false, ffiClosure->method, argv[0].is<$Object>(), argv + 1);
 	*($Value*)ret = retValue;
 }
 
 // please make sure method is live forever
-void* Platform::prepareClosure(int32_t toObject0Offset, ::java::lang::reflect::Method* method) {
+void* Platform::prepareClosure(int32_t toObject0Offset, $Method* method) {
 	FFIClosure* ffiClosure = new FFIClosure;
 	ffiClosure->method = method;
 	ffiClosure->toObject0Offset = toObject0Offset;

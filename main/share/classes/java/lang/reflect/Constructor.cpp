@@ -25,6 +25,10 @@
 #include <sun/reflect/generics/scope/Scope.h>
 #include <jcpp.h>
 
+#include "Platform.h"
+
+using ::java::lang::Platform;
+
 #undef ENUM
 #undef METHOD_RECEIVER
 #undef STATIC
@@ -464,7 +468,7 @@ $String* Constructor::getDescriptor() {
 }
 
 void Constructor::initInstance(Object$* instance, $ObjectArray* initargs) {
-	clazz->initInstance(this, instance, initargs);
+	Platform::initInstance(this, instance, initargs);
 }
 
 		} // reflect

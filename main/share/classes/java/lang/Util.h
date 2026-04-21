@@ -30,14 +30,6 @@ class Util {
 public:
 	static $StringArray* split(const char* s, char separatorChar);
 	static String* subStr(String* origin, String* start, String* end);
-
-	static bool needConvert(Class* type, Object0* arg);
-	static Object0* convert(Class* type, Object0* arg);
-
-	static $Value prepareArg(Class* type, Object0* arg);
-	static Object* toObject(Class* type, $Value var);
-	static void prepareArgs($ClassArray* types, $ObjectArray* args, $Value* output);
-	static Object* prepareArgsWithVarArgs($ClassArray* types, $ObjectArray* args, $Value* output);
 };
 
 	} // lang

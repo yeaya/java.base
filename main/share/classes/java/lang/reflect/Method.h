@@ -128,7 +128,7 @@ public:
 	bool isHidden();
 	$String* getDescriptor();
 	$Object* invokeSpecial(Object$* obj, $ObjectArray* args);
-	$Value invokev(Object$* obj, $Value* argv);
+	bool virtualMethod = false;
 	int32_t virtualOffset = 0;
 	int32_t virtualIndex = 0;
 };

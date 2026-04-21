@@ -178,12 +178,15 @@ $Set* Builder::modifiers() {
 	} else {
 		$var($ModuleDescriptor$ModifierArray, mods, $new($ModuleDescriptor$ModifierArray, n));
 		if (this->open$) {
+			$init($ModuleDescriptor$Modifier);
 			mods->set(--n, $ModuleDescriptor$Modifier::OPEN);
 		}
 		if (this->synthetic$) {
+			$init($ModuleDescriptor$Modifier);
 			mods->set(--n, $ModuleDescriptor$Modifier::SYNTHETIC);
 		}
 		if (this->mandated$) {
+			$init($ModuleDescriptor$Modifier);
 			mods->set(--n, $ModuleDescriptor$Modifier::MANDATED);
 		}
 		return $Set::of(mods);

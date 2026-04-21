@@ -259,6 +259,7 @@ $LocaleArray* LocaleProviderAdapter::toLocaleArray($Set* tags) {
 	$useLocalObjectStack();
 	$var($LocaleArray, locs, $new($LocaleArray, $nc(tags)->size() + 1));
 	int32_t index = 0;
+	$init($Locale);
 	locs->set(index++, $Locale::ROOT);
 	{
 		$var($Iterator, i$, tags->iterator());

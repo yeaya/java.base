@@ -36,8 +36,7 @@ $Class* DelegatingMethodAccessorImpl::load$($String* name, bool initialize) {
 		{"<init>", "(Ljdk/internal/reflect/MethodAccessorImpl;)V", nullptr, 0, $method(DelegatingMethodAccessorImpl, init$, void, $MethodAccessorImpl*)},
 		{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DelegatingMethodAccessorImpl, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
 		{"setDelegate", "(Ljdk/internal/reflect/MethodAccessorImpl;)V", nullptr, 0, $virtualMethod(DelegatingMethodAccessorImpl, setDelegate, void, $MethodAccessorImpl*)},
-		{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
-		{"*invokev", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
+		{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
 		{}
 	};
 	$ClassInfo classInfo$$ = {
@@ -58,10 +57,6 @@ $Class* DelegatingMethodAccessorImpl::class$ = nullptr;
 
 $Object* DelegatingMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray* args) {
 	return $nc(this->delegate)->invokeSpecial(obj, args);
-}
-
-$Value DelegatingMethodAccessorImpl::invokev(Object$* obj, $Value* argv) {
-	return $nc(this->delegate)->invokev(obj, argv);
 }
 
 		} // reflect

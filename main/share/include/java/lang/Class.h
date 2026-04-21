@@ -371,10 +371,6 @@ public:
 	bool isCloneable();
 
 	Object* allocateInstance();
-	void initInstance(::java::lang::reflect::Constructor* constructor, Object$* instance, $ObjectArray* args);
-	$Object* invokeSpecial(::java::lang::reflect::Method* method, Object$* obj, $ObjectArray* args);
-	$Object* invoke(::java::lang::reflect::Method* method, Object$* obj, $ObjectArray* args);
-	$Value invokev(::java::lang::reflect::Method* method, Object$* obj, $Value* argv);
 	inline bool isInstance(Object0* obj) {
 		if (obj == nullptr) {
 			return false;

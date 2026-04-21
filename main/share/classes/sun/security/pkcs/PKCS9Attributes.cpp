@@ -143,6 +143,7 @@ $PKCS9AttributeArray* PKCS9Attributes::getAttributes() {
 	$var($PKCS9AttributeArray, attribs, $new($PKCS9AttributeArray, $nc(this->attributes)->size()));
 	$var($ObjectIdentifier, oid, nullptr);
 	int32_t j = 0;
+	$init($PKCS9Attribute);
 	for (int32_t i = 1; i < $nc($PKCS9Attribute::PKCS9_OIDS)->length && j < attribs->length; ++i) {
 		attribs->set(j, $(getAttribute($PKCS9Attribute::PKCS9_OIDS->get(i))));
 		if (attribs->get(j) != nullptr) {

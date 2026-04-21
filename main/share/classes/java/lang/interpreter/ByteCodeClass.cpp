@@ -139,7 +139,7 @@ $Value invoke$ByteCodeClass(Method* method, Object$* instance, $Value* argv) {
 			$Array<Class>* parameterTypes = method->getSharedParameterTypes();
 			$var(Method, method0, clazz->getMethodEx(name, parameterTypes));
 			if (method0 != nullptr && method0->clazz != bcClass) {
-				return method0->invokev(obj0, argv);
+				return Platform::invokev(false, method0, obj0, argv);
 			}
 		}
 	}

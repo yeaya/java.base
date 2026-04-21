@@ -19,7 +19,6 @@ public:
 	virtual void setDelegate(::jdk::internal::reflect::MethodAccessorImpl* delegate);
 	::jdk::internal::reflect::MethodAccessorImpl* delegate = nullptr;
 	virtual $Object* invokeSpecial(Object$* obj, $ObjectArray* args) override;
-	virtual $Value invokev(Object$* obj, $Value* argv) override;
 };
 
 		} // reflect

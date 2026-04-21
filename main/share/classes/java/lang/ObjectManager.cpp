@@ -7001,7 +7001,7 @@ Object* ObjectManager::invokeReflectStatic(String* className, String* methodName
 	$var(Method, method, getMethod(className, methodName, descriptor, true));
 	va_list args;
 	va_start(args, descriptor);
-	Object* ret = Platform::invokeJni(false, method, nullptr, args);
+	Object* ret = Platform::invokeStaticJni(method, args);
 	va_end(args);
 	return ret;
 }

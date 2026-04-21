@@ -11,10 +11,12 @@
 #include <java/lang/LongArray.h>
 #include <java/lang/Util.h>
 #include <java/lang/reflect/InvocationTargetException.h>
+#include "Platform.h"
 
 using ::java::lang::Util;
 using ::java::lang::LongArray;
 using ::java::lang::reflect::InvocationTargetException;
+using ::java::lang::Platform;
 
 #undef GENERATED_OFFSET
 #undef U
@@ -49,7 +51,7 @@ void NativeMethodAccessorImpl::setParent($DelegatingMethodAccessorImpl* parent) 
 
 $Object* NativeMethodAccessorImpl::invoke0($Method* method, Object$* obj, $ObjectArray* args) {
 	try {
-		return method->clazz->invoke(method, obj, args);
+		return Platform::invoke(method, obj, args);
 	} catch (InvocationTargetException& e0) {
 		// forward 
 		throw e0;
@@ -82,8 +84,7 @@ $Class* NativeMethodAccessorImpl::load$($String* name, bool initialize) {
 		{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeMethodAccessorImpl, invoke, $Object*, Object$*, $ObjectArray*), "java.lang.IllegalArgumentException,java.lang.reflect.InvocationTargetException"},
 		{"invoke0", "(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeMethodAccessorImpl, invoke0, $Object*, $Method*, Object$*, $ObjectArray*)},
 		{"setParent", "(Ljdk/internal/reflect/DelegatingMethodAccessorImpl;)V", nullptr, 0, $virtualMethod(NativeMethodAccessorImpl, setParent, void, $DelegatingMethodAccessorImpl*)},
-		{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
-		{"*invokev", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 1},
+		{"*invokeSpecial", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
 		{}
 	};
 	$ClassInfo classInfo$$ = {
@@ -104,7 +105,7 @@ $Class* NativeMethodAccessorImpl::class$ = nullptr;
 
 $Object* NativeMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray* args) {
 	try {
-		return method->clazz->invokeSpecial(method, obj, args);
+		return Platform::invokeSpecial(method, obj, args);
 	} catch (InvocationTargetException& e0) {
 		// forward
 		throw e0;
@@ -112,10 +113,6 @@ $Object* NativeMethodAccessorImpl::invokeSpecial(Object$* obj, $ObjectArray* arg
 		$throwNew(InvocationTargetException, e);
 	}
 	return nullptr;
-}
-
-$Value NativeMethodAccessorImpl::invokev(Object$* obj, $Value* argv) {
-	return method->clazz->invokev(method, obj, argv);
 }
 
 		} // reflect

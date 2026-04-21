@@ -116,6 +116,7 @@ Method* Method::copy() {
 	$set(res, methodAccessor, this->methodAccessor);
 	$set(res, typeAnnotation, this->typeAnnotation);
 	res->invokeAddress = this->invokeAddress;
+	res->virtualMethod = this->virtualMethod;
 	res->virtualOffset = this->virtualOffset;
 	res->virtualIndex = this->virtualIndex;
 	return res;
@@ -523,16 +524,6 @@ $Object* Method::invokeSpecial(Object$* obj, $ObjectArray* args) {
 	} else {
 		$var($MethodAccessor, ma2, acquireMethodAccessor());
 		return ma2->invokeSpecial(obj, args);
-	}
-}
-
-$Value Method::invokev(Object$* obj, $Value* argv) {
-	$var($MethodAccessor, ma, this->methodAccessor);
-	if (ma != nullptr) {
-		return ma->invokev(obj, argv);
-	} else {
-		$var($MethodAccessor, ma2, acquireMethodAccessor());
-		return ma2->invokev(obj, argv);
 	}
 }
 

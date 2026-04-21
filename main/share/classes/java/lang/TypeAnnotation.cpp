@@ -122,7 +122,7 @@ void outputLocation(String* posValues, ::java::io::DataOutputStream* os) {
 				os->writeByte(0);
 			} else { // TYPE_ARGUMENT
 				os->writeByte(3);
-				$var(String, argStr, Util::subStr(typePathEntry, $cstr("("), $cstr(")")));
+				$var(String, argStr, Util::subStr(typePathEntry, "("_s, ")"_s));
 				int32_t arg = Integer::parseInt(argStr);
 				os->writeByte(arg);
 			}

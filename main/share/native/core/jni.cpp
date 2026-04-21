@@ -68,6 +68,7 @@ struct JavaVM_ javaVM$ = {&jni_InvokeInterface};
 
 #define resolveRef Platform::resolveRef
 #define invoke(...) Platform::invokeJni(__VA_ARGS__)
+#define invokeStatic(...) Platform::invokeStaticJni(__VA_ARGS__)
 #define initInst(...) Platform::initInstanceJni(__VA_ARGS__)
 
 inline Object* of($Value ret, $Method* method) {
@@ -561,8 +562,8 @@ DEFINE_CALL_NONVIRTUAL_METHODA(jdouble, Double, double, 0)
 
 JNI_ENTRY(void, jni_CallStaticVoidMethod(JNIEnv* env, jclass cls, jmethodID methodID, ...))
 	va_list args;
-	va_start(args, methodID); \
-	invoke(true, ($Method*)methodID, nullptr, args);
+	va_start(args, methodID);
+	invokeStatic(($Method*)methodID, args);
 	va_end(args);
 JNI_END_VOID
 
@@ -570,7 +571,7 @@ JNI_ENTRY(jobject, jni_CallStaticObjectMethod(JNIEnv* env, jclass cls, jmethodID
 	va_list args;
 	va_start(args, methodID);
 	$Method* method = ($Method*)methodID;
-	$Value res = invoke(true, method, nullptr, args);
+	$Value res = invokeStatic(method, args);
 	va_end(args);
 	Object* ret = of(res, method);
 	ObjectManager::newLocalRef(ret);
@@ -581,7 +582,7 @@ JNI_END(nullptr)
 JNI_ENTRY(ResultType, jni_CallStatic##Result##Method(JNIEnv* env, jclass cls, jmethodID methodID, ...)) \
 	va_list args; \
 	va_start(args, methodID); \
-	$Value res = invoke(true, ($Method*)methodID, nullptr, args); \
+	$Value res = invokeStatic(($Method*)methodID, args); \
 	va_end(args); \
 	return (ResultType)res.Tag##Value();\
 JNI_END(DefaultReturnValue)
@@ -596,12 +597,12 @@ DEFINE_CALL_STATIC_METHOD(jfloat, Float, float, 0)
 DEFINE_CALL_STATIC_METHOD(jdouble, Double, double, 0)
 
 JNI_ENTRY(void, jni_CallStaticVoidMethodV(JNIEnv* env, jclass cls, jmethodID methodID, va_list args))
-	invoke(true, ($Method*)methodID, nullptr, args);
+	invokeStatic(($Method*)methodID, args);
 JNI_END_VOID
 
 JNI_ENTRY(jobject, jni_CallStaticObjectMethodV(JNIEnv* env, jclass cls, jmethodID methodID, va_list args))
 	$Method* method = ($Method*)methodID;
-	$Value res = invoke(true, method, nullptr, args);
+	$Value res = invokeStatic(method, args);
 	Object* ret = of(res, method);
 	ObjectManager::newLocalRef(ret);
 	return (jobject)ret;
@@ -609,7 +610,7 @@ JNI_END(nullptr)
 
 #define DEFINE_CALL_STATIC_METHODV(ResultType, Result, Tag, DefaultReturnValue) \
 JNI_ENTRY(ResultType, jni_CallStatic##Result##MethodV(JNIEnv* env, jclass cls, jmethodID methodID, va_list args)) \
-	$Value res = invoke(true, ($Method*)methodID, nullptr, args); \
+	$Value res = invokeStatic(($Method*)methodID, args); \
 	return (ResultType)res.Tag##Value();\
 JNI_END(DefaultReturnValue)
 
@@ -623,12 +624,12 @@ DEFINE_CALL_STATIC_METHODV(jfloat, Float, float, 0)
 DEFINE_CALL_STATIC_METHODV(jdouble, Double, double, 0)
 
 JNI_ENTRY(void, jni_CallStaticVoidMethodA(JNIEnv* env, jclass cls, jmethodID methodID, const jvalue* args))
-	invoke(true, ($Method*)methodID, nullptr, args);
+	invokeStatic(($Method*)methodID, args);
 JNI_END_VOID
 
 JNI_ENTRY(jobject, jni_CallStaticObjectMethodA(JNIEnv* env, jclass cls, jmethodID methodID, const jvalue* args))
 	$Method* method = ($Method*)methodID;
-	$Value res = invoke(true, method, nullptr, args);
+	$Value res = invokeStatic(method, args);
 	Object* ret = of(res, method);
 	ObjectManager::newLocalRef(ret);
 	return (jobject)ret;
@@ -636,7 +637,7 @@ JNI_END(nullptr)
 
 #define DEFINE_CALL_STATIC_METHODA(ResultType, Result, Tag, DefaultReturnValue) \
 JNI_ENTRY(ResultType, jni_CallStatic##Result##MethodA(JNIEnv* env, jclass cls, jmethodID methodID, const jvalue* args)) \
-	$Value res = invoke(true, ($Method*)methodID, nullptr, args); \
+	$Value res = invokeStatic(($Method*)methodID, args); \
 	return (ResultType)res.Tag##Value();\
 JNI_END(DefaultReturnValue)
 

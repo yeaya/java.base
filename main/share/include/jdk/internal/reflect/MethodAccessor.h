@@ -14,7 +14,6 @@ class $import MethodAccessor : public ::java::lang::Object {
 public:
 	virtual $Object* invoke(Object$* obj, $ObjectArray* args) {return nullptr;}
 	virtual $Object* invokeSpecial(Object$* obj, $ObjectArray* args) {return nullptr;}
-	virtual $Value invokev(Object$* obj, $Value* argv) {return nullptr;}
 };
 
 		} // reflect
