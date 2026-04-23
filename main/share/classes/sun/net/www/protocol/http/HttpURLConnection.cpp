@@ -1969,19 +1969,20 @@ $AuthenticationInfo* HttpURLConnection::getHttpProxyAuthentication($Authenticati
 			$var($PasswordAuthentication, a, nullptr);
 			switch ($nc($HttpURLConnection$13::$SwitchMap$sun$net$www$protocol$http$AuthScheme)->get($nc((authScheme))->ordinal())) {
 			case 1:
-				$init($Authenticator$RequestorType);
 				$assign(addr, nullptr);
 				try {
 					$var($String, finalHost, host);
 					$assign(addr, $cast($InetAddress, $AccessController::doPrivileged($$new($HttpURLConnection$11, this, finalHost))));
 				} catch ($PrivilegedActionException& ignored) {
 				}
+				$init($Authenticator$RequestorType);
 				$assign(a, privilegedRequestPasswordAuthentication(this->authenticator, host, addr, port, "http"_s, realm, scheme, this->url, $Authenticator$RequestorType::PROXY));
 				if (a != nullptr) {
 					$assign(ret, $new($BasicAuthentication, true, host, port, realm, a, isUTF8, $(getAuthenticatorKey())));
 				}
 				break;
 			case 2:
+				$init($Authenticator$RequestorType);
 				$assign(a, privilegedRequestPasswordAuthentication(this->authenticator, host, nullptr, port, $($nc(this->url)->getProtocol()), realm, scheme, this->url, $Authenticator$RequestorType::PROXY));
 				if (a != nullptr) {
 					$var($DigestAuthentication$Parameters, params, $new($DigestAuthentication$Parameters));
@@ -2001,6 +2002,7 @@ $AuthenticationInfo* HttpURLConnection::getHttpProxyAuthentication($Authenticati
 					if (this->tryTransparentNTLMProxy) {
 						$nc(HttpURLConnection::logger)->finest("Trying Transparent NTLM authentication"_s);
 					} else {
+						$init($Authenticator$RequestorType);
 						$assign(a, privilegedRequestPasswordAuthentication(this->authenticator, host, nullptr, port, $($nc(this->url)->getProtocol()), ""_s, scheme, this->url, $Authenticator$RequestorType::PROXY));
 					}
 					if (this->tryTransparentNTLMProxy || (!this->tryTransparentNTLMProxy && a != nullptr)) {
@@ -2123,6 +2125,7 @@ $AuthenticationInfo* HttpURLConnection::getServerAuthentication($AuthenticationH
 				{
 					$var($Authenticator, var$2, this->authenticator);
 					$var($String, var$3, this->url->getHost());
+					$init($Authenticator$RequestorType);
 					$assign(a, privilegedRequestPasswordAuthentication(var$2, var$3, addr, port, $(this->url->getProtocol()), realm, scheme, this->url, $Authenticator$RequestorType::SERVER));
 					if (a != nullptr) {
 						$set(this, digestparams, $new($DigestAuthentication$Parameters));
@@ -2151,6 +2154,7 @@ $AuthenticationInfo* HttpURLConnection::getServerAuthentication($AuthenticationH
 					} else {
 						$var($Authenticator, var$4, this->authenticator);
 						$var($String, var$5, $nc(this->url)->getHost());
+						$init($Authenticator$RequestorType);
 						$assign(a, privilegedRequestPasswordAuthentication(var$4, var$5, addr, port, $(this->url->getProtocol()), ""_s, scheme, this->url, $Authenticator$RequestorType::SERVER));
 					}
 					if (this->tryTransparentNTLMServer || (!this->tryTransparentNTLMServer && a != nullptr)) {

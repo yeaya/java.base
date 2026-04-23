@@ -77,7 +77,6 @@ $bytes* ClientHello$ClientHelloProducer::produce($ConnectionContext* context, $S
 			return nullptr;
 		case 2:
 			{
-				$init($ProtocolVersion);
 				$init($SSLLogger);
 				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 					$SSLLogger::fine("Produced ClientHello(cookie) handshake message"_s, $$new($ObjectArray, {$nc(chc)->initialClientHelloMsg}));
@@ -85,6 +84,7 @@ $bytes* ClientHello$ClientHelloProducer::produce($ConnectionContext* context, $S
 				$nc($nc(chc)->initialClientHelloMsg)->write($nc(chc)->handshakeOutput);
 				$nc(chc->handshakeOutput)->flush();
 				$nc(chc->handshakeConsumers)->put($($Byte::valueOf($SSLHandshake::SERVER_HELLO->id)), $SSLHandshake::SERVER_HELLO);
+				$init($ProtocolVersion);
 				$assign(minimumVersion, $ProtocolVersion::NONE);
 				{
 					$var($Iterator, i$, $nc(chc->activeProtocols)->iterator());

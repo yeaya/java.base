@@ -1452,9 +1452,9 @@ void ClassReader::readCode($MethodVisitor* methodVisitor, $Context* context, int
 				break;
 			case $Opcodes::TABLESWITCH:
 				{
-					int32_t var$0 = readInt(currentOffset + 8);
 					currentOffset += 4 - (bytecodeOffset & 3);
 					createLabel(bytecodeOffset + readInt(currentOffset), labels);
+					int32_t var$0 = readInt(currentOffset + 8);
 					numTableEntries = var$0 - readInt(currentOffset + 4) + 1;
 					currentOffset += 12;
 					while (numTableEntries-- > 0) {

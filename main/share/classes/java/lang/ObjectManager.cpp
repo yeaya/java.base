@@ -6425,7 +6425,7 @@ void ObjectManager::copyArray(ObjectArray* dstArray, int32_t dstPos, const Objec
 
 	Class* componentTypeSrc = srcArrayOH->clazz->componentType$;
 	Class* componentTypeDst = dstArrayOH->clazz->componentType$;
-	bool needCheckArrayStoreType = !canArrayCast(componentTypeSrc, componentTypeDst);
+	bool needCheckStoreType = !canArrayCast(componentTypeSrc, componentTypeDst);
 	//if (componentTypeSrc != componentTypeDst && componentTypeDst != Object::class$) {
 	//	needCheckArrayStoreType = true;
 	//}
@@ -6439,7 +6439,7 @@ void ObjectManager::copyArray(ObjectArray* dstArray, int32_t dstPos, const Objec
 			LocalController::addRefCount(s);
 #endif
 			ObjectHead* ohS = toOh(s);
-			if (needCheckArrayStoreType) {
+			if (needCheckStoreType) {
 				Class* srcType = ohS->clazz;
 				if (needCheckArrayStoreType(srcType, componentTypeDst)) {
 					checkArrayStoreType(srcType, componentTypeDst);

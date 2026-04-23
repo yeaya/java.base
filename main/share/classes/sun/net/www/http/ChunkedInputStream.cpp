@@ -131,7 +131,6 @@ void ChunkedInputStream::processRaw() {
 		$var($String, value, nullptr);
 		switch (this->state) {
 		case ChunkedInputStream::STATE_AWAITING_CHUNK_HEADER:
-			$init($US_ASCII);
 			pos = this->rawPos;
 			while (pos < this->rawCount) {
 				if ($nc(this->rawData)->get(pos) == u'\n') {
@@ -146,6 +145,7 @@ void ChunkedInputStream::processRaw() {
 			if (pos >= this->rawCount) {
 				return;
 			}
+			$init($US_ASCII);
 			$assign(header, $new($String, this->rawData, this->rawPos, pos - this->rawPos + 1, $US_ASCII::INSTANCE));
 			for (i = 0; i < $nc(header)->length(); ++i) {
 				if ($Character::digit(header->charAt(i), 16) == -1) {
@@ -232,6 +232,7 @@ void ChunkedInputStream::processRaw() {
 				closeUnderlying();
 				return;
 			}
+			$init($US_ASCII);
 			$assign(trailer, $new($String, this->rawData, this->rawPos, pos - this->rawPos, $US_ASCII::INSTANCE));
 			i = $nc(trailer)->indexOf(u':');
 			if (i == -1) {
