@@ -1335,7 +1335,7 @@ $Collection* X509CertImpl::makeAltNames($GeneralNames* names) {
 						} catch ($IOException& ioe) {
 							$throwNew($RuntimeException, "name cannot be encoded"_s, ioe);
 						}
-						nameEntry->add($($nc(derOut)->toByteArray()));
+						nameEntry->add($(derOut->toByteArray()));
 						break;
 					}
 				}

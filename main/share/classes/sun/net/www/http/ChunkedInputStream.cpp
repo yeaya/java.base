@@ -147,7 +147,7 @@ void ChunkedInputStream::processRaw() {
 			}
 			$init($US_ASCII);
 			$assign(header, $new($String, this->rawData, this->rawPos, pos - this->rawPos + 1, $US_ASCII::INSTANCE));
-			for (i = 0; i < $nc(header)->length(); ++i) {
+			for (i = 0; i < header->length(); ++i) {
 				if ($Character::digit(header->charAt(i), 16) == -1) {
 					break;
 				}
@@ -234,7 +234,7 @@ void ChunkedInputStream::processRaw() {
 			}
 			$init($US_ASCII);
 			$assign(trailer, $new($String, this->rawData, this->rawPos, pos - this->rawPos, $US_ASCII::INSTANCE));
-			i = $nc(trailer)->indexOf(u':');
+			i = trailer->indexOf(u':');
 			if (i == -1) {
 				$throwNew($IOException, "Malformed tailer - format should be key:value"_s);
 			}

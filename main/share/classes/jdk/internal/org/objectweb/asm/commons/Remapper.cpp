@@ -54,9 +54,9 @@ $Type* Remapper::mapType($Type* type) {
 	case $Type::ARRAY:
 		$assign(remappedDescriptor, $new($StringBuilder));
 		for (int32_t i = 0; i < type->getDimensions(); ++i) {
-			$nc(remappedDescriptor)->append(u'[');
+			remappedDescriptor->append(u'[');
 		}
-		$nc(remappedDescriptor)->append($($$nc(mapType($(type->getElementType())))->getDescriptor()));
+		remappedDescriptor->append($($$nc(mapType($(type->getElementType())))->getDescriptor()));
 		return $Type::getType($(remappedDescriptor->toString()));
 	case $Type::OBJECT:
 		$assign(remappedInternalName, map($(type->getInternalName())));

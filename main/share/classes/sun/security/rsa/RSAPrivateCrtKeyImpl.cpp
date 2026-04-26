@@ -102,7 +102,7 @@ $RSAPrivateKey* RSAPrivateCrtKeyImpl::newKey($RSAUtil$KeyType* type, $String* fo
 				{
 					$assign(key, $new(RSAPrivateCrtKeyImpl, encoded));
 					$RSAKeyFactory::checkKeyAlgo($cast($PKCS8Key, key), $nc(type)->keyAlgo);
-					bool var$4 = $$nc($nc(key)->getPublicExponent())->signum() == 0;
+					bool var$4 = $$nc(key->getPublicExponent())->signum() == 0;
 					bool var$3 = var$4 || ($$nc(key->getPrimeExponentP())->signum() == 0);
 					bool var$2 = var$3 || ($$nc(key->getPrimeExponentQ())->signum() == 0);
 					bool var$1 = var$2 || ($$nc(key->getPrimeP())->signum() == 0);

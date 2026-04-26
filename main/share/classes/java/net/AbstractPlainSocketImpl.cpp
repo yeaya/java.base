@@ -449,7 +449,7 @@ $Object* AbstractPlainSocketImpl::getOption(int32_t opt) {
 		case $SocketOptions::SO_BINDADDR:
 			$assign(in, $new($InetAddressContainer));
 			ret = socketGetOption(opt, in);
-			return $nc(in)->addr;
+			return in->addr;
 		case $SocketOptions::SO_SNDBUF:
 		case $SocketOptions::SO_RCVBUF:
 			ret = socketGetOption(opt, nullptr);

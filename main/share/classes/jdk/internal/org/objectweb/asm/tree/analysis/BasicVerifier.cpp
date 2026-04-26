@@ -429,7 +429,7 @@ $BasicValue* BasicVerifier::binaryOperation($AbstractInsnNode* insn, $BasicValue
 			break;
 		case $Opcodes::PUTFIELD:
 			$assign(fieldInsn, $cast($FieldInsnNode, insn));
-			$assign(expected1, $cast($BasicValue, newValue($($Type::getObjectType($nc(fieldInsn)->owner)))));
+			$assign(expected1, $cast($BasicValue, newValue($($Type::getObjectType(fieldInsn->owner)))));
 			$assign(expected2, $cast($BasicValue, newValue($($Type::getType(fieldInsn->desc)))));
 			break;
 		default:

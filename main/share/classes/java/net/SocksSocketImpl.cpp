@@ -521,7 +521,7 @@ void SocksSocketImpl::connect($SocketAddress* endpoint, int32_t timeout) {
 				if (i != 1) {
 					$throwNew($SocketException, "Reply from SOCKS server badly formatted"_s);
 				}
-				len = $nc(lenByte)->get(0) & 0xff;
+				len = lenByte->get(0) & 0xff;
 				$assign(host, $new($bytes, len));
 				i = readSocksReply(in, host, deadlineMillis);
 				if (i != len) {

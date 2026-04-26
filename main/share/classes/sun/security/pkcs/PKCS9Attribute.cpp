@@ -175,7 +175,7 @@ void PKCS9Attribute::init$($DerValue* derVal) {
 		case 5:
 			elemTag = $nc($nc(elems)->get(0))->getTag();
 			$assign(dis, $new($DerInputStream, $($nc(elems->get(0))->toByteArray())));
-			$set(this, value, (elemTag == $DerValue::tag_GeneralizedTime) ? $nc(dis)->getGeneralizedTime() : $nc(dis)->getUTCTime());
+			$set(this, value, (elemTag == $DerValue::tag_GeneralizedTime) ? dis->getGeneralizedTime() : dis->getUTCTime());
 			break;
 		case 6:
 			{

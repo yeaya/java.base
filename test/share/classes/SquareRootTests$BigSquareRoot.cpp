@@ -187,12 +187,12 @@ bool SquareRootTests$BigSquareRoot::squareRootResultAssertions($BigDecimal* inpu
 					$assign(err, $($$nc(square(result))->subtract(input))->abs());
 					$assign(errUp, $$nc(square(neighborUp))->subtract(input));
 					$assign(errDown, $nc(input)->subtract($(square(neighborDown))));
-					err_comp_errUp = $nc(err)->compareTo(errUp);
+					err_comp_errUp = err->compareTo(errUp);
 					err_comp_errDown = err->compareTo(errDown);
 					bool var$3 = !SquareRootTests$BigSquareRoot::$assertionsDisabled;
 					if (var$3) {
-						bool var$4 = $nc(errUp)->signum() == 1;
-						var$3 = !(var$4 && $nc(errDown)->signum() == 1);
+						bool var$4 = errUp->signum() == 1;
+						var$3 = !(var$4 && errDown->signum() == 1);
 					}
 					if (var$3) {
 						$throwNew($AssertionError, $of("Errors of neighbors squared don\'t have correct signs"_s));

@@ -2388,7 +2388,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					case u'B':
 						$assign(byteValues, $new($bytes, numValues));
 						for (int32_t i = 0; i < numValues; ++i) {
-							$nc(byteValues)->set(i, (int8_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							byteValues->set(i, (int8_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
 							currentOffset += 3;
 						}
 						$nc(annotationVisitor)->visit(elementName, byteValues);
@@ -2396,7 +2396,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					case u'Z':
 						$assign(booleanValues, $new($booleans, numValues));
 						for (int32_t i = 0; i < numValues; ++i) {
-							$nc(booleanValues)->set(i, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))) != 0);
+							booleanValues->set(i, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))) != 0);
 							currentOffset += 3;
 						}
 						$nc(annotationVisitor)->visit(elementName, booleanValues);
@@ -2404,7 +2404,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					case u'S':
 						$assign(shortValues, $new($shorts, numValues));
 						for (int32_t i = 0; i < numValues; ++i) {
-							$nc(shortValues)->set(i, (int16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							shortValues->set(i, (int16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
 							currentOffset += 3;
 						}
 						$nc(annotationVisitor)->visit(elementName, shortValues);
@@ -2412,7 +2412,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					case u'C':
 						$assign(charValues, $new($chars, numValues));
 						for (int32_t i = 0; i < numValues; ++i) {
-							$nc(charValues)->set(i, (char16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							charValues->set(i, (char16_t)readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
 							currentOffset += 3;
 						}
 						$nc(annotationVisitor)->visit(elementName, charValues);
@@ -2420,7 +2420,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					case u'I':
 						$assign(intValues, $new($ints, numValues));
 						for (int32_t i = 0; i < numValues; ++i) {
-							$nc(intValues)->set(i, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							intValues->set(i, readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
 							currentOffset += 3;
 						}
 						$nc(annotationVisitor)->visit(elementName, intValues);
@@ -2428,7 +2428,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					case u'J':
 						$assign(longValues, $new($longs, numValues));
 						for (int32_t i = 0; i < numValues; ++i) {
-							$nc(longValues)->set(i, readLong($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
+							longValues->set(i, readLong($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1))));
 							currentOffset += 3;
 						}
 						$nc(annotationVisitor)->visit(elementName, longValues);
@@ -2436,7 +2436,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					case u'F':
 						$assign(floatValues, $new($floats, numValues));
 						for (int32_t i = 0; i < numValues; ++i) {
-							$nc(floatValues)->set(i, $Float::intBitsToFloat(readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1)))));
+							floatValues->set(i, $Float::intBitsToFloat(readInt($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1)))));
 							currentOffset += 3;
 						}
 						$nc(annotationVisitor)->visit(elementName, floatValues);
@@ -2444,7 +2444,7 @@ int32_t ClassReader::readElementValue($AnnotationVisitor* annotationVisitor, int
 					case u'D':
 						$assign(doubleValues, $new($doubles, numValues));
 						for (int32_t i = 0; i < numValues; ++i) {
-							$nc(doubleValues)->set(i, $Double::longBitsToDouble(readLong($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1)))));
+							doubleValues->set(i, $Double::longBitsToDouble(readLong($nc(this->cpInfoOffsets)->get(readUnsignedShort(currentOffset + 1)))));
 							currentOffset += 3;
 						}
 						$nc(annotationVisitor)->visit(elementName, doubleValues);

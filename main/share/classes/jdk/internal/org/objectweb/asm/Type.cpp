@@ -293,9 +293,9 @@ $String* Type::getClassName() {
 	case Type::ARRAY:
 		$assign(stringBuilder, $new($StringBuilder, $($$nc(getElementType())->getClassName())));
 		for (int32_t i = getDimensions(); i > 0; --i) {
-			$nc(stringBuilder)->append("[]"_s);
+			stringBuilder->append("[]"_s);
 		}
-		return $nc(stringBuilder)->toString();
+		return stringBuilder->toString();
 	case Type::OBJECT:
 	case Type::INTERNAL:
 		return $($nc(this->valueBuffer)->substring(this->valueBegin, this->valueEnd))->replace(u'/', u'.');

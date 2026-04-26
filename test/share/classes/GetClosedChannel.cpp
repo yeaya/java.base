@@ -51,7 +51,7 @@ void GetClosedChannel::main($StringArray* args) {
 			case 0:
 				$nc($System::out)->print("FileInputStream..."_s);
 				$assign(fis, $new($FileInputStream, f));
-				$nc(fis)->close();
+				fis->close();
 				$assign(fc, fis->getChannel());
 				if ($nc(fc)->isOpen()) {
 					$nc($System::err)->println("FileInputStream channel should not be open"_s);
@@ -62,7 +62,7 @@ void GetClosedChannel::main($StringArray* args) {
 			case 1:
 				$nc($System::out)->print("FileOutputStream..."_s);
 				$assign(fos, $new($FileOutputStream, f));
-				$nc(fos)->close();
+				fos->close();
 				$assign(fc, fos->getChannel());
 				if ($nc(fc)->isOpen()) {
 					$nc($System::err)->println("FileOutputStream channel should not be open"_s);
@@ -72,7 +72,7 @@ void GetClosedChannel::main($StringArray* args) {
 			case 2:
 				$nc($System::out)->print("RandomAccessFile..."_s);
 				$assign(raf, $new($RandomAccessFile, f, "rw"_s));
-				$nc(raf)->close();
+				raf->close();
 				$assign(fc, raf->getChannel());
 				if ($nc(fc)->isOpen()) {
 					$nc($System::err)->println("RandomAccessFile channel should not be open"_s);

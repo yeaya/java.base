@@ -1175,12 +1175,12 @@ bool BigDecimal::squareRootResultAssertions(BigDecimal* result, $MathContext* mc
 					$assign(err, $($(result->square())->subtract(this))->abs());
 					$assign(errUp, $(neighborUp->square())->subtract(this));
 					$assign(errDown, this->subtract($(neighborDown->square())));
-					err_comp_errUp = $nc(err)->compareTo(errUp);
+					err_comp_errUp = err->compareTo(errUp);
 					err_comp_errDown = err->compareTo(errDown);
 					bool var$6 = !BigDecimal::$assertionsDisabled;
 					if (var$6) {
-						bool var$7 = $nc(errUp)->signum() == 1;
-						var$6 = !(var$7 && $nc(errDown)->signum() == 1);
+						bool var$7 = errUp->signum() == 1;
+						var$6 = !(var$7 && errDown->signum() == 1);
 					}
 					if (var$6) {
 						$throwNew($AssertionError, $of("Errors of neighbors squared don\'t have correct signs"_s));

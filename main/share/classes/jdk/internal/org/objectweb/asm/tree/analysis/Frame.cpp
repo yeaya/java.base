@@ -640,7 +640,7 @@ void Frame::execute($AbstractInsnNode* insn, $Interpreter* interpreter) {
 		case $Opcodes::MULTIANEWARRAY:
 			$assign(valueList, $new($ArrayList));
 			for (int32_t i = $cast($MultiANewArrayInsnNode, insn)->dims; i > 0; --i) {
-				$nc(valueList)->add(0, $(pop()));
+				valueList->add(0, $(pop()));
 			}
 			push($($nc(interpreter)->naryOperation(insn, valueList)));
 			break;
