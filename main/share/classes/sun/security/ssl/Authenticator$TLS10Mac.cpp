@@ -24,19 +24,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t Authenticator$TLS10Mac::hashCode() {
-	 return this->$Authenticator$TLS10Authenticator::hashCode();
+	return this->$Authenticator$TLS10Authenticator::hashCode();
 }
 
 bool Authenticator$TLS10Mac::equals(Object$* obj) {
-	 return this->$Authenticator$TLS10Authenticator::equals(obj);
+	return this->$Authenticator$TLS10Authenticator::equals(obj);
 }
 
 $Object* Authenticator$TLS10Mac::clone() {
-	 return this->$Authenticator$TLS10Authenticator::clone();
+	return this->$Authenticator$TLS10Authenticator::clone();
 }
 
 $String* Authenticator$TLS10Mac::toString() {
-	 return this->$Authenticator$TLS10Authenticator::toString();
+	return this->$Authenticator$TLS10Authenticator::toString();
 }
 
 void Authenticator$TLS10Mac::finalize() {

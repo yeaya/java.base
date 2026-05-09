@@ -101,7 +101,7 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(double e) override {
-		 return DoubleStream::lambda$mapMulti$0(mapper, e);
+		return DoubleStream::lambda$mapMulti$0(mapper, e);
 	}
 	$DoubleStream$DoubleMapMultiConsumer* mapper = nullptr;
 };

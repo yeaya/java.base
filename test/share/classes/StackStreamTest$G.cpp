@@ -58,7 +58,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return StackStreamTest$G::lambda$g$0($cast($Stream, s));
+		return StackStreamTest$G::lambda$g$0($cast($Stream, s));
 	}
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$0::load$($String* name, bool initialize) {
@@ -88,7 +88,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return StackStreamTest$G::lambda$g$1($cast($Stream, s));
+		return StackStreamTest$G::lambda$g$1($cast($Stream, s));
 	}
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$1$1::load$($String* name, bool initialize) {
@@ -118,7 +118,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return StackStreamTest$G::lambda$g$3($cast($Stream, s));
+		return StackStreamTest$G::lambda$g$3($cast($Stream, s));
 	}
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$3$2::load$($String* name, bool initialize) {
@@ -148,7 +148,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return StackStreamTest$G::lambda$g$4($cast($Stream, s));
+		return StackStreamTest$G::lambda$g$4($cast($Stream, s));
 	}
 };
 $Class* StackStreamTest$G$$Lambda$lambda$g$4$3::load$($String* name, bool initialize) {
@@ -208,7 +208,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return StackStreamTest$G::lambda$firstFrame$7($cast($Stream, s));
+		return StackStreamTest$G::lambda$firstFrame$7($cast($Stream, s));
 	}
 };
 $Class* StackStreamTest$G$$Lambda$lambda$firstFrame$7$5::load$($String* name, bool initialize) {
@@ -238,7 +238,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return StackStreamTest$G::lambda$firstFrame$6($cast($StackWalker$StackFrame, e));
+		return StackStreamTest$G::lambda$firstFrame$6($cast($StackWalker$StackFrame, e));
 	}
 };
 $Class* StackStreamTest$G$$Lambda$lambda$firstFrame$6$6::load$($String* name, bool initialize) {
@@ -268,7 +268,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* f) override {
-		 return $StackStreamTest::isTestClass($cast($StackWalker$StackFrame, f));
+		return $StackStreamTest::isTestClass($cast($StackWalker$StackFrame, f));
 	}
 };
 $Class* StackStreamTest$G$$Lambda$isTestClass$7::load$($String* name, bool initialize) {
@@ -298,7 +298,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($StackWalker$StackFrame, inst$)->toStackTraceElement();
+		return $sure($StackWalker$StackFrame, inst$)->toStackTraceElement();
 	}
 };
 $Class* StackStreamTest$G$$Lambda$toStackTraceElement$8::load$($String* name, bool initialize) {
@@ -358,7 +358,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($StackWalker$StackFrame, inst$)->getMethodName());
+		return $of($sure($StackWalker$StackFrame, inst$)->getMethodName());
 	}
 };
 $Class* StackStreamTest$G$$Lambda$getMethodName$10::load$($String* name, bool initialize) {
@@ -388,7 +388,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($StackWalker$StackFrame, inst$)->getClassName());
+		return $of($sure($StackWalker$StackFrame, inst$)->getClassName());
 	}
 };
 $Class* StackStreamTest$G$$Lambda$getClassName$11::load$($String* name, bool initialize) {

@@ -34,7 +34,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Stream, inst$)->count());
+		return $of($sure($Stream, inst$)->count());
 	}
 };
 $Class* WalkFunction$$Lambda$count::load$($String* name, bool initialize) {
@@ -64,7 +64,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* stream) override {
-		 return WalkFunction::reduce($cast($Stream, stream));
+		return WalkFunction::reduce($cast($Stream, stream));
 	}
 };
 $Class* WalkFunction$$Lambda$reduce$1::load$($String* name, bool initialize) {
@@ -94,7 +94,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* r, Object$* f) override {
-		 return WalkFunction::lambda$reduce$0($cast($StackWalker$StackFrame, r), $cast($StackWalker$StackFrame, f));
+		return WalkFunction::lambda$reduce$0($cast($StackWalker$StackFrame, r), $cast($StackWalker$StackFrame, f));
 	}
 };
 $Class* WalkFunction$$Lambda$lambda$reduce$0$2::load$($String* name, bool initialize) {
@@ -124,7 +124,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return WalkFunction::function($cast($Stream, s));
+		return WalkFunction::function($cast($Stream, s));
 	}
 };
 $Class* WalkFunction$$Lambda$function$3::load$($String* name, bool initialize) {

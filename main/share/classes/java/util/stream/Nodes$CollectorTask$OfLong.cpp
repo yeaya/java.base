@@ -41,7 +41,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int64_t exactSizeIfKnown) override {
-		 return $of($Nodes::longBuilder(exactSizeIfKnown));
+		return $of($Nodes::longBuilder(exactSizeIfKnown));
 	}
 };
 $Class* Nodes$CollectorTask$OfLong$$Lambda$longBuilder::load$($String* name, bool initialize) {
@@ -71,7 +71,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return $of($new($Nodes$ConcNode$OfLong, $cast($Node$OfLong, left), $cast($Node$OfLong, right)));
+		return $of($new($Nodes$ConcNode$OfLong, $cast($Node$OfLong, left), $cast($Node$OfLong, right)));
 	}
 };
 $Class* Nodes$CollectorTask$OfLong$$Lambda$OfLong$1::load$($String* name, bool initialize) {

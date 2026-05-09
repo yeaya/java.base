@@ -27,19 +27,19 @@ namespace sun {
 		namespace cs {
 
 int32_t ISO_8859_1::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool ISO_8859_1::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* ISO_8859_1::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* ISO_8859_1::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void ISO_8859_1::finalize() {

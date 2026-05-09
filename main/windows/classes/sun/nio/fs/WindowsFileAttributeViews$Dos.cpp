@@ -50,19 +50,19 @@ void WindowsFileAttributeViews$Dos::setTimes($FileTime* lastModifiedTime, $FileT
 }
 
 int32_t WindowsFileAttributeViews$Dos::hashCode() {
-	 return this->$WindowsFileAttributeViews$Basic::hashCode();
+	return this->$WindowsFileAttributeViews$Basic::hashCode();
 }
 
 bool WindowsFileAttributeViews$Dos::equals(Object$* obj) {
-	 return this->$WindowsFileAttributeViews$Basic::equals(obj);
+	return this->$WindowsFileAttributeViews$Basic::equals(obj);
 }
 
 $Object* WindowsFileAttributeViews$Dos::clone() {
-	 return this->$WindowsFileAttributeViews$Basic::clone();
+	return this->$WindowsFileAttributeViews$Basic::clone();
 }
 
 $String* WindowsFileAttributeViews$Dos::toString() {
-	 return this->$WindowsFileAttributeViews$Basic::toString();
+	return this->$WindowsFileAttributeViews$Basic::toString();
 }
 
 void WindowsFileAttributeViews$Dos::finalize() {

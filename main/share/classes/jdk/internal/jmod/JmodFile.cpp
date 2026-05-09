@@ -53,7 +53,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $new($JmodFile$Entry, $cast($ZipEntry, e));
+		return $new($JmodFile$Entry, $cast($ZipEntry, e));
 	}
 };
 $Class* JmodFile$$Lambda$Entry::load$($String* name, bool initialize) {

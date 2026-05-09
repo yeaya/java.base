@@ -112,7 +112,7 @@ public:
 		this->forceNullOutputStream = forceNullOutputStream;
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$new$0(fds, forceNullOutputStream);
+		return $nc(inst$)->lambda$new$0(fds, forceNullOutputStream);
 	}
 	ProcessImpl* inst$ = nullptr;
 	$ints* fds = nullptr;
@@ -152,7 +152,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* exitcode, Object$* throwable) override {
-		 return $nc(inst$)->lambda$initStreams$1($cast($Integer, exitcode), $cast($Throwable, throwable));
+		return $nc(inst$)->lambda$initStreams$1($cast($Integer, exitcode), $cast($Throwable, throwable));
 	}
 	ProcessImpl* inst$ = nullptr;
 };
@@ -188,7 +188,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* exitcode, Object$* throwable) override {
-		 return $nc(inst$)->lambda$initStreams$2($cast($Integer, exitcode), $cast($Throwable, throwable));
+		return $nc(inst$)->lambda$initStreams$2($cast($Integer, exitcode), $cast($Throwable, throwable));
 	}
 	ProcessImpl* inst$ = nullptr;
 };
@@ -224,7 +224,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unusedExitStatus, Object$* unusedThrowable) override {
-		 return $nc(inst$)->lambda$onExit$3($cast($Integer, unusedExitStatus), $cast($Throwable, unusedThrowable));
+		return $nc(inst$)->lambda$onExit$3($cast($Integer, unusedExitStatus), $cast($Throwable, unusedThrowable));
 	}
 	ProcessImpl* inst$ = nullptr;
 };

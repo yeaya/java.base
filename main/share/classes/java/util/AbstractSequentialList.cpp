@@ -20,7 +20,7 @@ namespace java {
 	namespace util {
 
 $ListIterator* AbstractSequentialList::listIterator(int32_t index) {
-	 return this->$AbstractList::listIterator(index);
+	return this->$AbstractList::listIterator(index);
 }
 
 void AbstractSequentialList::init$() {

@@ -90,7 +90,7 @@ public:
 		$set(this, sc, sc);
 	}
 	virtual $Object* run() override {
-		 return SocketAdaptor::lambda$create$0(sc);
+		return SocketAdaptor::lambda$create$0(sc);
 	}
 	$SocketChannelImpl* sc = nullptr;
 };

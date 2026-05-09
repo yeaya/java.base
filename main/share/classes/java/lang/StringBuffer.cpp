@@ -35,15 +35,15 @@ namespace java {
 	namespace lang {
 
 int32_t StringBuffer::hashCode() {
-	 return this->$AbstractStringBuilder::hashCode();
+	return this->$AbstractStringBuilder::hashCode();
 }
 
 bool StringBuffer::equals(Object$* obj) {
-	 return this->$AbstractStringBuilder::equals(obj);
+	return this->$AbstractStringBuilder::equals(obj);
 }
 
 $Object* StringBuffer::clone() {
-	 return this->$AbstractStringBuilder::clone();
+	return this->$AbstractStringBuilder::clone();
 }
 
 void StringBuffer::finalize() {

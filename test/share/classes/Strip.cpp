@@ -34,7 +34,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(int32_t c) override {
-		 return Strip::lambda$testWhitespace$0(c);
+		return Strip::lambda$testWhitespace$0(c);
 	}
 };
 $Class* Strip$$Lambda$lambda$testWhitespace$0::load$($String* name, bool initialize) {
@@ -100,7 +100,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t c) override {
-		 return $of(Strip::lambda$report$2(c));
+		return $of(Strip::lambda$report$2(c));
 	}
 };
 $Class* Strip$$Lambda$lambda$report$2$2::load$($String* name, bool initialize) {

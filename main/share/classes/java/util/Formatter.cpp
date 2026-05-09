@@ -71,15 +71,15 @@ namespace java {
 	namespace util {
 
 int32_t Formatter::hashCode() {
-	 return this->$Closeable::hashCode();
+	return this->$Closeable::hashCode();
 }
 
 bool Formatter::equals(Object$* obj) {
-	 return this->$Closeable::equals(obj);
+	return this->$Closeable::equals(obj);
 }
 
 $Object* Formatter::clone() {
-	 return this->$Closeable::clone();
+	return this->$Closeable::clone();
 }
 
 void Formatter::finalize() {

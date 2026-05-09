@@ -48,7 +48,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return ResourceBundle$ResourceBundleControlProviderHolder::lambda$static$0();
+		return ResourceBundle$ResourceBundleControlProviderHolder::lambda$static$0();
 	}
 };
 $Class* ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -79,7 +79,7 @@ public:
 		$set(this, baseName, baseName);
 	}
 	virtual $Object* apply(Object$* provider) override {
-		 return ResourceBundle$ResourceBundleControlProviderHolder::lambda$getControl$1(baseName, $cast($ResourceBundleControlProvider, provider));
+		return ResourceBundle$ResourceBundleControlProviderHolder::lambda$getControl$1(baseName, $cast($ResourceBundleControlProvider, provider));
 	}
 	$String* baseName = nullptr;
 };
@@ -114,7 +114,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ServiceLoader$Provider, inst$)->get();
+		return $sure($ServiceLoader$Provider, inst$)->get();
 	}
 };
 $Class* ResourceBundle$ResourceBundleControlProviderHolder$$Lambda$get$2::load$($String* name, bool initialize) {

@@ -29,19 +29,19 @@ namespace sun {
 			namespace provider {
 
 int32_t SPILocaleProviderAdapter$BreakIteratorProviderDelegate::hashCode() {
-	 return this->$BreakIteratorProvider::hashCode();
+	return this->$BreakIteratorProvider::hashCode();
 }
 
 bool SPILocaleProviderAdapter$BreakIteratorProviderDelegate::equals(Object$* obj) {
-	 return this->$BreakIteratorProvider::equals(obj);
+	return this->$BreakIteratorProvider::equals(obj);
 }
 
 $Object* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::clone() {
-	 return this->$BreakIteratorProvider::clone();
+	return this->$BreakIteratorProvider::clone();
 }
 
 $String* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::toString() {
-	 return this->$BreakIteratorProvider::toString();
+	return this->$BreakIteratorProvider::toString();
 }
 
 void SPILocaleProviderAdapter$BreakIteratorProviderDelegate::finalize() {

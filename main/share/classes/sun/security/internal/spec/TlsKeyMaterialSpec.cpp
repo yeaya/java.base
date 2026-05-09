@@ -18,19 +18,19 @@ namespace sun {
 			namespace spec {
 
 int32_t TlsKeyMaterialSpec::hashCode() {
-	 return this->$KeySpec::hashCode();
+	return this->$KeySpec::hashCode();
 }
 
 bool TlsKeyMaterialSpec::equals(Object$* obj) {
-	 return this->$KeySpec::equals(obj);
+	return this->$KeySpec::equals(obj);
 }
 
 $Object* TlsKeyMaterialSpec::clone() {
-	 return this->$KeySpec::clone();
+	return this->$KeySpec::clone();
 }
 
 $String* TlsKeyMaterialSpec::toString() {
-	 return this->$KeySpec::toString();
+	return this->$KeySpec::toString();
 }
 
 void TlsKeyMaterialSpec::finalize() {

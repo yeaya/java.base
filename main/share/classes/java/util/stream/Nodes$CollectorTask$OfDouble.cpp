@@ -41,7 +41,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int64_t exactSizeIfKnown) override {
-		 return $of($Nodes::doubleBuilder(exactSizeIfKnown));
+		return $of($Nodes::doubleBuilder(exactSizeIfKnown));
 	}
 };
 $Class* Nodes$CollectorTask$OfDouble$$Lambda$doubleBuilder::load$($String* name, bool initialize) {
@@ -71,7 +71,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return $of($new($Nodes$ConcNode$OfDouble, $cast($Node$OfDouble, left), $cast($Node$OfDouble, right)));
+		return $of($new($Nodes$ConcNode$OfDouble, $cast($Node$OfDouble, left), $cast($Node$OfDouble, right)));
 	}
 };
 $Class* Nodes$CollectorTask$OfDouble$$Lambda$OfDouble$1::load$($String* name, bool initialize) {

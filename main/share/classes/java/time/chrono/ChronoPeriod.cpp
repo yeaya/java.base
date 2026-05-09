@@ -22,15 +22,15 @@ namespace java {
 		namespace chrono {
 
 bool ChronoPeriod::equals(Object$* obj) {
-	 return this->$TemporalAmount::equals(obj);
+	return this->$TemporalAmount::equals(obj);
 }
 
 int32_t ChronoPeriod::hashCode() {
-	 return this->$TemporalAmount::hashCode();
+	return this->$TemporalAmount::hashCode();
 }
 
 $String* ChronoPeriod::toString() {
-	 return this->$TemporalAmount::toString();
+	return this->$TemporalAmount::toString();
 }
 
 ChronoPeriod* ChronoPeriod::between($ChronoLocalDate* startDateInclusive, $ChronoLocalDate* endDateExclusive) {

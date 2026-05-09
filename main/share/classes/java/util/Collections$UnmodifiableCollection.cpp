@@ -31,15 +31,15 @@ namespace java {
 	namespace util {
 
 bool Collections$UnmodifiableCollection::equals(Object$* o) {
-	 return this->$Collection::equals(o);
+	return this->$Collection::equals(o);
 }
 
 int32_t Collections$UnmodifiableCollection::hashCode() {
-	 return this->$Collection::hashCode();
+	return this->$Collection::hashCode();
 }
 
 $Object* Collections$UnmodifiableCollection::clone() {
-	 return this->$Collection::clone();
+	return this->$Collection::clone();
 }
 
 void Collections$UnmodifiableCollection::finalize() {

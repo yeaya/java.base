@@ -30,15 +30,15 @@ namespace java {
 	namespace util {
 
 bool Collections$SynchronizedCollection::equals(Object$* o) {
-	 return this->$Collection::equals(o);
+	return this->$Collection::equals(o);
 }
 
 int32_t Collections$SynchronizedCollection::hashCode() {
-	 return this->$Collection::hashCode();
+	return this->$Collection::hashCode();
 }
 
 $Object* Collections$SynchronizedCollection::clone() {
-	 return this->$Collection::clone();
+	return this->$Collection::clone();
 }
 
 void Collections$SynchronizedCollection::finalize() {

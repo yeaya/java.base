@@ -15,19 +15,19 @@ namespace java {
 		namespace interfaces {
 
 int32_t ECPublicKey::hashCode() {
-	 return this->$PublicKey::hashCode();
+	return this->$PublicKey::hashCode();
 }
 
 bool ECPublicKey::equals(Object$* obj) {
-	 return this->$PublicKey::equals(obj);
+	return this->$PublicKey::equals(obj);
 }
 
 $Object* ECPublicKey::clone() {
-	 return this->$PublicKey::clone();
+	return this->$PublicKey::clone();
 }
 
 $String* ECPublicKey::toString() {
-	 return this->$PublicKey::toString();
+	return this->$PublicKey::toString();
 }
 
 void ECPublicKey::finalize() {

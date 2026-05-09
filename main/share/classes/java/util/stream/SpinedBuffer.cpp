@@ -87,15 +87,15 @@ $Class* SpinedBuffer$$Lambda$add::load$($String* name, bool initialize) {
 $Class* SpinedBuffer$$Lambda$add::class$ = nullptr;
 
 int32_t SpinedBuffer::hashCode() {
-	 return this->$AbstractSpinedBuffer::hashCode();
+	return this->$AbstractSpinedBuffer::hashCode();
 }
 
 bool SpinedBuffer::equals(Object$* obj) {
-	 return this->$AbstractSpinedBuffer::equals(obj);
+	return this->$AbstractSpinedBuffer::equals(obj);
 }
 
 $Object* SpinedBuffer::clone() {
-	 return this->$AbstractSpinedBuffer::clone();
+	return this->$AbstractSpinedBuffer::clone();
 }
 
 void SpinedBuffer::finalize() {

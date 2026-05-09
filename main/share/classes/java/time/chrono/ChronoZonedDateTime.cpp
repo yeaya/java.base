@@ -82,7 +82,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* dateTime1, Object$* dateTime2) override {
-		 return ChronoZonedDateTime::lambda$timeLineOrder$f56e6d02$1($cast(ChronoZonedDateTime, dateTime1), $cast(ChronoZonedDateTime, dateTime2));
+		return ChronoZonedDateTime::lambda$timeLineOrder$f56e6d02$1($cast(ChronoZonedDateTime, dateTime1), $cast(ChronoZonedDateTime, dateTime2));
 	}
 };
 $Class* ChronoZonedDateTime$$Lambda$lambda$timeLineOrder$f56e6d02$1::load$($String* name, bool initialize) {
@@ -107,19 +107,19 @@ $Class* ChronoZonedDateTime$$Lambda$lambda$timeLineOrder$f56e6d02$1::load$($Stri
 $Class* ChronoZonedDateTime$$Lambda$lambda$timeLineOrder$f56e6d02$1::class$ = nullptr;
 
 bool ChronoZonedDateTime::equals(Object$* obj) {
-	 return this->$Temporal::equals(obj);
+	return this->$Temporal::equals(obj);
 }
 
 int32_t ChronoZonedDateTime::hashCode() {
-	 return this->$Temporal::hashCode();
+	return this->$Temporal::hashCode();
 }
 
 $String* ChronoZonedDateTime::toString() {
-	 return this->$Temporal::toString();
+	return this->$Temporal::toString();
 }
 
 $Object* ChronoZonedDateTime::clone() {
-	 return this->$Temporal::clone();
+	return this->$Temporal::clone();
 }
 
 void ChronoZonedDateTime::finalize() {

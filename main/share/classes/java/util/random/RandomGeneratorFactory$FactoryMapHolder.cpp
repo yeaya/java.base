@@ -43,7 +43,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return RandomGeneratorFactory$FactoryMapHolder::lambda$createFactoryMap$0($cast($ServiceLoader$Provider, p));
+		return RandomGeneratorFactory$FactoryMapHolder::lambda$createFactoryMap$0($cast($ServiceLoader$Provider, p));
 	}
 };
 $Class* RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$0::load$($String* name, bool initialize) {
@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of(RandomGeneratorFactory$FactoryMapHolder::lambda$createFactoryMap$1($cast($ServiceLoader$Provider, p)));
+		return $of(RandomGeneratorFactory$FactoryMapHolder::lambda$createFactoryMap$1($cast($ServiceLoader$Provider, p)));
 	}
 };
 $Class* RandomGeneratorFactory$FactoryMapHolder$$Lambda$lambda$createFactoryMap$1$1::load$($String* name, bool initialize) {

@@ -30,7 +30,7 @@ public:
 		$set(this, after, after);
 	}
 	virtual $Object* apply(Object$* t, Object$* u) override {
-		 return $nc(inst$)->lambda$andThen$0(after, t, u);
+		return $nc(inst$)->lambda$andThen$0(after, t, u);
 	}
 	BiFunction* inst$ = nullptr;
 	$Function* after = nullptr;

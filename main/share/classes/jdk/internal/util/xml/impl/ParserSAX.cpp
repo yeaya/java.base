@@ -68,19 +68,19 @@ namespace jdk {
 				namespace impl {
 
 int32_t ParserSAX::hashCode() {
-	 return this->$Parser::hashCode();
+	return this->$Parser::hashCode();
 }
 
 bool ParserSAX::equals(Object$* obj) {
-	 return this->$Parser::equals(obj);
+	return this->$Parser::equals(obj);
 }
 
 $Object* ParserSAX::clone() {
-	 return this->$Parser::clone();
+	return this->$Parser::clone();
 }
 
 $String* ParserSAX::toString() {
-	 return this->$Parser::toString();
+	return this->$Parser::toString();
 }
 
 void ParserSAX::finalize() {

@@ -28,7 +28,7 @@ public:
 		$set(this, before, before);
 	}
 	virtual double applyAsDouble(double v) override {
-		 return $nc(inst$)->lambda$compose$0(before, v);
+		return $nc(inst$)->lambda$compose$0(before, v);
 	}
 	DoubleUnaryOperator* inst$ = nullptr;
 	DoubleUnaryOperator* before = nullptr;
@@ -67,7 +67,7 @@ public:
 		$set(this, after, after);
 	}
 	virtual double applyAsDouble(double t) override {
-		 return $nc(inst$)->lambda$andThen$1(after, t);
+		return $nc(inst$)->lambda$andThen$1(after, t);
 	}
 	DoubleUnaryOperator* inst$ = nullptr;
 	DoubleUnaryOperator* after = nullptr;
@@ -104,7 +104,7 @@ public:
 	void init$() {
 	}
 	virtual double applyAsDouble(double t) override {
-		 return DoubleUnaryOperator::lambda$identity$2(t);
+		return DoubleUnaryOperator::lambda$identity$2(t);
 	}
 };
 $Class* DoubleUnaryOperator$$Lambda$lambda$identity$2$2::load$($String* name, bool initialize) {

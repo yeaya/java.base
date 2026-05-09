@@ -43,7 +43,7 @@ namespace java {
 	namespace util {
 
 bool TreeMap$NavigableSubMap::containsValue(Object$* value) {
-	 return this->$AbstractMap::containsValue(value);
+	return this->$AbstractMap::containsValue(value);
 }
 
 void TreeMap$NavigableSubMap::putAll($Map* m) {
@@ -55,27 +55,27 @@ void TreeMap$NavigableSubMap::clear() {
 }
 
 $Collection* TreeMap$NavigableSubMap::values() {
-	 return this->$AbstractMap::values();
+	return this->$AbstractMap::values();
 }
 
 bool TreeMap$NavigableSubMap::equals(Object$* o) {
-	 return this->$AbstractMap::equals(o);
+	return this->$AbstractMap::equals(o);
 }
 
 int32_t TreeMap$NavigableSubMap::hashCode() {
-	 return this->$AbstractMap::hashCode();
+	return this->$AbstractMap::hashCode();
 }
 
 $String* TreeMap$NavigableSubMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 $Object* TreeMap$NavigableSubMap::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 $Object* TreeMap$NavigableSubMap::getOrDefault(Object$* key, Object$* defaultValue) {
-	 return this->$AbstractMap::getOrDefault(key, defaultValue);
+	return this->$AbstractMap::getOrDefault(key, defaultValue);
 }
 
 void TreeMap$NavigableSubMap::forEach($BiConsumer* action) {
@@ -87,15 +87,15 @@ void TreeMap$NavigableSubMap::replaceAll($BiFunction* function) {
 }
 
 bool TreeMap$NavigableSubMap::remove(Object$* key, Object$* value) {
-	 return this->$AbstractMap::remove(key, value);
+	return this->$AbstractMap::remove(key, value);
 }
 
 bool TreeMap$NavigableSubMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	 return this->$AbstractMap::replace(key, oldValue, newValue);
+	return this->$AbstractMap::replace(key, oldValue, newValue);
 }
 
 $Object* TreeMap$NavigableSubMap::replace(Object$* key, Object$* value) {
-	 return this->$AbstractMap::replace(key, value);
+	return this->$AbstractMap::replace(key, value);
 }
 
 void TreeMap$NavigableSubMap::finalize() {

@@ -32,19 +32,19 @@ namespace java {
 	namespace util {
 
 bool Arrays$ArrayList::equals(Object$* o) {
-	 return this->$AbstractList::equals(o);
+	return this->$AbstractList::equals(o);
 }
 
 int32_t Arrays$ArrayList::hashCode() {
-	 return this->$AbstractList::hashCode();
+	return this->$AbstractList::hashCode();
 }
 
 $String* Arrays$ArrayList::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $Object* Arrays$ArrayList::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void Arrays$ArrayList::finalize() {

@@ -47,7 +47,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* dummy) override {
-		 return ManifestDigester::lambda$new$0($cast($String, dummy));
+		return ManifestDigester::lambda$new$0($cast($String, dummy));
 	}
 };
 $Class* ManifestDigester$$Lambda$lambda$new$0::load$($String* name, bool initialize) {

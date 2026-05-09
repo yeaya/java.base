@@ -61,7 +61,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return CgroupSubsystemController::lambda$getLongEntry$0($cast($String, line));
+		return CgroupSubsystemController::lambda$getLongEntry$0($cast($String, line));
 	}
 };
 $Class* CgroupSubsystemController$$Lambda$lambda$getLongEntry$0::load$($String* name, bool initialize) {
@@ -92,7 +92,7 @@ public:
 		$set(this, entryname, entryname);
 	}
 	virtual bool test(Object$* line) override {
-		 return CgroupSubsystemController::lambda$getLongEntry$1(entryname, $cast($StringArray, line));
+		return CgroupSubsystemController::lambda$getLongEntry$1(entryname, $cast($StringArray, line));
 	}
 	$String* entryname = nullptr;
 };
@@ -127,7 +127,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(CgroupSubsystemController::lambda$getLongEntry$2($cast($StringArray, line)));
+		return $of(CgroupSubsystemController::lambda$getLongEntry$2($cast($StringArray, line)));
 	}
 };
 $Class* CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2::load$($String* name, bool initialize) {

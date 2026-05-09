@@ -36,19 +36,19 @@ namespace sun {
 		namespace cs {
 
 int32_t EUC_JP$Decoder::hashCode() {
-	 return this->$CharsetDecoder::hashCode();
+	return this->$CharsetDecoder::hashCode();
 }
 
 bool EUC_JP$Decoder::equals(Object$* obj) {
-	 return this->$CharsetDecoder::equals(obj);
+	return this->$CharsetDecoder::equals(obj);
 }
 
 $Object* EUC_JP$Decoder::clone() {
-	 return this->$CharsetDecoder::clone();
+	return this->$CharsetDecoder::clone();
 }
 
 $String* EUC_JP$Decoder::toString() {
-	 return this->$CharsetDecoder::toString();
+	return this->$CharsetDecoder::toString();
 }
 
 void EUC_JP$Decoder::finalize() {

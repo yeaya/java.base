@@ -53,7 +53,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* e1, Object$* e2) override {
-		 return ConcurrentSkipListMap$EntrySpliterator::lambda$getComparator$d5a01062$1($cast($Map$Entry, e1), $cast($Map$Entry, e2));
+		return ConcurrentSkipListMap$EntrySpliterator::lambda$getComparator$d5a01062$1($cast($Map$Entry, e1), $cast($Map$Entry, e2));
 	}
 };
 $Class* ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::load$($String* name, bool initialize) {
@@ -78,23 +78,23 @@ $Class* ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a0
 $Class* ConcurrentSkipListMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::class$ = nullptr;
 
 int64_t ConcurrentSkipListMap$EntrySpliterator::estimateSize() {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::estimateSize();
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::estimateSize();
 }
 
 int32_t ConcurrentSkipListMap$EntrySpliterator::hashCode() {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::hashCode();
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::hashCode();
 }
 
 bool ConcurrentSkipListMap$EntrySpliterator::equals(Object$* obj) {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::equals(obj);
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::equals(obj);
 }
 
 $Object* ConcurrentSkipListMap$EntrySpliterator::clone() {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::clone();
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::clone();
 }
 
 $String* ConcurrentSkipListMap$EntrySpliterator::toString() {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::toString();
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::toString();
 }
 
 void ConcurrentSkipListMap$EntrySpliterator::finalize() {

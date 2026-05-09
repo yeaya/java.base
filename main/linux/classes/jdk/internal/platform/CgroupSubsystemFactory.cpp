@@ -160,7 +160,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return CgroupSubsystemFactory::lambda$determineType$2($cast($String, line));
+		return CgroupSubsystemFactory::lambda$determineType$2($cast($String, line));
 	}
 };
 $Class* CgroupSubsystemFactory$$Lambda$lambda$determineType$2$2::load$($String* name, bool initialize) {
@@ -190,7 +190,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* tokens) override {
-		 return CgroupSubsystemFactory::lambda$determineType$3($cast($StringArray, tokens));
+		return CgroupSubsystemFactory::lambda$determineType$3($cast($StringArray, tokens));
 	}
 };
 $Class* CgroupSubsystemFactory$$Lambda$lambda$determineType$3$3::load$($String* name, bool initialize) {

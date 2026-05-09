@@ -54,59 +54,59 @@ namespace java {
 		namespace concurrent {
 
 $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::remove() {
-	 return this->$AbstractQueue::remove();
+	return this->$AbstractQueue::remove();
 }
 
 $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::element() {
-	 return this->$AbstractQueue::element();
+	return this->$AbstractQueue::element();
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::addAll($Collection* c) {
-	 return this->$AbstractQueue::addAll(c);
+	return this->$AbstractQueue::addAll(c);
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::containsAll($Collection* c) {
-	 return this->$AbstractQueue::containsAll(c);
+	return this->$AbstractQueue::containsAll(c);
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::removeAll($Collection* c) {
-	 return this->$AbstractQueue::removeAll(c);
+	return this->$AbstractQueue::removeAll(c);
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::retainAll($Collection* c) {
-	 return this->$AbstractQueue::retainAll(c);
+	return this->$AbstractQueue::retainAll(c);
 }
 
 $String* ScheduledThreadPoolExecutor$DelayedWorkQueue::toString() {
-	 return this->$AbstractQueue::toString();
+	return this->$AbstractQueue::toString();
 }
 
 $ObjectArray* ScheduledThreadPoolExecutor$DelayedWorkQueue::toArray($IntFunction* generator) {
-	 return this->$AbstractQueue::toArray(generator);
+	return this->$AbstractQueue::toArray(generator);
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::removeIf($Predicate* filter) {
-	 return this->$AbstractQueue::removeIf(filter);
+	return this->$AbstractQueue::removeIf(filter);
 }
 
 bool ScheduledThreadPoolExecutor$DelayedWorkQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t ScheduledThreadPoolExecutor$DelayedWorkQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Spliterator* ScheduledThreadPoolExecutor$DelayedWorkQueue::spliterator() {
-	 return this->$AbstractQueue::spliterator();
+	return this->$AbstractQueue::spliterator();
 }
 
 $Stream* ScheduledThreadPoolExecutor$DelayedWorkQueue::stream() {
-	 return this->$AbstractQueue::stream();
+	return this->$AbstractQueue::stream();
 }
 
 $Stream* ScheduledThreadPoolExecutor$DelayedWorkQueue::parallelStream() {
-	 return this->$AbstractQueue::parallelStream();
+	return this->$AbstractQueue::parallelStream();
 }
 
 void ScheduledThreadPoolExecutor$DelayedWorkQueue::forEach($Consumer* action) {
@@ -114,7 +114,7 @@ void ScheduledThreadPoolExecutor$DelayedWorkQueue::forEach($Consumer* action) {
 }
 
 $Object* ScheduledThreadPoolExecutor$DelayedWorkQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void ScheduledThreadPoolExecutor$DelayedWorkQueue::finalize() {

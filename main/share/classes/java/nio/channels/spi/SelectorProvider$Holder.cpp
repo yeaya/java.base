@@ -57,7 +57,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return SelectorProvider$Holder::lambda$provider$0();
+		return SelectorProvider$Holder::lambda$provider$0();
 	}
 };
 $Class* SelectorProvider$Holder$$Lambda$lambda$provider$0::load$($String* name, bool initialize) {

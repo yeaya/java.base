@@ -22,11 +22,11 @@ namespace java {
 	namespace lang {
 
 int32_t ProcessHandle::hashCode() {
-	 return this->$Comparable::hashCode();
+	return this->$Comparable::hashCode();
 }
 
 bool ProcessHandle::equals(Object$* other) {
-	 return this->$Comparable::equals(other);
+	return this->$Comparable::equals(other);
 }
 
 $Optional* ProcessHandle::of(int64_t pid) {

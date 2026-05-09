@@ -89,19 +89,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t SSLKeyExchange::hashCode() {
-	 return this->$SSLKeyAgreementGenerator::hashCode();
+	return this->$SSLKeyAgreementGenerator::hashCode();
 }
 
 bool SSLKeyExchange::equals(Object$* obj) {
-	 return this->$SSLKeyAgreementGenerator::equals(obj);
+	return this->$SSLKeyAgreementGenerator::equals(obj);
 }
 
 $Object* SSLKeyExchange::clone() {
-	 return this->$SSLKeyAgreementGenerator::clone();
+	return this->$SSLKeyAgreementGenerator::clone();
 }
 
 $String* SSLKeyExchange::toString() {
-	 return this->$SSLKeyAgreementGenerator::toString();
+	return this->$SSLKeyAgreementGenerator::toString();
 }
 
 void SSLKeyExchange::finalize() {

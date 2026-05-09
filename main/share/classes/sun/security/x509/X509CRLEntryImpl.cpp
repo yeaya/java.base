@@ -81,15 +81,15 @@ namespace sun {
 		namespace x509 {
 
 bool X509CRLEntryImpl::equals(Object$* other) {
-	 return this->$X509CRLEntry::equals(other);
+	return this->$X509CRLEntry::equals(other);
 }
 
 int32_t X509CRLEntryImpl::hashCode() {
-	 return this->$X509CRLEntry::hashCode();
+	return this->$X509CRLEntry::hashCode();
 }
 
 $Object* X509CRLEntryImpl::clone() {
-	 return this->$X509CRLEntry::clone();
+	return this->$X509CRLEntry::clone();
 }
 
 void X509CRLEntryImpl::finalize() {

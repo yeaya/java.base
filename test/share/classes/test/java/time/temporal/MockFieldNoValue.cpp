@@ -30,15 +30,15 @@ namespace test {
 			namespace temporal {
 
 bool MockFieldNoValue::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t MockFieldNoValue::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* MockFieldNoValue::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void MockFieldNoValue::finalize() {

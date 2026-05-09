@@ -26,15 +26,15 @@ namespace java {
 	namespace lang {
 
 int32_t StringBuilder::hashCode() {
-	 return this->$AbstractStringBuilder::hashCode();
+	return this->$AbstractStringBuilder::hashCode();
 }
 
 bool StringBuilder::equals(Object$* obj) {
-	 return this->$AbstractStringBuilder::equals(obj);
+	return this->$AbstractStringBuilder::equals(obj);
 }
 
 $Object* StringBuilder::clone() {
-	 return this->$AbstractStringBuilder::clone();
+	return this->$AbstractStringBuilder::clone();
 }
 
 void StringBuilder::finalize() {

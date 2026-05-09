@@ -22,19 +22,19 @@ namespace java {
 	namespace util {
 
 int32_t Spliterators$4Adapter::hashCode() {
-	 return this->$PrimitiveIterator$OfDouble::hashCode();
+	return this->$PrimitiveIterator$OfDouble::hashCode();
 }
 
 bool Spliterators$4Adapter::equals(Object$* obj) {
-	 return this->$PrimitiveIterator$OfDouble::equals(obj);
+	return this->$PrimitiveIterator$OfDouble::equals(obj);
 }
 
 $Object* Spliterators$4Adapter::clone() {
-	 return this->$PrimitiveIterator$OfDouble::clone();
+	return this->$PrimitiveIterator$OfDouble::clone();
 }
 
 $String* Spliterators$4Adapter::toString() {
-	 return this->$PrimitiveIterator$OfDouble::toString();
+	return this->$PrimitiveIterator$OfDouble::toString();
 }
 
 void Spliterators$4Adapter::finalize() {

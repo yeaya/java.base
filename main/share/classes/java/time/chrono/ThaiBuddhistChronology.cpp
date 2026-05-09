@@ -69,19 +69,19 @@ namespace java {
 		namespace chrono {
 
 bool ThaiBuddhistChronology::equals(Object$* obj) {
-	 return this->$AbstractChronology::equals(obj);
+	return this->$AbstractChronology::equals(obj);
 }
 
 int32_t ThaiBuddhistChronology::hashCode() {
-	 return this->$AbstractChronology::hashCode();
+	return this->$AbstractChronology::hashCode();
 }
 
 $String* ThaiBuddhistChronology::toString() {
-	 return this->$AbstractChronology::toString();
+	return this->$AbstractChronology::toString();
 }
 
 $Object* ThaiBuddhistChronology::clone() {
-	 return this->$AbstractChronology::clone();
+	return this->$AbstractChronology::clone();
 }
 
 void ThaiBuddhistChronology::finalize() {

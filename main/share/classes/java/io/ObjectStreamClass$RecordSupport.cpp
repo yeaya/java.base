@@ -65,7 +65,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getRecordComponents();
+		return $nc(inst$)->getRecordComponents();
 	}
 	$Class* inst$ = nullptr;
 };

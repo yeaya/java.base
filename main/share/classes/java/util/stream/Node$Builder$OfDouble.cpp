@@ -22,7 +22,7 @@ void Node$Builder$OfDouble::end() {
 }
 
 bool Node$Builder$OfDouble::cancellationRequested() {
-	 return this->$Node$Builder::cancellationRequested();
+	return this->$Node$Builder::cancellationRequested();
 }
 
 void Node$Builder$OfDouble::accept(int32_t value) {
@@ -38,23 +38,23 @@ void Node$Builder$OfDouble::accept(double value) {
 }
 
 $Consumer* Node$Builder$OfDouble::andThen($Consumer* after) {
-	 return this->$Node$Builder::andThen(after);
+	return this->$Node$Builder::andThen(after);
 }
 
 int32_t Node$Builder$OfDouble::hashCode() {
-	 return this->$Node$Builder::hashCode();
+	return this->$Node$Builder::hashCode();
 }
 
 bool Node$Builder$OfDouble::equals(Object$* obj) {
-	 return this->$Node$Builder::equals(obj);
+	return this->$Node$Builder::equals(obj);
 }
 
 $Object* Node$Builder$OfDouble::clone() {
-	 return this->$Node$Builder::clone();
+	return this->$Node$Builder::clone();
 }
 
 $String* Node$Builder$OfDouble::toString() {
-	 return this->$Node$Builder::toString();
+	return this->$Node$Builder::toString();
 }
 
 void Node$Builder$OfDouble::finalize() {

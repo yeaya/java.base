@@ -25,15 +25,15 @@ namespace java {
 		namespace stream {
 
 int32_t Nodes$DoubleFixedNodeBuilder::hashCode() {
-	 return this->$Nodes$DoubleArrayNode::hashCode();
+	return this->$Nodes$DoubleArrayNode::hashCode();
 }
 
 bool Nodes$DoubleFixedNodeBuilder::equals(Object$* obj) {
-	 return this->$Nodes$DoubleArrayNode::equals(obj);
+	return this->$Nodes$DoubleArrayNode::equals(obj);
 }
 
 $Object* Nodes$DoubleFixedNodeBuilder::clone() {
-	 return this->$Nodes$DoubleArrayNode::clone();
+	return this->$Nodes$DoubleArrayNode::clone();
 }
 
 void Nodes$DoubleFixedNodeBuilder::finalize() {

@@ -34,15 +34,15 @@ namespace java {
 		namespace stream {
 
 int64_t Streams$LongStreamBuilderImpl::estimateSize() {
-	 return this->$Streams$AbstractStreamBuilderImpl::estimateSize();
+	return this->$Streams$AbstractStreamBuilderImpl::estimateSize();
 }
 
 int32_t Streams$LongStreamBuilderImpl::characteristics() {
-	 return this->$Streams$AbstractStreamBuilderImpl::characteristics();
+	return this->$Streams$AbstractStreamBuilderImpl::characteristics();
 }
 
 bool Streams$LongStreamBuilderImpl::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
+	return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
 }
 
 void Streams$LongStreamBuilderImpl::forEachRemaining($Consumer* action) {
@@ -50,31 +50,31 @@ void Streams$LongStreamBuilderImpl::forEachRemaining($Consumer* action) {
 }
 
 int64_t Streams$LongStreamBuilderImpl::getExactSizeIfKnown() {
-	 return this->$Streams$AbstractStreamBuilderImpl::getExactSizeIfKnown();
+	return this->$Streams$AbstractStreamBuilderImpl::getExactSizeIfKnown();
 }
 
 bool Streams$LongStreamBuilderImpl::hasCharacteristics(int32_t characteristics) {
-	 return this->$Streams$AbstractStreamBuilderImpl::hasCharacteristics(characteristics);
+	return this->$Streams$AbstractStreamBuilderImpl::hasCharacteristics(characteristics);
 }
 
 $Comparator* Streams$LongStreamBuilderImpl::getComparator() {
-	 return this->$Streams$AbstractStreamBuilderImpl::getComparator();
+	return this->$Streams$AbstractStreamBuilderImpl::getComparator();
 }
 
 int32_t Streams$LongStreamBuilderImpl::hashCode() {
-	 return this->$Streams$AbstractStreamBuilderImpl::hashCode();
+	return this->$Streams$AbstractStreamBuilderImpl::hashCode();
 }
 
 bool Streams$LongStreamBuilderImpl::equals(Object$* obj) {
-	 return this->$Streams$AbstractStreamBuilderImpl::equals(obj);
+	return this->$Streams$AbstractStreamBuilderImpl::equals(obj);
 }
 
 $Object* Streams$LongStreamBuilderImpl::clone() {
-	 return this->$Streams$AbstractStreamBuilderImpl::clone();
+	return this->$Streams$AbstractStreamBuilderImpl::clone();
 }
 
 $String* Streams$LongStreamBuilderImpl::toString() {
-	 return this->$Streams$AbstractStreamBuilderImpl::toString();
+	return this->$Streams$AbstractStreamBuilderImpl::toString();
 }
 
 void Streams$LongStreamBuilderImpl::finalize() {

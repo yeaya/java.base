@@ -44,7 +44,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* call() override {
-		 return $nc(inst$)->lambda$run$0();
+		return $nc(inst$)->lambda$run$0();
 	}
 	B8035158$TestCase* inst$ = nullptr;
 };

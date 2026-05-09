@@ -200,7 +200,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* rule) override {
-		 return $of($nc(inst$)->validateRule($cast($String, rule)));
+		return $of($nc(inst$)->validateRule($cast($String, rule)));
 	}
 	CompactNumberFormat* inst$ = nullptr;
 };
@@ -235,7 +235,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* r) override {
-		 return $of(CompactNumberFormat::lambda$buildPluralRulesMap$1($cast($String, r)));
+		return $of(CompactNumberFormat::lambda$buildPluralRulesMap$1($cast($String, r)));
 	}
 };
 $Class* CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$1$2::load$($String* name, bool initialize) {
@@ -265,7 +265,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* r) override {
-		 return $of(CompactNumberFormat::lambda$buildPluralRulesMap$2($cast($String, r)));
+		return $of(CompactNumberFormat::lambda$buildPluralRulesMap$2($cast($String, r)));
 	}
 };
 $Class* CompactNumberFormat$$Lambda$lambda$buildPluralRulesMap$2$3::load$($String* name, bool initialize) {
@@ -295,7 +295,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t codePoint) override {
-		 return $Character::getNumericValue(codePoint);
+		return $Character::getNumericValue(codePoint);
 	}
 };
 $Class* CompactNumberFormat$$Lambda$getNumericValue$4::load$($String* name, bool initialize) {
@@ -325,7 +325,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return $of($Integer::toString(i));
+		return $of($Integer::toString(i));
 	}
 };
 $Class* CompactNumberFormat$$Lambda$toString$5::load$($String* name, bool initialize) {
@@ -356,7 +356,7 @@ public:
 		this->input = input;
 	}
 	virtual bool test(Object$* e) override {
-		 return CompactNumberFormat::lambda$getPluralCategory$3(input, $cast($Map$Entry, e));
+		return CompactNumberFormat::lambda$getPluralCategory$3(input, $cast($Map$Entry, e));
 	}
 	double input = 0.0;
 };
@@ -391,7 +391,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Map$Entry, inst$)->getKey();
+		return $sure($Map$Entry, inst$)->getKey();
 	}
 };
 $Class* CompactNumberFormat$$Lambda$getKey$7::load$($String* name, bool initialize) {
@@ -422,7 +422,7 @@ public:
 		this->input = input;
 	}
 	virtual bool test(Object$* and_condition) override {
-		 return CompactNumberFormat::lambda$matchPluralRule$5(input, $cast($String, and_condition));
+		return CompactNumberFormat::lambda$matchPluralRule$5(input, $cast($String, and_condition));
 	}
 	double input = 0.0;
 };
@@ -458,7 +458,7 @@ public:
 		this->lop = lop;
 	}
 	virtual bool test(Object$* c) override {
-		 return CompactNumberFormat::lambda$relationCheck$6(lop, $cast($String, c));
+		return CompactNumberFormat::lambda$relationCheck$6(lop, $cast($String, c));
 	}
 	double lop = 0.0;
 };
@@ -494,7 +494,7 @@ public:
 		this->input = input;
 	}
 	virtual bool test(Object$* r) override {
-		 return CompactNumberFormat::lambda$matchPluralRule$4(input, $cast($String, r));
+		return CompactNumberFormat::lambda$matchPluralRule$4(input, $cast($String, r));
 	}
 	double input = 0.0;
 };

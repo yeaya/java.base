@@ -43,59 +43,59 @@ namespace java {
 	namespace util {
 
 int32_t Collections$UnmodifiableList::size() {
-	 return this->$Collections$UnmodifiableCollection::size();
+	return this->$Collections$UnmodifiableCollection::size();
 }
 
 bool Collections$UnmodifiableList::isEmpty() {
-	 return this->$Collections$UnmodifiableCollection::isEmpty();
+	return this->$Collections$UnmodifiableCollection::isEmpty();
 }
 
 bool Collections$UnmodifiableList::contains(Object$* o) {
-	 return this->$Collections$UnmodifiableCollection::contains(o);
+	return this->$Collections$UnmodifiableCollection::contains(o);
 }
 
 $ObjectArray* Collections$UnmodifiableList::toArray() {
-	 return this->$Collections$UnmodifiableCollection::toArray();
+	return this->$Collections$UnmodifiableCollection::toArray();
 }
 
 $ObjectArray* Collections$UnmodifiableList::toArray($ObjectArray* a) {
-	 return this->$Collections$UnmodifiableCollection::toArray(a);
+	return this->$Collections$UnmodifiableCollection::toArray(a);
 }
 
 $ObjectArray* Collections$UnmodifiableList::toArray($IntFunction* f) {
-	 return this->$Collections$UnmodifiableCollection::toArray(f);
+	return this->$Collections$UnmodifiableCollection::toArray(f);
 }
 
 $String* Collections$UnmodifiableList::toString() {
-	 return this->$Collections$UnmodifiableCollection::toString();
+	return this->$Collections$UnmodifiableCollection::toString();
 }
 
 $Iterator* Collections$UnmodifiableList::iterator() {
-	 return this->$Collections$UnmodifiableCollection::iterator();
+	return this->$Collections$UnmodifiableCollection::iterator();
 }
 
 bool Collections$UnmodifiableList::add(Object$* e) {
-	 return this->$Collections$UnmodifiableCollection::add(e);
+	return this->$Collections$UnmodifiableCollection::add(e);
 }
 
 bool Collections$UnmodifiableList::remove(Object$* o) {
-	 return this->$Collections$UnmodifiableCollection::remove(o);
+	return this->$Collections$UnmodifiableCollection::remove(o);
 }
 
 bool Collections$UnmodifiableList::containsAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableCollection::containsAll(coll);
+	return this->$Collections$UnmodifiableCollection::containsAll(coll);
 }
 
 bool Collections$UnmodifiableList::addAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableCollection::addAll(coll);
+	return this->$Collections$UnmodifiableCollection::addAll(coll);
 }
 
 bool Collections$UnmodifiableList::removeAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableCollection::removeAll(coll);
+	return this->$Collections$UnmodifiableCollection::removeAll(coll);
 }
 
 bool Collections$UnmodifiableList::retainAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableCollection::retainAll(coll);
+	return this->$Collections$UnmodifiableCollection::retainAll(coll);
 }
 
 void Collections$UnmodifiableList::clear() {
@@ -107,23 +107,23 @@ void Collections$UnmodifiableList::forEach($Consumer* action) {
 }
 
 bool Collections$UnmodifiableList::removeIf($Predicate* filter) {
-	 return this->$Collections$UnmodifiableCollection::removeIf(filter);
+	return this->$Collections$UnmodifiableCollection::removeIf(filter);
 }
 
 $Spliterator* Collections$UnmodifiableList::spliterator() {
-	 return this->$Collections$UnmodifiableCollection::spliterator();
+	return this->$Collections$UnmodifiableCollection::spliterator();
 }
 
 $Stream* Collections$UnmodifiableList::stream() {
-	 return this->$Collections$UnmodifiableCollection::stream();
+	return this->$Collections$UnmodifiableCollection::stream();
 }
 
 $Stream* Collections$UnmodifiableList::parallelStream() {
-	 return this->$Collections$UnmodifiableCollection::parallelStream();
+	return this->$Collections$UnmodifiableCollection::parallelStream();
 }
 
 $Object* Collections$UnmodifiableList::clone() {
-	 return this->$Collections$UnmodifiableCollection::clone();
+	return this->$Collections$UnmodifiableCollection::clone();
 }
 
 void Collections$UnmodifiableList::finalize() {

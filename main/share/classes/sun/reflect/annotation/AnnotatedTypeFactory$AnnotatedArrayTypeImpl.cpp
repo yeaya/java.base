@@ -33,39 +33,39 @@ namespace sun {
 		namespace annotation {
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getAnnotations() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
 }
 
 $Annotation* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getAnnotation($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotation(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotation(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getAnnotationsByType($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByType(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByType(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getDeclaredAnnotations() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations();
 }
 
 $Annotation* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getDeclaredAnnotation($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotation(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotation(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getDeclaredAnnotationsByType($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotationsByType(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotationsByType(annotation);
 }
 
 $Type* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::getType() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType();
 }
 
 bool AnnotatedTypeFactory$AnnotatedArrayTypeImpl::isAnnotationPresent($Class* annotationClass) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::isAnnotationPresent(annotationClass);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::isAnnotationPresent(annotationClass);
 }
 
 $Object* AnnotatedTypeFactory$AnnotatedArrayTypeImpl::clone() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::clone();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::clone();
 }
 
 void AnnotatedTypeFactory$AnnotatedArrayTypeImpl::finalize() {

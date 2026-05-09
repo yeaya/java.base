@@ -29,7 +29,7 @@ namespace java {
 		namespace cert {
 
 $String* Certificate::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void Certificate::init$($String* type) {

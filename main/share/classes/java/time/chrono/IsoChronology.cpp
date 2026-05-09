@@ -85,19 +85,19 @@ namespace java {
 		namespace chrono {
 
 bool IsoChronology::equals(Object$* obj) {
-	 return this->$AbstractChronology::equals(obj);
+	return this->$AbstractChronology::equals(obj);
 }
 
 int32_t IsoChronology::hashCode() {
-	 return this->$AbstractChronology::hashCode();
+	return this->$AbstractChronology::hashCode();
 }
 
 $String* IsoChronology::toString() {
-	 return this->$AbstractChronology::toString();
+	return this->$AbstractChronology::toString();
 }
 
 $Object* IsoChronology::clone() {
-	 return this->$AbstractChronology::clone();
+	return this->$AbstractChronology::clone();
 }
 
 void IsoChronology::finalize() {

@@ -38,31 +38,31 @@ namespace sun {
 		namespace provider {
 
 $String* DSAPrivateKey::getAlgorithm() {
-	 return this->$PKCS8Key::getAlgorithm();
+	return this->$PKCS8Key::getAlgorithm();
 }
 
 $bytes* DSAPrivateKey::getEncoded() {
-	 return this->$PKCS8Key::getEncoded();
+	return this->$PKCS8Key::getEncoded();
 }
 
 $String* DSAPrivateKey::getFormat() {
-	 return this->$PKCS8Key::getFormat();
+	return this->$PKCS8Key::getFormat();
 }
 
 bool DSAPrivateKey::equals(Object$* object) {
-	 return this->$PKCS8Key::equals(object);
+	return this->$PKCS8Key::equals(object);
 }
 
 int32_t DSAPrivateKey::hashCode() {
-	 return this->$PKCS8Key::hashCode();
+	return this->$PKCS8Key::hashCode();
 }
 
 $Object* DSAPrivateKey::clone() {
-	 return this->$PKCS8Key::clone();
+	return this->$PKCS8Key::clone();
 }
 
 $String* DSAPrivateKey::toString() {
-	 return this->$PKCS8Key::toString();
+	return this->$PKCS8Key::toString();
 }
 
 void DSAPrivateKey::finalize() {
@@ -74,7 +74,7 @@ void DSAPrivateKey::destroy() {
 }
 
 bool DSAPrivateKey::isDestroyed() {
-	 return this->$PKCS8Key::isDestroyed();
+	return this->$PKCS8Key::isDestroyed();
 }
 
 void DSAPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* q, $BigInteger* g) {

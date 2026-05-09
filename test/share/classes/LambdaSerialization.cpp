@@ -38,7 +38,7 @@ public:
 	void init$() {
 	}
 	virtual $String* convert($String* z) override {
-		 return LambdaSerialization::lambda$main$344202ae$1(z);
+		return LambdaSerialization::lambda$main$344202ae$1(z);
 	}
 };
 $Class* LambdaSerialization$$Lambda$lambda$main$344202ae$1::load$($String* name, bool initialize) {
@@ -68,7 +68,7 @@ public:
 	void init$() {
 	}
 	virtual $String* convert($String* z) override {
-		 return LambdaSerialization::lambda$main$344202ae$2(z);
+		return LambdaSerialization::lambda$main$344202ae$2(z);
 	}
 };
 $Class* LambdaSerialization$$Lambda$lambda$main$344202ae$2$1::load$($String* name, bool initialize) {
@@ -98,7 +98,7 @@ public:
 	void init$() {
 	}
 	virtual $String* convert($String* z) override {
-		 return LambdaSerialization::lambda$main$344202ae$3(z);
+		return LambdaSerialization::lambda$main$344202ae$3(z);
 	}
 };
 $Class* LambdaSerialization$$Lambda$lambda$main$344202ae$3$2::load$($String* name, bool initialize) {

@@ -42,19 +42,19 @@ namespace sun {
 		namespace ssl {
 
 $String* X509Authentication::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool X509Authentication::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t X509Authentication::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* X509Authentication::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void X509Authentication::finalize() {

@@ -54,19 +54,19 @@ namespace java {
 	namespace nio {
 
 int32_t DirectCharBufferU::hashCode() {
-	 return this->$CharBuffer::hashCode();
+	return this->$CharBuffer::hashCode();
 }
 
 bool DirectCharBufferU::equals(Object$* ob) {
-	 return this->$CharBuffer::equals(ob);
+	return this->$CharBuffer::equals(ob);
 }
 
 $String* DirectCharBufferU::toString() {
-	 return this->$CharBuffer::toString();
+	return this->$CharBuffer::toString();
 }
 
 $Object* DirectCharBufferU::clone() {
-	 return this->$CharBuffer::clone();
+	return this->$CharBuffer::clone();
 }
 
 void DirectCharBufferU::finalize() {

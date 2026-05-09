@@ -26,19 +26,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t ConcurrentHashMap$KeySpliterator::hashCode() {
-	 return this->$ConcurrentHashMap$Traverser::hashCode();
+	return this->$ConcurrentHashMap$Traverser::hashCode();
 }
 
 bool ConcurrentHashMap$KeySpliterator::equals(Object$* obj) {
-	 return this->$ConcurrentHashMap$Traverser::equals(obj);
+	return this->$ConcurrentHashMap$Traverser::equals(obj);
 }
 
 $Object* ConcurrentHashMap$KeySpliterator::clone() {
-	 return this->$ConcurrentHashMap$Traverser::clone();
+	return this->$ConcurrentHashMap$Traverser::clone();
 }
 
 $String* ConcurrentHashMap$KeySpliterator::toString() {
-	 return this->$ConcurrentHashMap$Traverser::toString();
+	return this->$ConcurrentHashMap$Traverser::toString();
 }
 
 void ConcurrentHashMap$KeySpliterator::finalize() {

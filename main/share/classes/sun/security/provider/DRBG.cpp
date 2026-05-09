@@ -66,7 +66,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DRBG::lambda$new$0());
+		return $of(DRBG::lambda$new$0());
 	}
 };
 $Class* DRBG$$Lambda$lambda$new$0::load$($String* name, bool initialize) {

@@ -54,15 +54,15 @@ namespace java {
 		namespace concurrent {
 
 bool ScheduledThreadPoolExecutor::isShutdown() {
-	 return this->$ThreadPoolExecutor::isShutdown();
+	return this->$ThreadPoolExecutor::isShutdown();
 }
 
 bool ScheduledThreadPoolExecutor::isTerminated() {
-	 return this->$ThreadPoolExecutor::isTerminated();
+	return this->$ThreadPoolExecutor::isTerminated();
 }
 
 bool ScheduledThreadPoolExecutor::awaitTermination(int64_t timeout, $TimeUnit* unit) {
-	 return this->$ThreadPoolExecutor::awaitTermination(timeout, unit);
+	return this->$ThreadPoolExecutor::awaitTermination(timeout, unit);
 }
 
 void ScheduledThreadPoolExecutor::finalize() {
@@ -70,35 +70,35 @@ void ScheduledThreadPoolExecutor::finalize() {
 }
 
 $String* ScheduledThreadPoolExecutor::toString() {
-	 return this->$ThreadPoolExecutor::toString();
+	return this->$ThreadPoolExecutor::toString();
 }
 
 $Object* ScheduledThreadPoolExecutor::invokeAny($Collection* tasks) {
-	 return this->$ThreadPoolExecutor::invokeAny(tasks);
+	return this->$ThreadPoolExecutor::invokeAny(tasks);
 }
 
 $Object* ScheduledThreadPoolExecutor::invokeAny($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
-	 return this->$ThreadPoolExecutor::invokeAny(tasks, timeout, unit);
+	return this->$ThreadPoolExecutor::invokeAny(tasks, timeout, unit);
 }
 
 $List* ScheduledThreadPoolExecutor::invokeAll($Collection* tasks) {
-	 return this->$ThreadPoolExecutor::invokeAll(tasks);
+	return this->$ThreadPoolExecutor::invokeAll(tasks);
 }
 
 $List* ScheduledThreadPoolExecutor::invokeAll($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
-	 return this->$ThreadPoolExecutor::invokeAll(tasks, timeout, unit);
+	return this->$ThreadPoolExecutor::invokeAll(tasks, timeout, unit);
 }
 
 int32_t ScheduledThreadPoolExecutor::hashCode() {
-	 return this->$ThreadPoolExecutor::hashCode();
+	return this->$ThreadPoolExecutor::hashCode();
 }
 
 bool ScheduledThreadPoolExecutor::equals(Object$* obj) {
-	 return this->$ThreadPoolExecutor::equals(obj);
+	return this->$ThreadPoolExecutor::equals(obj);
 }
 
 $Object* ScheduledThreadPoolExecutor::clone() {
-	 return this->$ThreadPoolExecutor::clone();
+	return this->$ThreadPoolExecutor::clone();
 }
 
 $AtomicLong* ScheduledThreadPoolExecutor::sequencer = nullptr;

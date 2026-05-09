@@ -21,11 +21,11 @@ namespace java {
 		namespace concurrent {
 
 bool ConcurrentHashMap$ValueIterator::hasNext() {
-	 return this->$ConcurrentHashMap$BaseIterator::hasNext();
+	return this->$ConcurrentHashMap$BaseIterator::hasNext();
 }
 
 bool ConcurrentHashMap$ValueIterator::hasMoreElements() {
-	 return this->$ConcurrentHashMap$BaseIterator::hasMoreElements();
+	return this->$ConcurrentHashMap$BaseIterator::hasMoreElements();
 }
 
 void ConcurrentHashMap$ValueIterator::remove() {
@@ -33,19 +33,19 @@ void ConcurrentHashMap$ValueIterator::remove() {
 }
 
 int32_t ConcurrentHashMap$ValueIterator::hashCode() {
-	 return this->$ConcurrentHashMap$BaseIterator::hashCode();
+	return this->$ConcurrentHashMap$BaseIterator::hashCode();
 }
 
 bool ConcurrentHashMap$ValueIterator::equals(Object$* obj) {
-	 return this->$ConcurrentHashMap$BaseIterator::equals(obj);
+	return this->$ConcurrentHashMap$BaseIterator::equals(obj);
 }
 
 $Object* ConcurrentHashMap$ValueIterator::clone() {
-	 return this->$ConcurrentHashMap$BaseIterator::clone();
+	return this->$ConcurrentHashMap$BaseIterator::clone();
 }
 
 $String* ConcurrentHashMap$ValueIterator::toString() {
-	 return this->$ConcurrentHashMap$BaseIterator::toString();
+	return this->$ConcurrentHashMap$BaseIterator::toString();
 }
 
 void ConcurrentHashMap$ValueIterator::finalize() {

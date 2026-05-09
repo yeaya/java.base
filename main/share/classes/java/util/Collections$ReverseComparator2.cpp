@@ -19,11 +19,11 @@ namespace java {
 	namespace util {
 
 $Object* Collections$ReverseComparator2::clone() {
-	 return this->$Comparator::clone();
+	return this->$Comparator::clone();
 }
 
 $String* Collections$ReverseComparator2::toString() {
-	 return this->$Comparator::toString();
+	return this->$Comparator::toString();
 }
 
 void Collections$ReverseComparator2::finalize() {

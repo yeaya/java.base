@@ -44,7 +44,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ClassDesc, inst$)->descriptorString());
+		return $of($sure($ClassDesc, inst$)->descriptorString());
 	}
 };
 $Class* MethodTypeDesc$$Lambda$descriptorString::load$($String* name, bool initialize) {
@@ -74,7 +74,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ClassDesc, inst$)->displayName());
+		return $of($sure($ClassDesc, inst$)->displayName());
 	}
 };
 $Class* MethodTypeDesc$$Lambda$displayName$1::load$($String* name, bool initialize) {
@@ -99,19 +99,19 @@ $Class* MethodTypeDesc$$Lambda$displayName$1::load$($String* name, bool initiali
 $Class* MethodTypeDesc$$Lambda$displayName$1::class$ = nullptr;
 
 bool MethodTypeDesc::equals(Object$* o) {
-	 return this->$ConstantDesc::equals(o);
+	return this->$ConstantDesc::equals(o);
 }
 
 int32_t MethodTypeDesc::hashCode() {
-	 return this->$ConstantDesc::hashCode();
+	return this->$ConstantDesc::hashCode();
 }
 
 $Object* MethodTypeDesc::clone() {
-	 return this->$ConstantDesc::clone();
+	return this->$ConstantDesc::clone();
 }
 
 $String* MethodTypeDesc::toString() {
-	 return this->$ConstantDesc::toString();
+	return this->$ConstantDesc::toString();
 }
 
 void MethodTypeDesc::finalize() {

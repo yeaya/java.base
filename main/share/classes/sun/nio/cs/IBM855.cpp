@@ -24,19 +24,19 @@ namespace sun {
 		namespace cs {
 
 int32_t IBM855::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool IBM855::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* IBM855::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* IBM855::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void IBM855::finalize() {

@@ -44,7 +44,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return NativeMethod::lambda$walk$0($cast($Stream, s));
+		return NativeMethod::lambda$walk$0($cast($Stream, s));
 	}
 };
 $Class* NativeMethod$$Lambda$lambda$walk$0::load$($String* name, bool initialize) {
@@ -74,7 +74,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($StackWalker$StackFrame, inst$)->isNativeMethod();
+		return $sure($StackWalker$StackFrame, inst$)->isNativeMethod();
 	}
 };
 $Class* NativeMethod$$Lambda$isNativeMethod$1::load$($String* name, bool initialize) {

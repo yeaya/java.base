@@ -41,15 +41,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t SubjectAlternativeNameExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool SubjectAlternativeNameExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* SubjectAlternativeNameExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void SubjectAlternativeNameExtension::finalize() {

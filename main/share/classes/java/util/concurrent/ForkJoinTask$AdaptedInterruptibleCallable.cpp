@@ -20,31 +20,31 @@ namespace java {
 		namespace concurrent {
 
 bool ForkJoinTask$AdaptedInterruptibleCallable::isDone() {
-	 return this->$ForkJoinTask::isDone();
+	return this->$ForkJoinTask::isDone();
 }
 
 bool ForkJoinTask$AdaptedInterruptibleCallable::isCancelled() {
-	 return this->$ForkJoinTask::isCancelled();
+	return this->$ForkJoinTask::isCancelled();
 }
 
 $Object* ForkJoinTask$AdaptedInterruptibleCallable::get() {
-	 return this->$ForkJoinTask::get();
+	return this->$ForkJoinTask::get();
 }
 
 $Object* ForkJoinTask$AdaptedInterruptibleCallable::get(int64_t timeout, $TimeUnit* unit) {
-	 return this->$ForkJoinTask::get(timeout, unit);
+	return this->$ForkJoinTask::get(timeout, unit);
 }
 
 int32_t ForkJoinTask$AdaptedInterruptibleCallable::hashCode() {
-	 return this->$ForkJoinTask::hashCode();
+	return this->$ForkJoinTask::hashCode();
 }
 
 bool ForkJoinTask$AdaptedInterruptibleCallable::equals(Object$* obj) {
-	 return this->$ForkJoinTask::equals(obj);
+	return this->$ForkJoinTask::equals(obj);
 }
 
 $Object* ForkJoinTask$AdaptedInterruptibleCallable::clone() {
-	 return this->$ForkJoinTask::clone();
+	return this->$ForkJoinTask::clone();
 }
 
 void ForkJoinTask$AdaptedInterruptibleCallable::finalize() {

@@ -15,19 +15,19 @@ void D1B::bar() {
 }
 
 int32_t D1B::hashCode() {
-	 return this->$SonSuperIwithDefault::hashCode();
+	return this->$SonSuperIwithDefault::hashCode();
 }
 
 bool D1B::equals(Object$* arg0) {
-	 return this->$SonSuperIwithDefault::equals(arg0);
+	return this->$SonSuperIwithDefault::equals(arg0);
 }
 
 $Object* D1B::clone() {
-	 return this->$SonSuperIwithDefault::clone();
+	return this->$SonSuperIwithDefault::clone();
 }
 
 $String* D1B::toString() {
-	 return this->$SonSuperIwithDefault::toString();
+	return this->$SonSuperIwithDefault::toString();
 }
 
 void D1B::finalize() {

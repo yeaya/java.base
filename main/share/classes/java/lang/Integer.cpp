@@ -47,7 +47,7 @@ namespace java {
 	namespace lang {
 
 $Object* Integer::clone() {
-	 return this->$Number::clone();
+	return this->$Number::clone();
 }
 
 void Integer::finalize() {

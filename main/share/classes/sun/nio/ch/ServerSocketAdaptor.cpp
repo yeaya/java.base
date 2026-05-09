@@ -77,7 +77,7 @@ public:
 		$set(this, ssc, ssc);
 	}
 	virtual $Object* run() override {
-		 return ServerSocketAdaptor::lambda$create$0(ssc);
+		return ServerSocketAdaptor::lambda$create$0(ssc);
 	}
 	$ServerSocketChannelImpl* ssc = nullptr;
 };

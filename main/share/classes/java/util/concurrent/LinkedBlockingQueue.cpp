@@ -76,7 +76,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return LinkedBlockingQueue::lambda$removeAll$0(c, e);
+		return LinkedBlockingQueue::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -112,7 +112,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return LinkedBlockingQueue::lambda$retainAll$1(c, e);
+		return LinkedBlockingQueue::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -142,51 +142,51 @@ $Class* LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::load$($String* name, b
 $Class* LinkedBlockingQueue$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
 
 bool LinkedBlockingQueue::add(Object$* e) {
-	 return this->$AbstractQueue::add(e);
+	return this->$AbstractQueue::add(e);
 }
 
 $Object* LinkedBlockingQueue::remove() {
-	 return this->$AbstractQueue::remove();
+	return this->$AbstractQueue::remove();
 }
 
 $Object* LinkedBlockingQueue::element() {
-	 return this->$AbstractQueue::element();
+	return this->$AbstractQueue::element();
 }
 
 bool LinkedBlockingQueue::addAll($Collection* c) {
-	 return this->$AbstractQueue::addAll(c);
+	return this->$AbstractQueue::addAll(c);
 }
 
 bool LinkedBlockingQueue::isEmpty() {
-	 return this->$AbstractQueue::isEmpty();
+	return this->$AbstractQueue::isEmpty();
 }
 
 bool LinkedBlockingQueue::containsAll($Collection* c) {
-	 return this->$AbstractQueue::containsAll(c);
+	return this->$AbstractQueue::containsAll(c);
 }
 
 $ObjectArray* LinkedBlockingQueue::toArray($IntFunction* generator) {
-	 return this->$AbstractQueue::toArray(generator);
+	return this->$AbstractQueue::toArray(generator);
 }
 
 bool LinkedBlockingQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t LinkedBlockingQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Stream* LinkedBlockingQueue::stream() {
-	 return this->$AbstractQueue::stream();
+	return this->$AbstractQueue::stream();
 }
 
 $Stream* LinkedBlockingQueue::parallelStream() {
-	 return this->$AbstractQueue::parallelStream();
+	return this->$AbstractQueue::parallelStream();
 }
 
 $Object* LinkedBlockingQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void LinkedBlockingQueue::finalize() {

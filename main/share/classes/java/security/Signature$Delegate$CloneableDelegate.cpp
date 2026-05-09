@@ -13,19 +13,19 @@ namespace java {
 	namespace security {
 
 $Object* Signature$Delegate$CloneableDelegate::clone() {
-	 return this->$Signature$Delegate::clone();
+	return this->$Signature$Delegate::clone();
 }
 
 $String* Signature$Delegate$CloneableDelegate::toString() {
-	 return this->$Signature$Delegate::toString();
+	return this->$Signature$Delegate::toString();
 }
 
 int32_t Signature$Delegate$CloneableDelegate::hashCode() {
-	 return this->$Signature$Delegate::hashCode();
+	return this->$Signature$Delegate::hashCode();
 }
 
 bool Signature$Delegate$CloneableDelegate::equals(Object$* obj) {
-	 return this->$Signature$Delegate::equals(obj);
+	return this->$Signature$Delegate::equals(obj);
 }
 
 void Signature$Delegate$CloneableDelegate::finalize() {

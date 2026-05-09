@@ -46,15 +46,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t AuthorityKeyIdentifierExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool AuthorityKeyIdentifierExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* AuthorityKeyIdentifierExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void AuthorityKeyIdentifierExtension::finalize() {

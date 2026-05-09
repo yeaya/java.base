@@ -19,19 +19,19 @@ namespace java {
 	namespace io {
 
 int32_t Writer::hashCode() {
-	 return this->$Appendable::hashCode();
+	return this->$Appendable::hashCode();
 }
 
 bool Writer::equals(Object$* obj) {
-	 return this->$Appendable::equals(obj);
+	return this->$Appendable::equals(obj);
 }
 
 $Object* Writer::clone() {
-	 return this->$Appendable::clone();
+	return this->$Appendable::clone();
 }
 
 $String* Writer::toString() {
-	 return this->$Appendable::toString();
+	return this->$Appendable::toString();
 }
 
 void Writer::finalize() {

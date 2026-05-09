@@ -28,19 +28,19 @@ namespace sun {
 		namespace provider {
 
 int32_t SeedGenerator$ThreadedSeedGenerator::hashCode() {
-	 return this->$SeedGenerator::hashCode();
+	return this->$SeedGenerator::hashCode();
 }
 
 bool SeedGenerator$ThreadedSeedGenerator::equals(Object$* obj) {
-	 return this->$SeedGenerator::equals(obj);
+	return this->$SeedGenerator::equals(obj);
 }
 
 $Object* SeedGenerator$ThreadedSeedGenerator::clone() {
-	 return this->$SeedGenerator::clone();
+	return this->$SeedGenerator::clone();
 }
 
 $String* SeedGenerator$ThreadedSeedGenerator::toString() {
-	 return this->$SeedGenerator::toString();
+	return this->$SeedGenerator::toString();
 }
 
 void SeedGenerator$ThreadedSeedGenerator::finalize() {

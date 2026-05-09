@@ -23,15 +23,15 @@ namespace java {
 		namespace cert {
 
 int32_t PKIXCertPathChecker::hashCode() {
-	 return this->$CertPathChecker::hashCode();
+	return this->$CertPathChecker::hashCode();
 }
 
 bool PKIXCertPathChecker::equals(Object$* obj) {
-	 return this->$CertPathChecker::equals(obj);
+	return this->$CertPathChecker::equals(obj);
 }
 
 $String* PKIXCertPathChecker::toString() {
-	 return this->$CertPathChecker::toString();
+	return this->$CertPathChecker::toString();
 }
 
 void PKIXCertPathChecker::finalize() {

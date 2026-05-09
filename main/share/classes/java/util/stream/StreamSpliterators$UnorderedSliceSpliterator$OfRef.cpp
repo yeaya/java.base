@@ -26,31 +26,31 @@ namespace java {
 		namespace stream {
 
 $Spliterator* StreamSpliterators$UnorderedSliceSpliterator$OfRef::trySplit() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::trySplit();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::trySplit();
 }
 
 int64_t StreamSpliterators$UnorderedSliceSpliterator$OfRef::estimateSize() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::estimateSize();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::estimateSize();
 }
 
 int32_t StreamSpliterators$UnorderedSliceSpliterator$OfRef::characteristics() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::characteristics();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::characteristics();
 }
 
 int32_t StreamSpliterators$UnorderedSliceSpliterator$OfRef::hashCode() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::hashCode();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::hashCode();
 }
 
 bool StreamSpliterators$UnorderedSliceSpliterator$OfRef::equals(Object$* obj) {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::equals(obj);
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$UnorderedSliceSpliterator$OfRef::clone() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::clone();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::clone();
 }
 
 $String* StreamSpliterators$UnorderedSliceSpliterator$OfRef::toString() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::toString();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::toString();
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfRef::finalize() {

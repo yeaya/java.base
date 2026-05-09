@@ -26,15 +26,15 @@ namespace java {
 	namespace util {
 
 bool Collections$SingletonSet::equals(Object$* o) {
-	 return this->$AbstractSet::equals(o);
+	return this->$AbstractSet::equals(o);
 }
 
 $String* Collections$SingletonSet::toString() {
-	 return this->$AbstractSet::toString();
+	return this->$AbstractSet::toString();
 }
 
 $Object* Collections$SingletonSet::clone() {
-	 return this->$AbstractSet::clone();
+	return this->$AbstractSet::clone();
 }
 
 void Collections$SingletonSet::finalize() {

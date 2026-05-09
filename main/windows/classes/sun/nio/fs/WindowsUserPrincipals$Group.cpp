@@ -15,27 +15,27 @@ namespace sun {
 		namespace fs {
 
 $String* WindowsUserPrincipals$Group::getName() {
-	 return this->$WindowsUserPrincipals$User::getName();
+	return this->$WindowsUserPrincipals$User::getName();
 }
 
 $String* WindowsUserPrincipals$Group::toString() {
-	 return this->$WindowsUserPrincipals$User::toString();
+	return this->$WindowsUserPrincipals$User::toString();
 }
 
 bool WindowsUserPrincipals$Group::equals(Object$* obj) {
-	 return this->$WindowsUserPrincipals$User::equals(obj);
+	return this->$WindowsUserPrincipals$User::equals(obj);
 }
 
 int32_t WindowsUserPrincipals$Group::hashCode() {
-	 return this->$WindowsUserPrincipals$User::hashCode();
+	return this->$WindowsUserPrincipals$User::hashCode();
 }
 
 bool WindowsUserPrincipals$Group::implies($Subject* subject) {
-	 return this->$WindowsUserPrincipals$User::implies(subject);
+	return this->$WindowsUserPrincipals$User::implies(subject);
 }
 
 $Object* WindowsUserPrincipals$Group::clone() {
-	 return this->$WindowsUserPrincipals$User::clone();
+	return this->$WindowsUserPrincipals$User::clone();
 }
 
 void WindowsUserPrincipals$Group::finalize() {

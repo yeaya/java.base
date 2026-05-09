@@ -35,7 +35,7 @@ namespace java {
 	namespace lang {
 
 $Object* Float::clone() {
-	 return this->$Number::clone();
+	return this->$Number::clone();
 }
 
 void Float::finalize() {

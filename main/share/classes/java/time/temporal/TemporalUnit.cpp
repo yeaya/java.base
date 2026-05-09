@@ -24,7 +24,7 @@ namespace java {
 		namespace temporal {
 
 $String* TemporalUnit::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 bool TemporalUnit::isSupportedBy($Temporal* temporal) {

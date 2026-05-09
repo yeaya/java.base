@@ -25,15 +25,15 @@ namespace sun {
 		namespace provider {
 
 int32_t DigestBase::hashCode() {
-	 return this->$MessageDigestSpi::hashCode();
+	return this->$MessageDigestSpi::hashCode();
 }
 
 bool DigestBase::equals(Object$* obj) {
-	 return this->$MessageDigestSpi::equals(obj);
+	return this->$MessageDigestSpi::equals(obj);
 }
 
 $String* DigestBase::toString() {
-	 return this->$MessageDigestSpi::toString();
+	return this->$MessageDigestSpi::toString();
 }
 
 void DigestBase::finalize() {

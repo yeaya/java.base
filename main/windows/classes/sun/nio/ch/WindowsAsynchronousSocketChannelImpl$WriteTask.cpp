@@ -53,19 +53,19 @@ namespace sun {
 		namespace ch {
 
 int32_t WindowsAsynchronousSocketChannelImpl$WriteTask::hashCode() {
-	 return this->$Runnable::hashCode();
+	return this->$Runnable::hashCode();
 }
 
 bool WindowsAsynchronousSocketChannelImpl$WriteTask::equals(Object$* obj) {
-	 return this->$Runnable::equals(obj);
+	return this->$Runnable::equals(obj);
 }
 
 $Object* WindowsAsynchronousSocketChannelImpl$WriteTask::clone() {
-	 return this->$Runnable::clone();
+	return this->$Runnable::clone();
 }
 
 $String* WindowsAsynchronousSocketChannelImpl$WriteTask::toString() {
-	 return this->$Runnable::toString();
+	return this->$Runnable::toString();
 }
 
 void WindowsAsynchronousSocketChannelImpl$WriteTask::finalize() {

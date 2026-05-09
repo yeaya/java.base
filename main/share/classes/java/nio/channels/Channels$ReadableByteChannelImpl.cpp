@@ -28,23 +28,23 @@ void Channels$ReadableByteChannelImpl::close() {
 }
 
 bool Channels$ReadableByteChannelImpl::isOpen() {
-	 return this->$AbstractInterruptibleChannel::isOpen();
+	return this->$AbstractInterruptibleChannel::isOpen();
 }
 
 int32_t Channels$ReadableByteChannelImpl::hashCode() {
-	 return this->$AbstractInterruptibleChannel::hashCode();
+	return this->$AbstractInterruptibleChannel::hashCode();
 }
 
 bool Channels$ReadableByteChannelImpl::equals(Object$* obj) {
-	 return this->$AbstractInterruptibleChannel::equals(obj);
+	return this->$AbstractInterruptibleChannel::equals(obj);
 }
 
 $Object* Channels$ReadableByteChannelImpl::clone() {
-	 return this->$AbstractInterruptibleChannel::clone();
+	return this->$AbstractInterruptibleChannel::clone();
 }
 
 $String* Channels$ReadableByteChannelImpl::toString() {
-	 return this->$AbstractInterruptibleChannel::toString();
+	return this->$AbstractInterruptibleChannel::toString();
 }
 
 void Channels$ReadableByteChannelImpl::finalize() {

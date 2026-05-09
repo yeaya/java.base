@@ -46,19 +46,19 @@ namespace java {
 	namespace io {
 
 int32_t PrintStream::hashCode() {
-	 return this->$FilterOutputStream::hashCode();
+	return this->$FilterOutputStream::hashCode();
 }
 
 bool PrintStream::equals(Object$* obj) {
-	 return this->$FilterOutputStream::equals(obj);
+	return this->$FilterOutputStream::equals(obj);
 }
 
 $Object* PrintStream::clone() {
-	 return this->$FilterOutputStream::clone();
+	return this->$FilterOutputStream::clone();
 }
 
 $String* PrintStream::toString() {
-	 return this->$FilterOutputStream::toString();
+	return this->$FilterOutputStream::toString();
 }
 
 void PrintStream::finalize() {

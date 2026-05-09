@@ -37,7 +37,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* baseName) override {
-		 return $ResourceBundle::getBundle($cast($String, baseName));
+		return $ResourceBundle::getBundle($cast($String, baseName));
 	}
 };
 $Class* ResourcesMgr$$Lambda$getBundle::load$($String* name, bool initialize) {

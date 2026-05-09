@@ -89,7 +89,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return ProcessHandleImpl::lambda$static$1();
+		return ProcessHandleImpl::lambda$static$1();
 	}
 };
 $Class* ProcessHandleImpl$$Lambda$lambda$static$1::load$($String* name, bool initialize) {
@@ -120,7 +120,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* exitStatus, Object$* unusedThrowable) override {
-		 return $nc(inst$)->lambda$onExit$2($cast($Integer, exitStatus), $cast($Throwable, unusedThrowable));
+		return $nc(inst$)->lambda$onExit$2($cast($Integer, exitStatus), $cast($Throwable, unusedThrowable));
 	}
 	ProcessHandleImpl* inst$ = nullptr;
 };
@@ -156,7 +156,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* ph) override {
-		 return $nc(inst$)->lambda$children$3($cast($ProcessHandle, ph));
+		return $nc(inst$)->lambda$children$3($cast($ProcessHandle, ph));
 	}
 	ProcessHandleImpl* inst$ = nullptr;
 };
@@ -193,7 +193,7 @@ public:
 		$set(this, stimes, stimes);
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return ProcessHandleImpl::lambda$children$4(cpids, stimes, i);
+		return ProcessHandleImpl::lambda$children$4(cpids, stimes, i);
 	}
 	$longs* cpids = nullptr;
 	$longs* stimes = nullptr;
@@ -232,7 +232,7 @@ public:
 		this->stackSize = stackSize;
 	}
 	virtual $Thread* newThread($Runnable* grimReaper) override {
-		 return ProcessHandleImpl::lambda$static$0(systemThreadGroup, stackSize, grimReaper);
+		return ProcessHandleImpl::lambda$static$0(systemThreadGroup, stackSize, grimReaper);
 	}
 	$ThreadGroup* systemThreadGroup = nullptr;
 	int64_t stackSize = 0;

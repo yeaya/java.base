@@ -62,7 +62,7 @@ public:
 	void init$() {
 	}
 	virtual $bytes* getEntropy(int32_t minE, int32_t minLen, int32_t maxLen, bool pr) override {
-		 return AbstractDrbg::lambda$static$0(minE, minLen, maxLen, pr);
+		return AbstractDrbg::lambda$static$0(minE, minLen, maxLen, pr);
 	}
 };
 $Class* AbstractDrbg$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

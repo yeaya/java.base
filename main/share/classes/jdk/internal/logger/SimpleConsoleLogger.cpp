@@ -51,19 +51,19 @@ namespace jdk {
 		namespace logger {
 
 int32_t SimpleConsoleLogger::hashCode() {
-	 return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::hashCode();
+	return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::hashCode();
 }
 
 bool SimpleConsoleLogger::equals(Object$* obj) {
-	 return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::equals(obj);
+	return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::equals(obj);
 }
 
 $Object* SimpleConsoleLogger::clone() {
-	 return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::clone();
+	return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::clone();
 }
 
 $String* SimpleConsoleLogger::toString() {
-	 return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::toString();
+	return this->$PlatformLogger$ConfigurableBridge$LoggerConfiguration::toString();
 }
 
 void SimpleConsoleLogger::finalize() {

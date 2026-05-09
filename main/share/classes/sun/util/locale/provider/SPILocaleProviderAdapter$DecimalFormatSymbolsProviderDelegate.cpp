@@ -29,19 +29,19 @@ namespace sun {
 			namespace provider {
 
 int32_t SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::hashCode() {
-	 return this->$DecimalFormatSymbolsProvider::hashCode();
+	return this->$DecimalFormatSymbolsProvider::hashCode();
 }
 
 bool SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::equals(Object$* obj) {
-	 return this->$DecimalFormatSymbolsProvider::equals(obj);
+	return this->$DecimalFormatSymbolsProvider::equals(obj);
 }
 
 $Object* SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::clone() {
-	 return this->$DecimalFormatSymbolsProvider::clone();
+	return this->$DecimalFormatSymbolsProvider::clone();
 }
 
 $String* SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::toString() {
-	 return this->$DecimalFormatSymbolsProvider::toString();
+	return this->$DecimalFormatSymbolsProvider::toString();
 }
 
 void SPILocaleProviderAdapter$DecimalFormatSymbolsProviderDelegate::finalize() {

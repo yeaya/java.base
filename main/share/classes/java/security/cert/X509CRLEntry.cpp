@@ -23,7 +23,7 @@ namespace java {
 		namespace cert {
 
 $String* X509CRLEntry::toString() {
-	 return this->$X509Extension::toString();
+	return this->$X509Extension::toString();
 }
 
 void X509CRLEntry::init$() {

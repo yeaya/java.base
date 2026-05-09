@@ -31,15 +31,15 @@ namespace java {
 	namespace util {
 
 bool Collections$SingletonMap::equals(Object$* o) {
-	 return this->$AbstractMap::equals(o);
+	return this->$AbstractMap::equals(o);
 }
 
 $String* Collections$SingletonMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 $Object* Collections$SingletonMap::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 void Collections$SingletonMap::finalize() {

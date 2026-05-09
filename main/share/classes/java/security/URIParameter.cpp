@@ -15,19 +15,19 @@ namespace java {
 	namespace security {
 
 int32_t URIParameter::hashCode() {
-	 return this->$Policy$Parameters::hashCode();
+	return this->$Policy$Parameters::hashCode();
 }
 
 bool URIParameter::equals(Object$* obj) {
-	 return this->$Policy$Parameters::equals(obj);
+	return this->$Policy$Parameters::equals(obj);
 }
 
 $Object* URIParameter::clone() {
-	 return this->$Policy$Parameters::clone();
+	return this->$Policy$Parameters::clone();
 }
 
 $String* URIParameter::toString() {
-	 return this->$Policy$Parameters::toString();
+	return this->$Policy$Parameters::toString();
 }
 
 void URIParameter::finalize() {

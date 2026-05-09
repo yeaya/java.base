@@ -109,7 +109,7 @@ public:
 		$set(this, ctor, ctor);
 	}
 	virtual $Object* run() override {
-		 return ResourceBundle$Control::lambda$newBundle0$0(ctor);
+		return ResourceBundle$Control::lambda$newBundle0$0(ctor);
 	}
 	$Constructor* ctor = nullptr;
 };

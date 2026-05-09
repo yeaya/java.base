@@ -41,19 +41,19 @@ namespace sun {
 		namespace cs {
 
 int32_t CESU_8$Decoder::hashCode() {
-	 return this->$CharsetDecoder::hashCode();
+	return this->$CharsetDecoder::hashCode();
 }
 
 bool CESU_8$Decoder::equals(Object$* obj) {
-	 return this->$CharsetDecoder::equals(obj);
+	return this->$CharsetDecoder::equals(obj);
 }
 
 $Object* CESU_8$Decoder::clone() {
-	 return this->$CharsetDecoder::clone();
+	return this->$CharsetDecoder::clone();
 }
 
 $String* CESU_8$Decoder::toString() {
-	 return this->$CharsetDecoder::toString();
+	return this->$CharsetDecoder::toString();
 }
 
 void CESU_8$Decoder::finalize() {

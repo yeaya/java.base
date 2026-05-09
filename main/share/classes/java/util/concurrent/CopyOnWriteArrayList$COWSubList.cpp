@@ -60,7 +60,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return CopyOnWriteArrayList$COWSubList::lambda$removeAll$0(c, e);
+		return CopyOnWriteArrayList$COWSubList::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -96,7 +96,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return CopyOnWriteArrayList$COWSubList::lambda$retainAll$1(c, e);
+		return CopyOnWriteArrayList$COWSubList::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -126,7 +126,7 @@ $Class* CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::load$($Str
 $Class* CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
 
 $Object* CopyOnWriteArrayList$COWSubList::clone() {
-	 return this->$List::clone();
+	return this->$List::clone();
 }
 
 void CopyOnWriteArrayList$COWSubList::finalize() {

@@ -69,7 +69,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($ofnc(inst$)->toString());
+		return $of($ofnc(inst$)->toString());
 	}
 };
 $Class* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::load$($String* name, bool initialize) {
@@ -94,39 +94,39 @@ $Class* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::load$($
 $Class* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl$$Lambda$toString::class$ = nullptr;
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotations() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
 }
 
 $Annotation* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotation($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotation(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotation(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getAnnotationsByType($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByType(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByType(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getDeclaredAnnotations() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations();
 }
 
 $Annotation* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getDeclaredAnnotation($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotation(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotation(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getDeclaredAnnotationsByType($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotationsByType(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotationsByType(annotation);
 }
 
 $Type* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::getType() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType();
 }
 
 bool AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::isAnnotationPresent($Class* annotationClass) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::isAnnotationPresent(annotationClass);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::isAnnotationPresent(annotationClass);
 }
 
 $Object* AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::clone() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::clone();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::clone();
 }
 
 void AnnotatedTypeFactory$AnnotatedWildcardTypeImpl::finalize() {

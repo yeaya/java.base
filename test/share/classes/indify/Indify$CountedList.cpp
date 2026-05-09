@@ -21,19 +21,19 @@ using $Iterator = ::java::util::Iterator;
 namespace indify {
 
 $Object* Indify$CountedList::clone() {
-	 return this->$ArrayList::clone();
+	return this->$ArrayList::clone();
 }
 
 bool Indify$CountedList::equals(Object$* arg0) {
-	 return this->$ArrayList::equals(arg0);
+	return this->$ArrayList::equals(arg0);
 }
 
 int32_t Indify$CountedList::hashCode() {
-	 return this->$ArrayList::hashCode();
+	return this->$ArrayList::hashCode();
 }
 
 $String* Indify$CountedList::toString() {
-	 return this->$ArrayList::toString();
+	return this->$ArrayList::toString();
 }
 
 void Indify$CountedList::finalize() {

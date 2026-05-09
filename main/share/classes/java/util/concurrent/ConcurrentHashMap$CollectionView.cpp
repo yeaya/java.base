@@ -30,15 +30,15 @@ namespace java {
 		namespace concurrent {
 
 bool ConcurrentHashMap$CollectionView::equals(Object$* o) {
-	 return this->$Collection::equals(o);
+	return this->$Collection::equals(o);
 }
 
 int32_t ConcurrentHashMap$CollectionView::hashCode() {
-	 return this->$Collection::hashCode();
+	return this->$Collection::hashCode();
 }
 
 $Object* ConcurrentHashMap$CollectionView::clone() {
-	 return this->$Collection::clone();
+	return this->$Collection::clone();
 }
 
 void ConcurrentHashMap$CollectionView::finalize() {

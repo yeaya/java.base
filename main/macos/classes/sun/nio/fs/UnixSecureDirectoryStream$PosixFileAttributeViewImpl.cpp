@@ -58,19 +58,19 @@ void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setTimes($FileTime* l
 }
 
 int32_t UnixSecureDirectoryStream$PosixFileAttributeViewImpl::hashCode() {
-	 return this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::hashCode();
+	return this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::hashCode();
 }
 
 bool UnixSecureDirectoryStream$PosixFileAttributeViewImpl::equals(Object$* obj) {
-	 return this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::equals(obj);
+	return this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::equals(obj);
 }
 
 $Object* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::clone() {
-	 return this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::clone();
+	return this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::clone();
 }
 
 $String* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::toString() {
-	 return this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::toString();
+	return this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::toString();
 }
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::finalize() {

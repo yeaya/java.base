@@ -62,19 +62,19 @@ namespace java {
 		namespace chrono {
 
 bool MinguoChronology::equals(Object$* obj) {
-	 return this->$AbstractChronology::equals(obj);
+	return this->$AbstractChronology::equals(obj);
 }
 
 int32_t MinguoChronology::hashCode() {
-	 return this->$AbstractChronology::hashCode();
+	return this->$AbstractChronology::hashCode();
 }
 
 $String* MinguoChronology::toString() {
-	 return this->$AbstractChronology::toString();
+	return this->$AbstractChronology::toString();
 }
 
 $Object* MinguoChronology::clone() {
-	 return this->$AbstractChronology::clone();
+	return this->$AbstractChronology::clone();
 }
 
 void MinguoChronology::finalize() {

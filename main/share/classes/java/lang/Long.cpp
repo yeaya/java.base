@@ -49,7 +49,7 @@ namespace java {
 	namespace lang {
 
 $Object* Long::clone() {
-	 return this->$Number::clone();
+	return this->$Number::clone();
 }
 
 void Long::finalize() {

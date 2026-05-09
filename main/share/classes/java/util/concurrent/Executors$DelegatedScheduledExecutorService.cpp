@@ -39,63 +39,63 @@ void Executors$DelegatedScheduledExecutorService::shutdown() {
 }
 
 $List* Executors$DelegatedScheduledExecutorService::shutdownNow() {
-	 return this->$Executors$DelegatedExecutorService::shutdownNow();
+	return this->$Executors$DelegatedExecutorService::shutdownNow();
 }
 
 bool Executors$DelegatedScheduledExecutorService::isShutdown() {
-	 return this->$Executors$DelegatedExecutorService::isShutdown();
+	return this->$Executors$DelegatedExecutorService::isShutdown();
 }
 
 bool Executors$DelegatedScheduledExecutorService::isTerminated() {
-	 return this->$Executors$DelegatedExecutorService::isTerminated();
+	return this->$Executors$DelegatedExecutorService::isTerminated();
 }
 
 bool Executors$DelegatedScheduledExecutorService::awaitTermination(int64_t timeout, $TimeUnit* unit) {
-	 return this->$Executors$DelegatedExecutorService::awaitTermination(timeout, unit);
+	return this->$Executors$DelegatedExecutorService::awaitTermination(timeout, unit);
 }
 
 $Future* Executors$DelegatedScheduledExecutorService::submit($Runnable* task) {
-	 return this->$Executors$DelegatedExecutorService::submit(task);
+	return this->$Executors$DelegatedExecutorService::submit(task);
 }
 
 $Future* Executors$DelegatedScheduledExecutorService::submit($Callable* task) {
-	 return this->$Executors$DelegatedExecutorService::submit(task);
+	return this->$Executors$DelegatedExecutorService::submit(task);
 }
 
 $Future* Executors$DelegatedScheduledExecutorService::submit($Runnable* task, Object$* result) {
-	 return this->$Executors$DelegatedExecutorService::submit(task, result);
+	return this->$Executors$DelegatedExecutorService::submit(task, result);
 }
 
 $List* Executors$DelegatedScheduledExecutorService::invokeAll($Collection* tasks) {
-	 return this->$Executors$DelegatedExecutorService::invokeAll(tasks);
+	return this->$Executors$DelegatedExecutorService::invokeAll(tasks);
 }
 
 $List* Executors$DelegatedScheduledExecutorService::invokeAll($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
-	 return this->$Executors$DelegatedExecutorService::invokeAll(tasks, timeout, unit);
+	return this->$Executors$DelegatedExecutorService::invokeAll(tasks, timeout, unit);
 }
 
 $Object* Executors$DelegatedScheduledExecutorService::invokeAny($Collection* tasks) {
-	 return this->$Executors$DelegatedExecutorService::invokeAny(tasks);
+	return this->$Executors$DelegatedExecutorService::invokeAny(tasks);
 }
 
 $Object* Executors$DelegatedScheduledExecutorService::invokeAny($Collection* tasks, int64_t timeout, $TimeUnit* unit) {
-	 return this->$Executors$DelegatedExecutorService::invokeAny(tasks, timeout, unit);
+	return this->$Executors$DelegatedExecutorService::invokeAny(tasks, timeout, unit);
 }
 
 int32_t Executors$DelegatedScheduledExecutorService::hashCode() {
-	 return this->$Executors$DelegatedExecutorService::hashCode();
+	return this->$Executors$DelegatedExecutorService::hashCode();
 }
 
 bool Executors$DelegatedScheduledExecutorService::equals(Object$* obj) {
-	 return this->$Executors$DelegatedExecutorService::equals(obj);
+	return this->$Executors$DelegatedExecutorService::equals(obj);
 }
 
 $Object* Executors$DelegatedScheduledExecutorService::clone() {
-	 return this->$Executors$DelegatedExecutorService::clone();
+	return this->$Executors$DelegatedExecutorService::clone();
 }
 
 $String* Executors$DelegatedScheduledExecutorService::toString() {
-	 return this->$Executors$DelegatedExecutorService::toString();
+	return this->$Executors$DelegatedExecutorService::toString();
 }
 
 void Executors$DelegatedScheduledExecutorService::finalize() {

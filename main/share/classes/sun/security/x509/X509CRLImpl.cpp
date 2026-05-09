@@ -128,15 +128,15 @@ namespace sun {
 		namespace x509 {
 
 bool X509CRLImpl::equals(Object$* other) {
-	 return this->$X509CRL::equals(other);
+	return this->$X509CRL::equals(other);
 }
 
 int32_t X509CRLImpl::hashCode() {
-	 return this->$X509CRL::hashCode();
+	return this->$X509CRL::hashCode();
 }
 
 $Object* X509CRLImpl::clone() {
-	 return this->$X509CRL::clone();
+	return this->$X509CRL::clone();
 }
 
 void X509CRLImpl::finalize() {

@@ -34,7 +34,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(double v) override {
-		 return $Double::isNaN(v);
+		return $Double::isNaN(v);
 	}
 };
 $Class* DoubleSummaryStatistics$$Lambda$isNaN::load$($String* name, bool initialize) {

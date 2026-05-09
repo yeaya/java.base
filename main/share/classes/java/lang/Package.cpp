@@ -67,7 +67,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return Package::lambda$getPackages$0(x$0);
+		return Package::lambda$getPackages$0(x$0);
 	}
 };
 $Class* Package$$Lambda$lambda$getPackages$0::load$($String* name, bool initialize) {
@@ -98,7 +98,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getClassLoader();
+		return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
 };
@@ -128,11 +128,11 @@ $Class* Package$$Lambda$getClassLoader$1::load$($String* name, bool initialize) 
 $Class* Package$$Lambda$getClassLoader$1::class$ = nullptr;
 
 bool Package::equals(Object$* obj) {
-	 return this->$NamedPackage::equals(obj);
+	return this->$NamedPackage::equals(obj);
 }
 
 $Object* Package::clone() {
-	 return this->$NamedPackage::clone();
+	return this->$NamedPackage::clone();
 }
 
 void Package::finalize() {

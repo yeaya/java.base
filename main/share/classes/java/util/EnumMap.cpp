@@ -48,7 +48,7 @@ namespace java {
 	namespace util {
 
 $String* EnumMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 void EnumMap::finalize() {

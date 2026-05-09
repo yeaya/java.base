@@ -9,15 +9,15 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 int32_t InheritedMethodTest$D::hashCode() {
-	 return this->$InheritedMethodTest$C::hashCode();
+	return this->$InheritedMethodTest$C::hashCode();
 }
 
 bool InheritedMethodTest$D::equals(Object$* arg0) {
-	 return this->$InheritedMethodTest$C::equals(arg0);
+	return this->$InheritedMethodTest$C::equals(arg0);
 }
 
 $Object* InheritedMethodTest$D::clone() {
-	 return this->$InheritedMethodTest$C::clone();
+	return this->$InheritedMethodTest$C::clone();
 }
 
 void InheritedMethodTest$D::finalize() {

@@ -41,19 +41,19 @@ using $List = ::java::util::List;
 namespace indify {
 
 int32_t Indify$ClassFile::hashCode() {
-	 return this->$Indify$Outer::hashCode();
+	return this->$Indify$Outer::hashCode();
 }
 
 bool Indify$ClassFile::equals(Object$* arg0) {
-	 return this->$Indify$Outer::equals(arg0);
+	return this->$Indify$Outer::equals(arg0);
 }
 
 $Object* Indify$ClassFile::clone() {
-	 return this->$Indify$Outer::clone();
+	return this->$Indify$Outer::clone();
 }
 
 $String* Indify$ClassFile::toString() {
-	 return this->$Indify$Outer::toString();
+	return this->$Indify$Outer::toString();
 }
 
 void Indify$ClassFile::finalize() {

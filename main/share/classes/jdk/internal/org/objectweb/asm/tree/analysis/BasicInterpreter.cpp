@@ -208,19 +208,19 @@ namespace jdk {
 						namespace analysis {
 
 int32_t BasicInterpreter::hashCode() {
-	 return this->$Interpreter::hashCode();
+	return this->$Interpreter::hashCode();
 }
 
 bool BasicInterpreter::equals(Object$* obj) {
-	 return this->$Interpreter::equals(obj);
+	return this->$Interpreter::equals(obj);
 }
 
 $Object* BasicInterpreter::clone() {
-	 return this->$Interpreter::clone();
+	return this->$Interpreter::clone();
 }
 
 $String* BasicInterpreter::toString() {
-	 return this->$Interpreter::toString();
+	return this->$Interpreter::toString();
 }
 
 void BasicInterpreter::finalize() {

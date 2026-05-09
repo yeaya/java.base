@@ -52,7 +52,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* k) override {
-		 return AbstractSelectableChannel::lambda$forEach$0($cast($SelectionKey, k));
+		return AbstractSelectableChannel::lambda$forEach$0($cast($SelectionKey, k));
 	}
 };
 $Class* AbstractSelectableChannel$$Lambda$lambda$forEach$0::load$($String* name, bool initialize) {

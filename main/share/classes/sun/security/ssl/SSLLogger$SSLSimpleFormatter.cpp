@@ -96,7 +96,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(SSLLogger$SSLSimpleFormatter::lambda$formatCaller$2($cast($Stream, s)));
+		return $of(SSLLogger$SSLSimpleFormatter::lambda$formatCaller$2($cast($Stream, s)));
 	}
 };
 $Class* SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$2::load$($String* name, bool initialize) {
@@ -126,7 +126,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* f) override {
-		 return SSLLogger$SSLSimpleFormatter::lambda$formatCaller$0($cast($StackWalker$StackFrame, f));
+		return SSLLogger$SSLSimpleFormatter::lambda$formatCaller$0($cast($StackWalker$StackFrame, f));
 	}
 };
 $Class* SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$0$1::load$($String* name, bool initialize) {
@@ -156,7 +156,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return $of(SSLLogger$SSLSimpleFormatter::lambda$formatCaller$1($cast($StackWalker$StackFrame, f)));
+		return $of(SSLLogger$SSLSimpleFormatter::lambda$formatCaller$1($cast($StackWalker$StackFrame, f)));
 	}
 };
 $Class* SSLLogger$SSLSimpleFormatter$$Lambda$lambda$formatCaller$1$2::load$($String* name, bool initialize) {

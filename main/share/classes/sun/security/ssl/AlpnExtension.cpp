@@ -54,7 +54,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(AlpnExtension::lambda$static$0());
+		return $of(AlpnExtension::lambda$static$0());
 	}
 };
 $Class* AlpnExtension$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

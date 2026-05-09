@@ -135,7 +135,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getBreakIteratorProvider$0();
+		return $nc(inst$)->lambda$getBreakIteratorProvider$0();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -171,7 +171,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getCollatorProvider$1();
+		return $nc(inst$)->lambda$getCollatorProvider$1();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -207,7 +207,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getDateFormatProvider$2();
+		return $nc(inst$)->lambda$getDateFormatProvider$2();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -243,7 +243,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getDateFormatSymbolsProvider$3();
+		return $nc(inst$)->lambda$getDateFormatSymbolsProvider$3();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -279,7 +279,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getDecimalFormatSymbolsProvider$4();
+		return $nc(inst$)->lambda$getDecimalFormatSymbolsProvider$4();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -315,7 +315,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getNumberFormatProvider$5();
+		return $nc(inst$)->lambda$getNumberFormatProvider$5();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -351,7 +351,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getCurrencyNameProvider$6();
+		return $nc(inst$)->lambda$getCurrencyNameProvider$6();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -387,7 +387,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getLocaleNameProvider$7();
+		return $nc(inst$)->lambda$getLocaleNameProvider$7();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -423,7 +423,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getTimeZoneNameProvider$8();
+		return $nc(inst$)->lambda$getTimeZoneNameProvider$8();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -459,7 +459,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getCalendarDataProvider$9();
+		return $nc(inst$)->lambda$getCalendarDataProvider$9();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -495,7 +495,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getCalendarNameProvider$10();
+		return $nc(inst$)->lambda$getCalendarNameProvider$10();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -531,7 +531,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getCalendarProvider$11();
+		return $nc(inst$)->lambda$getCalendarProvider$11();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -567,7 +567,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getJavaTimeDateTimePatternProvider$12();
+		return $nc(inst$)->lambda$getJavaTimeDateTimePatternProvider$12();
 	}
 	JRELocaleProviderAdapter* inst$ = nullptr;
 };
@@ -603,7 +603,7 @@ public:
 		$set(this, category, category);
 	}
 	virtual $Object* run() override {
-		 return $of(JRELocaleProviderAdapter::lambda$createSupportedLocaleString$13(category));
+		return $of(JRELocaleProviderAdapter::lambda$createSupportedLocaleString$13(category));
 	}
 	$String* category = nullptr;
 };
@@ -633,19 +633,19 @@ $Class* JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$13$1
 $Class* JRELocaleProviderAdapter$$Lambda$lambda$createSupportedLocaleString$13$13::class$ = nullptr;
 
 int32_t JRELocaleProviderAdapter::hashCode() {
-	 return this->$LocaleProviderAdapter::hashCode();
+	return this->$LocaleProviderAdapter::hashCode();
 }
 
 bool JRELocaleProviderAdapter::equals(Object$* obj) {
-	 return this->$LocaleProviderAdapter::equals(obj);
+	return this->$LocaleProviderAdapter::equals(obj);
 }
 
 $Object* JRELocaleProviderAdapter::clone() {
-	 return this->$LocaleProviderAdapter::clone();
+	return this->$LocaleProviderAdapter::clone();
 }
 
 $String* JRELocaleProviderAdapter::toString() {
-	 return this->$LocaleProviderAdapter::toString();
+	return this->$LocaleProviderAdapter::toString();
 }
 
 void JRELocaleProviderAdapter::finalize() {

@@ -46,7 +46,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $nc(inst$)->lambda$get$0($cast($Stream, s));
+		return $nc(inst$)->lambda$get$0($cast($Stream, s));
 	}
 	SimpleConsoleLogger$CallerFinder* inst$ = nullptr;
 };

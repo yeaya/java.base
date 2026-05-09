@@ -11,19 +11,19 @@ namespace java {
 		namespace stream {
 
 int32_t TerminalSink::hashCode() {
-	 return this->$Sink::hashCode();
+	return this->$Sink::hashCode();
 }
 
 bool TerminalSink::equals(Object$* obj) {
-	 return this->$Sink::equals(obj);
+	return this->$Sink::equals(obj);
 }
 
 $Object* TerminalSink::clone() {
-	 return this->$Sink::clone();
+	return this->$Sink::clone();
 }
 
 $String* TerminalSink::toString() {
-	 return this->$Sink::toString();
+	return this->$Sink::toString();
 }
 
 void TerminalSink::finalize() {

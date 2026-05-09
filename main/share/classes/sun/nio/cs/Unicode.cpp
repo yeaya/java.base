@@ -31,19 +31,19 @@ namespace sun {
 		namespace cs {
 
 int32_t Unicode::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool Unicode::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* Unicode::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* Unicode::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void Unicode::finalize() {

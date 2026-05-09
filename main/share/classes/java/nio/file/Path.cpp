@@ -43,19 +43,19 @@ namespace java {
 		namespace file {
 
 bool Path::equals(Object$* other) {
-	 return this->$Comparable::equals(other);
+	return this->$Comparable::equals(other);
 }
 
 int32_t Path::hashCode() {
-	 return this->$Comparable::hashCode();
+	return this->$Comparable::hashCode();
 }
 
 $String* Path::toString() {
-	 return this->$Comparable::toString();
+	return this->$Comparable::toString();
 }
 
 $Object* Path::clone() {
-	 return this->$Comparable::clone();
+	return this->$Comparable::clone();
 }
 
 void Path::finalize() {

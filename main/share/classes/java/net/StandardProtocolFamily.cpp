@@ -16,23 +16,23 @@ namespace java {
 	namespace net {
 
 $String* StandardProtocolFamily::name() {
-	 return this->$Enum::name();
+	return this->$Enum::name();
 }
 
 $String* StandardProtocolFamily::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool StandardProtocolFamily::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t StandardProtocolFamily::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* StandardProtocolFamily::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void StandardProtocolFamily::finalize() {

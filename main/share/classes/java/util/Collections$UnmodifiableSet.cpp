@@ -29,59 +29,59 @@ namespace java {
 	namespace util {
 
 int32_t Collections$UnmodifiableSet::size() {
-	 return this->$Collections$UnmodifiableCollection::size();
+	return this->$Collections$UnmodifiableCollection::size();
 }
 
 bool Collections$UnmodifiableSet::isEmpty() {
-	 return this->$Collections$UnmodifiableCollection::isEmpty();
+	return this->$Collections$UnmodifiableCollection::isEmpty();
 }
 
 bool Collections$UnmodifiableSet::contains(Object$* o) {
-	 return this->$Collections$UnmodifiableCollection::contains(o);
+	return this->$Collections$UnmodifiableCollection::contains(o);
 }
 
 $ObjectArray* Collections$UnmodifiableSet::toArray() {
-	 return this->$Collections$UnmodifiableCollection::toArray();
+	return this->$Collections$UnmodifiableCollection::toArray();
 }
 
 $ObjectArray* Collections$UnmodifiableSet::toArray($ObjectArray* a) {
-	 return this->$Collections$UnmodifiableCollection::toArray(a);
+	return this->$Collections$UnmodifiableCollection::toArray(a);
 }
 
 $ObjectArray* Collections$UnmodifiableSet::toArray($IntFunction* f) {
-	 return this->$Collections$UnmodifiableCollection::toArray(f);
+	return this->$Collections$UnmodifiableCollection::toArray(f);
 }
 
 $String* Collections$UnmodifiableSet::toString() {
-	 return this->$Collections$UnmodifiableCollection::toString();
+	return this->$Collections$UnmodifiableCollection::toString();
 }
 
 $Iterator* Collections$UnmodifiableSet::iterator() {
-	 return this->$Collections$UnmodifiableCollection::iterator();
+	return this->$Collections$UnmodifiableCollection::iterator();
 }
 
 bool Collections$UnmodifiableSet::add(Object$* e) {
-	 return this->$Collections$UnmodifiableCollection::add(e);
+	return this->$Collections$UnmodifiableCollection::add(e);
 }
 
 bool Collections$UnmodifiableSet::remove(Object$* o) {
-	 return this->$Collections$UnmodifiableCollection::remove(o);
+	return this->$Collections$UnmodifiableCollection::remove(o);
 }
 
 bool Collections$UnmodifiableSet::containsAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableCollection::containsAll(coll);
+	return this->$Collections$UnmodifiableCollection::containsAll(coll);
 }
 
 bool Collections$UnmodifiableSet::addAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableCollection::addAll(coll);
+	return this->$Collections$UnmodifiableCollection::addAll(coll);
 }
 
 bool Collections$UnmodifiableSet::removeAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableCollection::removeAll(coll);
+	return this->$Collections$UnmodifiableCollection::removeAll(coll);
 }
 
 bool Collections$UnmodifiableSet::retainAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableCollection::retainAll(coll);
+	return this->$Collections$UnmodifiableCollection::retainAll(coll);
 }
 
 void Collections$UnmodifiableSet::clear() {
@@ -93,23 +93,23 @@ void Collections$UnmodifiableSet::forEach($Consumer* action) {
 }
 
 bool Collections$UnmodifiableSet::removeIf($Predicate* filter) {
-	 return this->$Collections$UnmodifiableCollection::removeIf(filter);
+	return this->$Collections$UnmodifiableCollection::removeIf(filter);
 }
 
 $Spliterator* Collections$UnmodifiableSet::spliterator() {
-	 return this->$Collections$UnmodifiableCollection::spliterator();
+	return this->$Collections$UnmodifiableCollection::spliterator();
 }
 
 $Stream* Collections$UnmodifiableSet::stream() {
-	 return this->$Collections$UnmodifiableCollection::stream();
+	return this->$Collections$UnmodifiableCollection::stream();
 }
 
 $Stream* Collections$UnmodifiableSet::parallelStream() {
-	 return this->$Collections$UnmodifiableCollection::parallelStream();
+	return this->$Collections$UnmodifiableCollection::parallelStream();
 }
 
 $Object* Collections$UnmodifiableSet::clone() {
-	 return this->$Collections$UnmodifiableCollection::clone();
+	return this->$Collections$UnmodifiableCollection::clone();
 }
 
 void Collections$UnmodifiableSet::finalize() {

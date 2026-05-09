@@ -44,7 +44,7 @@ public:
 		$set(this, customZDT, customZDT);
 	}
 	virtual bool test(Object$* e) override {
-		 return CustomZoneNameTest::lambda$testFormatting$0(customZDT, $cast($Map$Entry, e));
+		return CustomZoneNameTest::lambda$testFormatting$0(customZDT, $cast($Map$Entry, e));
 	}
 	$ZonedDateTime* customZDT = nullptr;
 };
@@ -109,7 +109,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return CustomZoneNameTest::lambda$testParsing$2($cast($Map$Entry, e));
+		return CustomZoneNameTest::lambda$testParsing$2($cast($Map$Entry, e));
 	}
 };
 $Class* CustomZoneNameTest$$Lambda$lambda$testParsing$2$2::load$($String* name, bool initialize) {
@@ -169,7 +169,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* arg0) override {
-		 return $of($Instant::from(arg0));
+		return $of($Instant::from(arg0));
 	}
 };
 $Class* CustomZoneNameTest$$Lambda$from$4::load$($String* name, bool initialize) {
@@ -199,7 +199,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* arg0) override {
-		 return $of($ZonedDateTime::from(arg0));
+		return $of($ZonedDateTime::from(arg0));
 	}
 };
 $Class* CustomZoneNameTest$$Lambda$from$5::load$($String* name, bool initialize) {

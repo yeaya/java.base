@@ -60,7 +60,7 @@ public:
 		this->maxLength = maxLength;
 	}
 	virtual $Object* run() override {
-		 return SealedObjectForKeyProtector::lambda$getKey$0(ois, maxLength);
+		return SealedObjectForKeyProtector::lambda$getKey$0(ois, maxLength);
 	}
 	$ObjectInputStream* ois = nullptr;
 	int32_t maxLength = 0;

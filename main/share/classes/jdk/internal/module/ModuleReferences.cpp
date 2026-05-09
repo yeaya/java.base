@@ -57,7 +57,7 @@ public:
 		$set(this, uri, uri);
 	}
 	virtual $Object* get() override {
-		 return ModuleReferences::lambda$newJarModule$0(file, uri);
+		return ModuleReferences::lambda$newJarModule$0(file, uri);
 	}
 	$Path* file = nullptr;
 	$URI* uri = nullptr;
@@ -95,7 +95,7 @@ public:
 		$set(this, supplier, supplier);
 	}
 	virtual $bytes* generate($String* a) override {
-		 return ModuleReferences::lambda$newJarModule$1(supplier, a);
+		return ModuleReferences::lambda$newJarModule$1(supplier, a);
 	}
 	$Supplier* supplier = nullptr;
 };
@@ -132,7 +132,7 @@ public:
 		$set(this, uri, uri);
 	}
 	virtual $Object* get() override {
-		 return ModuleReferences::lambda$newJModModule$2(file, uri);
+		return ModuleReferences::lambda$newJModModule$2(file, uri);
 	}
 	$Path* file = nullptr;
 	$URI* uri = nullptr;
@@ -170,7 +170,7 @@ public:
 		$set(this, dir, dir);
 	}
 	virtual $Object* get() override {
-		 return ModuleReferences::lambda$newExplodedModule$4(dir);
+		return ModuleReferences::lambda$newExplodedModule$4(dir);
 	}
 	$Path* dir = nullptr;
 };

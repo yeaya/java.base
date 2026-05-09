@@ -88,7 +88,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool getAsBoolean() override {
-		 return $nc(inst$)->lambda$initPartialTraversalState$0();
+		return $nc(inst$)->lambda$initPartialTraversalState$0();
 	}
 	StreamSpliterators$IntWrappingSpliterator* inst$ = nullptr;
 };
@@ -154,27 +154,27 @@ $Class* StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2::load$($Strin
 $Class* StreamSpliterators$IntWrappingSpliterator$$Lambda$accept$2::class$ = nullptr;
 
 int64_t StreamSpliterators$IntWrappingSpliterator::estimateSize() {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::estimateSize();
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::estimateSize();
 }
 
 int64_t StreamSpliterators$IntWrappingSpliterator::getExactSizeIfKnown() {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::getExactSizeIfKnown();
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::getExactSizeIfKnown();
 }
 
 int32_t StreamSpliterators$IntWrappingSpliterator::characteristics() {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::characteristics();
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::characteristics();
 }
 
 $Comparator* StreamSpliterators$IntWrappingSpliterator::getComparator() {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::getComparator();
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::getComparator();
 }
 
 $String* StreamSpliterators$IntWrappingSpliterator::toString() {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::toString();
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::toString();
 }
 
 bool StreamSpliterators$IntWrappingSpliterator::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(action);
+	return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(action);
 }
 
 void StreamSpliterators$IntWrappingSpliterator::forEachRemaining($Consumer* action) {
@@ -182,19 +182,19 @@ void StreamSpliterators$IntWrappingSpliterator::forEachRemaining($Consumer* acti
 }
 
 bool StreamSpliterators$IntWrappingSpliterator::hasCharacteristics(int32_t characteristics) {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::hasCharacteristics(characteristics);
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::hasCharacteristics(characteristics);
 }
 
 int32_t StreamSpliterators$IntWrappingSpliterator::hashCode() {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::hashCode();
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::hashCode();
 }
 
 bool StreamSpliterators$IntWrappingSpliterator::equals(Object$* obj) {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::equals(obj);
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$IntWrappingSpliterator::clone() {
-	 return this->$StreamSpliterators$AbstractWrappingSpliterator::clone();
+	return this->$StreamSpliterators$AbstractWrappingSpliterator::clone();
 }
 
 void StreamSpliterators$IntWrappingSpliterator::finalize() {

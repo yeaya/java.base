@@ -22,19 +22,19 @@ using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
 namespace util {
 
 $String* ClassSupplier::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool ClassSupplier::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t ClassSupplier::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* ClassSupplier::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void ClassSupplier::finalize() {

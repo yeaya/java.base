@@ -56,19 +56,19 @@ namespace java {
 	namespace util {
 
 int32_t Random::hashCode() {
-	 return this->$RandomGenerator::hashCode();
+	return this->$RandomGenerator::hashCode();
 }
 
 bool Random::equals(Object$* obj) {
-	 return this->$RandomGenerator::equals(obj);
+	return this->$RandomGenerator::equals(obj);
 }
 
 $Object* Random::clone() {
-	 return this->$RandomGenerator::clone();
+	return this->$RandomGenerator::clone();
 }
 
 $String* Random::toString() {
-	 return this->$RandomGenerator::toString();
+	return this->$RandomGenerator::toString();
 }
 
 void Random::finalize() {

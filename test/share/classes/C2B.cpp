@@ -10,19 +10,19 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 int32_t C2B::hashCode() {
-	 return this->$C0B::hashCode();
+	return this->$C0B::hashCode();
 }
 
 bool C2B::equals(Object$* arg0) {
-	 return this->$C0B::equals(arg0);
+	return this->$C0B::equals(arg0);
 }
 
 $Object* C2B::clone() {
-	 return this->$C0B::clone();
+	return this->$C0B::clone();
 }
 
 $String* C2B::toString() {
-	 return this->$C0B::toString();
+	return this->$C0B::toString();
 }
 
 void C2B::finalize() {

@@ -70,7 +70,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(KeyStoreDelegator::lambda$new$0());
+		return $of(KeyStoreDelegator::lambda$new$0());
 	}
 };
 $Class* KeyStoreDelegator$$Lambda$lambda$new$0::load$($String* name, bool initialize) {

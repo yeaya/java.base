@@ -11,7 +11,7 @@ namespace java {
 		namespace cert {
 
 $Object* CertPathParameters::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 $Class* CertPathParameters::load$($String* name, bool initialize) {

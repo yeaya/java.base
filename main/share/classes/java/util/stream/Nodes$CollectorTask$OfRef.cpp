@@ -45,7 +45,7 @@ public:
 		$set(this, generator, generator);
 	}
 	virtual $Object* apply(int64_t s) override {
-		 return Nodes$CollectorTask$OfRef::lambda$new$0(generator, s);
+		return Nodes$CollectorTask$OfRef::lambda$new$0(generator, s);
 	}
 	$IntFunction* generator = nullptr;
 };
@@ -80,7 +80,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return $new($Nodes$ConcNode, $cast($Node, left), $cast($Node, right));
+		return $new($Nodes$ConcNode, $cast($Node, left), $cast($Node, right));
 	}
 };
 $Class* Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::load$($String* name, bool initialize) {

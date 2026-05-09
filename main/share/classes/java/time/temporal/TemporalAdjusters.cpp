@@ -48,7 +48,7 @@ public:
 		$set(this, dateBasedAdjuster, dateBasedAdjuster);
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$ofDateAdjuster$0(dateBasedAdjuster, temporal);
+		return TemporalAdjusters::lambda$ofDateAdjuster$0(dateBasedAdjuster, temporal);
 	}
 	$UnaryOperator* dateBasedAdjuster = nullptr;
 };
@@ -83,7 +83,7 @@ public:
 	void init$() {
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$firstDayOfMonth$1(temporal);
+		return TemporalAdjusters::lambda$firstDayOfMonth$1(temporal);
 	}
 };
 $Class* TemporalAdjusters$$Lambda$lambda$firstDayOfMonth$1$1::load$($String* name, bool initialize) {
@@ -113,7 +113,7 @@ public:
 	void init$() {
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$lastDayOfMonth$2(temporal);
+		return TemporalAdjusters::lambda$lastDayOfMonth$2(temporal);
 	}
 };
 $Class* TemporalAdjusters$$Lambda$lambda$lastDayOfMonth$2$2::load$($String* name, bool initialize) {
@@ -143,7 +143,7 @@ public:
 	void init$() {
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$firstDayOfNextMonth$3(temporal);
+		return TemporalAdjusters::lambda$firstDayOfNextMonth$3(temporal);
 	}
 };
 $Class* TemporalAdjusters$$Lambda$lambda$firstDayOfNextMonth$3$3::load$($String* name, bool initialize) {
@@ -173,7 +173,7 @@ public:
 	void init$() {
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$firstDayOfYear$4(temporal);
+		return TemporalAdjusters::lambda$firstDayOfYear$4(temporal);
 	}
 };
 $Class* TemporalAdjusters$$Lambda$lambda$firstDayOfYear$4$4::load$($String* name, bool initialize) {
@@ -203,7 +203,7 @@ public:
 	void init$() {
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$lastDayOfYear$5(temporal);
+		return TemporalAdjusters::lambda$lastDayOfYear$5(temporal);
 	}
 };
 $Class* TemporalAdjusters$$Lambda$lambda$lastDayOfYear$5$5::load$($String* name, bool initialize) {
@@ -233,7 +233,7 @@ public:
 	void init$() {
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$firstDayOfNextYear$6(temporal);
+		return TemporalAdjusters::lambda$firstDayOfNextYear$6(temporal);
 	}
 };
 $Class* TemporalAdjusters$$Lambda$lambda$firstDayOfNextYear$6$6::load$($String* name, bool initialize) {
@@ -265,7 +265,7 @@ public:
 		this->ordinal = ordinal;
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$dayOfWeekInMonth$7(dowValue, ordinal, temporal);
+		return TemporalAdjusters::lambda$dayOfWeekInMonth$7(dowValue, ordinal, temporal);
 	}
 	int32_t dowValue = 0;
 	int32_t ordinal = 0;
@@ -304,7 +304,7 @@ public:
 		this->ordinal = ordinal;
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$dayOfWeekInMonth$8(dowValue, ordinal, temporal);
+		return TemporalAdjusters::lambda$dayOfWeekInMonth$8(dowValue, ordinal, temporal);
 	}
 	int32_t dowValue = 0;
 	int32_t ordinal = 0;
@@ -342,7 +342,7 @@ public:
 		this->dowValue = dowValue;
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$next$9(dowValue, temporal);
+		return TemporalAdjusters::lambda$next$9(dowValue, temporal);
 	}
 	int32_t dowValue = 0;
 };
@@ -378,7 +378,7 @@ public:
 		this->dowValue = dowValue;
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$nextOrSame$10(dowValue, temporal);
+		return TemporalAdjusters::lambda$nextOrSame$10(dowValue, temporal);
 	}
 	int32_t dowValue = 0;
 };
@@ -414,7 +414,7 @@ public:
 		this->dowValue = dowValue;
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$previous$11(dowValue, temporal);
+		return TemporalAdjusters::lambda$previous$11(dowValue, temporal);
 	}
 	int32_t dowValue = 0;
 };
@@ -450,7 +450,7 @@ public:
 		this->dowValue = dowValue;
 	}
 	virtual $Temporal* adjustInto($Temporal* temporal) override {
-		 return TemporalAdjusters::lambda$previousOrSame$12(dowValue, temporal);
+		return TemporalAdjusters::lambda$previousOrSame$12(dowValue, temporal);
 	}
 	int32_t dowValue = 0;
 };

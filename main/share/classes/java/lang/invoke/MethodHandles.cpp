@@ -158,7 +158,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* c) override {
-		 return MethodHandles::lambda$loop$0($cast($MethodHandleArray, c));
+		return MethodHandles::lambda$loop$0($cast($MethodHandleArray, c));
 	}
 };
 $Class* MethodHandles$$Lambda$lambda$loop$0::load$($String* name, bool initialize) {
@@ -233,7 +233,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($List, inst$)->size());
+		return $of($sure($List, inst$)->size());
 	}
 };
 $Class* MethodHandles$$Lambda$size$2::load$($String* name, bool initialize) {
@@ -263,7 +263,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return MethodHandles::lambda$loop$2($cast($Class, t));
+		return MethodHandles::lambda$loop$2($cast($Class, t));
 	}
 };
 $Class* MethodHandles$$Lambda$lambda$loop$2$3::load$($String* name, bool initialize) {
@@ -293,7 +293,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* obj) override {
-		 return $Objects::nonNull(obj);
+		return $Objects::nonNull(obj);
 	}
 };
 $Class* MethodHandles$$Lambda$nonNull$4::load$($String* name, bool initialize) {
@@ -323,7 +323,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($MethodHandle, inst$)->type());
+		return $of($sure($MethodHandle, inst$)->type());
 	}
 };
 $Class* MethodHandles$$Lambda$type$5::load$($String* name, bool initialize) {
@@ -353,7 +353,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($MethodType, inst$)->returnType();
+		return $sure($MethodType, inst$)->returnType();
 	}
 };
 $Class* MethodHandles$$Lambda$returnType$6::load$($String* name, bool initialize) {
@@ -383,7 +383,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($MethodType, inst$)->parameterList();
+		return $sure($MethodType, inst$)->parameterList();
 	}
 };
 $Class* MethodHandles$$Lambda$parameterList$7::load$($String* name, bool initialize) {
@@ -414,7 +414,7 @@ public:
 		$set(this, commonSuffix, commonSuffix);
 	}
 	virtual bool test(Object$* pl) override {
-		 return MethodHandles::lambda$loop$3(commonSuffix, $cast($List, pl));
+		return MethodHandles::lambda$loop$3(commonSuffix, $cast($List, pl));
 	}
 	$List* commonSuffix = nullptr;
 };
@@ -449,7 +449,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* MethodHandles$$Lambda$stream$9::load$($String* name, bool initialize) {
@@ -479,7 +479,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* obj) override {
-		 return $Objects::isNull(obj);
+		return $Objects::isNull(obj);
 	}
 };
 $Class* MethodHandles$$Lambda$isNull$10::load$($String* name, bool initialize) {
@@ -509,7 +509,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* c) override {
-		 return MethodHandles::lambda$loopChecks0$5($cast($MethodHandleArray, c));
+		return MethodHandles::lambda$loopChecks0$5($cast($MethodHandleArray, c));
 	}
 };
 $Class* MethodHandles$$Lambda$lambda$loopChecks0$5$11::load$($String* name, bool initialize) {
@@ -540,7 +540,7 @@ public:
 		this->skipSize = skipSize;
 	}
 	virtual bool test(Object$* t) override {
-		 return MethodHandles::lambda$longestParameterList$6(skipSize, $cast($MethodType, t));
+		return MethodHandles::lambda$longestParameterList$6(skipSize, $cast($MethodType, t));
 	}
 	int32_t skipSize = 0;
 };
@@ -575,7 +575,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* p, Object$* q) override {
-		 return MethodHandles::lambda$longestParameterList$7($cast($List, p), $cast($List, q));
+		return MethodHandles::lambda$longestParameterList$7($cast($List, p), $cast($List, q));
 	}
 };
 $Class* MethodHandles$$Lambda$lambda$longestParameterList$7$13::load$($String* name, bool initialize) {
@@ -606,7 +606,7 @@ public:
 		$set(this, commonSuffix, commonSuffix);
 	}
 	virtual bool test(Object$* t) override {
-		 return MethodHandles::lambda$loopChecks1b$9(commonSuffix, $cast($MethodType, t));
+		return MethodHandles::lambda$loopChecks1b$9(commonSuffix, $cast($MethodType, t));
 	}
 	$List* commonSuffix = nullptr;
 };
@@ -642,7 +642,7 @@ public:
 		this->loopReturnType = loopReturnType;
 	}
 	virtual bool test(Object$* t) override {
-		 return MethodHandles::lambda$loopChecks1cd$10(loopReturnType, $cast($Class, t));
+		return MethodHandles::lambda$loopChecks1cd$10(loopReturnType, $cast($Class, t));
 	}
 	$Class* loopReturnType = nullptr;
 };
@@ -677,7 +677,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* t) override {
-		 return MethodHandles::lambda$loopChecks1cd$11($cast($Class, t));
+		return MethodHandles::lambda$loopChecks1cd$11($cast($Class, t));
 	}
 };
 $Class* MethodHandles$$Lambda$lambda$loopChecks1cd$11$16::load$($String* name, bool initialize) {
@@ -708,7 +708,7 @@ public:
 		$set(this, targetParams, targetParams);
 	}
 	virtual $Object* apply(Object$* h) override {
-		 return MethodHandles::lambda$fillParameterTypes$13(targetParams, $cast($MethodHandle, h));
+		return MethodHandles::lambda$fillParameterTypes$13(targetParams, $cast($MethodHandle, h));
 	}
 	$List* targetParams = nullptr;
 };
@@ -743,7 +743,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($MethodHandle, inst$)->asFixedArity();
+		return $sure($MethodHandle, inst$)->asFixedArity();
 	}
 };
 $Class* MethodHandles$$Lambda$asFixedArity$18::load$($String* name, bool initialize) {

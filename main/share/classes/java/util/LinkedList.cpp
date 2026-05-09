@@ -51,51 +51,51 @@ namespace java {
 	namespace util {
 
 $Iterator* LinkedList::iterator() {
-	 return this->$AbstractSequentialList::iterator();
+	return this->$AbstractSequentialList::iterator();
 }
 
 bool LinkedList::equals(Object$* o) {
-	 return this->$AbstractSequentialList::equals(o);
+	return this->$AbstractSequentialList::equals(o);
 }
 
 int32_t LinkedList::hashCode() {
-	 return this->$AbstractSequentialList::hashCode();
+	return this->$AbstractSequentialList::hashCode();
 }
 
 bool LinkedList::isEmpty() {
-	 return this->$AbstractSequentialList::isEmpty();
+	return this->$AbstractSequentialList::isEmpty();
 }
 
 bool LinkedList::containsAll($Collection* c) {
-	 return this->$AbstractSequentialList::containsAll(c);
+	return this->$AbstractSequentialList::containsAll(c);
 }
 
 bool LinkedList::removeAll($Collection* c) {
-	 return this->$AbstractSequentialList::removeAll(c);
+	return this->$AbstractSequentialList::removeAll(c);
 }
 
 bool LinkedList::retainAll($Collection* c) {
-	 return this->$AbstractSequentialList::retainAll(c);
+	return this->$AbstractSequentialList::retainAll(c);
 }
 
 $String* LinkedList::toString() {
-	 return this->$AbstractSequentialList::toString();
+	return this->$AbstractSequentialList::toString();
 }
 
 $ObjectArray* LinkedList::toArray($IntFunction* generator) {
-	 return this->$AbstractSequentialList::toArray(generator);
+	return this->$AbstractSequentialList::toArray(generator);
 }
 
 bool LinkedList::removeIf($Predicate* filter) {
-	 return this->$AbstractSequentialList::removeIf(filter);
+	return this->$AbstractSequentialList::removeIf(filter);
 }
 
 $Stream* LinkedList::stream() {
-	 return this->$AbstractSequentialList::stream();
+	return this->$AbstractSequentialList::stream();
 }
 
 $Stream* LinkedList::parallelStream() {
-	 return this->$AbstractSequentialList::parallelStream();
+	return this->$AbstractSequentialList::parallelStream();
 }
 
 void LinkedList::forEach($Consumer* action) {

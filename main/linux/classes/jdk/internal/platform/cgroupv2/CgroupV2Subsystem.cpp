@@ -72,7 +72,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* strval) override {
-		 return $of($CgroupV2SubsystemController::convertStringToLong($cast($String, strval)));
+		return $of($CgroupV2SubsystemController::convertStringToLong($cast($String, strval)));
 	}
 };
 $Class* CgroupV2Subsystem$$Lambda$convertStringToLong::load$($String* name, bool initialize) {
@@ -102,7 +102,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(CgroupV2Subsystem::lineToRandWIOs($cast($String, line)));
+		return $of(CgroupV2Subsystem::lineToRandWIOs($cast($String, line)));
 	}
 };
 $Class* CgroupV2Subsystem$$Lambda$lineToRandWIOs$1::load$($String* name, bool initialize) {
@@ -132,7 +132,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(CgroupV2Subsystem::lineToRBytesAndWBytesIO($cast($String, line)));
+		return $of(CgroupV2Subsystem::lineToRBytesAndWBytesIO($cast($String, line)));
 	}
 };
 $Class* CgroupV2Subsystem$$Lambda$lineToRBytesAndWBytesIO$2::load$($String* name, bool initialize) {
@@ -162,7 +162,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(Object$* e) override {
-		 return CgroupV2Subsystem::lambda$sumTokensIOStat$0($cast($Long, e));
+		return CgroupV2Subsystem::lambda$sumTokensIOStat$0($cast($Long, e));
 	}
 };
 $Class* CgroupV2Subsystem$$Lambda$lambda$sumTokensIOStat$0$3::load$($String* name, bool initialize) {

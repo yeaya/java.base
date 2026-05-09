@@ -29,31 +29,31 @@ namespace java {
 	namespace util {
 
 int32_t Collections$SynchronizedSortedMap::size() {
-	 return this->$Collections$SynchronizedMap::size();
+	return this->$Collections$SynchronizedMap::size();
 }
 
 bool Collections$SynchronizedSortedMap::isEmpty() {
-	 return this->$Collections$SynchronizedMap::isEmpty();
+	return this->$Collections$SynchronizedMap::isEmpty();
 }
 
 bool Collections$SynchronizedSortedMap::containsKey(Object$* key) {
-	 return this->$Collections$SynchronizedMap::containsKey(key);
+	return this->$Collections$SynchronizedMap::containsKey(key);
 }
 
 bool Collections$SynchronizedSortedMap::containsValue(Object$* value) {
-	 return this->$Collections$SynchronizedMap::containsValue(value);
+	return this->$Collections$SynchronizedMap::containsValue(value);
 }
 
 $Object* Collections$SynchronizedSortedMap::get(Object$* key) {
-	 return this->$Collections$SynchronizedMap::get(key);
+	return this->$Collections$SynchronizedMap::get(key);
 }
 
 $Object* Collections$SynchronizedSortedMap::put(Object$* key, Object$* value) {
-	 return this->$Collections$SynchronizedMap::put(key, value);
+	return this->$Collections$SynchronizedMap::put(key, value);
 }
 
 $Object* Collections$SynchronizedSortedMap::remove(Object$* key) {
-	 return this->$Collections$SynchronizedMap::remove(key);
+	return this->$Collections$SynchronizedMap::remove(key);
 }
 
 void Collections$SynchronizedSortedMap::putAll($Map* map) {
@@ -65,31 +65,31 @@ void Collections$SynchronizedSortedMap::clear() {
 }
 
 $Set* Collections$SynchronizedSortedMap::keySet() {
-	 return this->$Collections$SynchronizedMap::keySet();
+	return this->$Collections$SynchronizedMap::keySet();
 }
 
 $Set* Collections$SynchronizedSortedMap::entrySet() {
-	 return this->$Collections$SynchronizedMap::entrySet();
+	return this->$Collections$SynchronizedMap::entrySet();
 }
 
 $Collection* Collections$SynchronizedSortedMap::values() {
-	 return this->$Collections$SynchronizedMap::values();
+	return this->$Collections$SynchronizedMap::values();
 }
 
 bool Collections$SynchronizedSortedMap::equals(Object$* o) {
-	 return this->$Collections$SynchronizedMap::equals(o);
+	return this->$Collections$SynchronizedMap::equals(o);
 }
 
 int32_t Collections$SynchronizedSortedMap::hashCode() {
-	 return this->$Collections$SynchronizedMap::hashCode();
+	return this->$Collections$SynchronizedMap::hashCode();
 }
 
 $String* Collections$SynchronizedSortedMap::toString() {
-	 return this->$Collections$SynchronizedMap::toString();
+	return this->$Collections$SynchronizedMap::toString();
 }
 
 $Object* Collections$SynchronizedSortedMap::getOrDefault(Object$* k, Object$* defaultValue) {
-	 return this->$Collections$SynchronizedMap::getOrDefault(k, defaultValue);
+	return this->$Collections$SynchronizedMap::getOrDefault(k, defaultValue);
 }
 
 void Collections$SynchronizedSortedMap::forEach($BiConsumer* action) {
@@ -101,39 +101,39 @@ void Collections$SynchronizedSortedMap::replaceAll($BiFunction* function) {
 }
 
 $Object* Collections$SynchronizedSortedMap::putIfAbsent(Object$* key, Object$* value) {
-	 return this->$Collections$SynchronizedMap::putIfAbsent(key, value);
+	return this->$Collections$SynchronizedMap::putIfAbsent(key, value);
 }
 
 bool Collections$SynchronizedSortedMap::remove(Object$* key, Object$* value) {
-	 return this->$Collections$SynchronizedMap::remove(key, value);
+	return this->$Collections$SynchronizedMap::remove(key, value);
 }
 
 bool Collections$SynchronizedSortedMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	 return this->$Collections$SynchronizedMap::replace(key, oldValue, newValue);
+	return this->$Collections$SynchronizedMap::replace(key, oldValue, newValue);
 }
 
 $Object* Collections$SynchronizedSortedMap::replace(Object$* key, Object$* value) {
-	 return this->$Collections$SynchronizedMap::replace(key, value);
+	return this->$Collections$SynchronizedMap::replace(key, value);
 }
 
 $Object* Collections$SynchronizedSortedMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	 return this->$Collections$SynchronizedMap::computeIfAbsent(key, mappingFunction);
+	return this->$Collections$SynchronizedMap::computeIfAbsent(key, mappingFunction);
 }
 
 $Object* Collections$SynchronizedSortedMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$SynchronizedMap::computeIfPresent(key, remappingFunction);
+	return this->$Collections$SynchronizedMap::computeIfPresent(key, remappingFunction);
 }
 
 $Object* Collections$SynchronizedSortedMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$SynchronizedMap::compute(key, remappingFunction);
+	return this->$Collections$SynchronizedMap::compute(key, remappingFunction);
 }
 
 $Object* Collections$SynchronizedSortedMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	 return this->$Collections$SynchronizedMap::merge(key, value, remappingFunction);
+	return this->$Collections$SynchronizedMap::merge(key, value, remappingFunction);
 }
 
 $Object* Collections$SynchronizedSortedMap::clone() {
-	 return this->$Collections$SynchronizedMap::clone();
+	return this->$Collections$SynchronizedMap::clone();
 }
 
 void Collections$SynchronizedSortedMap::finalize() {

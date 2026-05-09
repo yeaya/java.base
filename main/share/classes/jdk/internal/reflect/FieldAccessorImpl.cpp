@@ -11,19 +11,19 @@ namespace jdk {
 		namespace reflect {
 
 int32_t FieldAccessorImpl::hashCode() {
-	 return this->$MagicAccessorImpl::hashCode();
+	return this->$MagicAccessorImpl::hashCode();
 }
 
 bool FieldAccessorImpl::equals(Object$* obj) {
-	 return this->$MagicAccessorImpl::equals(obj);
+	return this->$MagicAccessorImpl::equals(obj);
 }
 
 $Object* FieldAccessorImpl::clone() {
-	 return this->$MagicAccessorImpl::clone();
+	return this->$MagicAccessorImpl::clone();
 }
 
 $String* FieldAccessorImpl::toString() {
-	 return this->$MagicAccessorImpl::toString();
+	return this->$MagicAccessorImpl::toString();
 }
 
 void FieldAccessorImpl::finalize() {

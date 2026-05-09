@@ -109,7 +109,7 @@ public:
 		$set(this, pattern, pattern);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return Currency::lambda$getValidCurrencyData$0(props, pattern, $cast($String, k));
+		return Currency::lambda$getValidCurrencyData$0(props, pattern, $cast($String, k));
 	}
 	$Properties* props = nullptr;
 	$Pattern* pattern = nullptr;
@@ -146,7 +146,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* o) override {
-		 return Currency::lambda$getValidCurrencyData$1($cast($Optional, o));
+		return Currency::lambda$getValidCurrencyData$1($cast($Optional, o));
 	}
 };
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$1$1::load$($String* name, bool initialize) {
@@ -176,7 +176,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* entry) override {
-		 return $of(Currency::lambda$getValidCurrencyData$2($cast($Currency$CurrencyProperty, entry)));
+		return $of(Currency::lambda$getValidCurrencyData$2($cast($Currency$CurrencyProperty, entry)));
 	}
 };
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$2$2::load$($String* name, bool initialize) {

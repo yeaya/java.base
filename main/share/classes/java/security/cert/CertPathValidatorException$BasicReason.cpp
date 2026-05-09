@@ -23,19 +23,19 @@ namespace java {
 		namespace cert {
 
 $String* CertPathValidatorException$BasicReason::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool CertPathValidatorException$BasicReason::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t CertPathValidatorException$BasicReason::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* CertPathValidatorException$BasicReason::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void CertPathValidatorException$BasicReason::finalize() {

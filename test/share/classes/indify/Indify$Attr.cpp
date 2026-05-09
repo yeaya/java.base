@@ -40,15 +40,15 @@ using $List = ::java::util::List;
 namespace indify {
 
 int32_t Indify$Attr::hashCode() {
-	 return this->$Indify$InnerOuter::hashCode();
+	return this->$Indify$InnerOuter::hashCode();
 }
 
 bool Indify$Attr::equals(Object$* arg0) {
-	 return this->$Indify$InnerOuter::equals(arg0);
+	return this->$Indify$InnerOuter::equals(arg0);
 }
 
 $Object* Indify$Attr::clone() {
-	 return this->$Indify$InnerOuter::clone();
+	return this->$Indify$InnerOuter::clone();
 }
 
 void Indify$Attr::finalize() {

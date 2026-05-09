@@ -49,19 +49,19 @@ namespace java {
 	namespace nio {
 
 $String* DirectDoubleBufferS::toString() {
-	 return this->$DoubleBuffer::toString();
+	return this->$DoubleBuffer::toString();
 }
 
 int32_t DirectDoubleBufferS::hashCode() {
-	 return this->$DoubleBuffer::hashCode();
+	return this->$DoubleBuffer::hashCode();
 }
 
 bool DirectDoubleBufferS::equals(Object$* ob) {
-	 return this->$DoubleBuffer::equals(ob);
+	return this->$DoubleBuffer::equals(ob);
 }
 
 $Object* DirectDoubleBufferS::clone() {
-	 return this->$DoubleBuffer::clone();
+	return this->$DoubleBuffer::clone();
 }
 
 void DirectDoubleBufferS::finalize() {

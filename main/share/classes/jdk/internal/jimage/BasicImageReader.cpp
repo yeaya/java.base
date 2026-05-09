@@ -95,7 +95,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(int32_t o) override {
-		 return BasicImageReader::lambda$getEntryNames$0(o);
+		return BasicImageReader::lambda$getEntryNames$0(o);
 	}
 };
 $Class* BasicImageReader$$Lambda$lambda$getEntryNames$0::load$($String* name, bool initialize) {
@@ -126,7 +126,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t o) override {
-		 return $of($nc(inst$)->lambda$getEntryNames$1(o));
+		return $of($nc(inst$)->lambda$getEntryNames$1(o));
 	}
 	BasicImageReader* inst$ = nullptr;
 };
@@ -161,7 +161,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return BasicImageReader::lambda$getEntryNames$2(x$0);
+		return BasicImageReader::lambda$getEntryNames$2(x$0);
 	}
 };
 $Class* BasicImageReader$$Lambda$lambda$getEntryNames$2$2::load$($String* name, bool initialize) {
@@ -192,7 +192,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $String* getString(int32_t strOffset) override {
-		 return $nc(inst$)->lambda$getResourceBuffer$3(strOffset);
+		return $nc(inst$)->lambda$getResourceBuffer$3(strOffset);
 	}
 	BasicImageReader* inst$ = nullptr;
 };

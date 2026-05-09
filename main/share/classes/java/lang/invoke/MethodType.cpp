@@ -112,7 +112,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of(MethodType::lambda$describeConstable$0($cast($Class, p)));
+		return $of(MethodType::lambda$describeConstable$0($cast($Class, p)));
 	}
 };
 $Class* MethodType$$Lambda$lambda$describeConstable$0::load$($String* name, bool initialize) {
@@ -142,7 +142,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return MethodType::lambda$describeConstable$1(x$0);
+		return MethodType::lambda$describeConstable$1(x$0);
 	}
 };
 $Class* MethodType$$Lambda$lambda$describeConstable$1$1::load$($String* name, bool initialize) {
@@ -167,7 +167,7 @@ $Class* MethodType$$Lambda$lambda$describeConstable$1$1::load$($String* name, bo
 $Class* MethodType$$Lambda$lambda$describeConstable$1$1::class$ = nullptr;
 
 $Object* MethodType::clone() {
-	 return this->$Constable::clone();
+	return this->$Constable::clone();
 }
 
 void MethodType::finalize() {

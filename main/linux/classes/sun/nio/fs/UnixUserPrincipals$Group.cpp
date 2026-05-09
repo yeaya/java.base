@@ -15,27 +15,27 @@ namespace sun {
 		namespace fs {
 
 $String* UnixUserPrincipals$Group::getName() {
-	 return this->$UnixUserPrincipals$User::getName();
+	return this->$UnixUserPrincipals$User::getName();
 }
 
 $String* UnixUserPrincipals$Group::toString() {
-	 return this->$UnixUserPrincipals$User::toString();
+	return this->$UnixUserPrincipals$User::toString();
 }
 
 bool UnixUserPrincipals$Group::equals(Object$* obj) {
-	 return this->$UnixUserPrincipals$User::equals(obj);
+	return this->$UnixUserPrincipals$User::equals(obj);
 }
 
 int32_t UnixUserPrincipals$Group::hashCode() {
-	 return this->$UnixUserPrincipals$User::hashCode();
+	return this->$UnixUserPrincipals$User::hashCode();
 }
 
 bool UnixUserPrincipals$Group::implies($Subject* subject) {
-	 return this->$UnixUserPrincipals$User::implies(subject);
+	return this->$UnixUserPrincipals$User::implies(subject);
 }
 
 $Object* UnixUserPrincipals$Group::clone() {
-	 return this->$UnixUserPrincipals$User::clone();
+	return this->$UnixUserPrincipals$User::clone();
 }
 
 void UnixUserPrincipals$Group::finalize() {

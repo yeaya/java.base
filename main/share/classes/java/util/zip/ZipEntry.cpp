@@ -39,7 +39,7 @@ namespace java {
 		namespace zip {
 
 bool ZipEntry::equals(Object$* obj) {
-	 return this->$ZipConstants::equals(obj);
+	return this->$ZipConstants::equals(obj);
 }
 
 void ZipEntry::finalize() {

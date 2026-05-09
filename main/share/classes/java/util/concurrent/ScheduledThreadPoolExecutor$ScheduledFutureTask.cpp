@@ -26,35 +26,35 @@ namespace java {
 		namespace concurrent {
 
 bool ScheduledThreadPoolExecutor$ScheduledFutureTask::isCancelled() {
-	 return this->$FutureTask::isCancelled();
+	return this->$FutureTask::isCancelled();
 }
 
 bool ScheduledThreadPoolExecutor$ScheduledFutureTask::isDone() {
-	 return this->$FutureTask::isDone();
+	return this->$FutureTask::isDone();
 }
 
 $Object* ScheduledThreadPoolExecutor$ScheduledFutureTask::get() {
-	 return this->$FutureTask::get();
+	return this->$FutureTask::get();
 }
 
 $Object* ScheduledThreadPoolExecutor$ScheduledFutureTask::get(int64_t timeout, $TimeUnit* unit) {
-	 return this->$FutureTask::get(timeout, unit);
+	return this->$FutureTask::get(timeout, unit);
 }
 
 $String* ScheduledThreadPoolExecutor$ScheduledFutureTask::toString() {
-	 return this->$FutureTask::toString();
+	return this->$FutureTask::toString();
 }
 
 int32_t ScheduledThreadPoolExecutor$ScheduledFutureTask::hashCode() {
-	 return this->$FutureTask::hashCode();
+	return this->$FutureTask::hashCode();
 }
 
 bool ScheduledThreadPoolExecutor$ScheduledFutureTask::equals(Object$* obj) {
-	 return this->$FutureTask::equals(obj);
+	return this->$FutureTask::equals(obj);
 }
 
 $Object* ScheduledThreadPoolExecutor$ScheduledFutureTask::clone() {
-	 return this->$FutureTask::clone();
+	return this->$FutureTask::clone();
 }
 
 void ScheduledThreadPoolExecutor$ScheduledFutureTask::finalize() {

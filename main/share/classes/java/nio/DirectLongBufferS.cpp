@@ -48,19 +48,19 @@ namespace java {
 	namespace nio {
 
 $String* DirectLongBufferS::toString() {
-	 return this->$LongBuffer::toString();
+	return this->$LongBuffer::toString();
 }
 
 int32_t DirectLongBufferS::hashCode() {
-	 return this->$LongBuffer::hashCode();
+	return this->$LongBuffer::hashCode();
 }
 
 bool DirectLongBufferS::equals(Object$* ob) {
-	 return this->$LongBuffer::equals(ob);
+	return this->$LongBuffer::equals(ob);
 }
 
 $Object* DirectLongBufferS::clone() {
-	 return this->$LongBuffer::clone();
+	return this->$LongBuffer::clone();
 }
 
 void DirectLongBufferS::finalize() {

@@ -16,19 +16,19 @@ namespace java {
 		namespace stream {
 
 int32_t StreamSpliterators$ArrayBuffer$OfInt::hashCode() {
-	 return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::hashCode();
+	return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::hashCode();
 }
 
 bool StreamSpliterators$ArrayBuffer$OfInt::equals(Object$* obj) {
-	 return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::equals(obj);
+	return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::equals(obj);
 }
 
 $Object* StreamSpliterators$ArrayBuffer$OfInt::clone() {
-	 return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::clone();
+	return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::clone();
 }
 
 $String* StreamSpliterators$ArrayBuffer$OfInt::toString() {
-	 return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::toString();
+	return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::toString();
 }
 
 void StreamSpliterators$ArrayBuffer$OfInt::finalize() {

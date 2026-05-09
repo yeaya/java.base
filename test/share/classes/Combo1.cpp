@@ -9,19 +9,19 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
 int32_t Combo1::hashCode() {
-	 return this->$Base::hashCode();
+	return this->$Base::hashCode();
 }
 
 bool Combo1::equals(Object$* arg0) {
-	 return this->$Base::equals(arg0);
+	return this->$Base::equals(arg0);
 }
 
 $Object* Combo1::clone() {
-	 return this->$Base::clone();
+	return this->$Base::clone();
 }
 
 $String* Combo1::toString() {
-	 return this->$Base::toString();
+	return this->$Base::toString();
 }
 
 void Combo1::finalize() {

@@ -58,7 +58,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ID) override {
-		 return $of($TimeZone::getTimeZone($cast($String, ID)));
+		return $of($TimeZone::getTimeZone($cast($String, ID)));
 	}
 };
 $Class* DateFormatProviderImpl$$Lambda$getTimeZone::load$($String* name, bool initialize) {
@@ -89,7 +89,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->getTimeZone());
+		return $of($nc(inst$)->getTimeZone());
 	}
 	$DateFormat* inst$ = nullptr;
 };
@@ -119,19 +119,19 @@ $Class* DateFormatProviderImpl$$Lambda$getTimeZone$1::load$($String* name, bool 
 $Class* DateFormatProviderImpl$$Lambda$getTimeZone$1::class$ = nullptr;
 
 int32_t DateFormatProviderImpl::hashCode() {
-	 return this->$DateFormatProvider::hashCode();
+	return this->$DateFormatProvider::hashCode();
 }
 
 bool DateFormatProviderImpl::equals(Object$* obj) {
-	 return this->$DateFormatProvider::equals(obj);
+	return this->$DateFormatProvider::equals(obj);
 }
 
 $Object* DateFormatProviderImpl::clone() {
-	 return this->$DateFormatProvider::clone();
+	return this->$DateFormatProvider::clone();
 }
 
 $String* DateFormatProviderImpl::toString() {
-	 return this->$DateFormatProvider::toString();
+	return this->$DateFormatProvider::toString();
 }
 
 void DateFormatProviderImpl::finalize() {

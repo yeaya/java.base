@@ -84,7 +84,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return $of(MonthDay::from(temporal));
+		return $of(MonthDay::from(temporal));
 	}
 };
 $Class* MonthDay$$Lambda$from::load$($String* name, bool initialize) {
@@ -109,7 +109,7 @@ $Class* MonthDay$$Lambda$from::load$($String* name, bool initialize) {
 $Class* MonthDay$$Lambda$from::class$ = nullptr;
 
 $Object* MonthDay::clone() {
-	 return this->$TemporalAccessor::clone();
+	return this->$TemporalAccessor::clone();
 }
 
 void MonthDay::finalize() {

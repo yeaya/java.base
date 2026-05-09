@@ -43,19 +43,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t InputRecord::hashCode() {
-	 return this->$Record::hashCode();
+	return this->$Record::hashCode();
 }
 
 bool InputRecord::equals(Object$* obj) {
-	 return this->$Record::equals(obj);
+	return this->$Record::equals(obj);
 }
 
 $Object* InputRecord::clone() {
-	 return this->$Record::clone();
+	return this->$Record::clone();
 }
 
 $String* InputRecord::toString() {
-	 return this->$Record::toString();
+	return this->$Record::toString();
 }
 
 void InputRecord::finalize() {

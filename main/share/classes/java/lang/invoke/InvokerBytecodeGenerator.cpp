@@ -274,7 +274,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* bt) override {
-		 return InvokerBytecodeGenerator::lambda$emitLoop$0($cast($LambdaForm$BasicType, bt));
+		return InvokerBytecodeGenerator::lambda$emitLoop$0($cast($LambdaForm$BasicType, bt));
 	}
 };
 $Class* InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$0::load$($String* name, bool initialize) {
@@ -304,7 +304,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($LambdaForm$BasicType, inst$)->basicTypeClass());
+		return $of($sure($LambdaForm$BasicType, inst$)->basicTypeClass());
 	}
 };
 $Class* InvokerBytecodeGenerator$$Lambda$basicTypeClass$1::load$($String* name, bool initialize) {
@@ -334,7 +334,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return InvokerBytecodeGenerator::lambda$emitLoop$1(x$0);
+		return InvokerBytecodeGenerator::lambda$emitLoop$1(x$0);
 	}
 };
 $Class* InvokerBytecodeGenerator$$Lambda$lambda$emitLoop$1$2::load$($String* name, bool initialize) {

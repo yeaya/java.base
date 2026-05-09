@@ -31,47 +31,47 @@ namespace sun {
 		namespace annotation {
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getAnnotations() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
 }
 
 $Annotation* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getAnnotation($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotation(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotation(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getAnnotationsByType($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByType(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByType(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getDeclaredAnnotations() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations();
 }
 
 $Annotation* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getDeclaredAnnotation($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotation(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotation(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getDeclaredAnnotationsByType($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotationsByType(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotationsByType(annotation);
 }
 
 $Type* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getType() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType();
 }
 
 $String* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::toString() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::toString();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::toString();
 }
 
 int32_t AnnotatedTypeFactory$AnnotatedTypeVariableImpl::hashCode() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::hashCode();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::hashCode();
 }
 
 bool AnnotatedTypeFactory$AnnotatedTypeVariableImpl::isAnnotationPresent($Class* annotationClass) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::isAnnotationPresent(annotationClass);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::isAnnotationPresent(annotationClass);
 }
 
 $Object* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::clone() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::clone();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::clone();
 }
 
 void AnnotatedTypeFactory$AnnotatedTypeVariableImpl::finalize() {

@@ -62,7 +62,7 @@ namespace sun {
 		namespace x509 {
 
 $Object* AlgorithmId::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void AlgorithmId::finalize() {

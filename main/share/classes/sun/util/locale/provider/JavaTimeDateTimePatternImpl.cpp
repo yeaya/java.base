@@ -24,19 +24,19 @@ namespace sun {
 			namespace provider {
 
 int32_t JavaTimeDateTimePatternImpl::hashCode() {
-	 return this->$JavaTimeDateTimePatternProvider::hashCode();
+	return this->$JavaTimeDateTimePatternProvider::hashCode();
 }
 
 bool JavaTimeDateTimePatternImpl::equals(Object$* obj) {
-	 return this->$JavaTimeDateTimePatternProvider::equals(obj);
+	return this->$JavaTimeDateTimePatternProvider::equals(obj);
 }
 
 $Object* JavaTimeDateTimePatternImpl::clone() {
-	 return this->$JavaTimeDateTimePatternProvider::clone();
+	return this->$JavaTimeDateTimePatternProvider::clone();
 }
 
 $String* JavaTimeDateTimePatternImpl::toString() {
-	 return this->$JavaTimeDateTimePatternProvider::toString();
+	return this->$JavaTimeDateTimePatternProvider::toString();
 }
 
 void JavaTimeDateTimePatternImpl::finalize() {

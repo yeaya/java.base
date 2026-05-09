@@ -56,19 +56,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t DTLSInputRecord::hashCode() {
-	 return this->$InputRecord::hashCode();
+	return this->$InputRecord::hashCode();
 }
 
 bool DTLSInputRecord::equals(Object$* obj) {
-	 return this->$InputRecord::equals(obj);
+	return this->$InputRecord::equals(obj);
 }
 
 $Object* DTLSInputRecord::clone() {
-	 return this->$InputRecord::clone();
+	return this->$InputRecord::clone();
 }
 
 $String* DTLSInputRecord::toString() {
-	 return this->$InputRecord::toString();
+	return this->$InputRecord::toString();
 }
 
 void DTLSInputRecord::finalize() {

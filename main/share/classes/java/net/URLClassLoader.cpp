@@ -121,19 +121,19 @@ namespace java {
 	namespace net {
 
 int32_t URLClassLoader::hashCode() {
-	 return this->$SecureClassLoader::hashCode();
+	return this->$SecureClassLoader::hashCode();
 }
 
 bool URLClassLoader::equals(Object$* obj) {
-	 return this->$SecureClassLoader::equals(obj);
+	return this->$SecureClassLoader::equals(obj);
 }
 
 $Object* URLClassLoader::clone() {
-	 return this->$SecureClassLoader::clone();
+	return this->$SecureClassLoader::clone();
 }
 
 $String* URLClassLoader::toString() {
-	 return this->$SecureClassLoader::toString();
+	return this->$SecureClassLoader::toString();
 }
 
 void URLClassLoader::finalize() {

@@ -57,47 +57,47 @@ namespace java {
 		namespace concurrent {
 
 int32_t ConcurrentSkipListMap$KeySet::hashCode() {
-	 return this->$AbstractSet::hashCode();
+	return this->$AbstractSet::hashCode();
 }
 
 bool ConcurrentSkipListMap$KeySet::removeAll($Collection* c) {
-	 return this->$AbstractSet::removeAll(c);
+	return this->$AbstractSet::removeAll(c);
 }
 
 bool ConcurrentSkipListMap$KeySet::add(Object$* e) {
-	 return this->$AbstractSet::add(e);
+	return this->$AbstractSet::add(e);
 }
 
 bool ConcurrentSkipListMap$KeySet::containsAll($Collection* c) {
-	 return this->$AbstractSet::containsAll(c);
+	return this->$AbstractSet::containsAll(c);
 }
 
 bool ConcurrentSkipListMap$KeySet::addAll($Collection* c) {
-	 return this->$AbstractSet::addAll(c);
+	return this->$AbstractSet::addAll(c);
 }
 
 bool ConcurrentSkipListMap$KeySet::retainAll($Collection* c) {
-	 return this->$AbstractSet::retainAll(c);
+	return this->$AbstractSet::retainAll(c);
 }
 
 $String* ConcurrentSkipListMap$KeySet::toString() {
-	 return this->$AbstractSet::toString();
+	return this->$AbstractSet::toString();
 }
 
 $ObjectArray* ConcurrentSkipListMap$KeySet::toArray($IntFunction* generator) {
-	 return this->$AbstractSet::toArray(generator);
+	return this->$AbstractSet::toArray(generator);
 }
 
 bool ConcurrentSkipListMap$KeySet::removeIf($Predicate* filter) {
-	 return this->$AbstractSet::removeIf(filter);
+	return this->$AbstractSet::removeIf(filter);
 }
 
 $Stream* ConcurrentSkipListMap$KeySet::stream() {
-	 return this->$AbstractSet::stream();
+	return this->$AbstractSet::stream();
 }
 
 $Stream* ConcurrentSkipListMap$KeySet::parallelStream() {
-	 return this->$AbstractSet::parallelStream();
+	return this->$AbstractSet::parallelStream();
 }
 
 void ConcurrentSkipListMap$KeySet::forEach($Consumer* action) {
@@ -105,7 +105,7 @@ void ConcurrentSkipListMap$KeySet::forEach($Consumer* action) {
 }
 
 $Object* ConcurrentSkipListMap$KeySet::clone() {
-	 return this->$AbstractSet::clone();
+	return this->$AbstractSet::clone();
 }
 
 void ConcurrentSkipListMap$KeySet::finalize() {

@@ -83,7 +83,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$chars$0();
+		return $nc(inst$)->lambda$chars$0();
 	}
 	CharBuffer* inst$ = nullptr;
 };
@@ -113,7 +113,7 @@ $Class* CharBuffer$$Lambda$lambda$chars$0::load$($String* name, bool initialize)
 $Class* CharBuffer$$Lambda$lambda$chars$0::class$ = nullptr;
 
 $Object* CharBuffer::clone() {
-	 return this->$Buffer::clone();
+	return this->$Buffer::clone();
 }
 
 void CharBuffer::finalize() {

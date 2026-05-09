@@ -31,39 +31,39 @@ namespace java {
 	namespace util {
 
 bool AbstractSet::isEmpty() {
-	 return this->$AbstractCollection::isEmpty();
+	return this->$AbstractCollection::isEmpty();
 }
 
 bool AbstractSet::contains(Object$* o) {
-	 return this->$AbstractCollection::contains(o);
+	return this->$AbstractCollection::contains(o);
 }
 
 $ObjectArray* AbstractSet::toArray() {
-	 return this->$AbstractCollection::toArray();
+	return this->$AbstractCollection::toArray();
 }
 
 $ObjectArray* AbstractSet::toArray($ObjectArray* a) {
-	 return this->$AbstractCollection::toArray(a);
+	return this->$AbstractCollection::toArray(a);
 }
 
 bool AbstractSet::add(Object$* e) {
-	 return this->$AbstractCollection::add(e);
+	return this->$AbstractCollection::add(e);
 }
 
 bool AbstractSet::remove(Object$* o) {
-	 return this->$AbstractCollection::remove(o);
+	return this->$AbstractCollection::remove(o);
 }
 
 bool AbstractSet::containsAll($Collection* c) {
-	 return this->$AbstractCollection::containsAll(c);
+	return this->$AbstractCollection::containsAll(c);
 }
 
 bool AbstractSet::addAll($Collection* c) {
-	 return this->$AbstractCollection::addAll(c);
+	return this->$AbstractCollection::addAll(c);
 }
 
 bool AbstractSet::retainAll($Collection* c) {
-	 return this->$AbstractCollection::retainAll(c);
+	return this->$AbstractCollection::retainAll(c);
 }
 
 void AbstractSet::clear() {
@@ -71,27 +71,27 @@ void AbstractSet::clear() {
 }
 
 $String* AbstractSet::toString() {
-	 return this->$AbstractCollection::toString();
+	return this->$AbstractCollection::toString();
 }
 
 $ObjectArray* AbstractSet::toArray($IntFunction* generator) {
-	 return this->$AbstractCollection::toArray(generator);
+	return this->$AbstractCollection::toArray(generator);
 }
 
 bool AbstractSet::removeIf($Predicate* filter) {
-	 return this->$AbstractCollection::removeIf(filter);
+	return this->$AbstractCollection::removeIf(filter);
 }
 
 $Spliterator* AbstractSet::spliterator() {
-	 return this->$AbstractCollection::spliterator();
+	return this->$AbstractCollection::spliterator();
 }
 
 $Stream* AbstractSet::stream() {
-	 return this->$AbstractCollection::stream();
+	return this->$AbstractCollection::stream();
 }
 
 $Stream* AbstractSet::parallelStream() {
-	 return this->$AbstractCollection::parallelStream();
+	return this->$AbstractCollection::parallelStream();
 }
 
 void AbstractSet::forEach($Consumer* action) {
@@ -99,7 +99,7 @@ void AbstractSet::forEach($Consumer* action) {
 }
 
 $Object* AbstractSet::clone() {
-	 return this->$AbstractCollection::clone();
+	return this->$AbstractCollection::clone();
 }
 
 void AbstractSet::finalize() {

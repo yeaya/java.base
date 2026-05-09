@@ -43,7 +43,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($Optional, inst$)->isPresent();
+		return $sure($Optional, inst$)->isPresent();
 	}
 };
 $Class* FindOps$FindSink$OfRef$$Lambda$isPresent::load$($String* name, bool initialize) {
@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new(FindOps$FindSink$OfRef));
+		return $of($new(FindOps$FindSink$OfRef));
 	}
 };
 $Class* FindOps$FindSink$OfRef$$Lambda$OfRef$1::load$($String* name, bool initialize) {

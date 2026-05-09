@@ -55,7 +55,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $of($Integer::parseInt($cast($String, arg0)));
+		return $of($Integer::parseInt($cast($String, arg0)));
 	}
 };
 $Class* Basic4Version$$Lambda$parseInt::load$($String* name, bool initialize) {

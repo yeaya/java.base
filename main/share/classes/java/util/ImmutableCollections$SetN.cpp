@@ -33,15 +33,15 @@ namespace java {
 	namespace util {
 
 bool ImmutableCollections$SetN::equals(Object$* o) {
-	 return this->$ImmutableCollections$AbstractImmutableSet::equals(o);
+	return this->$ImmutableCollections$AbstractImmutableSet::equals(o);
 }
 
 $String* ImmutableCollections$SetN::toString() {
-	 return this->$ImmutableCollections$AbstractImmutableSet::toString();
+	return this->$ImmutableCollections$AbstractImmutableSet::toString();
 }
 
 $Object* ImmutableCollections$SetN::clone() {
-	 return this->$ImmutableCollections$AbstractImmutableSet::clone();
+	return this->$ImmutableCollections$AbstractImmutableSet::clone();
 }
 
 void ImmutableCollections$SetN::finalize() {

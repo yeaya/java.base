@@ -23,7 +23,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return UnaryOperator::lambda$identity$0(t);
+		return UnaryOperator::lambda$identity$0(t);
 	}
 };
 $Class* UnaryOperator$$Lambda$lambda$identity$0::load$($String* name, bool initialize) {

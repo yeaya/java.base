@@ -28,19 +28,19 @@ namespace sun {
 		namespace cs {
 
 int32_t EUC_KR::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool EUC_KR::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* EUC_KR::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* EUC_KR::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void EUC_KR::finalize() {

@@ -121,19 +121,19 @@ namespace java {
 	namespace nio {
 
 $String* DirectByteBuffer::toString() {
-	 return this->$MappedByteBuffer::toString();
+	return this->$MappedByteBuffer::toString();
 }
 
 int32_t DirectByteBuffer::hashCode() {
-	 return this->$MappedByteBuffer::hashCode();
+	return this->$MappedByteBuffer::hashCode();
 }
 
 bool DirectByteBuffer::equals(Object$* ob) {
-	 return this->$MappedByteBuffer::equals(ob);
+	return this->$MappedByteBuffer::equals(ob);
 }
 
 $Object* DirectByteBuffer::clone() {
-	 return this->$MappedByteBuffer::clone();
+	return this->$MappedByteBuffer::clone();
 }
 
 void DirectByteBuffer::finalize() {

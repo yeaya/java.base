@@ -91,7 +91,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return CLDRLocaleProviderAdapter::lambda$new$0();
+		return CLDRLocaleProviderAdapter::lambda$new$0();
 	}
 };
 $Class* CLDRLocaleProviderAdapter$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -122,7 +122,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getCalendarDataProvider$1();
+		return $nc(inst$)->lambda$getCalendarDataProvider$1();
 	}
 	CLDRLocaleProviderAdapter* inst$ = nullptr;
 };
@@ -158,7 +158,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getCalendarNameProvider$2();
+		return $nc(inst$)->lambda$getCalendarNameProvider$2();
 	}
 	CLDRLocaleProviderAdapter* inst$ = nullptr;
 };
@@ -194,7 +194,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getTimeZoneNameProvider$3();
+		return $nc(inst$)->lambda$getTimeZoneNameProvider$3();
 	}
 	CLDRLocaleProviderAdapter* inst$ = nullptr;
 };

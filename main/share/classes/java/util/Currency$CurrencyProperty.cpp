@@ -55,7 +55,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t c) override {
-		 return Currency$CurrencyProperty::lambda$getValidEntry$0(c);
+		return Currency$CurrencyProperty::lambda$getValidEntry$0(c);
 	}
 };
 $Class* Currency$CurrencyProperty$$Lambda$lambda$getValidEntry$0::load$($String* name, bool initialize) {
@@ -87,7 +87,7 @@ public:
 		this->fractionDigit = fractionDigit;
 	}
 	virtual bool test(Object$* prop) override {
-		 return Currency$CurrencyProperty::lambda$containsInconsistentInstances$1(numCode, fractionDigit, $cast(Currency$CurrencyProperty, prop));
+		return Currency$CurrencyProperty::lambda$containsInconsistentInstances$1(numCode, fractionDigit, $cast(Currency$CurrencyProperty, prop));
 	}
 	int32_t numCode = 0;
 	int32_t fractionDigit = 0;

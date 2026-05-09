@@ -41,7 +41,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int64_t exactSizeIfKnown) override {
-		 return $of($Nodes::intBuilder(exactSizeIfKnown));
+		return $of($Nodes::intBuilder(exactSizeIfKnown));
 	}
 };
 $Class* Nodes$CollectorTask$OfInt$$Lambda$intBuilder::load$($String* name, bool initialize) {
@@ -71,7 +71,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return $of($new($Nodes$ConcNode$OfInt, $cast($Node$OfInt, left), $cast($Node$OfInt, right)));
+		return $of($new($Nodes$ConcNode$OfInt, $cast($Node$OfInt, left), $cast($Node$OfInt, right)));
 	}
 };
 $Class* Nodes$CollectorTask$OfInt$$Lambda$OfInt$1::load$($String* name, bool initialize) {

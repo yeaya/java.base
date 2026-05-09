@@ -15,19 +15,19 @@ namespace java {
 		namespace file {
 
 $String* LinkOption::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool LinkOption::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t LinkOption::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* LinkOption::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void LinkOption::finalize() {

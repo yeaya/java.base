@@ -12,19 +12,19 @@ namespace javax {
 	namespace crypto {
 
 int32_t SecretKey::hashCode() {
-	 return this->$Key::hashCode();
+	return this->$Key::hashCode();
 }
 
 bool SecretKey::equals(Object$* obj) {
-	 return this->$Key::equals(obj);
+	return this->$Key::equals(obj);
 }
 
 $Object* SecretKey::clone() {
-	 return this->$Key::clone();
+	return this->$Key::clone();
 }
 
 $String* SecretKey::toString() {
-	 return this->$Key::toString();
+	return this->$Key::toString();
 }
 
 void SecretKey::finalize() {

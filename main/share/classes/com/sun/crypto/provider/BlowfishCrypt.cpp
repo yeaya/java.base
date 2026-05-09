@@ -21,19 +21,19 @@ namespace com {
 			namespace provider {
 
 int32_t BlowfishCrypt::hashCode() {
-	 return this->$SymmetricCipher::hashCode();
+	return this->$SymmetricCipher::hashCode();
 }
 
 bool BlowfishCrypt::equals(Object$* obj) {
-	 return this->$SymmetricCipher::equals(obj);
+	return this->$SymmetricCipher::equals(obj);
 }
 
 $Object* BlowfishCrypt::clone() {
-	 return this->$SymmetricCipher::clone();
+	return this->$SymmetricCipher::clone();
 }
 
 $String* BlowfishCrypt::toString() {
-	 return this->$SymmetricCipher::toString();
+	return this->$SymmetricCipher::toString();
 }
 
 void BlowfishCrypt::finalize() {

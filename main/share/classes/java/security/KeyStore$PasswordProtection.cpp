@@ -20,19 +20,19 @@ namespace java {
 	namespace security {
 
 int32_t KeyStore$PasswordProtection::hashCode() {
-	 return this->$KeyStore$ProtectionParameter::hashCode();
+	return this->$KeyStore$ProtectionParameter::hashCode();
 }
 
 bool KeyStore$PasswordProtection::equals(Object$* obj) {
-	 return this->$KeyStore$ProtectionParameter::equals(obj);
+	return this->$KeyStore$ProtectionParameter::equals(obj);
 }
 
 $Object* KeyStore$PasswordProtection::clone() {
-	 return this->$KeyStore$ProtectionParameter::clone();
+	return this->$KeyStore$ProtectionParameter::clone();
 }
 
 $String* KeyStore$PasswordProtection::toString() {
-	 return this->$KeyStore$ProtectionParameter::toString();
+	return this->$KeyStore$ProtectionParameter::toString();
 }
 
 void KeyStore$PasswordProtection::finalize() {

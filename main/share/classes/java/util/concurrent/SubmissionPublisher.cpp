@@ -53,19 +53,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t SubmissionPublisher::hashCode() {
-	 return this->$Flow$Publisher::hashCode();
+	return this->$Flow$Publisher::hashCode();
 }
 
 bool SubmissionPublisher::equals(Object$* obj) {
-	 return this->$Flow$Publisher::equals(obj);
+	return this->$Flow$Publisher::equals(obj);
 }
 
 $Object* SubmissionPublisher::clone() {
-	 return this->$Flow$Publisher::clone();
+	return this->$Flow$Publisher::clone();
 }
 
 $String* SubmissionPublisher::toString() {
-	 return this->$Flow$Publisher::toString();
+	return this->$Flow$Publisher::toString();
 }
 
 void SubmissionPublisher::finalize() {

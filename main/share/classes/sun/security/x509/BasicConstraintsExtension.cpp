@@ -36,15 +36,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t BasicConstraintsExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool BasicConstraintsExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* BasicConstraintsExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void BasicConstraintsExtension::finalize() {

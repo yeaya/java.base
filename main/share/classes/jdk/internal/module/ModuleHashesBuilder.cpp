@@ -68,7 +68,7 @@ public:
 		$set(this, mods, mods);
 	}
 	virtual bool test(Object$* mn) override {
-		 return ModuleHashesBuilder::lambda$computeHashes$0(roots, mods, $cast($String, mn));
+		return ModuleHashesBuilder::lambda$computeHashes$0(roots, mods, $cast($String, mn));
 	}
 	$Set* roots = nullptr;
 	$Set* mods = nullptr;
@@ -152,7 +152,7 @@ public:
 		$set(this, mn, mn);
 	}
 	virtual bool test(Object$* n) override {
-		 return $nc(inst$)->lambda$computeHashes$1(mn, $cast($String, n));
+		return $nc(inst$)->lambda$computeHashes$1(mn, $cast($String, n));
 	}
 	ModuleHashesBuilder* inst$ = nullptr;
 	$String* mn = nullptr;
@@ -190,7 +190,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $nc(inst$)->lambda$computeHashes$2($cast($String, name));
+		return $nc(inst$)->lambda$computeHashes$2($cast($String, name));
 	}
 	ModuleHashesBuilder* inst$ = nullptr;
 };
@@ -225,7 +225,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ResolvedModule, inst$)->reference();
+		return $sure($ResolvedModule, inst$)->reference();
 	}
 };
 $Class* ModuleHashesBuilder$$Lambda$reference$4::load$($String* name, bool initialize) {
@@ -255,7 +255,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $new($InternalError);
+		return $new($InternalError);
 	}
 };
 $Class* ModuleHashesBuilder$$Lambda$InternalError$5::load$($String* name, bool initialize) {

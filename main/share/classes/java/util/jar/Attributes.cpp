@@ -46,7 +46,7 @@ namespace java {
 		namespace jar {
 
 $String* Attributes::toString() {
-	 return this->$Map::toString();
+	return this->$Map::toString();
 }
 
 void Attributes::finalize() {

@@ -53,7 +53,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of($SimpleConsoleLogger::makeSimpleLogger($cast($String, name)));
+		return $of($SimpleConsoleLogger::makeSimpleLogger($cast($String, name)));
 	}
 };
 $Class* DefaultLoggerFinder$$Lambda$makeSimpleLogger::load$($String* name, bool initialize) {

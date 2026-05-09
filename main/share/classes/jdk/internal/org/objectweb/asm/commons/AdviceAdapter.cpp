@@ -193,19 +193,19 @@ namespace jdk {
 					namespace commons {
 
 int32_t AdviceAdapter::hashCode() {
-	 return this->$GeneratorAdapter::hashCode();
+	return this->$GeneratorAdapter::hashCode();
 }
 
 bool AdviceAdapter::equals(Object$* obj) {
-	 return this->$GeneratorAdapter::equals(obj);
+	return this->$GeneratorAdapter::equals(obj);
 }
 
 $Object* AdviceAdapter::clone() {
-	 return this->$GeneratorAdapter::clone();
+	return this->$GeneratorAdapter::clone();
 }
 
 $String* AdviceAdapter::toString() {
-	 return this->$GeneratorAdapter::toString();
+	return this->$GeneratorAdapter::toString();
 }
 
 void AdviceAdapter::finalize() {

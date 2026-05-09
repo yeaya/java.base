@@ -39,7 +39,7 @@ public:
 		$set(this, fn, fn);
 	}
 	virtual $Object* apply(Object$* r, Object$* ex) override {
-		 return $nc(inst$)->lambda$exceptionallyAsync$1(fn, r, $cast($Throwable, ex));
+		return $nc(inst$)->lambda$exceptionallyAsync$1(fn, r, $cast($Throwable, ex));
 	}
 	CompletionStage* inst$ = nullptr;
 	$Function* fn = nullptr;
@@ -79,7 +79,7 @@ public:
 		$set(this, executor, executor);
 	}
 	virtual $Object* apply(Object$* r, Object$* ex) override {
-		 return $nc(inst$)->lambda$exceptionallyAsync$3(fn, executor, r, $cast($Throwable, ex));
+		return $nc(inst$)->lambda$exceptionallyAsync$3(fn, executor, r, $cast($Throwable, ex));
 	}
 	CompletionStage* inst$ = nullptr;
 	$Function* fn = nullptr;
@@ -120,7 +120,7 @@ public:
 		$set(this, fn, fn);
 	}
 	virtual $Object* apply(Object$* r, Object$* ex) override {
-		 return $nc(inst$)->lambda$exceptionallyCompose$4(fn, r, $cast($Throwable, ex));
+		return $nc(inst$)->lambda$exceptionallyCompose$4(fn, r, $cast($Throwable, ex));
 	}
 	CompletionStage* inst$ = nullptr;
 	$Function* fn = nullptr;
@@ -159,7 +159,7 @@ public:
 		$set(this, fn, fn);
 	}
 	virtual $Object* apply(Object$* r, Object$* ex) override {
-		 return $nc(inst$)->lambda$exceptionallyComposeAsync$6(fn, r, $cast($Throwable, ex));
+		return $nc(inst$)->lambda$exceptionallyComposeAsync$6(fn, r, $cast($Throwable, ex));
 	}
 	CompletionStage* inst$ = nullptr;
 	$Function* fn = nullptr;
@@ -199,7 +199,7 @@ public:
 		$set(this, executor, executor);
 	}
 	virtual $Object* apply(Object$* r, Object$* ex) override {
-		 return $nc(inst$)->lambda$exceptionallyComposeAsync$8(fn, executor, r, $cast($Throwable, ex));
+		return $nc(inst$)->lambda$exceptionallyComposeAsync$8(fn, executor, r, $cast($Throwable, ex));
 	}
 	CompletionStage* inst$ = nullptr;
 	$Function* fn = nullptr;
@@ -239,7 +239,7 @@ public:
 		$set(this, fn, fn);
 	}
 	virtual $Object* apply(Object$* r1, Object$* ex1) override {
-		 return CompletionStage::lambda$exceptionallyComposeAsync$5(fn, r1, $cast($Throwable, ex1));
+		return CompletionStage::lambda$exceptionallyComposeAsync$5(fn, r1, $cast($Throwable, ex1));
 	}
 	$Function* fn = nullptr;
 };
@@ -275,7 +275,7 @@ public:
 		$set(this, fn, fn);
 	}
 	virtual $Object* apply(Object$* r1, Object$* ex1) override {
-		 return CompletionStage::lambda$exceptionallyAsync$0(fn, r1, $cast($Throwable, ex1));
+		return CompletionStage::lambda$exceptionallyAsync$0(fn, r1, $cast($Throwable, ex1));
 	}
 	$Function* fn = nullptr;
 };

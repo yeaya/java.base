@@ -51,7 +51,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return ModuleFinder$2::lambda$find$0(name, $cast($ModuleFinder, f));
+		return ModuleFinder$2::lambda$find$0(name, $cast($ModuleFinder, f));
 	}
 	$String* name = nullptr;
 };
@@ -86,7 +86,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Optional, inst$)->stream();
+		return $sure($Optional, inst$)->stream();
 	}
 };
 $Class* ModuleFinder$2$$Lambda$stream$1::load$($String* name, bool initialize) {
@@ -155,7 +155,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return ModuleFinder$2::lambda$findAll$2($cast($ModuleFinder, f));
+		return ModuleFinder$2::lambda$findAll$2($cast($ModuleFinder, f));
 	}
 };
 $Class* ModuleFinder$2$$Lambda$lambda$findAll$2$3::load$($String* name, bool initialize) {

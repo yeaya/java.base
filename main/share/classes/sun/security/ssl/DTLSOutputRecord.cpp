@@ -48,19 +48,19 @@ namespace sun {
 		namespace ssl {
 
 $String* DTLSOutputRecord::toString() {
-	 return this->$OutputRecord::toString();
+	return this->$OutputRecord::toString();
 }
 
 int32_t DTLSOutputRecord::hashCode() {
-	 return this->$OutputRecord::hashCode();
+	return this->$OutputRecord::hashCode();
 }
 
 bool DTLSOutputRecord::equals(Object$* obj) {
-	 return this->$OutputRecord::equals(obj);
+	return this->$OutputRecord::equals(obj);
 }
 
 $Object* DTLSOutputRecord::clone() {
-	 return this->$OutputRecord::clone();
+	return this->$OutputRecord::clone();
 }
 
 void DTLSOutputRecord::finalize() {

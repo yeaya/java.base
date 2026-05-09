@@ -33,7 +33,7 @@ namespace java {
 		namespace constant {
 
 bool MethodHandleDesc::equals(Object$* o) {
-	 return this->$ConstantDesc::equals(o);
+	return this->$ConstantDesc::equals(o);
 }
 
 $DirectMethodHandleDesc* MethodHandleDesc::of($DirectMethodHandleDesc$Kind* kind, $ClassDesc* owner, $String* name, $String* lookupDescriptor) {

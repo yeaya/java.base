@@ -130,7 +130,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(ReadCloseRaceNPE::lambda$main$2());
+		return $of(ReadCloseRaceNPE::lambda$main$2());
 	}
 };
 $Class* ReadCloseRaceNPE$$Lambda$lambda$main$2$2::load$($String* name, bool initialize) {
@@ -160,7 +160,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(ReadCloseRaceNPE::lambda$main$3());
+		return $of(ReadCloseRaceNPE::lambda$main$3());
 	}
 };
 $Class* ReadCloseRaceNPE$$Lambda$lambda$main$3$3::load$($String* name, bool initialize) {

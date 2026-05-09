@@ -30,19 +30,19 @@ namespace sun {
 		namespace ch {
 
 int32_t WindowsAsynchronousFileChannelImpl$LockTask::hashCode() {
-	 return this->$Runnable::hashCode();
+	return this->$Runnable::hashCode();
 }
 
 bool WindowsAsynchronousFileChannelImpl$LockTask::equals(Object$* obj) {
-	 return this->$Runnable::equals(obj);
+	return this->$Runnable::equals(obj);
 }
 
 $Object* WindowsAsynchronousFileChannelImpl$LockTask::clone() {
-	 return this->$Runnable::clone();
+	return this->$Runnable::clone();
 }
 
 $String* WindowsAsynchronousFileChannelImpl$LockTask::toString() {
-	 return this->$Runnable::toString();
+	return this->$Runnable::toString();
 }
 
 void WindowsAsynchronousFileChannelImpl$LockTask::finalize() {

@@ -78,15 +78,15 @@ namespace java {
 	namespace util {
 
 bool HashMap::equals(Object$* o) {
-	 return this->$AbstractMap::equals(o);
+	return this->$AbstractMap::equals(o);
 }
 
 int32_t HashMap::hashCode() {
-	 return this->$AbstractMap::hashCode();
+	return this->$AbstractMap::hashCode();
 }
 
 $String* HashMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 void HashMap::finalize() {

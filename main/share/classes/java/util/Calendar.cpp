@@ -187,7 +187,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ID) override {
-		 return $of($TimeZone::getTimeZone($cast($String, ID)));
+		return $of($TimeZone::getTimeZone($cast($String, ID)));
 	}
 };
 $Class* Calendar$$Lambda$getTimeZone::load$($String* name, bool initialize) {

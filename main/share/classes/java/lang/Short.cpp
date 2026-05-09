@@ -36,7 +36,7 @@ namespace java {
 	namespace lang {
 
 $Object* Short::clone() {
-	 return this->$Number::clone();
+	return this->$Number::clone();
 }
 
 void Short::finalize() {

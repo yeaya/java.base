@@ -114,7 +114,7 @@ public:
 		this->container = container;
 	}
 	virtual $Object* get() override {
-		 return AnnotationParser::lambda$parseClassArray$0(buf, constPool, container);
+		return AnnotationParser::lambda$parseClassArray$0(buf, constPool, container);
 	}
 	$ByteBuffer* buf = nullptr;
 	$ConstantPool* constPool = nullptr;
@@ -157,7 +157,7 @@ public:
 		this->container = container;
 	}
 	virtual $Object* get() override {
-		 return AnnotationParser::lambda$parseEnumArray$1(enumType, buf, constPool, container);
+		return AnnotationParser::lambda$parseEnumArray$1(enumType, buf, constPool, container);
 	}
 	$Class* enumType = nullptr;
 	$ByteBuffer* buf = nullptr;
@@ -201,7 +201,7 @@ public:
 		this->container = container;
 	}
 	virtual $Object* get() override {
-		 return AnnotationParser::lambda$parseAnnotationArray$2(buf, constPool, container);
+		return AnnotationParser::lambda$parseAnnotationArray$2(buf, constPool, container);
 	}
 	$ByteBuffer* buf = nullptr;
 	$ConstantPool* constPool = nullptr;

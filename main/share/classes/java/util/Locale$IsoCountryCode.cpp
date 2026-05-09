@@ -47,7 +47,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure(Locale$IsoCountryCode, inst$)->createCountryCodeSet();
+		return $sure(Locale$IsoCountryCode, inst$)->createCountryCodeSet();
 	}
 };
 $Class* Locale$IsoCountryCode$$Lambda$createCountryCodeSet::load$($String* name, bool initialize) {

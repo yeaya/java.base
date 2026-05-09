@@ -74,15 +74,15 @@ namespace java {
 		namespace chrono {
 
 int32_t JapaneseEra::hashCode() {
-	 return this->$Era::hashCode();
+	return this->$Era::hashCode();
 }
 
 bool JapaneseEra::equals(Object$* obj) {
-	 return this->$Era::equals(obj);
+	return this->$Era::equals(obj);
 }
 
 $Object* JapaneseEra::clone() {
-	 return this->$Era::clone();
+	return this->$Era::clone();
 }
 
 void JapaneseEra::finalize() {

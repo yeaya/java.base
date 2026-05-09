@@ -25,19 +25,19 @@ namespace sun {
 			namespace provider {
 
 int32_t DateFormatSymbolsProviderImpl::hashCode() {
-	 return this->$DateFormatSymbolsProvider::hashCode();
+	return this->$DateFormatSymbolsProvider::hashCode();
 }
 
 bool DateFormatSymbolsProviderImpl::equals(Object$* obj) {
-	 return this->$DateFormatSymbolsProvider::equals(obj);
+	return this->$DateFormatSymbolsProvider::equals(obj);
 }
 
 $Object* DateFormatSymbolsProviderImpl::clone() {
-	 return this->$DateFormatSymbolsProvider::clone();
+	return this->$DateFormatSymbolsProvider::clone();
 }
 
 $String* DateFormatSymbolsProviderImpl::toString() {
-	 return this->$DateFormatSymbolsProvider::toString();
+	return this->$DateFormatSymbolsProvider::toString();
 }
 
 void DateFormatSymbolsProviderImpl::finalize() {

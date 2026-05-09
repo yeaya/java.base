@@ -136,7 +136,7 @@ public:
 		$set(this, logger, logger);
 	}
 	virtual $Object* run() override {
-		 return BootstrapLogger$LogEvent::lambda$log$3(log, logger);
+		return BootstrapLogger$LogEvent::lambda$log$3(log, logger);
 	}
 	BootstrapLogger$LogEvent* log = nullptr;
 	$PlatformLogger$Bridge* logger = nullptr;
@@ -175,7 +175,7 @@ public:
 		$set(this, logger, logger);
 	}
 	virtual $Object* run() override {
-		 return BootstrapLogger$LogEvent::lambda$log$1(log, logger);
+		return BootstrapLogger$LogEvent::lambda$log$1(log, logger);
 	}
 	BootstrapLogger$LogEvent* log = nullptr;
 	$System$Logger* logger = nullptr;

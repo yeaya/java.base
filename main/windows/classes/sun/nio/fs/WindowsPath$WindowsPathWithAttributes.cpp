@@ -27,19 +27,19 @@ namespace sun {
 		namespace fs {
 
 bool WindowsPath$WindowsPathWithAttributes::equals(Object$* obj) {
-	 return this->$WindowsPath::equals(obj);
+	return this->$WindowsPath::equals(obj);
 }
 
 int32_t WindowsPath$WindowsPathWithAttributes::hashCode() {
-	 return this->$WindowsPath::hashCode();
+	return this->$WindowsPath::hashCode();
 }
 
 $String* WindowsPath$WindowsPathWithAttributes::toString() {
-	 return this->$WindowsPath::toString();
+	return this->$WindowsPath::toString();
 }
 
 $Object* WindowsPath$WindowsPathWithAttributes::clone() {
-	 return this->$WindowsPath::clone();
+	return this->$WindowsPath::clone();
 }
 
 void WindowsPath$WindowsPathWithAttributes::finalize() {

@@ -18,19 +18,19 @@ namespace java {
 	namespace util {
 
 $Object* ResourceBundle$BundleReference::clone() {
-	 return this->$SoftReference::clone();
+	return this->$SoftReference::clone();
 }
 
 int32_t ResourceBundle$BundleReference::hashCode() {
-	 return this->$SoftReference::hashCode();
+	return this->$SoftReference::hashCode();
 }
 
 bool ResourceBundle$BundleReference::equals(Object$* obj) {
-	 return this->$SoftReference::equals(obj);
+	return this->$SoftReference::equals(obj);
 }
 
 $String* ResourceBundle$BundleReference::toString() {
-	 return this->$SoftReference::toString();
+	return this->$SoftReference::toString();
 }
 
 void ResourceBundle$BundleReference::finalize() {

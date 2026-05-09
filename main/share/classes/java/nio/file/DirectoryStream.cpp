@@ -12,19 +12,19 @@ namespace java {
 		namespace file {
 
 int32_t DirectoryStream::hashCode() {
-	 return this->$Closeable::hashCode();
+	return this->$Closeable::hashCode();
 }
 
 bool DirectoryStream::equals(Object$* obj) {
-	 return this->$Closeable::equals(obj);
+	return this->$Closeable::equals(obj);
 }
 
 $Object* DirectoryStream::clone() {
-	 return this->$Closeable::clone();
+	return this->$Closeable::clone();
 }
 
 $String* DirectoryStream::toString() {
-	 return this->$Closeable::toString();
+	return this->$Closeable::toString();
 }
 
 void DirectoryStream::finalize() {

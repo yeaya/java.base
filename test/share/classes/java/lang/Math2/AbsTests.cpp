@@ -38,7 +38,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t arg0) override {
-		 return $Math::abs(arg0);
+		return $Math::abs(arg0);
 	}
 };
 $Class* AbsTests$$Lambda$abs::load$($String* name, bool initialize) {
@@ -68,7 +68,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t arg0) override {
-		 return $Math::absExact(arg0);
+		return $Math::absExact(arg0);
 	}
 };
 $Class* AbsTests$$Lambda$absExact$1::load$($String* name, bool initialize) {
@@ -98,7 +98,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(int64_t arg0) override {
-		 return $Math::abs(arg0);
+		return $Math::abs(arg0);
 	}
 };
 $Class* AbsTests$$Lambda$abs$2::load$($String* name, bool initialize) {
@@ -128,7 +128,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(int64_t arg0) override {
-		 return $Math::absExact(arg0);
+		return $Math::absExact(arg0);
 	}
 };
 $Class* AbsTests$$Lambda$absExact$3::load$($String* name, bool initialize) {

@@ -102,7 +102,7 @@ public:
 		$set(this, loader, loader);
 	}
 	virtual $Object* apply(Object$* mn) override {
-		 return ModuleLayer::lambda$defineModulesWithOneLoader$0(loader, $cast($String, mn));
+		return ModuleLayer::lambda$defineModulesWithOneLoader$0(loader, $cast($String, mn));
 	}
 	$Loader* loader = nullptr;
 };
@@ -138,7 +138,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $nc(inst$)->loaderFor($cast($String, name));
+		return $nc(inst$)->loaderFor($cast($String, name));
 	}
 	$LoaderPool* inst$ = nullptr;
 };
@@ -173,7 +173,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return ModuleLayer::lambda$checkForDuplicatePkgs$1($cast($ClassLoader, k));
+		return ModuleLayer::lambda$checkForDuplicatePkgs$1($cast($ClassLoader, k));
 	}
 };
 $Class* ModuleLayer$$Lambda$lambda$checkForDuplicatePkgs$1$2::load$($String* name, bool initialize) {
@@ -204,7 +204,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* apply(Object$* l) override {
-		 return ModuleLayer::lambda$findModule$2(name, $cast(ModuleLayer, l));
+		return ModuleLayer::lambda$findModule$2(name, $cast(ModuleLayer, l));
 	}
 	$String* name = nullptr;
 };
@@ -239,7 +239,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* obj) override {
-		 return $Objects::nonNull(obj);
+		return $Objects::nonNull(obj);
 	}
 };
 $Class* ModuleLayer$$Lambda$nonNull$4::load$($String* name, bool initialize) {
@@ -269,7 +269,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Module, inst$)->getName());
+		return $of($sure($Module, inst$)->getName());
 	}
 };
 $Class* ModuleLayer$$Lambda$getName$5::load$($String* name, bool initialize) {

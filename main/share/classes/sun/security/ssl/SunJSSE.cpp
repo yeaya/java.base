@@ -42,7 +42,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$registerAlgorithms$0();
+		return $nc(inst$)->lambda$registerAlgorithms$0();
 	}
 	SunJSSE* inst$ = nullptr;
 };

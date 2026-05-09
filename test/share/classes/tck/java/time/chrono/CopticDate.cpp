@@ -62,7 +62,7 @@ namespace tck {
 			namespace chrono {
 
 $Object* CopticDate::clone() {
-	 return this->$ChronoLocalDate::clone();
+	return this->$ChronoLocalDate::clone();
 }
 
 void CopticDate::finalize() {

@@ -309,7 +309,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* entry) override {
-		 return $of(Files::lambda$walk$1($cast($FileTreeWalker$Event, entry)));
+		return $of(Files::lambda$walk$1($cast($FileTreeWalker$Event, entry)));
 	}
 };
 $Class* Files$$Lambda$lambda$walk$1$2::load$($String* name, bool initialize) {
@@ -340,7 +340,7 @@ public:
 		$set(this, matcher, matcher);
 	}
 	virtual bool test(Object$* entry) override {
-		 return Files::lambda$find$2(matcher, $cast($FileTreeWalker$Event, entry));
+		return Files::lambda$find$2(matcher, $cast($FileTreeWalker$Event, entry));
 	}
 	$BiPredicate* matcher = nullptr;
 };

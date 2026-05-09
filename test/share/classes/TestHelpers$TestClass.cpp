@@ -16,19 +16,19 @@ using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 
 int32_t TestHelpers$TestClass::hashCode() {
-	 return this->$TestHelpers$TestSuperclass::hashCode();
+	return this->$TestHelpers$TestSuperclass::hashCode();
 }
 
 bool TestHelpers$TestClass::equals(Object$* arg0) {
-	 return this->$TestHelpers$TestSuperclass::equals(arg0);
+	return this->$TestHelpers$TestSuperclass::equals(arg0);
 }
 
 $Object* TestHelpers$TestClass::clone() {
-	 return this->$TestHelpers$TestSuperclass::clone();
+	return this->$TestHelpers$TestSuperclass::clone();
 }
 
 $String* TestHelpers$TestClass::toString() {
-	 return this->$TestHelpers$TestSuperclass::toString();
+	return this->$TestHelpers$TestSuperclass::toString();
 }
 
 void TestHelpers$TestClass::finalize() {

@@ -232,7 +232,7 @@ public:
 		this->ic = ic;
 	}
 	virtual $Object* tryOnce($chars* pass) override {
-		 return $nc(inst$)->lambda$engineGetKey$0(algOid, algParams, encryptedKey, entry, alias, ic, pass);
+		return $nc(inst$)->lambda$engineGetKey$0(algOid, algParams, encryptedKey, entry, alias, ic, pass);
 	}
 	PKCS12KeyStore* inst$ = nullptr;
 	$ObjectIdentifier* algOid = nullptr;
@@ -283,7 +283,7 @@ public:
 		$set(this, rawData, rawData);
 	}
 	virtual $Object* tryOnce($chars* pass) override {
-		 return $nc(inst$)->lambda$engineLoad$1(algOid, algParams, rawData, pass);
+		return $nc(inst$)->lambda$engineLoad$1(algOid, algParams, rawData, pass);
 	}
 	PKCS12KeyStore* inst$ = nullptr;
 	$ObjectIdentifier* algOid = nullptr;
@@ -330,7 +330,7 @@ public:
 		$set(this, macData, macData);
 	}
 	virtual $Object* tryOnce($chars* pass) override {
-		 return $nc(inst$)->lambda$engineLoad$2(m, params, authSafeData, ic, macData, pass);
+		return $nc(inst$)->lambda$engineLoad$2(m, params, authSafeData, ic, macData, pass);
 	}
 	PKCS12KeyStore* inst$ = nullptr;
 	$Mac* m = nullptr;

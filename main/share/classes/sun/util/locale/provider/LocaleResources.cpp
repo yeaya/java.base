@@ -109,7 +109,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* i) override {
-		 return LocaleResources::lambda$getZoneStrings$0($cast($String, i));
+		return LocaleResources::lambda$getZoneStrings$0($cast($String, i));
 	}
 };
 $Class* LocaleResources$$Lambda$lambda$getZoneStrings$0::load$($String* name, bool initialize) {

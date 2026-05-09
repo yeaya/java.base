@@ -21,19 +21,19 @@ namespace java {
 	namespace util {
 
 bool ImmutableCollections$AbstractImmutableMap::equals(Object$* o) {
-	 return this->$AbstractMap::equals(o);
+	return this->$AbstractMap::equals(o);
 }
 
 int32_t ImmutableCollections$AbstractImmutableMap::hashCode() {
-	 return this->$AbstractMap::hashCode();
+	return this->$AbstractMap::hashCode();
 }
 
 $String* ImmutableCollections$AbstractImmutableMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 $Object* ImmutableCollections$AbstractImmutableMap::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 void ImmutableCollections$AbstractImmutableMap::finalize() {

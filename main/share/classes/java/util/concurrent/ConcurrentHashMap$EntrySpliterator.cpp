@@ -29,19 +29,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t ConcurrentHashMap$EntrySpliterator::hashCode() {
-	 return this->$ConcurrentHashMap$Traverser::hashCode();
+	return this->$ConcurrentHashMap$Traverser::hashCode();
 }
 
 bool ConcurrentHashMap$EntrySpliterator::equals(Object$* obj) {
-	 return this->$ConcurrentHashMap$Traverser::equals(obj);
+	return this->$ConcurrentHashMap$Traverser::equals(obj);
 }
 
 $Object* ConcurrentHashMap$EntrySpliterator::clone() {
-	 return this->$ConcurrentHashMap$Traverser::clone();
+	return this->$ConcurrentHashMap$Traverser::clone();
 }
 
 $String* ConcurrentHashMap$EntrySpliterator::toString() {
-	 return this->$ConcurrentHashMap$Traverser::toString();
+	return this->$ConcurrentHashMap$Traverser::toString();
 }
 
 void ConcurrentHashMap$EntrySpliterator::finalize() {

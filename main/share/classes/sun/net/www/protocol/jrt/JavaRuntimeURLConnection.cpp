@@ -64,7 +64,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $ImageReaderFactory::getImageReader();
+		return $ImageReaderFactory::getImageReader();
 	}
 };
 $Class* JavaRuntimeURLConnection$$Lambda$getImageReader::load$($String* name, bool initialize) {

@@ -53,19 +53,19 @@ using $MemberFactory$Kind = ::util::MemberFactory$Kind;
 namespace util {
 
 $String* MemberFactory::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool MemberFactory::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t MemberFactory::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* MemberFactory::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void MemberFactory::finalize() {

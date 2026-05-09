@@ -48,19 +48,19 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $HashMap = ::java::util::HashMap;
 
 $Object* SocksServer::clone() {
-	 return this->$Thread::clone();
+	return this->$Thread::clone();
 }
 
 $String* SocksServer::toString() {
-	 return this->$Thread::toString();
+	return this->$Thread::toString();
 }
 
 int32_t SocksServer::hashCode() {
-	 return this->$Thread::hashCode();
+	return this->$Thread::hashCode();
 }
 
 bool SocksServer::equals(Object$* arg0) {
-	 return this->$Thread::equals(arg0);
+	return this->$Thread::equals(arg0);
 }
 
 void SocksServer::finalize() {

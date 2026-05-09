@@ -70,19 +70,19 @@ void LinuxDosFileAttributeView::setTimes($FileTime* lastModifiedTime, $FileTime*
 }
 
 int32_t LinuxDosFileAttributeView::hashCode() {
-	 return this->$UnixFileAttributeViews$Basic::hashCode();
+	return this->$UnixFileAttributeViews$Basic::hashCode();
 }
 
 bool LinuxDosFileAttributeView::equals(Object$* obj) {
-	 return this->$UnixFileAttributeViews$Basic::equals(obj);
+	return this->$UnixFileAttributeViews$Basic::equals(obj);
 }
 
 $Object* LinuxDosFileAttributeView::clone() {
-	 return this->$UnixFileAttributeViews$Basic::clone();
+	return this->$UnixFileAttributeViews$Basic::clone();
 }
 
 $String* LinuxDosFileAttributeView::toString() {
-	 return this->$UnixFileAttributeViews$Basic::toString();
+	return this->$UnixFileAttributeViews$Basic::toString();
 }
 
 void LinuxDosFileAttributeView::finalize() {

@@ -23,11 +23,11 @@ namespace java {
 	namespace util {
 
 bool Collections$EmptyListIterator::hasNext() {
-	 return this->$Collections$EmptyIterator::hasNext();
+	return this->$Collections$EmptyIterator::hasNext();
 }
 
 $Object* Collections$EmptyListIterator::next() {
-	 return this->$Collections$EmptyIterator::next();
+	return this->$Collections$EmptyIterator::next();
 }
 
 void Collections$EmptyListIterator::remove() {
@@ -39,19 +39,19 @@ void Collections$EmptyListIterator::forEachRemaining($Consumer* action) {
 }
 
 int32_t Collections$EmptyListIterator::hashCode() {
-	 return this->$Collections$EmptyIterator::hashCode();
+	return this->$Collections$EmptyIterator::hashCode();
 }
 
 bool Collections$EmptyListIterator::equals(Object$* obj) {
-	 return this->$Collections$EmptyIterator::equals(obj);
+	return this->$Collections$EmptyIterator::equals(obj);
 }
 
 $Object* Collections$EmptyListIterator::clone() {
-	 return this->$Collections$EmptyIterator::clone();
+	return this->$Collections$EmptyIterator::clone();
 }
 
 $String* Collections$EmptyListIterator::toString() {
-	 return this->$Collections$EmptyIterator::toString();
+	return this->$Collections$EmptyIterator::toString();
 }
 
 void Collections$EmptyListIterator::finalize() {

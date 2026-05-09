@@ -51,7 +51,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual double getAsDouble() override {
-		 return $nc(inst$)->nextDouble();
+		return $nc(inst$)->nextDouble();
 	}
 	RandomGenerator* inst$ = nullptr;
 };
@@ -89,7 +89,7 @@ public:
 		this->randomNumberBound = randomNumberBound;
 	}
 	virtual double getAsDouble() override {
-		 return $nc(inst$)->lambda$doubles$0(randomNumberOrigin, randomNumberBound);
+		return $nc(inst$)->lambda$doubles$0(randomNumberOrigin, randomNumberBound);
 	}
 	RandomGenerator* inst$ = nullptr;
 	double randomNumberOrigin = 0.0;
@@ -129,7 +129,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual int32_t getAsInt() override {
-		 return $nc(inst$)->nextInt();
+		return $nc(inst$)->nextInt();
 	}
 	RandomGenerator* inst$ = nullptr;
 };
@@ -167,7 +167,7 @@ public:
 		this->randomNumberBound = randomNumberBound;
 	}
 	virtual int32_t getAsInt() override {
-		 return $nc(inst$)->lambda$ints$1(randomNumberOrigin, randomNumberBound);
+		return $nc(inst$)->lambda$ints$1(randomNumberOrigin, randomNumberBound);
 	}
 	RandomGenerator* inst$ = nullptr;
 	int32_t randomNumberOrigin = 0;
@@ -207,7 +207,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual int64_t getAsLong() override {
-		 return $nc(inst$)->nextLong();
+		return $nc(inst$)->nextLong();
 	}
 	RandomGenerator* inst$ = nullptr;
 };
@@ -245,7 +245,7 @@ public:
 		this->randomNumberBound = randomNumberBound;
 	}
 	virtual int64_t getAsLong() override {
-		 return $nc(inst$)->lambda$longs$2(randomNumberOrigin, randomNumberBound);
+		return $nc(inst$)->lambda$longs$2(randomNumberOrigin, randomNumberBound);
 	}
 	RandomGenerator* inst$ = nullptr;
 	int64_t randomNumberOrigin = 0;

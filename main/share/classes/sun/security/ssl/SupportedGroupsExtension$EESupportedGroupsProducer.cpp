@@ -48,19 +48,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t SupportedGroupsExtension$EESupportedGroupsProducer::hashCode() {
-	 return this->$SupportedGroupsExtension$SupportedGroups::hashCode();
+	return this->$SupportedGroupsExtension$SupportedGroups::hashCode();
 }
 
 bool SupportedGroupsExtension$EESupportedGroupsProducer::equals(Object$* obj) {
-	 return this->$SupportedGroupsExtension$SupportedGroups::equals(obj);
+	return this->$SupportedGroupsExtension$SupportedGroups::equals(obj);
 }
 
 $Object* SupportedGroupsExtension$EESupportedGroupsProducer::clone() {
-	 return this->$SupportedGroupsExtension$SupportedGroups::clone();
+	return this->$SupportedGroupsExtension$SupportedGroups::clone();
 }
 
 $String* SupportedGroupsExtension$EESupportedGroupsProducer::toString() {
-	 return this->$SupportedGroupsExtension$SupportedGroups::toString();
+	return this->$SupportedGroupsExtension$SupportedGroups::toString();
 }
 
 void SupportedGroupsExtension$EESupportedGroupsProducer::finalize() {

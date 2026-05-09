@@ -103,7 +103,7 @@ namespace java {
 	namespace net {
 
 $Object* URI::clone() {
-	 return this->$Comparable::clone();
+	return this->$Comparable::clone();
 }
 
 void URI::finalize() {

@@ -46,7 +46,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* m) override {
-		 return $of(ModuleBootstrap$SafeModuleFinder::lambda$find$0($cast($ModuleReference, m)));
+		return $of(ModuleBootstrap$SafeModuleFinder::lambda$find$0($cast($ModuleReference, m)));
 	}
 };
 $Class* ModuleBootstrap$SafeModuleFinder$$Lambda$lambda$find$0::load$($String* name, bool initialize) {

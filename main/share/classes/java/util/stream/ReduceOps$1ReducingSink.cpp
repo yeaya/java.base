@@ -21,23 +21,23 @@ namespace java {
 		namespace stream {
 
 $Object* ReduceOps$1ReducingSink::get() {
-	 return this->$ReduceOps$Box::get();
+	return this->$ReduceOps$Box::get();
 }
 
 int32_t ReduceOps$1ReducingSink::hashCode() {
-	 return this->$ReduceOps$Box::hashCode();
+	return this->$ReduceOps$Box::hashCode();
 }
 
 bool ReduceOps$1ReducingSink::equals(Object$* obj) {
-	 return this->$ReduceOps$Box::equals(obj);
+	return this->$ReduceOps$Box::equals(obj);
 }
 
 $Object* ReduceOps$1ReducingSink::clone() {
-	 return this->$ReduceOps$Box::clone();
+	return this->$ReduceOps$Box::clone();
 }
 
 $String* ReduceOps$1ReducingSink::toString() {
-	 return this->$ReduceOps$Box::toString();
+	return this->$ReduceOps$Box::toString();
 }
 
 void ReduceOps$1ReducingSink::finalize() {

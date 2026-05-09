@@ -14,7 +14,7 @@ namespace sun {
 			namespace certpath {
 
 $Object* State::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 $Class* State::load$($String* name, bool initialize) {

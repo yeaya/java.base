@@ -45,63 +45,63 @@ namespace java {
 	namespace util {
 
 bool AbstractList::isEmpty() {
-	 return this->$AbstractCollection::isEmpty();
+	return this->$AbstractCollection::isEmpty();
 }
 
 bool AbstractList::contains(Object$* o) {
-	 return this->$AbstractCollection::contains(o);
+	return this->$AbstractCollection::contains(o);
 }
 
 $ObjectArray* AbstractList::toArray() {
-	 return this->$AbstractCollection::toArray();
+	return this->$AbstractCollection::toArray();
 }
 
 $ObjectArray* AbstractList::toArray($ObjectArray* a) {
-	 return this->$AbstractCollection::toArray(a);
+	return this->$AbstractCollection::toArray(a);
 }
 
 bool AbstractList::remove(Object$* o) {
-	 return this->$AbstractCollection::remove(o);
+	return this->$AbstractCollection::remove(o);
 }
 
 bool AbstractList::containsAll($Collection* c) {
-	 return this->$AbstractCollection::containsAll(c);
+	return this->$AbstractCollection::containsAll(c);
 }
 
 bool AbstractList::addAll($Collection* c) {
-	 return this->$AbstractCollection::addAll(c);
+	return this->$AbstractCollection::addAll(c);
 }
 
 bool AbstractList::removeAll($Collection* c) {
-	 return this->$AbstractCollection::removeAll(c);
+	return this->$AbstractCollection::removeAll(c);
 }
 
 bool AbstractList::retainAll($Collection* c) {
-	 return this->$AbstractCollection::retainAll(c);
+	return this->$AbstractCollection::retainAll(c);
 }
 
 $String* AbstractList::toString() {
-	 return this->$AbstractCollection::toString();
+	return this->$AbstractCollection::toString();
 }
 
 $ObjectArray* AbstractList::toArray($IntFunction* generator) {
-	 return this->$AbstractCollection::toArray(generator);
+	return this->$AbstractCollection::toArray(generator);
 }
 
 bool AbstractList::removeIf($Predicate* filter) {
-	 return this->$AbstractCollection::removeIf(filter);
+	return this->$AbstractCollection::removeIf(filter);
 }
 
 $Spliterator* AbstractList::spliterator() {
-	 return this->$AbstractCollection::spliterator();
+	return this->$AbstractCollection::spliterator();
 }
 
 $Stream* AbstractList::stream() {
-	 return this->$AbstractCollection::stream();
+	return this->$AbstractCollection::stream();
 }
 
 $Stream* AbstractList::parallelStream() {
-	 return this->$AbstractCollection::parallelStream();
+	return this->$AbstractCollection::parallelStream();
 }
 
 void AbstractList::forEach($Consumer* action) {
@@ -109,7 +109,7 @@ void AbstractList::forEach($Consumer* action) {
 }
 
 $Object* AbstractList::clone() {
-	 return this->$AbstractCollection::clone();
+	return this->$AbstractCollection::clone();
 }
 
 void AbstractList::finalize() {

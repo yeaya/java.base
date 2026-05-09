@@ -41,7 +41,7 @@ namespace java {
 		namespace zone {
 
 $Object* ZoneOffsetTransition::clone() {
-	 return this->$Comparable::clone();
+	return this->$Comparable::clone();
 }
 
 void ZoneOffsetTransition::finalize() {

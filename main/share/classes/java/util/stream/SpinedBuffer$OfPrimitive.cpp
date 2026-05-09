@@ -28,19 +28,19 @@ namespace java {
 		namespace stream {
 
 int32_t SpinedBuffer$OfPrimitive::hashCode() {
-	 return this->$AbstractSpinedBuffer::hashCode();
+	return this->$AbstractSpinedBuffer::hashCode();
 }
 
 bool SpinedBuffer$OfPrimitive::equals(Object$* obj) {
-	 return this->$AbstractSpinedBuffer::equals(obj);
+	return this->$AbstractSpinedBuffer::equals(obj);
 }
 
 $Object* SpinedBuffer$OfPrimitive::clone() {
-	 return this->$AbstractSpinedBuffer::clone();
+	return this->$AbstractSpinedBuffer::clone();
 }
 
 $String* SpinedBuffer$OfPrimitive::toString() {
-	 return this->$AbstractSpinedBuffer::toString();
+	return this->$AbstractSpinedBuffer::toString();
 }
 
 void SpinedBuffer$OfPrimitive::finalize() {

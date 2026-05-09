@@ -16,19 +16,19 @@ namespace javax {
 			namespace callback {
 
 int32_t ChoiceCallback::hashCode() {
-	 return this->$Callback::hashCode();
+	return this->$Callback::hashCode();
 }
 
 bool ChoiceCallback::equals(Object$* obj) {
-	 return this->$Callback::equals(obj);
+	return this->$Callback::equals(obj);
 }
 
 $Object* ChoiceCallback::clone() {
-	 return this->$Callback::clone();
+	return this->$Callback::clone();
 }
 
 $String* ChoiceCallback::toString() {
-	 return this->$Callback::toString();
+	return this->$Callback::toString();
 }
 
 void ChoiceCallback::finalize() {

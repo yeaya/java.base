@@ -32,7 +32,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ModuleReference, inst$)->descriptor();
+		return $sure($ModuleReference, inst$)->descriptor();
 	}
 };
 $Class* LauncherHelper$JrtFirstComparator$$Lambda$descriptor::load$($String* name, bool initialize) {

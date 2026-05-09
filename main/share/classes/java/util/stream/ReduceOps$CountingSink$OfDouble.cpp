@@ -22,19 +22,19 @@ void ReduceOps$CountingSink$OfDouble::begin(int64_t size) {
 }
 
 int32_t ReduceOps$CountingSink$OfDouble::hashCode() {
-	 return this->$ReduceOps$CountingSink::hashCode();
+	return this->$ReduceOps$CountingSink::hashCode();
 }
 
 bool ReduceOps$CountingSink$OfDouble::equals(Object$* obj) {
-	 return this->$ReduceOps$CountingSink::equals(obj);
+	return this->$ReduceOps$CountingSink::equals(obj);
 }
 
 $Object* ReduceOps$CountingSink$OfDouble::clone() {
-	 return this->$ReduceOps$CountingSink::clone();
+	return this->$ReduceOps$CountingSink::clone();
 }
 
 $String* ReduceOps$CountingSink$OfDouble::toString() {
-	 return this->$ReduceOps$CountingSink::toString();
+	return this->$ReduceOps$CountingSink::toString();
 }
 
 void ReduceOps$CountingSink$OfDouble::finalize() {
@@ -46,7 +46,7 @@ void ReduceOps$CountingSink$OfDouble::end() {
 }
 
 bool ReduceOps$CountingSink$OfDouble::cancellationRequested() {
-	 return this->$ReduceOps$CountingSink::cancellationRequested();
+	return this->$ReduceOps$CountingSink::cancellationRequested();
 }
 
 void ReduceOps$CountingSink$OfDouble::accept(int32_t value) {
@@ -62,7 +62,7 @@ void ReduceOps$CountingSink$OfDouble::accept(Object$* t) {
 }
 
 $Consumer* ReduceOps$CountingSink$OfDouble::andThen($Consumer* after) {
-	 return this->$ReduceOps$CountingSink::andThen(after);
+	return this->$ReduceOps$CountingSink::andThen(after);
 }
 
 void ReduceOps$CountingSink$OfDouble::init$() {

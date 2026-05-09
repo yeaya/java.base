@@ -113,7 +113,7 @@ public:
 		$set(this, ni, ni);
 	}
 	virtual $Object* run() override {
-		 return DatagramSocketAdaptor::lambda$getInterface$0(ni);
+		return DatagramSocketAdaptor::lambda$getInterface$0(ni);
 	}
 	$NetworkInterface* ni = nullptr;
 };

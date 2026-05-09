@@ -35,19 +35,19 @@ namespace java {
 		namespace chrono {
 
 $String* MinguoEra::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool MinguoEra::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t MinguoEra::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* MinguoEra::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void MinguoEra::finalize() {

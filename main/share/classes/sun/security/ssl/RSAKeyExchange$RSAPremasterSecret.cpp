@@ -65,19 +65,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t RSAKeyExchange$RSAPremasterSecret::hashCode() {
-	 return this->$SSLPossession::hashCode();
+	return this->$SSLPossession::hashCode();
 }
 
 bool RSAKeyExchange$RSAPremasterSecret::equals(Object$* obj) {
-	 return this->$SSLPossession::equals(obj);
+	return this->$SSLPossession::equals(obj);
 }
 
 $Object* RSAKeyExchange$RSAPremasterSecret::clone() {
-	 return this->$SSLPossession::clone();
+	return this->$SSLPossession::clone();
 }
 
 $String* RSAKeyExchange$RSAPremasterSecret::toString() {
-	 return this->$SSLPossession::toString();
+	return this->$SSLPossession::toString();
 }
 
 void RSAKeyExchange$RSAPremasterSecret::finalize() {

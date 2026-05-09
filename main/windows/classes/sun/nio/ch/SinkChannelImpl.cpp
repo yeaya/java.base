@@ -52,23 +52,23 @@ void SinkChannelImpl::close() {
 }
 
 bool SinkChannelImpl::isOpen() {
-	 return this->$Pipe$SinkChannel::isOpen();
+	return this->$Pipe$SinkChannel::isOpen();
 }
 
 int32_t SinkChannelImpl::hashCode() {
-	 return this->$Pipe$SinkChannel::hashCode();
+	return this->$Pipe$SinkChannel::hashCode();
 }
 
 bool SinkChannelImpl::equals(Object$* obj) {
-	 return this->$Pipe$SinkChannel::equals(obj);
+	return this->$Pipe$SinkChannel::equals(obj);
 }
 
 $Object* SinkChannelImpl::clone() {
-	 return this->$Pipe$SinkChannel::clone();
+	return this->$Pipe$SinkChannel::clone();
 }
 
 $String* SinkChannelImpl::toString() {
-	 return this->$Pipe$SinkChannel::toString();
+	return this->$Pipe$SinkChannel::toString();
 }
 
 void SinkChannelImpl::finalize() {

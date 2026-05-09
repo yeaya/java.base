@@ -23,35 +23,35 @@ namespace java {
 		namespace stream {
 
 int32_t Nodes$ConcNode$OfPrimitive::getChildCount() {
-	 return this->$Nodes$AbstractConcNode::getChildCount();
+	return this->$Nodes$AbstractConcNode::getChildCount();
 }
 
 int64_t Nodes$ConcNode$OfPrimitive::count() {
-	 return this->$Nodes$AbstractConcNode::count();
+	return this->$Nodes$AbstractConcNode::count();
 }
 
 $Node* Nodes$ConcNode$OfPrimitive::truncate(int64_t from, int64_t to, $IntFunction* generator) {
-	 return this->$Nodes$AbstractConcNode::truncate(from, to, generator);
+	return this->$Nodes$AbstractConcNode::truncate(from, to, generator);
 }
 
 $ObjectArray* Nodes$ConcNode$OfPrimitive::asArray($IntFunction* generator) {
-	 return this->$Node$OfPrimitive::asArray(generator);
+	return this->$Node$OfPrimitive::asArray(generator);
 }
 
 $StreamShape* Nodes$ConcNode$OfPrimitive::getShape() {
-	 return this->$Nodes$AbstractConcNode::getShape();
+	return this->$Nodes$AbstractConcNode::getShape();
 }
 
 int32_t Nodes$ConcNode$OfPrimitive::hashCode() {
-	 return this->$Nodes$AbstractConcNode::hashCode();
+	return this->$Nodes$AbstractConcNode::hashCode();
 }
 
 bool Nodes$ConcNode$OfPrimitive::equals(Object$* obj) {
-	 return this->$Nodes$AbstractConcNode::equals(obj);
+	return this->$Nodes$AbstractConcNode::equals(obj);
 }
 
 $Object* Nodes$ConcNode$OfPrimitive::clone() {
-	 return this->$Nodes$AbstractConcNode::clone();
+	return this->$Nodes$AbstractConcNode::clone();
 }
 
 void Nodes$ConcNode$OfPrimitive::finalize() {

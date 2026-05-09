@@ -27,19 +27,19 @@ namespace sun {
 		namespace fs {
 
 int32_t AbstractAclFileAttributeView::hashCode() {
-	 return this->$AclFileAttributeView::hashCode();
+	return this->$AclFileAttributeView::hashCode();
 }
 
 bool AbstractAclFileAttributeView::equals(Object$* obj) {
-	 return this->$AclFileAttributeView::equals(obj);
+	return this->$AclFileAttributeView::equals(obj);
 }
 
 $Object* AbstractAclFileAttributeView::clone() {
-	 return this->$AclFileAttributeView::clone();
+	return this->$AclFileAttributeView::clone();
 }
 
 $String* AbstractAclFileAttributeView::toString() {
-	 return this->$AclFileAttributeView::toString();
+	return this->$AclFileAttributeView::toString();
 }
 
 void AbstractAclFileAttributeView::finalize() {

@@ -115,7 +115,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* inst$) override {
-		 return $sure($Certificate, inst$)->hashCode();
+		return $sure($Certificate, inst$)->hashCode();
 	}
 };
 $Class* PKIXCertPathValidator$$Lambda$hashCode::load$($String* name, bool initialize) {

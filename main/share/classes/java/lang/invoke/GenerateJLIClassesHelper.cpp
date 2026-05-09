@@ -122,7 +122,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return GenerateJLIClassesHelper::lambda$generateHolderClasses$0($cast($String, line));
+		return GenerateJLIClassesHelper::lambda$generateHolderClasses$0($cast($String, line));
 	}
 };
 $Class* GenerateJLIClassesHelper$$Lambda$lambda$generateHolderClasses$0::load$($String* name, bool initialize) {

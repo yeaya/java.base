@@ -15,15 +15,15 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
 
 int32_t ReferenceClone$SoftRef::hashCode() {
-	 return this->$SoftReference::hashCode();
+	return this->$SoftReference::hashCode();
 }
 
 bool ReferenceClone$SoftRef::equals(Object$* arg0) {
-	 return this->$SoftReference::equals(arg0);
+	return this->$SoftReference::equals(arg0);
 }
 
 $String* ReferenceClone$SoftRef::toString() {
-	 return this->$SoftReference::toString();
+	return this->$SoftReference::toString();
 }
 
 void ReferenceClone$SoftRef::finalize() {

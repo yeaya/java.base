@@ -27,7 +27,7 @@ void ReduceOps$12ReducingSink::end() {
 }
 
 bool ReduceOps$12ReducingSink::cancellationRequested() {
-	 return this->$ReduceOps$AccumulatingSink::cancellationRequested();
+	return this->$ReduceOps$AccumulatingSink::cancellationRequested();
 }
 
 void ReduceOps$12ReducingSink::accept(int32_t value) {
@@ -43,23 +43,23 @@ void ReduceOps$12ReducingSink::accept(Object$* t) {
 }
 
 $Consumer* ReduceOps$12ReducingSink::andThen($Consumer* after) {
-	 return this->$ReduceOps$AccumulatingSink::andThen(after);
+	return this->$ReduceOps$AccumulatingSink::andThen(after);
 }
 
 int32_t ReduceOps$12ReducingSink::hashCode() {
-	 return this->$ReduceOps$AccumulatingSink::hashCode();
+	return this->$ReduceOps$AccumulatingSink::hashCode();
 }
 
 bool ReduceOps$12ReducingSink::equals(Object$* obj) {
-	 return this->$ReduceOps$AccumulatingSink::equals(obj);
+	return this->$ReduceOps$AccumulatingSink::equals(obj);
 }
 
 $Object* ReduceOps$12ReducingSink::clone() {
-	 return this->$ReduceOps$AccumulatingSink::clone();
+	return this->$ReduceOps$AccumulatingSink::clone();
 }
 
 $String* ReduceOps$12ReducingSink::toString() {
-	 return this->$ReduceOps$AccumulatingSink::toString();
+	return this->$ReduceOps$AccumulatingSink::toString();
 }
 
 void ReduceOps$12ReducingSink::finalize() {

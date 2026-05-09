@@ -71,7 +71,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return ConcurrentLinkedQueue::lambda$removeAll$0(c, e);
+		return ConcurrentLinkedQueue::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -107,7 +107,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return ConcurrentLinkedQueue::lambda$retainAll$1(c, e);
+		return ConcurrentLinkedQueue::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -142,7 +142,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return ConcurrentLinkedQueue::lambda$clear$2(e);
+		return ConcurrentLinkedQueue::lambda$clear$2(e);
 	}
 };
 $Class* ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2::load$($String* name, bool initialize) {
@@ -167,15 +167,15 @@ $Class* ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2::load$($String* name, boo
 $Class* ConcurrentLinkedQueue$$Lambda$lambda$clear$2$2::class$ = nullptr;
 
 bool ConcurrentLinkedQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t ConcurrentLinkedQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Object* ConcurrentLinkedQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void ConcurrentLinkedQueue::finalize() {

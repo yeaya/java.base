@@ -18,19 +18,19 @@ namespace java {
 		namespace chrono {
 
 $String* IsoEra::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool IsoEra::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t IsoEra::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* IsoEra::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void IsoEra::finalize() {

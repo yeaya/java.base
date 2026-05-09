@@ -44,15 +44,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t CRLDistributionPointsExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool CRLDistributionPointsExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* CRLDistributionPointsExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void CRLDistributionPointsExtension::finalize() {

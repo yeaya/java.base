@@ -20,27 +20,27 @@ namespace java {
 		namespace stream {
 
 int64_t StreamSpliterators$SliceSpliterator$OfPrimitive::estimateSize() {
-	 return this->$StreamSpliterators$SliceSpliterator::estimateSize();
+	return this->$StreamSpliterators$SliceSpliterator::estimateSize();
 }
 
 int32_t StreamSpliterators$SliceSpliterator$OfPrimitive::characteristics() {
-	 return this->$StreamSpliterators$SliceSpliterator::characteristics();
+	return this->$StreamSpliterators$SliceSpliterator::characteristics();
 }
 
 int32_t StreamSpliterators$SliceSpliterator$OfPrimitive::hashCode() {
-	 return this->$StreamSpliterators$SliceSpliterator::hashCode();
+	return this->$StreamSpliterators$SliceSpliterator::hashCode();
 }
 
 bool StreamSpliterators$SliceSpliterator$OfPrimitive::equals(Object$* obj) {
-	 return this->$StreamSpliterators$SliceSpliterator::equals(obj);
+	return this->$StreamSpliterators$SliceSpliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$SliceSpliterator$OfPrimitive::clone() {
-	 return this->$StreamSpliterators$SliceSpliterator::clone();
+	return this->$StreamSpliterators$SliceSpliterator::clone();
 }
 
 $String* StreamSpliterators$SliceSpliterator$OfPrimitive::toString() {
-	 return this->$StreamSpliterators$SliceSpliterator::toString();
+	return this->$StreamSpliterators$SliceSpliterator::toString();
 }
 
 void StreamSpliterators$SliceSpliterator$OfPrimitive::finalize() {

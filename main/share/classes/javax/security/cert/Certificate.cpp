@@ -15,7 +15,7 @@ namespace javax {
 		namespace cert {
 
 $String* Certificate::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 void Certificate::init$() {

@@ -11,19 +11,19 @@ namespace java {
 		namespace channels {
 
 int32_t ByteChannel::hashCode() {
-	 return this->$ReadableByteChannel::hashCode();
+	return this->$ReadableByteChannel::hashCode();
 }
 
 bool ByteChannel::equals(Object$* obj) {
-	 return this->$ReadableByteChannel::equals(obj);
+	return this->$ReadableByteChannel::equals(obj);
 }
 
 $Object* ByteChannel::clone() {
-	 return this->$ReadableByteChannel::clone();
+	return this->$ReadableByteChannel::clone();
 }
 
 $String* ByteChannel::toString() {
-	 return this->$ReadableByteChannel::toString();
+	return this->$ReadableByteChannel::toString();
 }
 
 void ByteChannel::finalize() {

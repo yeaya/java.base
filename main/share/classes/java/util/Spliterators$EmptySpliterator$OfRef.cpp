@@ -15,31 +15,31 @@ namespace java {
 	namespace util {
 
 $Spliterator* Spliterators$EmptySpliterator$OfRef::trySplit() {
-	 return this->$Spliterators$EmptySpliterator::trySplit();
+	return this->$Spliterators$EmptySpliterator::trySplit();
 }
 
 int64_t Spliterators$EmptySpliterator$OfRef::estimateSize() {
-	 return this->$Spliterators$EmptySpliterator::estimateSize();
+	return this->$Spliterators$EmptySpliterator::estimateSize();
 }
 
 int32_t Spliterators$EmptySpliterator$OfRef::characteristics() {
-	 return this->$Spliterators$EmptySpliterator::characteristics();
+	return this->$Spliterators$EmptySpliterator::characteristics();
 }
 
 int32_t Spliterators$EmptySpliterator$OfRef::hashCode() {
-	 return this->$Spliterators$EmptySpliterator::hashCode();
+	return this->$Spliterators$EmptySpliterator::hashCode();
 }
 
 bool Spliterators$EmptySpliterator$OfRef::equals(Object$* obj) {
-	 return this->$Spliterators$EmptySpliterator::equals(obj);
+	return this->$Spliterators$EmptySpliterator::equals(obj);
 }
 
 $Object* Spliterators$EmptySpliterator$OfRef::clone() {
-	 return this->$Spliterators$EmptySpliterator::clone();
+	return this->$Spliterators$EmptySpliterator::clone();
 }
 
 $String* Spliterators$EmptySpliterator$OfRef::toString() {
-	 return this->$Spliterators$EmptySpliterator::toString();
+	return this->$Spliterators$EmptySpliterator::toString();
 }
 
 void Spliterators$EmptySpliterator$OfRef::finalize() {

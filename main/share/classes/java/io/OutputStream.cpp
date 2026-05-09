@@ -15,19 +15,19 @@ namespace java {
 	namespace io {
 
 int32_t OutputStream::hashCode() {
-	 return this->$Closeable::hashCode();
+	return this->$Closeable::hashCode();
 }
 
 bool OutputStream::equals(Object$* obj) {
-	 return this->$Closeable::equals(obj);
+	return this->$Closeable::equals(obj);
 }
 
 $Object* OutputStream::clone() {
-	 return this->$Closeable::clone();
+	return this->$Closeable::clone();
 }
 
 $String* OutputStream::toString() {
-	 return this->$Closeable::toString();
+	return this->$Closeable::toString();
 }
 
 void OutputStream::finalize() {

@@ -36,7 +36,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(UnixDomainSocketsUtil::lambda$getTempDir$0());
+		return $of(UnixDomainSocketsUtil::lambda$getTempDir$0());
 	}
 };
 $Class* UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::load$($String* name, bool initialize) {

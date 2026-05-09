@@ -68,19 +68,19 @@ namespace sun {
 		namespace ssl {
 
 $String* SSLKeyExchange$T12KeyAgreement::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool SSLKeyExchange$T12KeyAgreement::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t SSLKeyExchange$T12KeyAgreement::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* SSLKeyExchange$T12KeyAgreement::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void SSLKeyExchange$T12KeyAgreement::finalize() {

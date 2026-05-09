@@ -418,7 +418,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* x) override {
-		 return Main::lambda$parseArgs$0($cast($String, x));
+		return Main::lambda$parseArgs$0($cast($String, x));
 	}
 };
 $Class* Main$$Lambda$lambda$parseArgs$0::load$($String* name, bool initialize) {
@@ -448,7 +448,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* inst$, Object$* anotherString) override {
-		 return $sure($String, inst$)->compareTo($cast($String, anotherString));
+		return $sure($String, inst$)->compareTo($cast($String, anotherString));
 	}
 };
 $Class* Main$$Lambda$compareTo$1::load$($String* name, bool initialize) {
@@ -478,7 +478,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return $of(Main::lambda$oneOf$1($cast($String, a), $cast($String, b)));
+		return $of(Main::lambda$oneOf$1($cast($String, a), $cast($String, b)));
 	}
 };
 $Class* Main$$Lambda$lambda$oneOf$1$2::load$($String* name, bool initialize) {
@@ -508,7 +508,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return $of(Main::lambda$oneOf$2($cast($String, a), $cast($String, b)));
+		return $of(Main::lambda$oneOf$2($cast($String, a), $cast($String, b)));
 	}
 };
 $Class* Main$$Lambda$lambda$oneOf$2$3::load$($String* name, bool initialize) {
@@ -538,7 +538,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return $of(Main::lambda$oneOf$3($cast($String, a), $cast($String, b)));
+		return $of(Main::lambda$oneOf$3($cast($String, a), $cast($String, b)));
 	}
 };
 $Class* Main$$Lambda$lambda$oneOf$3$4::load$($String* name, bool initialize) {

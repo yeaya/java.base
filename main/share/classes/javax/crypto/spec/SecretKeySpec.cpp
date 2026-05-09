@@ -31,11 +31,11 @@ namespace javax {
 		namespace spec {
 
 $Object* SecretKeySpec::clone() {
-	 return this->$KeySpec::clone();
+	return this->$KeySpec::clone();
 }
 
 $String* SecretKeySpec::toString() {
-	 return this->$KeySpec::toString();
+	return this->$KeySpec::toString();
 }
 
 void SecretKeySpec::finalize() {

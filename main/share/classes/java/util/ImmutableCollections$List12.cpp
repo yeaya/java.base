@@ -29,19 +29,19 @@ namespace java {
 	namespace util {
 
 bool ImmutableCollections$List12::equals(Object$* o) {
-	 return this->$ImmutableCollections$AbstractImmutableList::equals(o);
+	return this->$ImmutableCollections$AbstractImmutableList::equals(o);
 }
 
 int32_t ImmutableCollections$List12::hashCode() {
-	 return this->$ImmutableCollections$AbstractImmutableList::hashCode();
+	return this->$ImmutableCollections$AbstractImmutableList::hashCode();
 }
 
 $String* ImmutableCollections$List12::toString() {
-	 return this->$ImmutableCollections$AbstractImmutableList::toString();
+	return this->$ImmutableCollections$AbstractImmutableList::toString();
 }
 
 $Object* ImmutableCollections$List12::clone() {
-	 return this->$ImmutableCollections$AbstractImmutableList::clone();
+	return this->$ImmutableCollections$AbstractImmutableList::clone();
 }
 
 void ImmutableCollections$List12::finalize() {

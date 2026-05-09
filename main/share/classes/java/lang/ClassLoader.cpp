@@ -166,7 +166,7 @@ public:
 		this->characteristics = characteristics;
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$resources$0(name, characteristics);
+		return $nc(inst$)->lambda$resources$0(name, characteristics);
 	}
 	ClassLoader* inst$ = nullptr;
 	$String* name = nullptr;
@@ -207,7 +207,7 @@ public:
 		$set(this, m, m);
 	}
 	virtual $Object* apply(Object$* n, Object$* p) override {
-		 return $nc(inst$)->lambda$definePackage$1(m, $cast($String, n), $cast($NamedPackage, p));
+		return $nc(inst$)->lambda$definePackage$1(m, $cast($String, n), $cast($NamedPackage, p));
 	}
 	ClassLoader* inst$ = nullptr;
 	$Module* m = nullptr;
@@ -244,7 +244,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return ClassLoader::lambda$getDefinedPackages$2(x$0);
+		return ClassLoader::lambda$getDefinedPackages$2(x$0);
 	}
 };
 $Class* ClassLoader$$Lambda$lambda$getDefinedPackages$2$2::load$($String* name, bool initialize) {
@@ -275,7 +275,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of($nc(inst$)->lambda$packages$4($cast($NamedPackage, p)));
+		return $of($nc(inst$)->lambda$packages$4($cast($NamedPackage, p)));
 	}
 	ClassLoader* inst$ = nullptr;
 };

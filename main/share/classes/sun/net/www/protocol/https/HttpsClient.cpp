@@ -107,19 +107,19 @@ namespace sun {
 				namespace https {
 
 $String* HttpsClient::toString() {
-	 return this->$HttpClient::toString();
+	return this->$HttpClient::toString();
 }
 
 int32_t HttpsClient::hashCode() {
-	 return this->$HttpClient::hashCode();
+	return this->$HttpClient::hashCode();
 }
 
 bool HttpsClient::equals(Object$* obj) {
-	 return this->$HttpClient::equals(obj);
+	return this->$HttpClient::equals(obj);
 }
 
 $Object* HttpsClient::clone() {
-	 return this->$HttpClient::clone();
+	return this->$HttpClient::clone();
 }
 
 void HttpsClient::finalize() {

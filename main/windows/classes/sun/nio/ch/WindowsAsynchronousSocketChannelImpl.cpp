@@ -90,19 +90,19 @@ void WindowsAsynchronousSocketChannelImpl::close() {
 }
 
 $String* WindowsAsynchronousSocketChannelImpl::toString() {
-	 return this->$AsynchronousSocketChannelImpl::toString();
+	return this->$AsynchronousSocketChannelImpl::toString();
 }
 
 int32_t WindowsAsynchronousSocketChannelImpl::hashCode() {
-	 return this->$AsynchronousSocketChannelImpl::hashCode();
+	return this->$AsynchronousSocketChannelImpl::hashCode();
 }
 
 bool WindowsAsynchronousSocketChannelImpl::equals(Object$* obj) {
-	 return this->$AsynchronousSocketChannelImpl::equals(obj);
+	return this->$AsynchronousSocketChannelImpl::equals(obj);
 }
 
 $Object* WindowsAsynchronousSocketChannelImpl::clone() {
-	 return this->$AsynchronousSocketChannelImpl::clone();
+	return this->$AsynchronousSocketChannelImpl::clone();
 }
 
 void WindowsAsynchronousSocketChannelImpl::finalize() {

@@ -187,7 +187,7 @@ public:
 		$set(this, inLocale, inLocale);
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return $of($nc(inst$)->lambda$getDisplayName$0(inLocale, $cast($String, key)));
+		return $of($nc(inst$)->lambda$getDisplayName$0(inLocale, $cast($String, key)));
 	}
 	Locale* inst$ = nullptr;
 	Locale* inLocale = nullptr;
@@ -263,7 +263,7 @@ public:
 		$set(this, inLocale, inLocale);
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return $of($nc(inst$)->lambda$getDisplayName$1(lr, inLocale, $cast($String, key)));
+		return $of($nc(inst$)->lambda$getDisplayName$1(lr, inLocale, $cast($String, key)));
 	}
 	Locale* inst$ = nullptr;
 	$LocaleResources* lr = nullptr;
@@ -303,7 +303,7 @@ public:
 		$set(this, inLocale, inLocale);
 	}
 	virtual $Object* apply(Object$* id) override {
-		 return $of(Locale::lambda$getDisplayKeyTypeExtensionString$2(inLocale, $cast($String, id)));
+		return $of(Locale::lambda$getDisplayKeyTypeExtensionString$2(inLocale, $cast($String, id)));
 	}
 	Locale* inLocale = nullptr;
 };
@@ -339,7 +339,7 @@ public:
 		$set(this, pattern, pattern);
 	}
 	virtual $Object* apply(Object$* s1, Object$* s2) override {
-		 return $of(Locale::lambda$formatList$3(pattern, $cast($String, s1), $cast($String, s2)));
+		return $of(Locale::lambda$formatList$3(pattern, $cast($String, s1), $cast($String, s2)));
 	}
 	$String* pattern = nullptr;
 };

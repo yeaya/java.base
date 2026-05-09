@@ -15,19 +15,19 @@ namespace java {
 		namespace interfaces {
 
 int32_t DSAPrivateKey::hashCode() {
-	 return this->$DSAKey::hashCode();
+	return this->$DSAKey::hashCode();
 }
 
 bool DSAPrivateKey::equals(Object$* obj) {
-	 return this->$DSAKey::equals(obj);
+	return this->$DSAKey::equals(obj);
 }
 
 $Object* DSAPrivateKey::clone() {
-	 return this->$DSAKey::clone();
+	return this->$DSAKey::clone();
 }
 
 $String* DSAPrivateKey::toString() {
-	 return this->$DSAKey::toString();
+	return this->$DSAKey::toString();
 }
 
 void DSAPrivateKey::finalize() {

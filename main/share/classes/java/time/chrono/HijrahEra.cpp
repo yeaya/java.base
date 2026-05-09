@@ -40,19 +40,19 @@ namespace java {
 		namespace chrono {
 
 $String* HijrahEra::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool HijrahEra::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t HijrahEra::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* HijrahEra::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void HijrahEra::finalize() {

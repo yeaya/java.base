@@ -43,7 +43,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($JmodFile$Section, inst$)->jmodDir());
+		return $of($sure($JmodFile$Section, inst$)->jmodDir());
 	}
 };
 $Class* JmodFile$Entry$$Lambda$jmodDir::load$($String* name, bool initialize) {

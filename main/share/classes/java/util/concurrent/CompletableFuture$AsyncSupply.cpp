@@ -18,19 +18,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t CompletableFuture$AsyncSupply::hashCode() {
-	 return this->$ForkJoinTask::hashCode();
+	return this->$ForkJoinTask::hashCode();
 }
 
 bool CompletableFuture$AsyncSupply::equals(Object$* obj) {
-	 return this->$ForkJoinTask::equals(obj);
+	return this->$ForkJoinTask::equals(obj);
 }
 
 $Object* CompletableFuture$AsyncSupply::clone() {
-	 return this->$ForkJoinTask::clone();
+	return this->$ForkJoinTask::clone();
 }
 
 $String* CompletableFuture$AsyncSupply::toString() {
-	 return this->$ForkJoinTask::toString();
+	return this->$ForkJoinTask::toString();
 }
 
 void CompletableFuture$AsyncSupply::finalize() {

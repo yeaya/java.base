@@ -67,7 +67,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return $of($Integer::toString(i));
+		return $of($Integer::toString(i));
 	}
 };
 $Class* EventHelper$$Lambda$toString::load$($String* name, bool initialize) {

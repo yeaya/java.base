@@ -23,7 +23,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t m(Object$* arg0) override {
-		 return $intValue($new($Integer, $cast($String, arg0)));
+		return $intValue($new($Integer, $cast($String, arg0)));
 	}
 };
 $Class* LambdaConstructorMethodHandleUnbox$$Lambda$Integer::load$($String* name, bool initialize) {

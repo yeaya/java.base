@@ -57,7 +57,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ignored) override {
-		 return $of(RSACore::lambda$getBlindingRandomPair$0($cast($BigInteger, ignored)));
+		return $of(RSACore::lambda$getBlindingRandomPair$0($cast($BigInteger, ignored)));
 	}
 };
 $Class* RSACore$$Lambda$lambda$getBlindingRandomPair$0::load$($String* name, bool initialize) {

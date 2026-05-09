@@ -12,7 +12,7 @@ namespace java {
 	namespace util {
 
 $String* Formatter$FormatString::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* Formatter$FormatString::load$($String* name, bool initialize) {

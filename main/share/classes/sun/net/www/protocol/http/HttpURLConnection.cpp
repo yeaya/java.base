@@ -298,7 +298,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $of(HttpURLConnection::lambda$getNetProperty$0(name));
+		return $of(HttpURLConnection::lambda$getNetProperty$0(name));
 	}
 	$String* name = nullptr;
 };

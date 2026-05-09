@@ -83,7 +83,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return LoggerFinderLoader::lambda$findLoggerFinderProviders$0();
+		return LoggerFinderLoader::lambda$findLoggerFinderProviders$0();
 	}
 };
 $Class* LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::load$($String* name, bool initialize) {
@@ -113,7 +113,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return LoggerFinderLoader::lambda$loadDefaultImplementation$1();
+		return LoggerFinderLoader::lambda$loadDefaultImplementation$1();
 	}
 };
 $Class* LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::load$($String* name, bool initialize) {

@@ -22,7 +22,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* m() override {
-		 return DupIntf::lambda$main$0();
+		return DupIntf::lambda$main$0();
 	}
 };
 $Class* DupIntf$$Lambda$lambda$main$0::load$($String* name, bool initialize) {

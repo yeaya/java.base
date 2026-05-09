@@ -33,19 +33,19 @@ using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 int32_t Connect4DatagramChannel$Responder::hashCode() {
-	 return this->$AutoCloseable::hashCode();
+	return this->$AutoCloseable::hashCode();
 }
 
 bool Connect4DatagramChannel$Responder::equals(Object$* arg0) {
-	 return this->$AutoCloseable::equals(arg0);
+	return this->$AutoCloseable::equals(arg0);
 }
 
 $Object* Connect4DatagramChannel$Responder::clone() {
-	 return this->$AutoCloseable::clone();
+	return this->$AutoCloseable::clone();
 }
 
 $String* Connect4DatagramChannel$Responder::toString() {
-	 return this->$AutoCloseable::toString();
+	return this->$AutoCloseable::toString();
 }
 
 void Connect4DatagramChannel$Responder::finalize() {

@@ -37,19 +37,19 @@ namespace java {
 		namespace chrono {
 
 int32_t Era::hashCode() {
-	 return this->$TemporalAccessor::hashCode();
+	return this->$TemporalAccessor::hashCode();
 }
 
 bool Era::equals(Object$* obj) {
-	 return this->$TemporalAccessor::equals(obj);
+	return this->$TemporalAccessor::equals(obj);
 }
 
 $Object* Era::clone() {
-	 return this->$TemporalAccessor::clone();
+	return this->$TemporalAccessor::clone();
 }
 
 $String* Era::toString() {
-	 return this->$TemporalAccessor::toString();
+	return this->$TemporalAccessor::toString();
 }
 
 void Era::finalize() {

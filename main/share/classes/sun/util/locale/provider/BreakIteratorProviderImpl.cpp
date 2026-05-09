@@ -42,19 +42,19 @@ namespace sun {
 			namespace provider {
 
 int32_t BreakIteratorProviderImpl::hashCode() {
-	 return this->$BreakIteratorProvider::hashCode();
+	return this->$BreakIteratorProvider::hashCode();
 }
 
 bool BreakIteratorProviderImpl::equals(Object$* obj) {
-	 return this->$BreakIteratorProvider::equals(obj);
+	return this->$BreakIteratorProvider::equals(obj);
 }
 
 $Object* BreakIteratorProviderImpl::clone() {
-	 return this->$BreakIteratorProvider::clone();
+	return this->$BreakIteratorProvider::clone();
 }
 
 $String* BreakIteratorProviderImpl::toString() {
-	 return this->$BreakIteratorProvider::toString();
+	return this->$BreakIteratorProvider::toString();
 }
 
 void BreakIteratorProviderImpl::finalize() {

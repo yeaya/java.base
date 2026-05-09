@@ -218,7 +218,7 @@ public:
 		$set(this, pn, pn);
 	}
 	virtual bool test(Object$* m) override {
-		 return LauncherHelper::lambda$addExportsOrOpens$1(pn, $cast($Module, m));
+		return LauncherHelper::lambda$addExportsOrOpens$1(pn, $cast($Module, m));
 	}
 	$String* pn = nullptr;
 };
@@ -322,7 +322,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ResolvedModule, inst$)->reference();
+		return $sure($ResolvedModule, inst$)->reference();
 	}
 };
 $Class* LauncherHelper$$Lambda$reference$4::load$($String* name, bool initialize) {
@@ -352,7 +352,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return LauncherHelper::lambda$describeModule$3($cast($ModuleDescriptor$Exports, e));
+		return LauncherHelper::lambda$describeModule$3($cast($ModuleDescriptor$Exports, e));
 	}
 };
 $Class* LauncherHelper$$Lambda$lambda$describeModule$3$5::load$($String* name, bool initialize) {
@@ -382,7 +382,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Exports, inst$)->source());
+		return $of($sure($ModuleDescriptor$Exports, inst$)->source());
 	}
 };
 $Class* LauncherHelper$$Lambda$source$6::load$($String* name, bool initialize) {
@@ -412,7 +412,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(LauncherHelper::lambda$describeModule$4($cast($ModuleDescriptor$Exports, e)));
+		return $of(LauncherHelper::lambda$describeModule$4($cast($ModuleDescriptor$Exports, e)));
 	}
 };
 $Class* LauncherHelper$$Lambda$lambda$describeModule$4$7::load$($String* name, bool initialize) {
@@ -472,7 +472,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ModuleReference, inst$)->descriptor();
+		return $sure($ModuleReference, inst$)->descriptor();
 	}
 };
 $Class* LauncherHelper$$Lambda$descriptor$9::load$($String* name, bool initialize) {
@@ -502,7 +502,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($ModuleDescriptor, inst$)->isAutomatic();
+		return $sure($ModuleDescriptor, inst$)->isAutomatic();
 	}
 };
 $Class* LauncherHelper$$Lambda$isAutomatic$10::load$($String* name, bool initialize) {
@@ -598,7 +598,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Opens, inst$)->source());
+		return $of($sure($ModuleDescriptor$Opens, inst$)->source());
 	}
 };
 $Class* LauncherHelper$$Lambda$source$13::load$($String* name, bool initialize) {
@@ -658,7 +658,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* uri) override {
-		 return LauncherHelper::lambda$showModule$8($cast($URI, uri));
+		return LauncherHelper::lambda$showModule$8($cast($URI, uri));
 	}
 };
 $Class* LauncherHelper$$Lambda$lambda$showModule$8$15::load$($String* name, bool initialize) {
@@ -718,7 +718,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(LauncherHelper::lambda$toStringStream$10(e));
+		return $of(LauncherHelper::lambda$toStringStream$10(e));
 	}
 };
 $Class* LauncherHelper$$Lambda$lambda$toStringStream$10$17::load$($String* name, bool initialize) {

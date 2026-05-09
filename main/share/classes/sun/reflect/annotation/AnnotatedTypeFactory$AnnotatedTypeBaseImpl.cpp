@@ -78,7 +78,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Annotation, inst$)->toString());
+		return $of($sure($Annotation, inst$)->toString());
 	}
 };
 $Class* AnnotatedTypeFactory$AnnotatedTypeBaseImpl$$Lambda$toString::load$($String* name, bool initialize) {

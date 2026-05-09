@@ -29,7 +29,7 @@ void WhileOps$4Op$1OpSink::end() {
 }
 
 bool WhileOps$4Op$1OpSink::cancellationRequested() {
-	 return this->$Sink$ChainedDouble::cancellationRequested();
+	return this->$Sink$ChainedDouble::cancellationRequested();
 }
 
 void WhileOps$4Op$1OpSink::accept(Object$* i) {
@@ -45,23 +45,23 @@ void WhileOps$4Op$1OpSink::accept(int64_t value) {
 }
 
 $Consumer* WhileOps$4Op$1OpSink::andThen($Consumer* after) {
-	 return this->$Sink$ChainedDouble::andThen(after);
+	return this->$Sink$ChainedDouble::andThen(after);
 }
 
 int32_t WhileOps$4Op$1OpSink::hashCode() {
-	 return this->$Sink$ChainedDouble::hashCode();
+	return this->$Sink$ChainedDouble::hashCode();
 }
 
 bool WhileOps$4Op$1OpSink::equals(Object$* obj) {
-	 return this->$Sink$ChainedDouble::equals(obj);
+	return this->$Sink$ChainedDouble::equals(obj);
 }
 
 $Object* WhileOps$4Op$1OpSink::clone() {
-	 return this->$Sink$ChainedDouble::clone();
+	return this->$Sink$ChainedDouble::clone();
 }
 
 $String* WhileOps$4Op$1OpSink::toString() {
-	 return this->$Sink$ChainedDouble::toString();
+	return this->$Sink$ChainedDouble::toString();
 }
 
 void WhileOps$4Op$1OpSink::finalize() {

@@ -89,7 +89,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return $nc(inst$)->get(key);
+		return $nc(inst$)->get(key);
 	}
 	$Map* inst$ = nullptr;
 };
@@ -124,7 +124,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* x, Object$* y) override {
-		 return $of(ModuleInfoWriter::lambda$toModuleInfo$0($cast($Integer, x), $cast($Integer, y)));
+		return $of(ModuleInfoWriter::lambda$toModuleInfo$0($cast($Integer, x), $cast($Integer, y)));
 	}
 };
 $Class* ModuleInfoWriter$$Lambda$lambda$toModuleInfo$0$1::load$($String* name, bool initialize) {
@@ -154,7 +154,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* sn) override {
-		 return $of(ModuleInfoWriter::lambda$toModuleInfo$4($cast($String, sn)));
+		return $of(ModuleInfoWriter::lambda$toModuleInfo$4($cast($String, sn)));
 	}
 };
 $Class* ModuleInfoWriter$$Lambda$lambda$toModuleInfo$4$2::load$($String* name, bool initialize) {
@@ -220,7 +220,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return ModuleInfoWriter::lambda$toModuleInfo$6(x$0);
+		return ModuleInfoWriter::lambda$toModuleInfo$6(x$0);
 	}
 };
 $Class* ModuleInfoWriter$$Lambda$lambda$toModuleInfo$6$4::load$($String* name, bool initialize) {
@@ -250,7 +250,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Exports, inst$)->source());
+		return $of($sure($ModuleDescriptor$Exports, inst$)->source());
 	}
 };
 $Class* ModuleInfoWriter$$Lambda$source$5::load$($String* name, bool initialize) {
@@ -280,7 +280,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Opens, inst$)->source());
+		return $of($sure($ModuleDescriptor$Opens, inst$)->source());
 	}
 };
 $Class* ModuleInfoWriter$$Lambda$source$6::load$($String* name, bool initialize) {

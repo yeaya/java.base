@@ -37,7 +37,7 @@ namespace java {
 		namespace stream {
 
 $Node* LongPipeline$StatefulOp::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
-	 return this->$LongPipeline::opEvaluateParallel(helper, spliterator, generator);
+	return this->$LongPipeline::opEvaluateParallel(helper, spliterator, generator);
 }
 
 bool LongPipeline$StatefulOp::$assertionsDisabled = false;

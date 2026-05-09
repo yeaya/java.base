@@ -200,7 +200,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(double d) override {
-		 return $of($Double::valueOf(d));
+		return $of($Double::valueOf(d));
 	}
 };
 $Class* DoublePipeline$$Lambda$valueOf$1::load$($String* name, bool initialize) {
@@ -230,7 +230,7 @@ public:
 	void init$() {
 	}
 	virtual double applyAsDouble(Object$* i) override {
-		 return DoublePipeline::lambda$distinct$0($cast($Double, i));
+		return DoublePipeline::lambda$distinct$0($cast($Double, i));
 	}
 };
 $Class* DoublePipeline$$Lambda$lambda$distinct$0$2::load$($String* name, bool initialize) {
@@ -260,7 +260,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return DoublePipeline::lambda$sum$1();
+		return DoublePipeline::lambda$sum$1();
 	}
 };
 $Class* DoublePipeline$$Lambda$lambda$sum$1$3::load$($String* name, bool initialize) {
@@ -350,7 +350,7 @@ public:
 	void init$() {
 	}
 	virtual double applyAsDouble(double a, double b) override {
-		 return $Math::min(a, b);
+		return $Math::min(a, b);
 	}
 };
 $Class* DoublePipeline$$Lambda$min$6::load$($String* name, bool initialize) {
@@ -380,7 +380,7 @@ public:
 	void init$() {
 	}
 	virtual double applyAsDouble(double a, double b) override {
-		 return $Math::max(a, b);
+		return $Math::max(a, b);
 	}
 };
 $Class* DoublePipeline$$Lambda$max$7::load$($String* name, bool initialize) {
@@ -410,7 +410,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return DoublePipeline::lambda$average$4();
+		return DoublePipeline::lambda$average$4();
 	}
 };
 $Class* DoublePipeline$$Lambda$lambda$average$4$8::load$($String* name, bool initialize) {
@@ -500,7 +500,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $new($DoubleSummaryStatistics);
+		return $new($DoubleSummaryStatistics);
 	}
 };
 $Class* DoublePipeline$$Lambda$DoubleSummaryStatistics$11::load$($String* name, bool initialize) {
@@ -591,7 +591,7 @@ public:
 		$set(this, combiner, combiner);
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return DoublePipeline::lambda$collect$7(combiner, left, right);
+		return DoublePipeline::lambda$collect$7(combiner, left, right);
 	}
 	$BiConsumer* combiner = nullptr;
 };
@@ -626,7 +626,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return DoublePipeline::lambda$toArray$8(x$0);
+		return DoublePipeline::lambda$toArray$8(x$0);
 	}
 };
 $Class* DoublePipeline$$Lambda$lambda$toArray$8$15::load$($String* name, bool initialize) {
@@ -655,27 +655,27 @@ void DoublePipeline::close() {
 }
 
 $BaseStream* DoublePipeline::onClose($Runnable* closeHandler) {
-	 return this->$AbstractPipeline::onClose(closeHandler);
+	return this->$AbstractPipeline::onClose(closeHandler);
 }
 
 bool DoublePipeline::isParallel() {
-	 return this->$AbstractPipeline::isParallel();
+	return this->$AbstractPipeline::isParallel();
 }
 
 int32_t DoublePipeline::hashCode() {
-	 return this->$AbstractPipeline::hashCode();
+	return this->$AbstractPipeline::hashCode();
 }
 
 bool DoublePipeline::equals(Object$* obj) {
-	 return this->$AbstractPipeline::equals(obj);
+	return this->$AbstractPipeline::equals(obj);
 }
 
 $Object* DoublePipeline::clone() {
-	 return this->$AbstractPipeline::clone();
+	return this->$AbstractPipeline::clone();
 }
 
 $String* DoublePipeline::toString() {
-	 return this->$AbstractPipeline::toString();
+	return this->$AbstractPipeline::toString();
 }
 
 void DoublePipeline::finalize() {

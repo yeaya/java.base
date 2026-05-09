@@ -50,15 +50,15 @@ namespace java {
 	namespace util {
 
 bool HashSet::equals(Object$* o) {
-	 return this->$AbstractSet::equals(o);
+	return this->$AbstractSet::equals(o);
 }
 
 int32_t HashSet::hashCode() {
-	 return this->$AbstractSet::hashCode();
+	return this->$AbstractSet::hashCode();
 }
 
 $String* HashSet::toString() {
-	 return this->$AbstractSet::toString();
+	return this->$AbstractSet::toString();
 }
 
 void HashSet::finalize() {

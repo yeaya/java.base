@@ -33,7 +33,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $new($WEPollSelectorProvider);
+		return $new($WEPollSelectorProvider);
 	}
 };
 $Class* DefaultSelectorProvider$$Lambda$WEPollSelectorProvider::load$($String* name, bool initialize) {

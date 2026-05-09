@@ -151,7 +151,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Configuration, inst$)->configurations();
+		return $sure($Configuration, inst$)->configurations();
 	}
 };
 $Class* Resolver$$Lambda$configurations$1::load$($String* name, bool initialize) {
@@ -181,7 +181,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return Resolver::lambda$bind$1($cast($Configuration, c));
+		return Resolver::lambda$bind$1($cast($Configuration, c));
 	}
 };
 $Class* Resolver$$Lambda$lambda$bind$1$2::load$($String* name, bool initialize) {
@@ -250,7 +250,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor, inst$)->name());
+		return $of($sure($ModuleDescriptor, inst$)->name());
 	}
 };
 $Class* Resolver$$Lambda$name$4::load$($String* name, bool initialize) {
@@ -280,7 +280,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return Resolver::lambda$makeGraph$7($cast($Configuration, c));
+		return Resolver::lambda$makeGraph$7($cast($Configuration, c));
 	}
 };
 $Class* Resolver$$Lambda$lambda$makeGraph$7$5::load$($String* name, bool initialize) {
@@ -310,7 +310,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Map$Entry, inst$)->getKey();
+		return $sure($Map$Entry, inst$)->getKey();
 	}
 };
 $Class* Resolver$$Lambda$getKey$6::load$($String* name, bool initialize) {
@@ -340,7 +340,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($HashMap));
+		return $of($new($HashMap));
 	}
 };
 $Class* Resolver$$Lambda$HashMap$7::load$($String* name, bool initialize) {
@@ -370,7 +370,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Map$Entry, inst$)->getValue();
+		return $sure($Map$Entry, inst$)->getValue();
 	}
 };
 $Class* Resolver$$Lambda$getValue$8::load$($String* name, bool initialize) {
@@ -400,7 +400,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* d) override {
-		 return Resolver::lambda$makeGraph$8($cast($ResolvedModule, d));
+		return Resolver::lambda$makeGraph$8($cast($ResolvedModule, d));
 	}
 };
 $Class* Resolver$$Lambda$lambda$makeGraph$8$9::load$($String* name, bool initialize) {
@@ -466,7 +466,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Configuration, inst$)->modules();
+		return $sure($Configuration, inst$)->modules();
 	}
 };
 $Class* Resolver$$Lambda$modules$11::load$($String* name, bool initialize) {
@@ -496,7 +496,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* Resolver$$Lambda$stream$12::load$($String* name, bool initialize) {
@@ -602,7 +602,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual $Object* apply(Object$* m1) override {
-		 return Resolver::lambda$makeGraph$6(c, $cast($ResolvedModule, m1));
+		return Resolver::lambda$makeGraph$6(c, $cast($ResolvedModule, m1));
 	}
 	$Configuration* c = nullptr;
 };
@@ -637,7 +637,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* r) override {
-		 return Resolver::lambda$makeGraph$3($cast($ModuleDescriptor$Requires, r));
+		return Resolver::lambda$makeGraph$3($cast($ModuleDescriptor$Requires, r));
 	}
 };
 $Class* Resolver$$Lambda$lambda$makeGraph$3$16::load$($String* name, bool initialize) {
@@ -668,7 +668,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual $Object* apply(Object$* r) override {
-		 return Resolver::lambda$makeGraph$4(c, $cast($ModuleDescriptor$Requires, r));
+		return Resolver::lambda$makeGraph$4(c, $cast($ModuleDescriptor$Requires, r));
 	}
 	$Configuration* c = nullptr;
 };
@@ -704,7 +704,7 @@ public:
 		$set(this, m1, m1);
 	}
 	virtual $Object* apply(Object$* m2) override {
-		 return Resolver::lambda$makeGraph$5(m1, $cast($ResolvedModule, m2));
+		return Resolver::lambda$makeGraph$5(m1, $cast($ResolvedModule, m2));
 	}
 	$ResolvedModule* m1 = nullptr;
 };

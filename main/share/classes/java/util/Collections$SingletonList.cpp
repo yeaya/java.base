@@ -32,15 +32,15 @@ namespace java {
 	namespace util {
 
 bool Collections$SingletonList::equals(Object$* o) {
-	 return this->$AbstractList::equals(o);
+	return this->$AbstractList::equals(o);
 }
 
 $String* Collections$SingletonList::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $Object* Collections$SingletonList::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void Collections$SingletonList::finalize() {

@@ -32,7 +32,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(Tripwire::lambda$static$0());
+		return $of(Tripwire::lambda$static$0());
 	}
 };
 $Class* Tripwire$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

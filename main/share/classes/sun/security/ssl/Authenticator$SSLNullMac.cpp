@@ -20,19 +20,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t Authenticator$SSLNullMac::hashCode() {
-	 return this->$Authenticator$SSLNullAuthenticator::hashCode();
+	return this->$Authenticator$SSLNullAuthenticator::hashCode();
 }
 
 bool Authenticator$SSLNullMac::equals(Object$* obj) {
-	 return this->$Authenticator$SSLNullAuthenticator::equals(obj);
+	return this->$Authenticator$SSLNullAuthenticator::equals(obj);
 }
 
 $Object* Authenticator$SSLNullMac::clone() {
-	 return this->$Authenticator$SSLNullAuthenticator::clone();
+	return this->$Authenticator$SSLNullAuthenticator::clone();
 }
 
 $String* Authenticator$SSLNullMac::toString() {
-	 return this->$Authenticator$SSLNullAuthenticator::toString();
+	return this->$Authenticator$SSLNullAuthenticator::toString();
 }
 
 void Authenticator$SSLNullMac::finalize() {

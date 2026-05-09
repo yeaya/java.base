@@ -75,7 +75,7 @@ namespace java {
 	namespace net {
 
 int32_t AbstractPlainDatagramSocketImpl::dataAvailable() {
-	 return this->$DatagramSocketImpl::dataAvailable();
+	return this->$DatagramSocketImpl::dataAvailable();
 }
 
 $String* AbstractPlainDatagramSocketImpl::os = nullptr;

@@ -16,19 +16,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t CompletableFuture$Completion::hashCode() {
-	 return this->$ForkJoinTask::hashCode();
+	return this->$ForkJoinTask::hashCode();
 }
 
 bool CompletableFuture$Completion::equals(Object$* obj) {
-	 return this->$ForkJoinTask::equals(obj);
+	return this->$ForkJoinTask::equals(obj);
 }
 
 $Object* CompletableFuture$Completion::clone() {
-	 return this->$ForkJoinTask::clone();
+	return this->$ForkJoinTask::clone();
 }
 
 $String* CompletableFuture$Completion::toString() {
-	 return this->$ForkJoinTask::toString();
+	return this->$ForkJoinTask::toString();
 }
 
 void CompletableFuture$Completion::finalize() {

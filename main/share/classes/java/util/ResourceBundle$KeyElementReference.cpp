@@ -17,19 +17,19 @@ namespace java {
 	namespace util {
 
 $Object* ResourceBundle$KeyElementReference::clone() {
-	 return this->$WeakReference::clone();
+	return this->$WeakReference::clone();
 }
 
 int32_t ResourceBundle$KeyElementReference::hashCode() {
-	 return this->$WeakReference::hashCode();
+	return this->$WeakReference::hashCode();
 }
 
 bool ResourceBundle$KeyElementReference::equals(Object$* obj) {
-	 return this->$WeakReference::equals(obj);
+	return this->$WeakReference::equals(obj);
 }
 
 $String* ResourceBundle$KeyElementReference::toString() {
-	 return this->$WeakReference::toString();
+	return this->$WeakReference::toString();
 }
 
 void ResourceBundle$KeyElementReference::finalize() {

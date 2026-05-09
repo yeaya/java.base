@@ -33,7 +33,7 @@ public:
 		$set(this, propName, propName);
 	}
 	virtual $Object* run() override {
-		 return $of(SecurityProperties::lambda$privilegedGetOverridable$0(propName));
+		return $of(SecurityProperties::lambda$privilegedGetOverridable$0(propName));
 	}
 	$String* propName = nullptr;
 };

@@ -77,7 +77,7 @@ namespace java {
 		namespace chrono {
 
 $Object* ChronoLocalDateTimeImpl::clone() {
-	 return this->$ChronoLocalDateTime::clone();
+	return this->$ChronoLocalDateTime::clone();
 }
 
 void ChronoLocalDateTimeImpl::finalize() {

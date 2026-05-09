@@ -7,19 +7,19 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 int32_t A3::hashCode() {
-	 return this->$B3::hashCode();
+	return this->$B3::hashCode();
 }
 
 bool A3::equals(Object$* arg0) {
-	 return this->$B3::equals(arg0);
+	return this->$B3::equals(arg0);
 }
 
 $Object* A3::clone() {
-	 return this->$B3::clone();
+	return this->$B3::clone();
 }
 
 $String* A3::toString() {
-	 return this->$B3::toString();
+	return this->$B3::toString();
 }
 
 void A3::finalize() {

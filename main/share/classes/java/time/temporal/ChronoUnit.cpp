@@ -36,15 +36,15 @@ namespace java {
 		namespace temporal {
 
 bool ChronoUnit::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t ChronoUnit::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* ChronoUnit::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void ChronoUnit::finalize() {

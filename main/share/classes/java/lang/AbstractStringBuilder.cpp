@@ -74,7 +74,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$chars$0();
+		return $nc(inst$)->lambda$chars$0();
 	}
 	AbstractStringBuilder* inst$ = nullptr;
 };
@@ -110,7 +110,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$codePoints$1();
+		return $nc(inst$)->lambda$codePoints$1();
 	}
 	AbstractStringBuilder* inst$ = nullptr;
 };
@@ -140,19 +140,19 @@ $Class* AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::load$($String* name
 $Class* AbstractStringBuilder$$Lambda$lambda$codePoints$1$1::class$ = nullptr;
 
 $String* AbstractStringBuilder::toString() {
-	 return this->$Appendable::toString();
+	return this->$Appendable::toString();
 }
 
 int32_t AbstractStringBuilder::hashCode() {
-	 return this->$Appendable::hashCode();
+	return this->$Appendable::hashCode();
 }
 
 bool AbstractStringBuilder::equals(Object$* obj) {
-	 return this->$Appendable::equals(obj);
+	return this->$Appendable::equals(obj);
 }
 
 $Object* AbstractStringBuilder::clone() {
-	 return this->$Appendable::clone();
+	return this->$Appendable::clone();
 }
 
 void AbstractStringBuilder::finalize() {

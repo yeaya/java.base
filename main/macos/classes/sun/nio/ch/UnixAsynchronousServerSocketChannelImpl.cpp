@@ -80,19 +80,19 @@ void UnixAsynchronousServerSocketChannelImpl::close() {
 }
 
 $String* UnixAsynchronousServerSocketChannelImpl::toString() {
-	 return this->$AsynchronousServerSocketChannelImpl::toString();
+	return this->$AsynchronousServerSocketChannelImpl::toString();
 }
 
 int32_t UnixAsynchronousServerSocketChannelImpl::hashCode() {
-	 return this->$AsynchronousServerSocketChannelImpl::hashCode();
+	return this->$AsynchronousServerSocketChannelImpl::hashCode();
 }
 
 bool UnixAsynchronousServerSocketChannelImpl::equals(Object$* obj) {
-	 return this->$AsynchronousServerSocketChannelImpl::equals(obj);
+	return this->$AsynchronousServerSocketChannelImpl::equals(obj);
 }
 
 $Object* UnixAsynchronousServerSocketChannelImpl::clone() {
-	 return this->$AsynchronousServerSocketChannelImpl::clone();
+	return this->$AsynchronousServerSocketChannelImpl::clone();
 }
 
 void UnixAsynchronousServerSocketChannelImpl::finalize() {

@@ -58,7 +58,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(SocketImpl::lambda$usePlainSocketImpl$0());
+		return $of(SocketImpl::lambda$usePlainSocketImpl$0());
 	}
 };
 $Class* SocketImpl$$Lambda$lambda$usePlainSocketImpl$0::load$($String* name, bool initialize) {

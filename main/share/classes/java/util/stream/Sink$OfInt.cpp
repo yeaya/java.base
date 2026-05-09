@@ -17,19 +17,19 @@ namespace java {
 		namespace stream {
 
 int32_t Sink$OfInt::hashCode() {
-	 return this->$Sink::hashCode();
+	return this->$Sink::hashCode();
 }
 
 bool Sink$OfInt::equals(Object$* obj) {
-	 return this->$Sink::equals(obj);
+	return this->$Sink::equals(obj);
 }
 
 $Object* Sink$OfInt::clone() {
-	 return this->$Sink::clone();
+	return this->$Sink::clone();
 }
 
 $String* Sink$OfInt::toString() {
-	 return this->$Sink::toString();
+	return this->$Sink::toString();
 }
 
 void Sink$OfInt::finalize() {

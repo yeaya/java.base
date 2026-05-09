@@ -25,19 +25,19 @@ namespace sun {
 		namespace ch {
 
 int32_t FileChannelImpl$Unmapper::hashCode() {
-	 return this->$Runnable::hashCode();
+	return this->$Runnable::hashCode();
 }
 
 bool FileChannelImpl$Unmapper::equals(Object$* obj) {
-	 return this->$Runnable::equals(obj);
+	return this->$Runnable::equals(obj);
 }
 
 $Object* FileChannelImpl$Unmapper::clone() {
-	 return this->$Runnable::clone();
+	return this->$Runnable::clone();
 }
 
 $String* FileChannelImpl$Unmapper::toString() {
-	 return this->$Runnable::toString();
+	return this->$Runnable::toString();
 }
 
 void FileChannelImpl$Unmapper::finalize() {

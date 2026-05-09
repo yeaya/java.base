@@ -32,7 +32,7 @@ namespace java {
 		namespace stream {
 
 $ObjectArray* Nodes$EmptyNode$OfDouble::asArray($IntFunction* generator) {
-	 return this->$Nodes$EmptyNode::asArray(generator);
+	return this->$Nodes$EmptyNode::asArray(generator);
 }
 
 void Nodes$EmptyNode$OfDouble::copyInto(Object$* array, int32_t offset) {
@@ -40,7 +40,7 @@ void Nodes$EmptyNode$OfDouble::copyInto(Object$* array, int32_t offset) {
 }
 
 int64_t Nodes$EmptyNode$OfDouble::count() {
-	 return this->$Nodes$EmptyNode::count();
+	return this->$Nodes$EmptyNode::count();
 }
 
 void Nodes$EmptyNode$OfDouble::forEach(Object$* consumer) {
@@ -52,15 +52,15 @@ void Nodes$EmptyNode$OfDouble::forEach($Consumer* consumer) {
 }
 
 int32_t Nodes$EmptyNode$OfDouble::getChildCount() {
-	 return this->$Nodes$EmptyNode::getChildCount();
+	return this->$Nodes$EmptyNode::getChildCount();
 }
 
 $Node* Nodes$EmptyNode$OfDouble::getChild(int32_t i) {
-	 return this->$Nodes$EmptyNode::getChild(i);
+	return this->$Nodes$EmptyNode::getChild(i);
 }
 
 $Node* Nodes$EmptyNode$OfDouble::truncate(int64_t from, int64_t to, $IntFunction* generator) {
-	 return this->$Nodes$EmptyNode::truncate(from, to, generator);
+	return this->$Nodes$EmptyNode::truncate(from, to, generator);
 }
 
 void Nodes$EmptyNode$OfDouble::copyInto($ObjectArray* array, int32_t offset) {
@@ -68,23 +68,23 @@ void Nodes$EmptyNode$OfDouble::copyInto($ObjectArray* array, int32_t offset) {
 }
 
 $StreamShape* Nodes$EmptyNode$OfDouble::getShape() {
-	 return this->$Nodes$EmptyNode::getShape();
+	return this->$Nodes$EmptyNode::getShape();
 }
 
 int32_t Nodes$EmptyNode$OfDouble::hashCode() {
-	 return this->$Nodes$EmptyNode::hashCode();
+	return this->$Nodes$EmptyNode::hashCode();
 }
 
 bool Nodes$EmptyNode$OfDouble::equals(Object$* obj) {
-	 return this->$Nodes$EmptyNode::equals(obj);
+	return this->$Nodes$EmptyNode::equals(obj);
 }
 
 $Object* Nodes$EmptyNode$OfDouble::clone() {
-	 return this->$Nodes$EmptyNode::clone();
+	return this->$Nodes$EmptyNode::clone();
 }
 
 $String* Nodes$EmptyNode$OfDouble::toString() {
-	 return this->$Nodes$EmptyNode::toString();
+	return this->$Nodes$EmptyNode::toString();
 }
 
 void Nodes$EmptyNode$OfDouble::finalize() {
@@ -96,7 +96,7 @@ void Nodes$EmptyNode$OfDouble::copyInto($DoubleArray* boxed, int32_t offset) {
 }
 
 $Object* Nodes$EmptyNode$OfDouble::newArray(int32_t count) {
-	 return $as($Node$OfDouble, this)->$Node$OfDouble::newArray(count);
+	return $as($Node$OfDouble, this)->$Node$OfDouble::newArray(count);
 }
 
 Nodes$EmptyNode$OfDouble::MemberClass0$::MemberClass0$() {

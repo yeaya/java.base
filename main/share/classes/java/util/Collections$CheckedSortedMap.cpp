@@ -30,27 +30,27 @@ namespace java {
 	namespace util {
 
 int32_t Collections$CheckedSortedMap::size() {
-	 return this->$Collections$CheckedMap::size();
+	return this->$Collections$CheckedMap::size();
 }
 
 bool Collections$CheckedSortedMap::isEmpty() {
-	 return this->$Collections$CheckedMap::isEmpty();
+	return this->$Collections$CheckedMap::isEmpty();
 }
 
 bool Collections$CheckedSortedMap::containsKey(Object$* key) {
-	 return this->$Collections$CheckedMap::containsKey(key);
+	return this->$Collections$CheckedMap::containsKey(key);
 }
 
 bool Collections$CheckedSortedMap::containsValue(Object$* v) {
-	 return this->$Collections$CheckedMap::containsValue(v);
+	return this->$Collections$CheckedMap::containsValue(v);
 }
 
 $Object* Collections$CheckedSortedMap::get(Object$* key) {
-	 return this->$Collections$CheckedMap::get(key);
+	return this->$Collections$CheckedMap::get(key);
 }
 
 $Object* Collections$CheckedSortedMap::remove(Object$* key) {
-	 return this->$Collections$CheckedMap::remove(key);
+	return this->$Collections$CheckedMap::remove(key);
 }
 
 void Collections$CheckedSortedMap::clear() {
@@ -58,27 +58,27 @@ void Collections$CheckedSortedMap::clear() {
 }
 
 $Set* Collections$CheckedSortedMap::keySet() {
-	 return this->$Collections$CheckedMap::keySet();
+	return this->$Collections$CheckedMap::keySet();
 }
 
 $Collection* Collections$CheckedSortedMap::values() {
-	 return this->$Collections$CheckedMap::values();
+	return this->$Collections$CheckedMap::values();
 }
 
 bool Collections$CheckedSortedMap::equals(Object$* o) {
-	 return this->$Collections$CheckedMap::equals(o);
+	return this->$Collections$CheckedMap::equals(o);
 }
 
 int32_t Collections$CheckedSortedMap::hashCode() {
-	 return this->$Collections$CheckedMap::hashCode();
+	return this->$Collections$CheckedMap::hashCode();
 }
 
 $String* Collections$CheckedSortedMap::toString() {
-	 return this->$Collections$CheckedMap::toString();
+	return this->$Collections$CheckedMap::toString();
 }
 
 $Object* Collections$CheckedSortedMap::put(Object$* key, Object$* value) {
-	 return this->$Collections$CheckedMap::put(key, value);
+	return this->$Collections$CheckedMap::put(key, value);
 }
 
 void Collections$CheckedSortedMap::putAll($Map* t) {
@@ -86,7 +86,7 @@ void Collections$CheckedSortedMap::putAll($Map* t) {
 }
 
 $Set* Collections$CheckedSortedMap::entrySet() {
-	 return this->$Collections$CheckedMap::entrySet();
+	return this->$Collections$CheckedMap::entrySet();
 }
 
 void Collections$CheckedSortedMap::forEach($BiConsumer* action) {
@@ -98,43 +98,43 @@ void Collections$CheckedSortedMap::replaceAll($BiFunction* function) {
 }
 
 $Object* Collections$CheckedSortedMap::putIfAbsent(Object$* key, Object$* value) {
-	 return this->$Collections$CheckedMap::putIfAbsent(key, value);
+	return this->$Collections$CheckedMap::putIfAbsent(key, value);
 }
 
 bool Collections$CheckedSortedMap::remove(Object$* key, Object$* value) {
-	 return this->$Collections$CheckedMap::remove(key, value);
+	return this->$Collections$CheckedMap::remove(key, value);
 }
 
 bool Collections$CheckedSortedMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	 return this->$Collections$CheckedMap::replace(key, oldValue, newValue);
+	return this->$Collections$CheckedMap::replace(key, oldValue, newValue);
 }
 
 $Object* Collections$CheckedSortedMap::replace(Object$* key, Object$* value) {
-	 return this->$Collections$CheckedMap::replace(key, value);
+	return this->$Collections$CheckedMap::replace(key, value);
 }
 
 $Object* Collections$CheckedSortedMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	 return this->$Collections$CheckedMap::computeIfAbsent(key, mappingFunction);
+	return this->$Collections$CheckedMap::computeIfAbsent(key, mappingFunction);
 }
 
 $Object* Collections$CheckedSortedMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$CheckedMap::computeIfPresent(key, remappingFunction);
+	return this->$Collections$CheckedMap::computeIfPresent(key, remappingFunction);
 }
 
 $Object* Collections$CheckedSortedMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$CheckedMap::compute(key, remappingFunction);
+	return this->$Collections$CheckedMap::compute(key, remappingFunction);
 }
 
 $Object* Collections$CheckedSortedMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	 return this->$Collections$CheckedMap::merge(key, value, remappingFunction);
+	return this->$Collections$CheckedMap::merge(key, value, remappingFunction);
 }
 
 $Object* Collections$CheckedSortedMap::getOrDefault(Object$* key, Object$* defaultValue) {
-	 return this->$Collections$CheckedMap::getOrDefault(key, defaultValue);
+	return this->$Collections$CheckedMap::getOrDefault(key, defaultValue);
 }
 
 $Object* Collections$CheckedSortedMap::clone() {
-	 return this->$Collections$CheckedMap::clone();
+	return this->$Collections$CheckedMap::clone();
 }
 
 void Collections$CheckedSortedMap::finalize() {

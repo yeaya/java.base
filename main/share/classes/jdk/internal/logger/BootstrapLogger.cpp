@@ -53,19 +53,19 @@ namespace jdk {
 		namespace logger {
 
 int32_t BootstrapLogger::hashCode() {
-	 return this->$System$Logger::hashCode();
+	return this->$System$Logger::hashCode();
 }
 
 bool BootstrapLogger::equals(Object$* obj) {
-	 return this->$System$Logger::equals(obj);
+	return this->$System$Logger::equals(obj);
 }
 
 $Object* BootstrapLogger::clone() {
-	 return this->$System$Logger::clone();
+	return this->$System$Logger::clone();
 }
 
 $String* BootstrapLogger::toString() {
-	 return this->$System$Logger::toString();
+	return this->$System$Logger::toString();
 }
 
 void BootstrapLogger::finalize() {

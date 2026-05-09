@@ -30,7 +30,7 @@ namespace java {
 	namespace security {
 
 $Object* Identity::clone() {
-	 return this->$Principal::clone();
+	return this->$Principal::clone();
 }
 
 void Identity::finalize() {

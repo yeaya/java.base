@@ -39,23 +39,23 @@ void Nodes$ConcNode$OfInt::copyInto(Object$* array, int32_t offset) {
 }
 
 $Object* Nodes$ConcNode$OfInt::asPrimitiveArray() {
-	 return this->$Nodes$ConcNode$OfPrimitive::asPrimitiveArray();
+	return this->$Nodes$ConcNode$OfPrimitive::asPrimitiveArray();
 }
 
 $String* Nodes$ConcNode$OfInt::toString() {
-	 return this->$Nodes$ConcNode$OfPrimitive::toString();
+	return this->$Nodes$ConcNode$OfPrimitive::toString();
 }
 
 $Node* Nodes$ConcNode$OfInt::getChild(int32_t i) {
-	 return this->$Nodes$ConcNode$OfPrimitive::getChild(i);
+	return this->$Nodes$ConcNode$OfPrimitive::getChild(i);
 }
 
 int32_t Nodes$ConcNode$OfInt::getChildCount() {
-	 return this->$Nodes$ConcNode$OfPrimitive::getChildCount();
+	return this->$Nodes$ConcNode$OfPrimitive::getChildCount();
 }
 
 int64_t Nodes$ConcNode$OfInt::count() {
-	 return this->$Nodes$ConcNode$OfPrimitive::count();
+	return this->$Nodes$ConcNode$OfPrimitive::count();
 }
 
 void Nodes$ConcNode$OfInt::forEach($Consumer* consumer) {
@@ -63,11 +63,11 @@ void Nodes$ConcNode$OfInt::forEach($Consumer* consumer) {
 }
 
 $Node* Nodes$ConcNode$OfInt::truncate(int64_t from, int64_t to, $IntFunction* generator) {
-	 return this->$Nodes$ConcNode$OfPrimitive::truncate(from, to, generator);
+	return this->$Nodes$ConcNode$OfPrimitive::truncate(from, to, generator);
 }
 
 $ObjectArray* Nodes$ConcNode$OfInt::asArray($IntFunction* generator) {
-	 return this->$Nodes$ConcNode$OfPrimitive::asArray(generator);
+	return this->$Nodes$ConcNode$OfPrimitive::asArray(generator);
 }
 
 void Nodes$ConcNode$OfInt::copyInto($ObjectArray* array, int32_t offset) {
@@ -75,19 +75,19 @@ void Nodes$ConcNode$OfInt::copyInto($ObjectArray* array, int32_t offset) {
 }
 
 $StreamShape* Nodes$ConcNode$OfInt::getShape() {
-	 return this->$Nodes$ConcNode$OfPrimitive::getShape();
+	return this->$Nodes$ConcNode$OfPrimitive::getShape();
 }
 
 int32_t Nodes$ConcNode$OfInt::hashCode() {
-	 return this->$Nodes$ConcNode$OfPrimitive::hashCode();
+	return this->$Nodes$ConcNode$OfPrimitive::hashCode();
 }
 
 bool Nodes$ConcNode$OfInt::equals(Object$* obj) {
-	 return this->$Nodes$ConcNode$OfPrimitive::equals(obj);
+	return this->$Nodes$ConcNode$OfPrimitive::equals(obj);
 }
 
 $Object* Nodes$ConcNode$OfInt::clone() {
-	 return this->$Nodes$ConcNode$OfPrimitive::clone();
+	return this->$Nodes$ConcNode$OfPrimitive::clone();
 }
 
 void Nodes$ConcNode$OfInt::finalize() {
@@ -95,7 +95,7 @@ void Nodes$ConcNode$OfInt::finalize() {
 }
 
 $Object* Nodes$ConcNode$OfInt::newArray(int32_t count) {
-	 return $as($Node$OfInt, this)->$Node$OfInt::newArray(count);
+	return $as($Node$OfInt, this)->$Node$OfInt::newArray(count);
 }
 
 void Nodes$ConcNode$OfInt::copyInto($IntegerArray* boxed, int32_t offset) {

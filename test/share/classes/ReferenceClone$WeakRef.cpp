@@ -15,15 +15,15 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
 int32_t ReferenceClone$WeakRef::hashCode() {
-	 return this->$WeakReference::hashCode();
+	return this->$WeakReference::hashCode();
 }
 
 bool ReferenceClone$WeakRef::equals(Object$* arg0) {
-	 return this->$WeakReference::equals(arg0);
+	return this->$WeakReference::equals(arg0);
 }
 
 $String* ReferenceClone$WeakRef::toString() {
-	 return this->$WeakReference::toString();
+	return this->$WeakReference::toString();
 }
 
 void ReferenceClone$WeakRef::finalize() {

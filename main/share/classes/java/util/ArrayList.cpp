@@ -68,7 +68,7 @@ namespace java {
 	namespace util {
 
 $String* ArrayList::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 void ArrayList::finalize() {

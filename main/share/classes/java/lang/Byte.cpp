@@ -36,7 +36,7 @@ namespace java {
 	namespace lang {
 
 $Object* Byte::clone() {
-	 return this->$Number::clone();
+	return this->$Number::clone();
 }
 
 void Byte::finalize() {

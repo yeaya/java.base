@@ -17,19 +17,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t SubmissionPublisher$ConsumerTask::hashCode() {
-	 return this->$ForkJoinTask::hashCode();
+	return this->$ForkJoinTask::hashCode();
 }
 
 bool SubmissionPublisher$ConsumerTask::equals(Object$* obj) {
-	 return this->$ForkJoinTask::equals(obj);
+	return this->$ForkJoinTask::equals(obj);
 }
 
 $Object* SubmissionPublisher$ConsumerTask::clone() {
-	 return this->$ForkJoinTask::clone();
+	return this->$ForkJoinTask::clone();
 }
 
 $String* SubmissionPublisher$ConsumerTask::toString() {
-	 return this->$ForkJoinTask::toString();
+	return this->$ForkJoinTask::toString();
 }
 
 void SubmissionPublisher$ConsumerTask::finalize() {

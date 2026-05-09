@@ -53,7 +53,7 @@ public:
 		$set(this, path, path);
 	}
 	virtual $Object* run() override {
-		 return CgroupUtil::lambda$readFilePrivileged$0(path);
+		return CgroupUtil::lambda$readFilePrivileged$0(path);
 	}
 	$Path* path = nullptr;
 };
@@ -90,7 +90,7 @@ public:
 		$set(this, param, param);
 	}
 	virtual $Object* run() override {
-		 return $of(CgroupUtil::lambda$readStringValue$1(controller, param));
+		return $of(CgroupUtil::lambda$readStringValue$1(controller, param));
 	}
 	$CgroupSubsystemController* controller = nullptr;
 	$String* param = nullptr;
@@ -128,7 +128,7 @@ public:
 		$set(this, path, path);
 	}
 	virtual $Object* run() override {
-		 return CgroupUtil::lambda$readAllLinesPrivileged$2(path);
+		return CgroupUtil::lambda$readAllLinesPrivileged$2(path);
 	}
 	$Path* path = nullptr;
 };

@@ -22,19 +22,19 @@ namespace jdk {
 					namespace helpers {
 
 int32_t DefaultHandler::hashCode() {
-	 return this->$EntityResolver::hashCode();
+	return this->$EntityResolver::hashCode();
 }
 
 bool DefaultHandler::equals(Object$* obj) {
-	 return this->$EntityResolver::equals(obj);
+	return this->$EntityResolver::equals(obj);
 }
 
 $Object* DefaultHandler::clone() {
-	 return this->$EntityResolver::clone();
+	return this->$EntityResolver::clone();
 }
 
 $String* DefaultHandler::toString() {
-	 return this->$EntityResolver::toString();
+	return this->$EntityResolver::toString();
 }
 
 void DefaultHandler::finalize() {

@@ -28,7 +28,7 @@ public:
 		$set(this, before, before);
 	}
 	virtual $Object* apply(Object$* v) override {
-		 return $nc(inst$)->lambda$compose$0(before, v);
+		return $nc(inst$)->lambda$compose$0(before, v);
 	}
 	Function* inst$ = nullptr;
 	Function* before = nullptr;
@@ -67,7 +67,7 @@ public:
 		$set(this, after, after);
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $nc(inst$)->lambda$andThen$1(after, t);
+		return $nc(inst$)->lambda$andThen$1(after, t);
 	}
 	Function* inst$ = nullptr;
 	Function* after = nullptr;
@@ -104,7 +104,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return Function::lambda$identity$2(t);
+		return Function::lambda$identity$2(t);
 	}
 };
 $Class* Function$$Lambda$lambda$identity$2$2::load$($String* name, bool initialize) {

@@ -58,7 +58,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return ModuleReferences$JModModuleReader::lambda$implList$0($cast($JmodFile$Entry, e));
+		return ModuleReferences$JModModuleReader::lambda$implList$0($cast($JmodFile$Entry, e));
 	}
 };
 $Class* ModuleReferences$JModModuleReader$$Lambda$lambda$implList$0::load$($String* name, bool initialize) {
@@ -88,7 +88,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($JmodFile$Entry, inst$)->name());
+		return $of($sure($JmodFile$Entry, inst$)->name());
 	}
 };
 $Class* ModuleReferences$JModModuleReader$$Lambda$name$1::load$($String* name, bool initialize) {

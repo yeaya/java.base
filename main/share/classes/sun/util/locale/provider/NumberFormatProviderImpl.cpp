@@ -50,19 +50,19 @@ namespace sun {
 			namespace provider {
 
 int32_t NumberFormatProviderImpl::hashCode() {
-	 return this->$NumberFormatProvider::hashCode();
+	return this->$NumberFormatProvider::hashCode();
 }
 
 bool NumberFormatProviderImpl::equals(Object$* obj) {
-	 return this->$NumberFormatProvider::equals(obj);
+	return this->$NumberFormatProvider::equals(obj);
 }
 
 $Object* NumberFormatProviderImpl::clone() {
-	 return this->$NumberFormatProvider::clone();
+	return this->$NumberFormatProvider::clone();
 }
 
 $String* NumberFormatProviderImpl::toString() {
-	 return this->$NumberFormatProvider::toString();
+	return this->$NumberFormatProvider::toString();
 }
 
 void NumberFormatProviderImpl::finalize() {

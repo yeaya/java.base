@@ -33,19 +33,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t ConcurrentSkipListMap$SubMap$SubMapIter::hashCode() {
-	 return this->$Iterator::hashCode();
+	return this->$Iterator::hashCode();
 }
 
 bool ConcurrentSkipListMap$SubMap$SubMapIter::equals(Object$* obj) {
-	 return this->$Iterator::equals(obj);
+	return this->$Iterator::equals(obj);
 }
 
 $Object* ConcurrentSkipListMap$SubMap$SubMapIter::clone() {
-	 return this->$Iterator::clone();
+	return this->$Iterator::clone();
 }
 
 $String* ConcurrentSkipListMap$SubMap$SubMapIter::toString() {
-	 return this->$Iterator::toString();
+	return this->$Iterator::toString();
 }
 
 void ConcurrentSkipListMap$SubMap$SubMapIter::finalize() {

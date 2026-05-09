@@ -59,7 +59,7 @@ namespace java {
 	namespace util {
 
 $String* IdentityHashMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 void IdentityHashMap::finalize() {

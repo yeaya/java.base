@@ -86,7 +86,7 @@ namespace java {
 	namespace time {
 
 $Object* Duration::clone() {
-	 return this->$TemporalAmount::clone();
+	return this->$TemporalAmount::clone();
 }
 
 void Duration::finalize() {

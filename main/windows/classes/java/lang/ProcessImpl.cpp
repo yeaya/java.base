@@ -151,7 +151,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* exitStatus, Object$* unusedThrowable) override {
-		 return $nc(inst$)->lambda$onExit$1($cast($Integer, exitStatus), $cast($Throwable, unusedThrowable));
+		return $nc(inst$)->lambda$onExit$1($cast($Integer, exitStatus), $cast($Throwable, unusedThrowable));
 	}
 	ProcessImpl* inst$ = nullptr;
 };

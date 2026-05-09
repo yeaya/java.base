@@ -33,15 +33,15 @@ namespace java {
 		namespace concurrent {
 
 int32_t CopyOnWriteArraySet::hashCode() {
-	 return this->$AbstractSet::hashCode();
+	return this->$AbstractSet::hashCode();
 }
 
 $String* CopyOnWriteArraySet::toString() {
-	 return this->$AbstractSet::toString();
+	return this->$AbstractSet::toString();
 }
 
 $Object* CopyOnWriteArraySet::clone() {
-	 return this->$AbstractSet::clone();
+	return this->$AbstractSet::clone();
 }
 
 void CopyOnWriteArraySet::finalize() {

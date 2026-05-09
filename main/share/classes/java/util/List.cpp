@@ -37,11 +37,11 @@ namespace java {
 	namespace util {
 
 bool List::equals(Object$* o) {
-	 return this->$Collection::equals(o);
+	return this->$Collection::equals(o);
 }
 
 int32_t List::hashCode() {
-	 return this->$Collection::hashCode();
+	return this->$Collection::hashCode();
 }
 
 void List::replaceAll($UnaryOperator* operator$) {

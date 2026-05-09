@@ -34,31 +34,31 @@ namespace java {
 	namespace util {
 
 int32_t TreeMap$SubMap::size() {
-	 return this->$AbstractMap::size();
+	return this->$AbstractMap::size();
 }
 
 bool TreeMap$SubMap::isEmpty() {
-	 return this->$AbstractMap::isEmpty();
+	return this->$AbstractMap::isEmpty();
 }
 
 bool TreeMap$SubMap::containsValue(Object$* value) {
-	 return this->$AbstractMap::containsValue(value);
+	return this->$AbstractMap::containsValue(value);
 }
 
 bool TreeMap$SubMap::containsKey(Object$* key) {
-	 return this->$AbstractMap::containsKey(key);
+	return this->$AbstractMap::containsKey(key);
 }
 
 $Object* TreeMap$SubMap::get(Object$* key) {
-	 return this->$AbstractMap::get(key);
+	return this->$AbstractMap::get(key);
 }
 
 $Object* TreeMap$SubMap::put(Object$* key, Object$* value) {
-	 return this->$AbstractMap::put(key, value);
+	return this->$AbstractMap::put(key, value);
 }
 
 $Object* TreeMap$SubMap::remove(Object$* key) {
-	 return this->$AbstractMap::remove(key);
+	return this->$AbstractMap::remove(key);
 }
 
 void TreeMap$SubMap::putAll($Map* m) {
@@ -70,31 +70,31 @@ void TreeMap$SubMap::clear() {
 }
 
 $Set* TreeMap$SubMap::keySet() {
-	 return this->$AbstractMap::keySet();
+	return this->$AbstractMap::keySet();
 }
 
 $Collection* TreeMap$SubMap::values() {
-	 return this->$AbstractMap::values();
+	return this->$AbstractMap::values();
 }
 
 bool TreeMap$SubMap::equals(Object$* o) {
-	 return this->$AbstractMap::equals(o);
+	return this->$AbstractMap::equals(o);
 }
 
 int32_t TreeMap$SubMap::hashCode() {
-	 return this->$AbstractMap::hashCode();
+	return this->$AbstractMap::hashCode();
 }
 
 $String* TreeMap$SubMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 $Object* TreeMap$SubMap::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 $Object* TreeMap$SubMap::getOrDefault(Object$* key, Object$* defaultValue) {
-	 return this->$AbstractMap::getOrDefault(key, defaultValue);
+	return this->$AbstractMap::getOrDefault(key, defaultValue);
 }
 
 void TreeMap$SubMap::forEach($BiConsumer* action) {
@@ -106,35 +106,35 @@ void TreeMap$SubMap::replaceAll($BiFunction* function) {
 }
 
 $Object* TreeMap$SubMap::putIfAbsent(Object$* key, Object$* value) {
-	 return this->$AbstractMap::putIfAbsent(key, value);
+	return this->$AbstractMap::putIfAbsent(key, value);
 }
 
 bool TreeMap$SubMap::remove(Object$* key, Object$* value) {
-	 return this->$AbstractMap::remove(key, value);
+	return this->$AbstractMap::remove(key, value);
 }
 
 bool TreeMap$SubMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	 return this->$AbstractMap::replace(key, oldValue, newValue);
+	return this->$AbstractMap::replace(key, oldValue, newValue);
 }
 
 $Object* TreeMap$SubMap::replace(Object$* key, Object$* value) {
-	 return this->$AbstractMap::replace(key, value);
+	return this->$AbstractMap::replace(key, value);
 }
 
 $Object* TreeMap$SubMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	 return this->$AbstractMap::computeIfAbsent(key, mappingFunction);
+	return this->$AbstractMap::computeIfAbsent(key, mappingFunction);
 }
 
 $Object* TreeMap$SubMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$AbstractMap::computeIfPresent(key, remappingFunction);
+	return this->$AbstractMap::computeIfPresent(key, remappingFunction);
 }
 
 $Object* TreeMap$SubMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$AbstractMap::compute(key, remappingFunction);
+	return this->$AbstractMap::compute(key, remappingFunction);
 }
 
 $Object* TreeMap$SubMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	 return this->$AbstractMap::merge(key, value, remappingFunction);
+	return this->$AbstractMap::merge(key, value, remappingFunction);
 }
 
 void TreeMap$SubMap::finalize() {

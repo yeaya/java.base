@@ -114,7 +114,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ld, Object$* clv) override {
-		 return $of(Proxy::lambda$getProxyConstructor$0($cast($ClassLoader, ld), $cast($AbstractClassLoaderValue$Sub, clv)));
+		return $of(Proxy::lambda$getProxyConstructor$0($cast($ClassLoader, ld), $cast($AbstractClassLoaderValue$Sub, clv)));
 	}
 };
 $Class* Proxy$$Lambda$lambda$getProxyConstructor$0::load$($String* name, bool initialize) {
@@ -144,7 +144,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ld, Object$* clv) override {
-		 return $of(Proxy::lambda$getProxyConstructor$1($cast($ClassLoader, ld), $cast($AbstractClassLoaderValue$Sub, clv)));
+		return $of(Proxy::lambda$getProxyConstructor$1($cast($ClassLoader, ld), $cast($AbstractClassLoaderValue$Sub, clv)));
 	}
 };
 $Class* Proxy$$Lambda$lambda$getProxyConstructor$1$1::load$($String* name, bool initialize) {
@@ -175,7 +175,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getClassLoader();
+		return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
 };
@@ -213,7 +213,7 @@ public:
 		this->proxyClass = proxyClass;
 	}
 	virtual bool getAsBoolean() override {
-		 return Proxy::lambda$defaultMethodHandle$2(dmh, type, proxyClass);
+		return Proxy::lambda$defaultMethodHandle$2(dmh, type, proxyClass);
 	}
 	$MethodHandle* dmh = nullptr;
 	$MethodType* type = nullptr;

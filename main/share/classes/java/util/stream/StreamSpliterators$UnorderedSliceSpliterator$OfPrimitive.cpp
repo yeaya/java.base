@@ -25,27 +25,27 @@ namespace java {
 		namespace stream {
 
 int64_t StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::estimateSize() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::estimateSize();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::estimateSize();
 }
 
 int32_t StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::characteristics() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::characteristics();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::characteristics();
 }
 
 int32_t StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::hashCode() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::hashCode();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::hashCode();
 }
 
 bool StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::equals(Object$* obj) {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::equals(obj);
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::clone() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::clone();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::clone();
 }
 
 $String* StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::toString() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator::toString();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator::toString();
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::finalize() {

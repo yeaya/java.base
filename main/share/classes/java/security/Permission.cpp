@@ -15,15 +15,15 @@ namespace java {
 	namespace security {
 
 bool Permission::equals(Object$* obj) {
-	 return this->$Guard::equals(obj);
+	return this->$Guard::equals(obj);
 }
 
 int32_t Permission::hashCode() {
-	 return this->$Guard::hashCode();
+	return this->$Guard::hashCode();
 }
 
 $Object* Permission::clone() {
-	 return this->$Guard::clone();
+	return this->$Guard::clone();
 }
 
 void Permission::finalize() {

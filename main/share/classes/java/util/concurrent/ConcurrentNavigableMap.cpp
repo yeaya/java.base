@@ -17,7 +17,7 @@ namespace java {
 		namespace concurrent {
 
 $Object* ConcurrentNavigableMap::getOrDefault(Object$* key, Object$* defaultValue) {
-	 return this->$ConcurrentMap::getOrDefault(key, defaultValue);
+	return this->$ConcurrentMap::getOrDefault(key, defaultValue);
 }
 
 void ConcurrentNavigableMap::forEach($BiConsumer* action) {
@@ -25,19 +25,19 @@ void ConcurrentNavigableMap::forEach($BiConsumer* action) {
 }
 
 $Object* ConcurrentNavigableMap::putIfAbsent(Object$* key, Object$* value) {
-	 return this->$ConcurrentMap::putIfAbsent(key, value);
+	return this->$ConcurrentMap::putIfAbsent(key, value);
 }
 
 bool ConcurrentNavigableMap::remove(Object$* key, Object$* value) {
-	 return this->$ConcurrentMap::remove(key, value);
+	return this->$ConcurrentMap::remove(key, value);
 }
 
 bool ConcurrentNavigableMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	 return this->$ConcurrentMap::replace(key, oldValue, newValue);
+	return this->$ConcurrentMap::replace(key, oldValue, newValue);
 }
 
 $Object* ConcurrentNavigableMap::replace(Object$* key, Object$* value) {
-	 return this->$ConcurrentMap::replace(key, value);
+	return this->$ConcurrentMap::replace(key, value);
 }
 
 void ConcurrentNavigableMap::replaceAll($BiFunction* function) {
@@ -45,35 +45,35 @@ void ConcurrentNavigableMap::replaceAll($BiFunction* function) {
 }
 
 $Object* ConcurrentNavigableMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	 return this->$ConcurrentMap::computeIfAbsent(key, mappingFunction);
+	return this->$ConcurrentMap::computeIfAbsent(key, mappingFunction);
 }
 
 $Object* ConcurrentNavigableMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$ConcurrentMap::computeIfPresent(key, remappingFunction);
+	return this->$ConcurrentMap::computeIfPresent(key, remappingFunction);
 }
 
 $Object* ConcurrentNavigableMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$ConcurrentMap::compute(key, remappingFunction);
+	return this->$ConcurrentMap::compute(key, remappingFunction);
 }
 
 $Object* ConcurrentNavigableMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	 return this->$ConcurrentMap::merge(key, value, remappingFunction);
+	return this->$ConcurrentMap::merge(key, value, remappingFunction);
 }
 
 bool ConcurrentNavigableMap::equals(Object$* o) {
-	 return this->$ConcurrentMap::equals(o);
+	return this->$ConcurrentMap::equals(o);
 }
 
 int32_t ConcurrentNavigableMap::hashCode() {
-	 return this->$ConcurrentMap::hashCode();
+	return this->$ConcurrentMap::hashCode();
 }
 
 $Object* ConcurrentNavigableMap::clone() {
-	 return this->$ConcurrentMap::clone();
+	return this->$ConcurrentMap::clone();
 }
 
 $String* ConcurrentNavigableMap::toString() {
-	 return this->$ConcurrentMap::toString();
+	return this->$ConcurrentMap::toString();
 }
 
 void ConcurrentNavigableMap::finalize() {

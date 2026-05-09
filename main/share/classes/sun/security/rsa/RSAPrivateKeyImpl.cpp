@@ -35,23 +35,23 @@ namespace sun {
 		namespace rsa {
 
 $bytes* RSAPrivateKeyImpl::getEncoded() {
-	 return this->$PKCS8Key::getEncoded();
+	return this->$PKCS8Key::getEncoded();
 }
 
 $String* RSAPrivateKeyImpl::getFormat() {
-	 return this->$PKCS8Key::getFormat();
+	return this->$PKCS8Key::getFormat();
 }
 
 bool RSAPrivateKeyImpl::equals(Object$* object) {
-	 return this->$PKCS8Key::equals(object);
+	return this->$PKCS8Key::equals(object);
 }
 
 int32_t RSAPrivateKeyImpl::hashCode() {
-	 return this->$PKCS8Key::hashCode();
+	return this->$PKCS8Key::hashCode();
 }
 
 $Object* RSAPrivateKeyImpl::clone() {
-	 return this->$PKCS8Key::clone();
+	return this->$PKCS8Key::clone();
 }
 
 void RSAPrivateKeyImpl::finalize() {
@@ -63,7 +63,7 @@ void RSAPrivateKeyImpl::destroy() {
 }
 
 bool RSAPrivateKeyImpl::isDestroyed() {
-	 return this->$PKCS8Key::isDestroyed();
+	return this->$PKCS8Key::isDestroyed();
 }
 
 void RSAPrivateKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* keyParams, $BigInteger* n, $BigInteger* d) {

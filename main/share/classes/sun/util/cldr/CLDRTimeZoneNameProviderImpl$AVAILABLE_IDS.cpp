@@ -34,7 +34,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::lambda$static$0(x$0);
+		return CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::lambda$static$0(x$0);
 	}
 };
 $Class* CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

@@ -25,19 +25,19 @@ namespace jdk {
 		namespace ref {
 
 $Object* PhantomCleanable::clone() {
-	 return this->$PhantomReference::clone();
+	return this->$PhantomReference::clone();
 }
 
 int32_t PhantomCleanable::hashCode() {
-	 return this->$PhantomReference::hashCode();
+	return this->$PhantomReference::hashCode();
 }
 
 bool PhantomCleanable::equals(Object$* obj) {
-	 return this->$PhantomReference::equals(obj);
+	return this->$PhantomReference::equals(obj);
 }
 
 $String* PhantomCleanable::toString() {
-	 return this->$PhantomReference::toString();
+	return this->$PhantomReference::toString();
 }
 
 void PhantomCleanable::finalize() {

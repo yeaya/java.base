@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return ExtendedMapMode::lambda$static$0();
+		return ExtendedMapMode::lambda$static$0();
 	}
 };
 $Class* ExtendedMapMode$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

@@ -47,7 +47,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* ni) override {
-		 return GetMacAddress::lambda$static$0($cast($NetworkInterface, ni));
+		return GetMacAddress::lambda$static$0($cast($NetworkInterface, ni));
 	}
 };
 $Class* GetMacAddress$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

@@ -84,7 +84,7 @@ public:
 		$set(this, future, future);
 	}
 	virtual $Object* apply(Object$* ex) override {
-		 return Connect4DatagramChannel::lambda$wait$0(future, $cast($Throwable, ex));
+		return Connect4DatagramChannel::lambda$wait$0(future, $cast($Throwable, ex));
 	}
 	$CompletableFuture* future = nullptr;
 };

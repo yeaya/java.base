@@ -17,119 +17,119 @@ namespace jdk {
 		namespace platform {
 
 $String* CgroupV1MetricsImpl::getProvider() {
-	 return this->$CgroupMetrics::getProvider();
+	return this->$CgroupMetrics::getProvider();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuUsage() {
-	 return this->$CgroupMetrics::getCpuUsage();
+	return this->$CgroupMetrics::getCpuUsage();
 }
 
 $longs* CgroupV1MetricsImpl::getPerCpuUsage() {
-	 return this->$CgroupMetrics::getPerCpuUsage();
+	return this->$CgroupMetrics::getPerCpuUsage();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuUserUsage() {
-	 return this->$CgroupMetrics::getCpuUserUsage();
+	return this->$CgroupMetrics::getCpuUserUsage();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuSystemUsage() {
-	 return this->$CgroupMetrics::getCpuSystemUsage();
+	return this->$CgroupMetrics::getCpuSystemUsage();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuPeriod() {
-	 return this->$CgroupMetrics::getCpuPeriod();
+	return this->$CgroupMetrics::getCpuPeriod();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuQuota() {
-	 return this->$CgroupMetrics::getCpuQuota();
+	return this->$CgroupMetrics::getCpuQuota();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuShares() {
-	 return this->$CgroupMetrics::getCpuShares();
+	return this->$CgroupMetrics::getCpuShares();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuNumPeriods() {
-	 return this->$CgroupMetrics::getCpuNumPeriods();
+	return this->$CgroupMetrics::getCpuNumPeriods();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuNumThrottled() {
-	 return this->$CgroupMetrics::getCpuNumThrottled();
+	return this->$CgroupMetrics::getCpuNumThrottled();
 }
 
 int64_t CgroupV1MetricsImpl::getCpuThrottledTime() {
-	 return this->$CgroupMetrics::getCpuThrottledTime();
+	return this->$CgroupMetrics::getCpuThrottledTime();
 }
 
 int64_t CgroupV1MetricsImpl::getEffectiveCpuCount() {
-	 return this->$CgroupMetrics::getEffectiveCpuCount();
+	return this->$CgroupMetrics::getEffectiveCpuCount();
 }
 
 $ints* CgroupV1MetricsImpl::getCpuSetCpus() {
-	 return this->$CgroupMetrics::getCpuSetCpus();
+	return this->$CgroupMetrics::getCpuSetCpus();
 }
 
 $ints* CgroupV1MetricsImpl::getEffectiveCpuSetCpus() {
-	 return this->$CgroupMetrics::getEffectiveCpuSetCpus();
+	return this->$CgroupMetrics::getEffectiveCpuSetCpus();
 }
 
 $ints* CgroupV1MetricsImpl::getCpuSetMems() {
-	 return this->$CgroupMetrics::getCpuSetMems();
+	return this->$CgroupMetrics::getCpuSetMems();
 }
 
 $ints* CgroupV1MetricsImpl::getEffectiveCpuSetMems() {
-	 return this->$CgroupMetrics::getEffectiveCpuSetMems();
+	return this->$CgroupMetrics::getEffectiveCpuSetMems();
 }
 
 int64_t CgroupV1MetricsImpl::getMemoryFailCount() {
-	 return this->$CgroupMetrics::getMemoryFailCount();
+	return this->$CgroupMetrics::getMemoryFailCount();
 }
 
 int64_t CgroupV1MetricsImpl::getMemoryLimit() {
-	 return this->$CgroupMetrics::getMemoryLimit();
+	return this->$CgroupMetrics::getMemoryLimit();
 }
 
 int64_t CgroupV1MetricsImpl::getMemoryUsage() {
-	 return this->$CgroupMetrics::getMemoryUsage();
+	return this->$CgroupMetrics::getMemoryUsage();
 }
 
 int64_t CgroupV1MetricsImpl::getTcpMemoryUsage() {
-	 return this->$CgroupMetrics::getTcpMemoryUsage();
+	return this->$CgroupMetrics::getTcpMemoryUsage();
 }
 
 int64_t CgroupV1MetricsImpl::getMemoryAndSwapLimit() {
-	 return this->$CgroupMetrics::getMemoryAndSwapLimit();
+	return this->$CgroupMetrics::getMemoryAndSwapLimit();
 }
 
 int64_t CgroupV1MetricsImpl::getMemoryAndSwapUsage() {
-	 return this->$CgroupMetrics::getMemoryAndSwapUsage();
+	return this->$CgroupMetrics::getMemoryAndSwapUsage();
 }
 
 int64_t CgroupV1MetricsImpl::getMemorySoftLimit() {
-	 return this->$CgroupMetrics::getMemorySoftLimit();
+	return this->$CgroupMetrics::getMemorySoftLimit();
 }
 
 int64_t CgroupV1MetricsImpl::getBlkIOServiceCount() {
-	 return this->$CgroupMetrics::getBlkIOServiceCount();
+	return this->$CgroupMetrics::getBlkIOServiceCount();
 }
 
 int64_t CgroupV1MetricsImpl::getBlkIOServiced() {
-	 return this->$CgroupMetrics::getBlkIOServiced();
+	return this->$CgroupMetrics::getBlkIOServiced();
 }
 
 int32_t CgroupV1MetricsImpl::hashCode() {
-	 return this->$CgroupMetrics::hashCode();
+	return this->$CgroupMetrics::hashCode();
 }
 
 bool CgroupV1MetricsImpl::equals(Object$* obj) {
-	 return this->$CgroupMetrics::equals(obj);
+	return this->$CgroupMetrics::equals(obj);
 }
 
 $Object* CgroupV1MetricsImpl::clone() {
-	 return this->$CgroupMetrics::clone();
+	return this->$CgroupMetrics::clone();
 }
 
 $String* CgroupV1MetricsImpl::toString() {
-	 return this->$CgroupMetrics::toString();
+	return this->$CgroupMetrics::toString();
 }
 
 void CgroupV1MetricsImpl::finalize() {

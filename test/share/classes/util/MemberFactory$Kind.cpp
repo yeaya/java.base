@@ -23,19 +23,19 @@ using $MemberFactory$Kind$3 = ::util::MemberFactory$Kind$3;
 namespace util {
 
 $String* MemberFactory$Kind::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool MemberFactory$Kind::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t MemberFactory$Kind::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* MemberFactory$Kind::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void MemberFactory$Kind::finalize() {

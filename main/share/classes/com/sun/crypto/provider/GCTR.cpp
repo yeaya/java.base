@@ -31,19 +31,19 @@ namespace com {
 			namespace provider {
 
 int32_t GCTR::hashCode() {
-	 return this->$CounterMode::hashCode();
+	return this->$CounterMode::hashCode();
 }
 
 bool GCTR::equals(Object$* obj) {
-	 return this->$CounterMode::equals(obj);
+	return this->$CounterMode::equals(obj);
 }
 
 $Object* GCTR::clone() {
-	 return this->$CounterMode::clone();
+	return this->$CounterMode::clone();
 }
 
 $String* GCTR::toString() {
-	 return this->$CounterMode::toString();
+	return this->$CounterMode::toString();
 }
 
 void GCTR::finalize() {

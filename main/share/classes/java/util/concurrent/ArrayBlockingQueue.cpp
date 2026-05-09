@@ -76,7 +76,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return ArrayBlockingQueue::lambda$removeAll$0(c, e);
+		return ArrayBlockingQueue::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -112,7 +112,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return ArrayBlockingQueue::lambda$retainAll$1(c, e);
+		return ArrayBlockingQueue::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -142,47 +142,47 @@ $Class* ArrayBlockingQueue$$Lambda$lambda$retainAll$1$1::load$($String* name, bo
 $Class* ArrayBlockingQueue$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
 
 $Object* ArrayBlockingQueue::remove() {
-	 return this->$AbstractQueue::remove();
+	return this->$AbstractQueue::remove();
 }
 
 $Object* ArrayBlockingQueue::element() {
-	 return this->$AbstractQueue::element();
+	return this->$AbstractQueue::element();
 }
 
 bool ArrayBlockingQueue::addAll($Collection* c) {
-	 return this->$AbstractQueue::addAll(c);
+	return this->$AbstractQueue::addAll(c);
 }
 
 bool ArrayBlockingQueue::isEmpty() {
-	 return this->$AbstractQueue::isEmpty();
+	return this->$AbstractQueue::isEmpty();
 }
 
 bool ArrayBlockingQueue::containsAll($Collection* c) {
-	 return this->$AbstractQueue::containsAll(c);
+	return this->$AbstractQueue::containsAll(c);
 }
 
 $ObjectArray* ArrayBlockingQueue::toArray($IntFunction* generator) {
-	 return this->$AbstractQueue::toArray(generator);
+	return this->$AbstractQueue::toArray(generator);
 }
 
 bool ArrayBlockingQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t ArrayBlockingQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Stream* ArrayBlockingQueue::stream() {
-	 return this->$AbstractQueue::stream();
+	return this->$AbstractQueue::stream();
 }
 
 $Stream* ArrayBlockingQueue::parallelStream() {
-	 return this->$AbstractQueue::parallelStream();
+	return this->$AbstractQueue::parallelStream();
 }
 
 $Object* ArrayBlockingQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void ArrayBlockingQueue::finalize() {

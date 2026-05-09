@@ -82,7 +82,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ObjectInputFilter$Config::lambda$static$0());
+		return $of(ObjectInputFilter$Config::lambda$static$0());
 	}
 };
 $Class* ObjectInputFilter$Config$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -112,7 +112,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ObjectInputFilter$Config::lambda$static$1());
+		return $of(ObjectInputFilter$Config::lambda$static$1());
 	}
 };
 $Class* ObjectInputFilter$Config$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -142,7 +142,7 @@ public:
 	void init$() {
 	}
 	virtual $ObjectInputFilter* createFilter2($String* pattern) override {
-		 return ObjectInputFilter$Config::createFilter2(pattern);
+		return ObjectInputFilter$Config::createFilter2(pattern);
 	}
 };
 $Class* ObjectInputFilter$Config$$Lambda$createFilter2$2::load$($String* name, bool initialize) {

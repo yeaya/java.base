@@ -124,7 +124,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getClassLoader();
+		return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
 };
@@ -160,7 +160,7 @@ public:
 		this->caller = caller;
 	}
 	virtual bool test(Object$* key) override {
-		 return ResourceBundle::lambda$clearCache$0(caller, $cast($ResourceBundle$CacheKey, key));
+		return ResourceBundle::lambda$clearCache$0(caller, $cast($ResourceBundle$CacheKey, key));
 	}
 	$Class* caller = nullptr;
 };
@@ -196,7 +196,7 @@ public:
 		$set(this, loader, loader);
 	}
 	virtual bool test(Object$* key) override {
-		 return ResourceBundle::lambda$clearCache$1(loader, $cast($ResourceBundle$CacheKey, key));
+		return ResourceBundle::lambda$clearCache$1(loader, $cast($ResourceBundle$CacheKey, key));
 	}
 	$ClassLoader* loader = nullptr;
 };

@@ -32,11 +32,11 @@ namespace java {
 	namespace util {
 
 $String* Collections$EmptyMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 $Object* Collections$EmptyMap::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 void Collections$EmptyMap::finalize() {

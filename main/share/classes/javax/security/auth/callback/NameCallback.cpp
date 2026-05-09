@@ -14,19 +14,19 @@ namespace javax {
 			namespace callback {
 
 int32_t NameCallback::hashCode() {
-	 return this->$Callback::hashCode();
+	return this->$Callback::hashCode();
 }
 
 bool NameCallback::equals(Object$* obj) {
-	 return this->$Callback::equals(obj);
+	return this->$Callback::equals(obj);
 }
 
 $Object* NameCallback::clone() {
-	 return this->$Callback::clone();
+	return this->$Callback::clone();
 }
 
 $String* NameCallback::toString() {
-	 return this->$Callback::toString();
+	return this->$Callback::toString();
 }
 
 void NameCallback::finalize() {

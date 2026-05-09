@@ -28,23 +28,23 @@ void Channels$WritableByteChannelImpl::close() {
 }
 
 bool Channels$WritableByteChannelImpl::isOpen() {
-	 return this->$AbstractInterruptibleChannel::isOpen();
+	return this->$AbstractInterruptibleChannel::isOpen();
 }
 
 int32_t Channels$WritableByteChannelImpl::hashCode() {
-	 return this->$AbstractInterruptibleChannel::hashCode();
+	return this->$AbstractInterruptibleChannel::hashCode();
 }
 
 bool Channels$WritableByteChannelImpl::equals(Object$* obj) {
-	 return this->$AbstractInterruptibleChannel::equals(obj);
+	return this->$AbstractInterruptibleChannel::equals(obj);
 }
 
 $Object* Channels$WritableByteChannelImpl::clone() {
-	 return this->$AbstractInterruptibleChannel::clone();
+	return this->$AbstractInterruptibleChannel::clone();
 }
 
 $String* Channels$WritableByteChannelImpl::toString() {
-	 return this->$AbstractInterruptibleChannel::toString();
+	return this->$AbstractInterruptibleChannel::toString();
 }
 
 void Channels$WritableByteChannelImpl::finalize() {

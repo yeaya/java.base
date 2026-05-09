@@ -86,7 +86,7 @@ namespace java {
 	namespace io {
 
 $Object* File::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void File::finalize() {

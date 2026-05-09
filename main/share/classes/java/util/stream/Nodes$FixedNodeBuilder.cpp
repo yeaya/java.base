@@ -27,15 +27,15 @@ namespace java {
 		namespace stream {
 
 int32_t Nodes$FixedNodeBuilder::hashCode() {
-	 return this->$Nodes$ArrayNode::hashCode();
+	return this->$Nodes$ArrayNode::hashCode();
 }
 
 bool Nodes$FixedNodeBuilder::equals(Object$* obj) {
-	 return this->$Nodes$ArrayNode::equals(obj);
+	return this->$Nodes$ArrayNode::equals(obj);
 }
 
 $Object* Nodes$FixedNodeBuilder::clone() {
-	 return this->$Nodes$ArrayNode::clone();
+	return this->$Nodes$ArrayNode::clone();
 }
 
 void Nodes$FixedNodeBuilder::finalize() {

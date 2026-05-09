@@ -14,7 +14,7 @@ namespace java {
 	namespace util {
 
 $Object* AbstractMap$SimpleEntry::clone() {
-	 return this->$Map$Entry::clone();
+	return this->$Map$Entry::clone();
 }
 
 void AbstractMap$SimpleEntry::finalize() {

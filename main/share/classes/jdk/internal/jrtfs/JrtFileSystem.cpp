@@ -132,7 +132,7 @@ public:
 		$set(this, pattern, pattern);
 	}
 	virtual bool matches($Path* path) override {
-		 return JrtFileSystem::lambda$getPathMatcher$0(pattern, path);
+		return JrtFileSystem::lambda$getPathMatcher$0(pattern, path);
 	}
 	$Pattern* pattern = nullptr;
 };
@@ -169,7 +169,7 @@ public:
 		$set(this, path, path);
 	}
 	virtual $Object* apply(Object$* child) override {
-		 return $of($nc(inst$)->lambda$iteratorOf$1(path, $cast($ImageReader$Node, child)));
+		return $of($nc(inst$)->lambda$iteratorOf$1(path, $cast($ImageReader$Node, child)));
 	}
 	JrtFileSystem* inst$ = nullptr;
 	$JrtPath* path = nullptr;
@@ -207,7 +207,7 @@ public:
 		$set(this, filter, filter);
 	}
 	virtual bool test(Object$* p) override {
-		 return JrtFileSystem::lambda$iteratorOf$3(filter, $cast($Path, p));
+		return JrtFileSystem::lambda$iteratorOf$3(filter, $cast($Path, p));
 	}
 	$DirectoryStream$Filter* filter = nullptr;
 };

@@ -16,7 +16,7 @@ namespace java {
 	namespace time {
 
 $Object* Clock$FixedClock::clone() {
-	 return this->$Clock::clone();
+	return this->$Clock::clone();
 }
 
 void Clock$FixedClock::finalize() {

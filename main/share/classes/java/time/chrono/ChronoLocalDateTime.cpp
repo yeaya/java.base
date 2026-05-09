@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* dateTime1, Object$* dateTime2) override {
-		 return ChronoLocalDateTime::lambda$timeLineOrder$b9959cb5$1($cast(ChronoLocalDateTime, dateTime1), $cast(ChronoLocalDateTime, dateTime2));
+		return ChronoLocalDateTime::lambda$timeLineOrder$b9959cb5$1($cast(ChronoLocalDateTime, dateTime1), $cast(ChronoLocalDateTime, dateTime2));
 	}
 };
 $Class* ChronoLocalDateTime$$Lambda$lambda$timeLineOrder$b9959cb5$1::load$($String* name, bool initialize) {
@@ -98,19 +98,19 @@ $Class* ChronoLocalDateTime$$Lambda$lambda$timeLineOrder$b9959cb5$1::load$($Stri
 $Class* ChronoLocalDateTime$$Lambda$lambda$timeLineOrder$b9959cb5$1::class$ = nullptr;
 
 bool ChronoLocalDateTime::equals(Object$* obj) {
-	 return this->$Temporal::equals(obj);
+	return this->$Temporal::equals(obj);
 }
 
 int32_t ChronoLocalDateTime::hashCode() {
-	 return this->$Temporal::hashCode();
+	return this->$Temporal::hashCode();
 }
 
 $String* ChronoLocalDateTime::toString() {
-	 return this->$Temporal::toString();
+	return this->$Temporal::toString();
 }
 
 $Object* ChronoLocalDateTime::clone() {
-	 return this->$Temporal::clone();
+	return this->$Temporal::clone();
 }
 
 void ChronoLocalDateTime::finalize() {

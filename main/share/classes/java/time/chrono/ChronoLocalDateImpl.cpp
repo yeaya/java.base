@@ -53,7 +53,7 @@ namespace java {
 		namespace chrono {
 
 $Object* ChronoLocalDateImpl::clone() {
-	 return this->$ChronoLocalDate::clone();
+	return this->$ChronoLocalDate::clone();
 }
 
 void ChronoLocalDateImpl::finalize() {

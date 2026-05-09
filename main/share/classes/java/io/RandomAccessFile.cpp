@@ -52,19 +52,19 @@ namespace java {
 	namespace io {
 
 int32_t RandomAccessFile::hashCode() {
-	 return this->$DataOutput::hashCode();
+	return this->$DataOutput::hashCode();
 }
 
 bool RandomAccessFile::equals(Object$* obj) {
-	 return this->$DataOutput::equals(obj);
+	return this->$DataOutput::equals(obj);
 }
 
 $Object* RandomAccessFile::clone() {
-	 return this->$DataOutput::clone();
+	return this->$DataOutput::clone();
 }
 
 $String* RandomAccessFile::toString() {
-	 return this->$DataOutput::toString();
+	return this->$DataOutput::toString();
 }
 
 void RandomAccessFile::finalize() {

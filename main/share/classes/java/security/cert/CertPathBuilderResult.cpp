@@ -13,7 +13,7 @@ namespace java {
 		namespace cert {
 
 $Object* CertPathBuilderResult::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 $Class* CertPathBuilderResult::load$($String* name, bool initialize) {

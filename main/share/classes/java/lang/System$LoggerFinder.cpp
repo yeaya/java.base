@@ -48,7 +48,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return System$LoggerFinder::lambda$accessProvider$0();
+		return System$LoggerFinder::lambda$accessProvider$0();
 	}
 };
 $Class* System$LoggerFinder$$Lambda$lambda$accessProvider$0::load$($String* name, bool initialize) {

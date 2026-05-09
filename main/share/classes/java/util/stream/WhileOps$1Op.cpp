@@ -46,19 +46,19 @@ namespace java {
 		namespace stream {
 
 int32_t WhileOps$1Op::hashCode() {
-	 return this->$ReferencePipeline$StatefulOp::hashCode();
+	return this->$ReferencePipeline$StatefulOp::hashCode();
 }
 
 bool WhileOps$1Op::equals(Object$* obj) {
-	 return this->$ReferencePipeline$StatefulOp::equals(obj);
+	return this->$ReferencePipeline$StatefulOp::equals(obj);
 }
 
 $Object* WhileOps$1Op::clone() {
-	 return this->$ReferencePipeline$StatefulOp::clone();
+	return this->$ReferencePipeline$StatefulOp::clone();
 }
 
 $String* WhileOps$1Op::toString() {
-	 return this->$ReferencePipeline$StatefulOp::toString();
+	return this->$ReferencePipeline$StatefulOp::toString();
 }
 
 void WhileOps$1Op::finalize() {

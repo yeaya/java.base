@@ -40,11 +40,11 @@ namespace java {
 	namespace util {
 
 $String* ArrayList$SubList::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $Object* ArrayList$SubList::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void ArrayList$SubList::finalize() {

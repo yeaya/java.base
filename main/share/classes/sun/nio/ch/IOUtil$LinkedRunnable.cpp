@@ -22,7 +22,7 @@ namespace sun {
 		namespace ch {
 
 $Object* IOUtil$LinkedRunnable::clone() {
-	 return this->$Record::clone();
+	return this->$Record::clone();
 }
 
 void IOUtil$LinkedRunnable::finalize() {

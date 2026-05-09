@@ -11,15 +11,15 @@ namespace java {
 	namespace security {
 
 bool Principal::equals(Object$* another) {
-	 return this->$Object::equals(another);
+	return this->$Object::equals(another);
 }
 
 $String* Principal::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 int32_t Principal::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 bool Principal::implies($Subject* subject) {

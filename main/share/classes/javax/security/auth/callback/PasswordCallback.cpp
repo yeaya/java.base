@@ -14,19 +14,19 @@ namespace javax {
 			namespace callback {
 
 int32_t PasswordCallback::hashCode() {
-	 return this->$Callback::hashCode();
+	return this->$Callback::hashCode();
 }
 
 bool PasswordCallback::equals(Object$* obj) {
-	 return this->$Callback::equals(obj);
+	return this->$Callback::equals(obj);
 }
 
 $Object* PasswordCallback::clone() {
-	 return this->$Callback::clone();
+	return this->$Callback::clone();
 }
 
 $String* PasswordCallback::toString() {
-	 return this->$Callback::toString();
+	return this->$Callback::toString();
 }
 
 void PasswordCallback::finalize() {

@@ -38,15 +38,15 @@ namespace java {
 		namespace stream {
 
 int32_t SpinedBuffer$OfLong::hashCode() {
-	 return this->$SpinedBuffer$OfPrimitive::hashCode();
+	return this->$SpinedBuffer$OfPrimitive::hashCode();
 }
 
 bool SpinedBuffer$OfLong::equals(Object$* obj) {
-	 return this->$SpinedBuffer$OfPrimitive::equals(obj);
+	return this->$SpinedBuffer$OfPrimitive::equals(obj);
 }
 
 $Object* SpinedBuffer$OfLong::clone() {
-	 return this->$SpinedBuffer$OfPrimitive::clone();
+	return this->$SpinedBuffer$OfPrimitive::clone();
 }
 
 void SpinedBuffer$OfLong::finalize() {

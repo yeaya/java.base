@@ -45,7 +45,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $nc(inst$)->lambda$describeConstable$0($cast($ClassDesc, c));
+		return $nc(inst$)->lambda$describeConstable$0($cast($ClassDesc, c));
 	}
 	Enum* inst$ = nullptr;
 };

@@ -51,15 +51,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t IssuingDistributionPointExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool IssuingDistributionPointExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* IssuingDistributionPointExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void IssuingDistributionPointExtension::finalize() {

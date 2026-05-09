@@ -79,7 +79,7 @@ namespace sun {
 		namespace x509 {
 
 $Object* X500Name::clone() {
-	 return this->$GeneralNameInterface::clone();
+	return this->$GeneralNameInterface::clone();
 }
 
 void X500Name::finalize() {

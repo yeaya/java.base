@@ -81,7 +81,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool getAsBoolean() override {
-		 return $nc(inst$)->lambda$initPartialTraversalState$0();
+		return $nc(inst$)->lambda$initPartialTraversalState$0();
 	}
 	StreamSpliterators$WrappingSpliterator* inst$ = nullptr;
 };

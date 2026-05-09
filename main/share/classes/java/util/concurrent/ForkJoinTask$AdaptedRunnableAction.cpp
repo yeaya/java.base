@@ -19,35 +19,35 @@ namespace java {
 		namespace concurrent {
 
 bool ForkJoinTask$AdaptedRunnableAction::cancel(bool mayInterruptIfRunning) {
-	 return this->$ForkJoinTask::cancel(mayInterruptIfRunning);
+	return this->$ForkJoinTask::cancel(mayInterruptIfRunning);
 }
 
 bool ForkJoinTask$AdaptedRunnableAction::isDone() {
-	 return this->$ForkJoinTask::isDone();
+	return this->$ForkJoinTask::isDone();
 }
 
 bool ForkJoinTask$AdaptedRunnableAction::isCancelled() {
-	 return this->$ForkJoinTask::isCancelled();
+	return this->$ForkJoinTask::isCancelled();
 }
 
 $Object* ForkJoinTask$AdaptedRunnableAction::get() {
-	 return this->$ForkJoinTask::get();
+	return this->$ForkJoinTask::get();
 }
 
 $Object* ForkJoinTask$AdaptedRunnableAction::get(int64_t timeout, $TimeUnit* unit) {
-	 return this->$ForkJoinTask::get(timeout, unit);
+	return this->$ForkJoinTask::get(timeout, unit);
 }
 
 int32_t ForkJoinTask$AdaptedRunnableAction::hashCode() {
-	 return this->$ForkJoinTask::hashCode();
+	return this->$ForkJoinTask::hashCode();
 }
 
 bool ForkJoinTask$AdaptedRunnableAction::equals(Object$* obj) {
-	 return this->$ForkJoinTask::equals(obj);
+	return this->$ForkJoinTask::equals(obj);
 }
 
 $Object* ForkJoinTask$AdaptedRunnableAction::clone() {
-	 return this->$ForkJoinTask::clone();
+	return this->$ForkJoinTask::clone();
 }
 
 void ForkJoinTask$AdaptedRunnableAction::finalize() {

@@ -112,7 +112,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* datetime1, Object$* datetime2) override {
-		 return OffsetDateTime::compareInstant($cast(OffsetDateTime, datetime1), $cast(OffsetDateTime, datetime2));
+		return OffsetDateTime::compareInstant($cast(OffsetDateTime, datetime1), $cast(OffsetDateTime, datetime2));
 	}
 };
 $Class* OffsetDateTime$$Lambda$compareInstant::load$($String* name, bool initialize) {
@@ -142,7 +142,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return $of(OffsetDateTime::from(temporal));
+		return $of(OffsetDateTime::from(temporal));
 	}
 };
 $Class* OffsetDateTime$$Lambda$from$1::load$($String* name, bool initialize) {
@@ -167,7 +167,7 @@ $Class* OffsetDateTime$$Lambda$from$1::load$($String* name, bool initialize) {
 $Class* OffsetDateTime$$Lambda$from$1::class$ = nullptr;
 
 $Object* OffsetDateTime::clone() {
-	 return this->$Temporal::clone();
+	return this->$Temporal::clone();
 }
 
 void OffsetDateTime::finalize() {

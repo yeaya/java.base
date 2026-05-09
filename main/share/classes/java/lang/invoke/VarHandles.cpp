@@ -250,7 +250,7 @@ public:
 		$set(this, additionalCoordinates, additionalCoordinates);
 	}
 	virtual $Object* apply(Object$* mode, Object$* modeHandle) override {
-		 return VarHandles::lambda$filterValue$0(filterFromTarget, filterToTarget, additionalCoordinates, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
+		return VarHandles::lambda$filterValue$0(filterFromTarget, filterToTarget, additionalCoordinates, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
 	}
 	$MethodHandle* filterFromTarget = nullptr;
 	$MethodHandle* filterToTarget = nullptr;
@@ -291,7 +291,7 @@ public:
 		$set(this, filters, filters);
 	}
 	virtual $Object* apply(Object$* mode, Object$* modeHandle) override {
-		 return VarHandles::lambda$filterCoordinates$1(pos, filters, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
+		return VarHandles::lambda$filterCoordinates$1(pos, filters, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
 	}
 	int32_t pos = 0;
 	$MethodHandleArray* filters = nullptr;
@@ -330,7 +330,7 @@ public:
 		$set(this, values, values);
 	}
 	virtual $Object* apply(Object$* mode, Object$* modeHandle) override {
-		 return VarHandles::lambda$insertCoordinates$2(pos, values, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
+		return VarHandles::lambda$insertCoordinates$2(pos, values, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
 	}
 	int32_t pos = 0;
 	$ObjectArray* values = nullptr;
@@ -370,7 +370,7 @@ public:
 		$set(this, reorder, reorder);
 	}
 	virtual $Object* apply(Object$* mode, Object$* modeHandle) override {
-		 return VarHandles::lambda$permuteCoordinates$3(targetCoordinates, newCoordinates, reorder, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
+		return VarHandles::lambda$permuteCoordinates$3(targetCoordinates, newCoordinates, reorder, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
 	}
 	$List* targetCoordinates = nullptr;
 	$List* newCoordinates = nullptr;
@@ -411,7 +411,7 @@ public:
 		$set(this, filter, filter);
 	}
 	virtual $Object* apply(Object$* mode, Object$* modeHandle) override {
-		 return VarHandles::lambda$collectCoordinates$4(pos, filter, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
+		return VarHandles::lambda$collectCoordinates$4(pos, filter, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
 	}
 	int32_t pos = 0;
 	$MethodHandle* filter = nullptr;
@@ -450,7 +450,7 @@ public:
 		$set(this, valueTypes, valueTypes);
 	}
 	virtual $Object* apply(Object$* mode, Object$* modeHandle) override {
-		 return VarHandles::lambda$dropCoordinates$5(pos, valueTypes, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
+		return VarHandles::lambda$dropCoordinates$5(pos, valueTypes, $cast($VarHandle$AccessMode, mode), $cast($MethodHandle, modeHandle));
 	}
 	int32_t pos = 0;
 	$ClassArray* valueTypes = nullptr;
@@ -487,7 +487,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* clazz) override {
-		 return VarHandles::isCheckedException($cast($Class, clazz));
+		return VarHandles::isCheckedException($cast($Class, clazz));
 	}
 };
 $Class* VarHandles$$Lambda$isCheckedException$6::load$($String* name, bool initialize) {

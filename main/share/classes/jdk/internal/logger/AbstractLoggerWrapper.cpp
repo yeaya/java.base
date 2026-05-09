@@ -43,7 +43,7 @@ public:
 		$set(this, msgSupplier, msgSupplier);
 	}
 	virtual $Object* get() override {
-		 return $of(AbstractLoggerWrapper::lambda$logp$0(sClass, sMethod, msgSupplier));
+		return $of(AbstractLoggerWrapper::lambda$logp$0(sClass, sMethod, msgSupplier));
 	}
 	$String* sClass = nullptr;
 	$String* sMethod = nullptr;
@@ -77,19 +77,19 @@ $Class* AbstractLoggerWrapper$$Lambda$lambda$logp$0::load$($String* name, bool i
 $Class* AbstractLoggerWrapper$$Lambda$lambda$logp$0::class$ = nullptr;
 
 int32_t AbstractLoggerWrapper::hashCode() {
-	 return this->$System$Logger::hashCode();
+	return this->$System$Logger::hashCode();
 }
 
 bool AbstractLoggerWrapper::equals(Object$* obj) {
-	 return this->$System$Logger::equals(obj);
+	return this->$System$Logger::equals(obj);
 }
 
 $Object* AbstractLoggerWrapper::clone() {
-	 return this->$System$Logger::clone();
+	return this->$System$Logger::clone();
 }
 
 $String* AbstractLoggerWrapper::toString() {
-	 return this->$System$Logger::toString();
+	return this->$System$Logger::toString();
 }
 
 void AbstractLoggerWrapper::finalize() {

@@ -39,91 +39,91 @@ namespace java {
 	namespace util {
 
 $Comparator* Collections$UnmodifiableNavigableSet::comparator() {
-	 return this->$Collections$UnmodifiableSortedSet::comparator();
+	return this->$Collections$UnmodifiableSortedSet::comparator();
 }
 
 $SortedSet* Collections$UnmodifiableNavigableSet::subSet(Object$* fromElement, Object$* toElement) {
-	 return this->$Collections$UnmodifiableSortedSet::subSet(fromElement, toElement);
+	return this->$Collections$UnmodifiableSortedSet::subSet(fromElement, toElement);
 }
 
 $SortedSet* Collections$UnmodifiableNavigableSet::headSet(Object$* toElement) {
-	 return this->$Collections$UnmodifiableSortedSet::headSet(toElement);
+	return this->$Collections$UnmodifiableSortedSet::headSet(toElement);
 }
 
 $SortedSet* Collections$UnmodifiableNavigableSet::tailSet(Object$* fromElement) {
-	 return this->$Collections$UnmodifiableSortedSet::tailSet(fromElement);
+	return this->$Collections$UnmodifiableSortedSet::tailSet(fromElement);
 }
 
 $Object* Collections$UnmodifiableNavigableSet::first() {
-	 return this->$Collections$UnmodifiableSortedSet::first();
+	return this->$Collections$UnmodifiableSortedSet::first();
 }
 
 $Object* Collections$UnmodifiableNavigableSet::last() {
-	 return this->$Collections$UnmodifiableSortedSet::last();
+	return this->$Collections$UnmodifiableSortedSet::last();
 }
 
 bool Collections$UnmodifiableNavigableSet::equals(Object$* o) {
-	 return this->$Collections$UnmodifiableSortedSet::equals(o);
+	return this->$Collections$UnmodifiableSortedSet::equals(o);
 }
 
 int32_t Collections$UnmodifiableNavigableSet::hashCode() {
-	 return this->$Collections$UnmodifiableSortedSet::hashCode();
+	return this->$Collections$UnmodifiableSortedSet::hashCode();
 }
 
 int32_t Collections$UnmodifiableNavigableSet::size() {
-	 return this->$Collections$UnmodifiableSortedSet::size();
+	return this->$Collections$UnmodifiableSortedSet::size();
 }
 
 bool Collections$UnmodifiableNavigableSet::isEmpty() {
-	 return this->$Collections$UnmodifiableSortedSet::isEmpty();
+	return this->$Collections$UnmodifiableSortedSet::isEmpty();
 }
 
 bool Collections$UnmodifiableNavigableSet::contains(Object$* o) {
-	 return this->$Collections$UnmodifiableSortedSet::contains(o);
+	return this->$Collections$UnmodifiableSortedSet::contains(o);
 }
 
 $ObjectArray* Collections$UnmodifiableNavigableSet::toArray() {
-	 return this->$Collections$UnmodifiableSortedSet::toArray();
+	return this->$Collections$UnmodifiableSortedSet::toArray();
 }
 
 $ObjectArray* Collections$UnmodifiableNavigableSet::toArray($ObjectArray* a) {
-	 return this->$Collections$UnmodifiableSortedSet::toArray(a);
+	return this->$Collections$UnmodifiableSortedSet::toArray(a);
 }
 
 $ObjectArray* Collections$UnmodifiableNavigableSet::toArray($IntFunction* f) {
-	 return this->$Collections$UnmodifiableSortedSet::toArray(f);
+	return this->$Collections$UnmodifiableSortedSet::toArray(f);
 }
 
 $String* Collections$UnmodifiableNavigableSet::toString() {
-	 return this->$Collections$UnmodifiableSortedSet::toString();
+	return this->$Collections$UnmodifiableSortedSet::toString();
 }
 
 $Iterator* Collections$UnmodifiableNavigableSet::iterator() {
-	 return this->$Collections$UnmodifiableSortedSet::iterator();
+	return this->$Collections$UnmodifiableSortedSet::iterator();
 }
 
 bool Collections$UnmodifiableNavigableSet::add(Object$* e) {
-	 return this->$Collections$UnmodifiableSortedSet::add(e);
+	return this->$Collections$UnmodifiableSortedSet::add(e);
 }
 
 bool Collections$UnmodifiableNavigableSet::remove(Object$* o) {
-	 return this->$Collections$UnmodifiableSortedSet::remove(o);
+	return this->$Collections$UnmodifiableSortedSet::remove(o);
 }
 
 bool Collections$UnmodifiableNavigableSet::containsAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableSortedSet::containsAll(coll);
+	return this->$Collections$UnmodifiableSortedSet::containsAll(coll);
 }
 
 bool Collections$UnmodifiableNavigableSet::addAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableSortedSet::addAll(coll);
+	return this->$Collections$UnmodifiableSortedSet::addAll(coll);
 }
 
 bool Collections$UnmodifiableNavigableSet::removeAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableSortedSet::removeAll(coll);
+	return this->$Collections$UnmodifiableSortedSet::removeAll(coll);
 }
 
 bool Collections$UnmodifiableNavigableSet::retainAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableSortedSet::retainAll(coll);
+	return this->$Collections$UnmodifiableSortedSet::retainAll(coll);
 }
 
 void Collections$UnmodifiableNavigableSet::clear() {
@@ -135,23 +135,23 @@ void Collections$UnmodifiableNavigableSet::forEach($Consumer* action) {
 }
 
 bool Collections$UnmodifiableNavigableSet::removeIf($Predicate* filter) {
-	 return this->$Collections$UnmodifiableSortedSet::removeIf(filter);
+	return this->$Collections$UnmodifiableSortedSet::removeIf(filter);
 }
 
 $Spliterator* Collections$UnmodifiableNavigableSet::spliterator() {
-	 return this->$Collections$UnmodifiableSortedSet::spliterator();
+	return this->$Collections$UnmodifiableSortedSet::spliterator();
 }
 
 $Stream* Collections$UnmodifiableNavigableSet::stream() {
-	 return this->$Collections$UnmodifiableSortedSet::stream();
+	return this->$Collections$UnmodifiableSortedSet::stream();
 }
 
 $Stream* Collections$UnmodifiableNavigableSet::parallelStream() {
-	 return this->$Collections$UnmodifiableSortedSet::parallelStream();
+	return this->$Collections$UnmodifiableSortedSet::parallelStream();
 }
 
 $Object* Collections$UnmodifiableNavigableSet::clone() {
-	 return this->$Collections$UnmodifiableSortedSet::clone();
+	return this->$Collections$UnmodifiableSortedSet::clone();
 }
 
 void Collections$UnmodifiableNavigableSet::finalize() {

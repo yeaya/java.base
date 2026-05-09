@@ -51,11 +51,11 @@ namespace java {
 		namespace cert {
 
 $String* X509CRL::toString() {
-	 return this->$CRL::toString();
+	return this->$CRL::toString();
 }
 
 $Object* X509CRL::clone() {
-	 return this->$CRL::clone();
+	return this->$CRL::clone();
 }
 
 void X509CRL::finalize() {

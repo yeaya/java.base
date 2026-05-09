@@ -71,7 +71,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return PriorityQueue::lambda$removeAll$0(c, e);
+		return PriorityQueue::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -107,7 +107,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return PriorityQueue::lambda$retainAll$1(c, e);
+		return PriorityQueue::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -137,19 +137,19 @@ $Class* PriorityQueue$$Lambda$lambda$retainAll$1$1::load$($String* name, bool in
 $Class* PriorityQueue$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
 
 $String* PriorityQueue::toString() {
-	 return this->$AbstractQueue::toString();
+	return this->$AbstractQueue::toString();
 }
 
 bool PriorityQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t PriorityQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Object* PriorityQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void PriorityQueue::finalize() {

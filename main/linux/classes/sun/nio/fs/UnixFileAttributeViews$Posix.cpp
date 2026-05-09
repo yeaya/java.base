@@ -66,19 +66,19 @@ void UnixFileAttributeViews$Posix::setTimes($FileTime* lastModifiedTime, $FileTi
 }
 
 int32_t UnixFileAttributeViews$Posix::hashCode() {
-	 return this->$UnixFileAttributeViews$Basic::hashCode();
+	return this->$UnixFileAttributeViews$Basic::hashCode();
 }
 
 bool UnixFileAttributeViews$Posix::equals(Object$* obj) {
-	 return this->$UnixFileAttributeViews$Basic::equals(obj);
+	return this->$UnixFileAttributeViews$Basic::equals(obj);
 }
 
 $Object* UnixFileAttributeViews$Posix::clone() {
-	 return this->$UnixFileAttributeViews$Basic::clone();
+	return this->$UnixFileAttributeViews$Basic::clone();
 }
 
 $String* UnixFileAttributeViews$Posix::toString() {
-	 return this->$UnixFileAttributeViews$Basic::toString();
+	return this->$UnixFileAttributeViews$Basic::toString();
 }
 
 void UnixFileAttributeViews$Posix::finalize() {

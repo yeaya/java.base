@@ -35,19 +35,19 @@ namespace java {
 		namespace chrono {
 
 $String* ThaiBuddhistEra::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool ThaiBuddhistEra::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t ThaiBuddhistEra::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* ThaiBuddhistEra::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void ThaiBuddhistEra::finalize() {

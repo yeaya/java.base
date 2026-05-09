@@ -19,19 +19,19 @@ namespace com {
 			namespace provider {
 
 int32_t DESCrypt::hashCode() {
-	 return this->$SymmetricCipher::hashCode();
+	return this->$SymmetricCipher::hashCode();
 }
 
 bool DESCrypt::equals(Object$* obj) {
-	 return this->$SymmetricCipher::equals(obj);
+	return this->$SymmetricCipher::equals(obj);
 }
 
 $Object* DESCrypt::clone() {
-	 return this->$SymmetricCipher::clone();
+	return this->$SymmetricCipher::clone();
 }
 
 $String* DESCrypt::toString() {
-	 return this->$SymmetricCipher::toString();
+	return this->$SymmetricCipher::toString();
 }
 
 void DESCrypt::finalize() {

@@ -13,19 +13,19 @@ void GrandchildSuperIwithDefault::bar() {
 }
 
 int32_t GrandchildSuperIwithDefault::hashCode() {
-	 return this->$SonSuperIwithDefault::hashCode();
+	return this->$SonSuperIwithDefault::hashCode();
 }
 
 bool GrandchildSuperIwithDefault::equals(Object$* arg0) {
-	 return this->$SonSuperIwithDefault::equals(arg0);
+	return this->$SonSuperIwithDefault::equals(arg0);
 }
 
 $Object* GrandchildSuperIwithDefault::clone() {
-	 return this->$SonSuperIwithDefault::clone();
+	return this->$SonSuperIwithDefault::clone();
 }
 
 $String* GrandchildSuperIwithDefault::toString() {
-	 return this->$SonSuperIwithDefault::toString();
+	return this->$SonSuperIwithDefault::toString();
 }
 
 void GrandchildSuperIwithDefault::finalize() {

@@ -13,19 +13,19 @@ namespace java {
 		namespace interfaces {
 
 int32_t XECPublicKey::hashCode() {
-	 return this->$XECKey::hashCode();
+	return this->$XECKey::hashCode();
 }
 
 bool XECPublicKey::equals(Object$* obj) {
-	 return this->$XECKey::equals(obj);
+	return this->$XECKey::equals(obj);
 }
 
 $Object* XECPublicKey::clone() {
-	 return this->$XECKey::clone();
+	return this->$XECKey::clone();
 }
 
 $String* XECPublicKey::toString() {
-	 return this->$XECKey::toString();
+	return this->$XECKey::toString();
 }
 
 void XECPublicKey::finalize() {

@@ -111,19 +111,19 @@ namespace java {
 	namespace net {
 
 $String* SocksSocketImpl::toString() {
-	 return this->$DelegatingSocketImpl::toString();
+	return this->$DelegatingSocketImpl::toString();
 }
 
 int32_t SocksSocketImpl::hashCode() {
-	 return this->$DelegatingSocketImpl::hashCode();
+	return this->$DelegatingSocketImpl::hashCode();
 }
 
 bool SocksSocketImpl::equals(Object$* obj) {
-	 return this->$DelegatingSocketImpl::equals(obj);
+	return this->$DelegatingSocketImpl::equals(obj);
 }
 
 $Object* SocksSocketImpl::clone() {
-	 return this->$DelegatingSocketImpl::clone();
+	return this->$DelegatingSocketImpl::clone();
 }
 
 void SocksSocketImpl::finalize() {

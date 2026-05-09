@@ -29,35 +29,35 @@ namespace java {
 	namespace util {
 
 int32_t Collections$CheckedQueue::size() {
-	 return this->$Collections$CheckedCollection::size();
+	return this->$Collections$CheckedCollection::size();
 }
 
 bool Collections$CheckedQueue::isEmpty() {
-	 return this->$Collections$CheckedCollection::isEmpty();
+	return this->$Collections$CheckedCollection::isEmpty();
 }
 
 bool Collections$CheckedQueue::contains(Object$* o) {
-	 return this->$Collections$CheckedCollection::contains(o);
+	return this->$Collections$CheckedCollection::contains(o);
 }
 
 $ObjectArray* Collections$CheckedQueue::toArray() {
-	 return this->$Collections$CheckedCollection::toArray();
+	return this->$Collections$CheckedCollection::toArray();
 }
 
 $ObjectArray* Collections$CheckedQueue::toArray($ObjectArray* a) {
-	 return this->$Collections$CheckedCollection::toArray(a);
+	return this->$Collections$CheckedCollection::toArray(a);
 }
 
 $ObjectArray* Collections$CheckedQueue::toArray($IntFunction* f) {
-	 return this->$Collections$CheckedCollection::toArray(f);
+	return this->$Collections$CheckedCollection::toArray(f);
 }
 
 $String* Collections$CheckedQueue::toString() {
-	 return this->$Collections$CheckedCollection::toString();
+	return this->$Collections$CheckedCollection::toString();
 }
 
 bool Collections$CheckedQueue::remove(Object$* o) {
-	 return this->$Collections$CheckedCollection::remove(o);
+	return this->$Collections$CheckedCollection::remove(o);
 }
 
 void Collections$CheckedQueue::clear() {
@@ -65,27 +65,27 @@ void Collections$CheckedQueue::clear() {
 }
 
 bool Collections$CheckedQueue::containsAll($Collection* coll) {
-	 return this->$Collections$CheckedCollection::containsAll(coll);
+	return this->$Collections$CheckedCollection::containsAll(coll);
 }
 
 bool Collections$CheckedQueue::removeAll($Collection* coll) {
-	 return this->$Collections$CheckedCollection::removeAll(coll);
+	return this->$Collections$CheckedCollection::removeAll(coll);
 }
 
 bool Collections$CheckedQueue::retainAll($Collection* coll) {
-	 return this->$Collections$CheckedCollection::retainAll(coll);
+	return this->$Collections$CheckedCollection::retainAll(coll);
 }
 
 $Iterator* Collections$CheckedQueue::iterator() {
-	 return this->$Collections$CheckedCollection::iterator();
+	return this->$Collections$CheckedCollection::iterator();
 }
 
 bool Collections$CheckedQueue::add(Object$* e) {
-	 return this->$Collections$CheckedCollection::add(e);
+	return this->$Collections$CheckedCollection::add(e);
 }
 
 bool Collections$CheckedQueue::addAll($Collection* coll) {
-	 return this->$Collections$CheckedCollection::addAll(coll);
+	return this->$Collections$CheckedCollection::addAll(coll);
 }
 
 void Collections$CheckedQueue::forEach($Consumer* action) {
@@ -93,23 +93,23 @@ void Collections$CheckedQueue::forEach($Consumer* action) {
 }
 
 bool Collections$CheckedQueue::removeIf($Predicate* filter) {
-	 return this->$Collections$CheckedCollection::removeIf(filter);
+	return this->$Collections$CheckedCollection::removeIf(filter);
 }
 
 $Spliterator* Collections$CheckedQueue::spliterator() {
-	 return this->$Collections$CheckedCollection::spliterator();
+	return this->$Collections$CheckedCollection::spliterator();
 }
 
 $Stream* Collections$CheckedQueue::stream() {
-	 return this->$Collections$CheckedCollection::stream();
+	return this->$Collections$CheckedCollection::stream();
 }
 
 $Stream* Collections$CheckedQueue::parallelStream() {
-	 return this->$Collections$CheckedCollection::parallelStream();
+	return this->$Collections$CheckedCollection::parallelStream();
 }
 
 $Object* Collections$CheckedQueue::clone() {
-	 return this->$Collections$CheckedCollection::clone();
+	return this->$Collections$CheckedCollection::clone();
 }
 
 void Collections$CheckedQueue::finalize() {

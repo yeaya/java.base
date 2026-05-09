@@ -80,7 +80,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $nc(inst$)->lambda$walk$0($cast($Stream, s));
+		return $nc(inst$)->lambda$walk$0($cast($Stream, s));
 	}
 	HiddenFrames* inst$ = nullptr;
 };

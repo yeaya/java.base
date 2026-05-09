@@ -23,19 +23,19 @@ namespace java {
 		namespace cert {
 
 $String* PKIXReason::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool PKIXReason::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t PKIXReason::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* PKIXReason::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void PKIXReason::finalize() {

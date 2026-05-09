@@ -28,19 +28,19 @@ using $List = ::java::util::List;
 namespace indify {
 
 int32_t Indify$Code::hashCode() {
-	 return this->$Indify$InnerOuter::hashCode();
+	return this->$Indify$InnerOuter::hashCode();
 }
 
 bool Indify$Code::equals(Object$* arg0) {
-	 return this->$Indify$InnerOuter::equals(arg0);
+	return this->$Indify$InnerOuter::equals(arg0);
 }
 
 $Object* Indify$Code::clone() {
-	 return this->$Indify$InnerOuter::clone();
+	return this->$Indify$InnerOuter::clone();
 }
 
 $String* Indify$Code::toString() {
-	 return this->$Indify$InnerOuter::toString();
+	return this->$Indify$InnerOuter::toString();
 }
 
 void Indify$Code::finalize() {

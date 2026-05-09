@@ -40,19 +40,19 @@ namespace sun {
 			namespace http {
 
 int32_t ChunkedInputStream::hashCode() {
-	 return this->$InputStream::hashCode();
+	return this->$InputStream::hashCode();
 }
 
 bool ChunkedInputStream::equals(Object$* obj) {
-	 return this->$InputStream::equals(obj);
+	return this->$InputStream::equals(obj);
 }
 
 $Object* ChunkedInputStream::clone() {
-	 return this->$InputStream::clone();
+	return this->$InputStream::clone();
 }
 
 $String* ChunkedInputStream::toString() {
-	 return this->$InputStream::toString();
+	return this->$InputStream::toString();
 }
 
 void ChunkedInputStream::finalize() {

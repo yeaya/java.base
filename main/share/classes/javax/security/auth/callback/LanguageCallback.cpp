@@ -15,19 +15,19 @@ namespace javax {
 			namespace callback {
 
 int32_t LanguageCallback::hashCode() {
-	 return this->$Callback::hashCode();
+	return this->$Callback::hashCode();
 }
 
 bool LanguageCallback::equals(Object$* obj) {
-	 return this->$Callback::equals(obj);
+	return this->$Callback::equals(obj);
 }
 
 $Object* LanguageCallback::clone() {
-	 return this->$Callback::clone();
+	return this->$Callback::clone();
 }
 
 $String* LanguageCallback::toString() {
-	 return this->$Callback::toString();
+	return this->$Callback::toString();
 }
 
 void LanguageCallback::finalize() {

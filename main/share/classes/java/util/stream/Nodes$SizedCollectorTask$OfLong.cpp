@@ -28,19 +28,19 @@ void Nodes$SizedCollectorTask$OfLong::begin(int64_t size) {
 }
 
 int32_t Nodes$SizedCollectorTask$OfLong::hashCode() {
-	 return this->$Nodes$SizedCollectorTask::hashCode();
+	return this->$Nodes$SizedCollectorTask::hashCode();
 }
 
 bool Nodes$SizedCollectorTask$OfLong::equals(Object$* obj) {
-	 return this->$Nodes$SizedCollectorTask::equals(obj);
+	return this->$Nodes$SizedCollectorTask::equals(obj);
 }
 
 $Object* Nodes$SizedCollectorTask$OfLong::clone() {
-	 return this->$Nodes$SizedCollectorTask::clone();
+	return this->$Nodes$SizedCollectorTask::clone();
 }
 
 $String* Nodes$SizedCollectorTask$OfLong::toString() {
-	 return this->$Nodes$SizedCollectorTask::toString();
+	return this->$Nodes$SizedCollectorTask::toString();
 }
 
 void Nodes$SizedCollectorTask$OfLong::finalize() {
@@ -52,7 +52,7 @@ void Nodes$SizedCollectorTask$OfLong::end() {
 }
 
 bool Nodes$SizedCollectorTask$OfLong::cancellationRequested() {
-	 return this->$Nodes$SizedCollectorTask::cancellationRequested();
+	return this->$Nodes$SizedCollectorTask::cancellationRequested();
 }
 
 void Nodes$SizedCollectorTask$OfLong::accept(int32_t value) {
@@ -68,7 +68,7 @@ void Nodes$SizedCollectorTask$OfLong::accept(Object$* t) {
 }
 
 $Consumer* Nodes$SizedCollectorTask$OfLong::andThen($Consumer* after) {
-	 return this->$Nodes$SizedCollectorTask::andThen(after);
+	return this->$Nodes$SizedCollectorTask::andThen(after);
 }
 
 void Nodes$SizedCollectorTask$OfLong::init$($Spliterator* spliterator, $PipelineHelper* helper, $longs* array) {

@@ -49,7 +49,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* e1, Object$* e2) override {
-		 return TreeMap$EntrySpliterator::lambda$getComparator$d5a01062$1($cast($Map$Entry, e1), $cast($Map$Entry, e2));
+		return TreeMap$EntrySpliterator::lambda$getComparator$d5a01062$1($cast($Map$Entry, e1), $cast($Map$Entry, e2));
 	}
 };
 $Class* TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::load$($String* name, bool initialize) {
@@ -74,23 +74,23 @@ $Class* TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::load$(
 $Class* TreeMap$EntrySpliterator$$Lambda$lambda$getComparator$d5a01062$1::class$ = nullptr;
 
 int64_t TreeMap$EntrySpliterator::estimateSize() {
-	 return this->$TreeMap$TreeMapSpliterator::estimateSize();
+	return this->$TreeMap$TreeMapSpliterator::estimateSize();
 }
 
 int32_t TreeMap$EntrySpliterator::hashCode() {
-	 return this->$TreeMap$TreeMapSpliterator::hashCode();
+	return this->$TreeMap$TreeMapSpliterator::hashCode();
 }
 
 bool TreeMap$EntrySpliterator::equals(Object$* obj) {
-	 return this->$TreeMap$TreeMapSpliterator::equals(obj);
+	return this->$TreeMap$TreeMapSpliterator::equals(obj);
 }
 
 $Object* TreeMap$EntrySpliterator::clone() {
-	 return this->$TreeMap$TreeMapSpliterator::clone();
+	return this->$TreeMap$TreeMapSpliterator::clone();
 }
 
 $String* TreeMap$EntrySpliterator::toString() {
-	 return this->$TreeMap$TreeMapSpliterator::toString();
+	return this->$TreeMap$TreeMapSpliterator::toString();
 }
 
 void TreeMap$EntrySpliterator::finalize() {

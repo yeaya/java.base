@@ -43,7 +43,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ZipEntry, inst$)->getName());
+		return $of($sure($ZipEntry, inst$)->getName());
 	}
 };
 $Class* ModulePatcher$JarResourceFinder$$Lambda$getName::load$($String* name, bool initialize) {

@@ -13,15 +13,15 @@ namespace java {
 	namespace lang {
 
 $String* ProcessEnvironment$Value::toString() {
-	 return this->$ProcessEnvironment$ExternalData::toString();
+	return this->$ProcessEnvironment$ExternalData::toString();
 }
 
 int32_t ProcessEnvironment$Value::hashCode() {
-	 return this->$ProcessEnvironment$ExternalData::hashCode();
+	return this->$ProcessEnvironment$ExternalData::hashCode();
 }
 
 $Object* ProcessEnvironment$Value::clone() {
-	 return this->$ProcessEnvironment$ExternalData::clone();
+	return this->$ProcessEnvironment$ExternalData::clone();
 }
 
 void ProcessEnvironment$Value::finalize() {

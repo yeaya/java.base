@@ -28,19 +28,19 @@ namespace sun {
 		namespace cs {
 
 int32_t PCK::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool PCK::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* PCK::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* PCK::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void PCK::finalize() {

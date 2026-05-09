@@ -42,19 +42,19 @@ namespace sun {
 			namespace http {
 
 $Object* KeepAliveStreamCleaner::clone() {
-	 return this->$LinkedList::clone();
+	return this->$LinkedList::clone();
 }
 
 bool KeepAliveStreamCleaner::equals(Object$* o) {
-	 return this->$LinkedList::equals(o);
+	return this->$LinkedList::equals(o);
 }
 
 int32_t KeepAliveStreamCleaner::hashCode() {
-	 return this->$LinkedList::hashCode();
+	return this->$LinkedList::hashCode();
 }
 
 $String* KeepAliveStreamCleaner::toString() {
-	 return this->$LinkedList::toString();
+	return this->$LinkedList::toString();
 }
 
 void KeepAliveStreamCleaner::finalize() {

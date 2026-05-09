@@ -28,7 +28,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(Object$* t, Object$* u) override {
-		 return $nc(inst$)->lambda$and$0(other, t, u);
+		return $nc(inst$)->lambda$and$0(other, t, u);
 	}
 	BiPredicate* inst$ = nullptr;
 	BiPredicate* other = nullptr;
@@ -66,7 +66,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* t, Object$* u) override {
-		 return $nc(inst$)->lambda$negate$1(t, u);
+		return $nc(inst$)->lambda$negate$1(t, u);
 	}
 	BiPredicate* inst$ = nullptr;
 };
@@ -103,7 +103,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(Object$* t, Object$* u) override {
-		 return $nc(inst$)->lambda$or$2(other, t, u);
+		return $nc(inst$)->lambda$or$2(other, t, u);
 	}
 	BiPredicate* inst$ = nullptr;
 	BiPredicate* other = nullptr;

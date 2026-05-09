@@ -13,19 +13,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t Flow$Processor::hashCode() {
-	 return this->$Flow$Subscriber::hashCode();
+	return this->$Flow$Subscriber::hashCode();
 }
 
 bool Flow$Processor::equals(Object$* obj) {
-	 return this->$Flow$Subscriber::equals(obj);
+	return this->$Flow$Subscriber::equals(obj);
 }
 
 $Object* Flow$Processor::clone() {
-	 return this->$Flow$Subscriber::clone();
+	return this->$Flow$Subscriber::clone();
 }
 
 $String* Flow$Processor::toString() {
-	 return this->$Flow$Subscriber::toString();
+	return this->$Flow$Subscriber::toString();
 }
 
 void Flow$Processor::finalize() {

@@ -38,59 +38,59 @@ namespace jdk {
 			namespace random {
 
 $IntStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::ints(int64_t streamSize) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize);
 }
 
 $IntStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::ints() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::ints();
 }
 
 $IntStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::ints(int64_t streamSize, int32_t randomNumberOrigin, int32_t randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize, randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize, randomNumberOrigin, randomNumberBound);
 }
 
 $IntStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::ints(int32_t randomNumberOrigin, int32_t randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints(randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::ints(randomNumberOrigin, randomNumberBound);
 }
 
 $LongStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::longs(int64_t streamSize) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::longs(streamSize);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::longs(streamSize);
 }
 
 $LongStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::longs() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::longs();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::longs();
 }
 
 $LongStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::longs(int64_t streamSize, int64_t randomNumberOrigin, int64_t randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::longs(streamSize, randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::longs(streamSize, randomNumberOrigin, randomNumberBound);
 }
 
 $LongStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::longs(int64_t randomNumberOrigin, int64_t randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::longs(randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::longs(randomNumberOrigin, randomNumberBound);
 }
 
 $DoubleStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::doubles(int64_t streamSize) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(streamSize);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(streamSize);
 }
 
 $DoubleStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::doubles() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::doubles();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::doubles();
 }
 
 $DoubleStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::doubles(int64_t streamSize, double randomNumberOrigin, double randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(streamSize, randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(streamSize, randomNumberOrigin, randomNumberBound);
 }
 
 $DoubleStream* RandomSupport$AbstractArbitrarilyJumpableGenerator::doubles(double randomNumberOrigin, double randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(randomNumberOrigin, randomNumberBound);
 }
 
 bool RandomSupport$AbstractArbitrarilyJumpableGenerator::isDeprecated() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::isDeprecated();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::isDeprecated();
 }
 
 bool RandomSupport$AbstractArbitrarilyJumpableGenerator::nextBoolean() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextBoolean();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextBoolean();
 }
 
 void RandomSupport$AbstractArbitrarilyJumpableGenerator::nextBytes($bytes* bytes) {
@@ -98,75 +98,75 @@ void RandomSupport$AbstractArbitrarilyJumpableGenerator::nextBytes($bytes* bytes
 }
 
 float RandomSupport$AbstractArbitrarilyJumpableGenerator::nextFloat() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat();
 }
 
 float RandomSupport$AbstractArbitrarilyJumpableGenerator::nextFloat(float bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat(bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat(bound);
 }
 
 float RandomSupport$AbstractArbitrarilyJumpableGenerator::nextFloat(float origin, float bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat(origin, bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat(origin, bound);
 }
 
 double RandomSupport$AbstractArbitrarilyJumpableGenerator::nextDouble() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble();
 }
 
 double RandomSupport$AbstractArbitrarilyJumpableGenerator::nextDouble(double bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble(bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble(bound);
 }
 
 double RandomSupport$AbstractArbitrarilyJumpableGenerator::nextDouble(double origin, double bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble(origin, bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble(origin, bound);
 }
 
 int32_t RandomSupport$AbstractArbitrarilyJumpableGenerator::nextInt() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt();
 }
 
 int32_t RandomSupport$AbstractArbitrarilyJumpableGenerator::nextInt(int32_t bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt(bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt(bound);
 }
 
 int32_t RandomSupport$AbstractArbitrarilyJumpableGenerator::nextInt(int32_t origin, int32_t bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt(origin, bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt(origin, bound);
 }
 
 int64_t RandomSupport$AbstractArbitrarilyJumpableGenerator::nextLong(int64_t bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextLong(bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextLong(bound);
 }
 
 int64_t RandomSupport$AbstractArbitrarilyJumpableGenerator::nextLong(int64_t origin, int64_t bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextLong(origin, bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextLong(origin, bound);
 }
 
 double RandomSupport$AbstractArbitrarilyJumpableGenerator::nextGaussian() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextGaussian();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextGaussian();
 }
 
 double RandomSupport$AbstractArbitrarilyJumpableGenerator::nextGaussian(double mean, double stddev) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextGaussian(mean, stddev);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextGaussian(mean, stddev);
 }
 
 double RandomSupport$AbstractArbitrarilyJumpableGenerator::nextExponential() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextExponential();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextExponential();
 }
 
 int32_t RandomSupport$AbstractArbitrarilyJumpableGenerator::hashCode() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::hashCode();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::hashCode();
 }
 
 bool RandomSupport$AbstractArbitrarilyJumpableGenerator::equals(Object$* obj) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::equals(obj);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::equals(obj);
 }
 
 $Object* RandomSupport$AbstractArbitrarilyJumpableGenerator::clone() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::clone();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::clone();
 }
 
 $String* RandomSupport$AbstractArbitrarilyJumpableGenerator::toString() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::toString();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::toString();
 }
 
 void RandomSupport$AbstractArbitrarilyJumpableGenerator::finalize() {

@@ -29,23 +29,23 @@ namespace java {
 	namespace util {
 
 int64_t TreeMap$KeySpliterator::estimateSize() {
-	 return this->$TreeMap$TreeMapSpliterator::estimateSize();
+	return this->$TreeMap$TreeMapSpliterator::estimateSize();
 }
 
 int32_t TreeMap$KeySpliterator::hashCode() {
-	 return this->$TreeMap$TreeMapSpliterator::hashCode();
+	return this->$TreeMap$TreeMapSpliterator::hashCode();
 }
 
 bool TreeMap$KeySpliterator::equals(Object$* obj) {
-	 return this->$TreeMap$TreeMapSpliterator::equals(obj);
+	return this->$TreeMap$TreeMapSpliterator::equals(obj);
 }
 
 $Object* TreeMap$KeySpliterator::clone() {
-	 return this->$TreeMap$TreeMapSpliterator::clone();
+	return this->$TreeMap$TreeMapSpliterator::clone();
 }
 
 $String* TreeMap$KeySpliterator::toString() {
-	 return this->$TreeMap$TreeMapSpliterator::toString();
+	return this->$TreeMap$TreeMapSpliterator::toString();
 }
 
 void TreeMap$KeySpliterator::finalize() {

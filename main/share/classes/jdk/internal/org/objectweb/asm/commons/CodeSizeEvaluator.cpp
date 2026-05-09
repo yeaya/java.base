@@ -36,19 +36,19 @@ namespace jdk {
 					namespace commons {
 
 int32_t CodeSizeEvaluator::hashCode() {
-	 return this->$MethodVisitor::hashCode();
+	return this->$MethodVisitor::hashCode();
 }
 
 bool CodeSizeEvaluator::equals(Object$* obj) {
-	 return this->$MethodVisitor::equals(obj);
+	return this->$MethodVisitor::equals(obj);
 }
 
 $Object* CodeSizeEvaluator::clone() {
-	 return this->$MethodVisitor::clone();
+	return this->$MethodVisitor::clone();
 }
 
 $String* CodeSizeEvaluator::toString() {
-	 return this->$MethodVisitor::toString();
+	return this->$MethodVisitor::toString();
 }
 
 void CodeSizeEvaluator::finalize() {

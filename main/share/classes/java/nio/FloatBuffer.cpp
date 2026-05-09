@@ -54,7 +54,7 @@ namespace java {
 	namespace nio {
 
 $Object* FloatBuffer::clone() {
-	 return this->$Buffer::clone();
+	return this->$Buffer::clone();
 }
 
 void FloatBuffer::finalize() {

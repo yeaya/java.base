@@ -147,7 +147,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return $of(LocalDate::from(temporal));
+		return $of(LocalDate::from(temporal));
 	}
 };
 $Class* LocalDate$$Lambda$from::load$($String* name, bool initialize) {
@@ -177,7 +177,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int64_t epochDay) override {
-		 return $of(LocalDate::ofEpochDay(epochDay));
+		return $of(LocalDate::ofEpochDay(epochDay));
 	}
 };
 $Class* LocalDate$$Lambda$ofEpochDay$1::load$($String* name, bool initialize) {
@@ -209,7 +209,7 @@ public:
 		this->days = days;
 	}
 	virtual $Object* apply(int64_t n) override {
-		 return $of(LocalDate::lambda$datesUntil$0(start, days, n));
+		return $of(LocalDate::lambda$datesUntil$0(start, days, n));
 	}
 	int64_t start = 0;
 	int64_t days = 0;
@@ -249,7 +249,7 @@ public:
 		this->days = days;
 	}
 	virtual $Object* apply(int64_t n) override {
-		 return $of($nc(inst$)->lambda$datesUntil$1(months, days, n));
+		return $of($nc(inst$)->lambda$datesUntil$1(months, days, n));
 	}
 	LocalDate* inst$ = nullptr;
 	int64_t months = 0;
@@ -283,7 +283,7 @@ $Class* LocalDate$$Lambda$lambda$datesUntil$1$3::load$($String* name, bool initi
 $Class* LocalDate$$Lambda$lambda$datesUntil$1$3::class$ = nullptr;
 
 $Object* LocalDate::clone() {
-	 return this->$ChronoLocalDate::clone();
+	return this->$ChronoLocalDate::clone();
 }
 
 void LocalDate::finalize() {

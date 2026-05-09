@@ -30,15 +30,15 @@ namespace java {
 	namespace util {
 
 int32_t ImmutableCollections$AbstractImmutableSet::hashCode() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::hashCode();
+	return this->$ImmutableCollections$AbstractImmutableCollection::hashCode();
 }
 
 bool ImmutableCollections$AbstractImmutableSet::add(Object$* e) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::add(e);
+	return this->$ImmutableCollections$AbstractImmutableCollection::add(e);
 }
 
 bool ImmutableCollections$AbstractImmutableSet::addAll($Collection* c) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::addAll(c);
+	return this->$ImmutableCollections$AbstractImmutableCollection::addAll(c);
 }
 
 void ImmutableCollections$AbstractImmutableSet::clear() {
@@ -46,59 +46,59 @@ void ImmutableCollections$AbstractImmutableSet::clear() {
 }
 
 bool ImmutableCollections$AbstractImmutableSet::remove(Object$* o) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::remove(o);
+	return this->$ImmutableCollections$AbstractImmutableCollection::remove(o);
 }
 
 bool ImmutableCollections$AbstractImmutableSet::removeAll($Collection* c) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::removeAll(c);
+	return this->$ImmutableCollections$AbstractImmutableCollection::removeAll(c);
 }
 
 bool ImmutableCollections$AbstractImmutableSet::removeIf($Predicate* filter) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::removeIf(filter);
+	return this->$ImmutableCollections$AbstractImmutableCollection::removeIf(filter);
 }
 
 bool ImmutableCollections$AbstractImmutableSet::retainAll($Collection* c) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::retainAll(c);
+	return this->$ImmutableCollections$AbstractImmutableCollection::retainAll(c);
 }
 
 bool ImmutableCollections$AbstractImmutableSet::isEmpty() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::isEmpty();
+	return this->$ImmutableCollections$AbstractImmutableCollection::isEmpty();
 }
 
 bool ImmutableCollections$AbstractImmutableSet::contains(Object$* o) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::contains(o);
+	return this->$ImmutableCollections$AbstractImmutableCollection::contains(o);
 }
 
 $ObjectArray* ImmutableCollections$AbstractImmutableSet::toArray() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::toArray();
+	return this->$ImmutableCollections$AbstractImmutableCollection::toArray();
 }
 
 $ObjectArray* ImmutableCollections$AbstractImmutableSet::toArray($ObjectArray* a) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::toArray(a);
+	return this->$ImmutableCollections$AbstractImmutableCollection::toArray(a);
 }
 
 bool ImmutableCollections$AbstractImmutableSet::containsAll($Collection* c) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::containsAll(c);
+	return this->$ImmutableCollections$AbstractImmutableCollection::containsAll(c);
 }
 
 $String* ImmutableCollections$AbstractImmutableSet::toString() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::toString();
+	return this->$ImmutableCollections$AbstractImmutableCollection::toString();
 }
 
 $ObjectArray* ImmutableCollections$AbstractImmutableSet::toArray($IntFunction* generator) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::toArray(generator);
+	return this->$ImmutableCollections$AbstractImmutableCollection::toArray(generator);
 }
 
 $Spliterator* ImmutableCollections$AbstractImmutableSet::spliterator() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::spliterator();
+	return this->$ImmutableCollections$AbstractImmutableCollection::spliterator();
 }
 
 $Stream* ImmutableCollections$AbstractImmutableSet::stream() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::stream();
+	return this->$ImmutableCollections$AbstractImmutableCollection::stream();
 }
 
 $Stream* ImmutableCollections$AbstractImmutableSet::parallelStream() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::parallelStream();
+	return this->$ImmutableCollections$AbstractImmutableCollection::parallelStream();
 }
 
 void ImmutableCollections$AbstractImmutableSet::forEach($Consumer* action) {
@@ -106,7 +106,7 @@ void ImmutableCollections$AbstractImmutableSet::forEach($Consumer* action) {
 }
 
 $Object* ImmutableCollections$AbstractImmutableSet::clone() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::clone();
+	return this->$ImmutableCollections$AbstractImmutableCollection::clone();
 }
 
 void ImmutableCollections$AbstractImmutableSet::finalize() {

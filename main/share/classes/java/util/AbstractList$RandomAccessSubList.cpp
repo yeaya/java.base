@@ -15,19 +15,19 @@ namespace java {
 	namespace util {
 
 bool AbstractList$RandomAccessSubList::equals(Object$* o) {
-	 return this->$AbstractList$SubList::equals(o);
+	return this->$AbstractList$SubList::equals(o);
 }
 
 int32_t AbstractList$RandomAccessSubList::hashCode() {
-	 return this->$AbstractList$SubList::hashCode();
+	return this->$AbstractList$SubList::hashCode();
 }
 
 $String* AbstractList$RandomAccessSubList::toString() {
-	 return this->$AbstractList$SubList::toString();
+	return this->$AbstractList$SubList::toString();
 }
 
 $Object* AbstractList$RandomAccessSubList::clone() {
-	 return this->$AbstractList$SubList::clone();
+	return this->$AbstractList$SubList::clone();
 }
 
 void AbstractList$RandomAccessSubList::finalize() {

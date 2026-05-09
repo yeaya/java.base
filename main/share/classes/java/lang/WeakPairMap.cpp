@@ -41,7 +41,7 @@ public:
 		$set(this, mappingFunction, mappingFunction);
 	}
 	virtual $Object* apply(Object$* pair) override {
-		 return WeakPairMap::lambda$computeIfAbsent$0(mappingFunction, $cast($WeakPairMap$Pair, pair));
+		return WeakPairMap::lambda$computeIfAbsent$0(mappingFunction, $cast($WeakPairMap$Pair, pair));
 	}
 	$BiFunction* mappingFunction = nullptr;
 };

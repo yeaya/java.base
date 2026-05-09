@@ -28,7 +28,7 @@ public:
 		$set(this, p, p);
 	}
 	virtual bool is(int32_t ch) override {
-		 return $nc(inst$)->lambda$and$0(p, ch);
+		return $nc(inst$)->lambda$and$0(p, ch);
 	}
 	Pattern$CharPredicate* inst$ = nullptr;
 	Pattern$CharPredicate* p = nullptr;
@@ -67,7 +67,7 @@ public:
 		$set(this, p, p);
 	}
 	virtual bool is(int32_t ch) override {
-		 return $nc(inst$)->lambda$union$1(p, ch);
+		return $nc(inst$)->lambda$union$1(p, ch);
 	}
 	Pattern$CharPredicate* inst$ = nullptr;
 	Pattern$CharPredicate* p = nullptr;
@@ -107,7 +107,7 @@ public:
 		$set(this, p2, p2);
 	}
 	virtual bool is(int32_t ch) override {
-		 return $nc(inst$)->lambda$union$2(p1, p2, ch);
+		return $nc(inst$)->lambda$union$2(p1, p2, ch);
 	}
 	Pattern$CharPredicate* inst$ = nullptr;
 	Pattern$CharPredicate* p1 = nullptr;
@@ -147,7 +147,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool is(int32_t ch) override {
-		 return $nc(inst$)->lambda$negate$3(ch);
+		return $nc(inst$)->lambda$negate$3(ch);
 	}
 	Pattern$CharPredicate* inst$ = nullptr;
 };

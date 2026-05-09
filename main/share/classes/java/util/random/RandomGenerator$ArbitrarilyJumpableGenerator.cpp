@@ -37,7 +37,7 @@ public:
 		this->distance = distance;
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$jumps$0(distance);
+		return $nc(inst$)->lambda$jumps$0(distance);
 	}
 	RandomGenerator$ArbitrarilyJumpableGenerator* inst$ = nullptr;
 	double distance = 0.0;

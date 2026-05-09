@@ -38,7 +38,7 @@ namespace javax {
 			namespace x500 {
 
 $Object* X500Principal::clone() {
-	 return this->$Principal::clone();
+	return this->$Principal::clone();
 }
 
 void X500Principal::finalize() {

@@ -68,7 +68,7 @@ public:
 		$set(this, distinctTags, distinctTags);
 	}
 	virtual bool test(Object$* x) override {
-		 return LocaleMatcher::lambda$removeDuplicates$0(distinctTags, $cast($String, x));
+		return LocaleMatcher::lambda$removeDuplicates$0(distinctTags, $cast($String, x));
 	}
 	$Set* distinctTags = nullptr;
 };
@@ -104,7 +104,7 @@ public:
 		$set(this, tag, tag);
 	}
 	virtual bool test(Object$* element) override {
-		 return LocaleMatcher::lambda$caseInsensitiveMatch$1(tag, $cast($String, element));
+		return LocaleMatcher::lambda$caseInsensitiveMatch$1(tag, $cast($String, element));
 	}
 	$String* tag = nullptr;
 };

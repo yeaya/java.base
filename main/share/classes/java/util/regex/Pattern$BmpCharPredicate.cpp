@@ -30,7 +30,7 @@ public:
 		$set(this, p, p);
 	}
 	virtual bool is(int32_t ch) override {
-		 return $nc(inst$)->lambda$and$0(p, ch);
+		return $nc(inst$)->lambda$and$0(p, ch);
 	}
 	Pattern$BmpCharPredicate* inst$ = nullptr;
 	$Pattern$CharPredicate* p = nullptr;
@@ -69,7 +69,7 @@ public:
 		$set(this, p, p);
 	}
 	virtual bool is(int32_t ch) override {
-		 return $nc(inst$)->lambda$union$2(p, ch);
+		return $nc(inst$)->lambda$union$2(p, ch);
 	}
 	Pattern$BmpCharPredicate* inst$ = nullptr;
 	$Pattern$CharPredicate* p = nullptr;
@@ -107,7 +107,7 @@ public:
 		$set(this, predicates, predicates);
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern$BmpCharPredicate::lambda$union$4(predicates, ch);
+		return Pattern$BmpCharPredicate::lambda$union$4(predicates, ch);
 	}
 	$Pattern$CharPredicateArray* predicates = nullptr;
 };

@@ -13,7 +13,7 @@ namespace sun {
 		namespace x509 {
 
 $String* CertAttrSet::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* CertAttrSet::load$($String* name, bool initialize) {

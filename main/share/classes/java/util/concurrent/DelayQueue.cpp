@@ -45,67 +45,67 @@ namespace java {
 		namespace concurrent {
 
 $Object* DelayQueue::remove() {
-	 return this->$AbstractQueue::remove();
+	return this->$AbstractQueue::remove();
 }
 
 $Object* DelayQueue::element() {
-	 return this->$AbstractQueue::element();
+	return this->$AbstractQueue::element();
 }
 
 bool DelayQueue::addAll($Collection* c) {
-	 return this->$AbstractQueue::addAll(c);
+	return this->$AbstractQueue::addAll(c);
 }
 
 bool DelayQueue::isEmpty() {
-	 return this->$AbstractQueue::isEmpty();
+	return this->$AbstractQueue::isEmpty();
 }
 
 bool DelayQueue::contains(Object$* o) {
-	 return this->$AbstractQueue::contains(o);
+	return this->$AbstractQueue::contains(o);
 }
 
 bool DelayQueue::containsAll($Collection* c) {
-	 return this->$AbstractQueue::containsAll(c);
+	return this->$AbstractQueue::containsAll(c);
 }
 
 bool DelayQueue::removeAll($Collection* c) {
-	 return this->$AbstractQueue::removeAll(c);
+	return this->$AbstractQueue::removeAll(c);
 }
 
 bool DelayQueue::retainAll($Collection* c) {
-	 return this->$AbstractQueue::retainAll(c);
+	return this->$AbstractQueue::retainAll(c);
 }
 
 $String* DelayQueue::toString() {
-	 return this->$AbstractQueue::toString();
+	return this->$AbstractQueue::toString();
 }
 
 $ObjectArray* DelayQueue::toArray($IntFunction* generator) {
-	 return this->$AbstractQueue::toArray(generator);
+	return this->$AbstractQueue::toArray(generator);
 }
 
 bool DelayQueue::removeIf($Predicate* filter) {
-	 return this->$AbstractQueue::removeIf(filter);
+	return this->$AbstractQueue::removeIf(filter);
 }
 
 bool DelayQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t DelayQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Spliterator* DelayQueue::spliterator() {
-	 return this->$AbstractQueue::spliterator();
+	return this->$AbstractQueue::spliterator();
 }
 
 $Stream* DelayQueue::stream() {
-	 return this->$AbstractQueue::stream();
+	return this->$AbstractQueue::stream();
 }
 
 $Stream* DelayQueue::parallelStream() {
-	 return this->$AbstractQueue::parallelStream();
+	return this->$AbstractQueue::parallelStream();
 }
 
 void DelayQueue::forEach($Consumer* action) {
@@ -113,7 +113,7 @@ void DelayQueue::forEach($Consumer* action) {
 }
 
 $Object* DelayQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void DelayQueue::finalize() {

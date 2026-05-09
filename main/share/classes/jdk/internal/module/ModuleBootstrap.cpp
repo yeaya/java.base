@@ -143,7 +143,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ModuleReference, inst$)->descriptor();
+		return $sure($ModuleReference, inst$)->descriptor();
 	}
 };
 $Class* ModuleBootstrap$$Lambda$descriptor::load$($String* name, bool initialize) {
@@ -173,7 +173,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor, inst$)->name());
+		return $of($sure($ModuleDescriptor, inst$)->name());
 	}
 };
 $Class* ModuleBootstrap$$Lambda$name$1::load$($String* name, bool initialize) {
@@ -204,7 +204,7 @@ public:
 		$set(this, f, f);
 	}
 	virtual bool test(Object$* mn) override {
-		 return ModuleBootstrap::lambda$boot2$0(f, $cast($String, mn));
+		return ModuleBootstrap::lambda$boot2$0(f, $cast($String, mn));
 	}
 	$ModuleFinder* f = nullptr;
 };
@@ -276,7 +276,7 @@ public:
 		$set(this, cf, cf);
 	}
 	virtual bool test(Object$* mn) override {
-		 return ModuleBootstrap::lambda$boot2$4(cf, $cast($String, mn));
+		return ModuleBootstrap::lambda$boot2$4(cf, $cast($String, mn));
 	}
 	$Configuration* cf = nullptr;
 };
@@ -341,7 +341,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ResolvedModule, inst$)->reference();
+		return $sure($ResolvedModule, inst$)->reference();
 	}
 };
 $Class* ModuleBootstrap$$Lambda$reference$6::load$($String* name, bool initialize) {
@@ -408,7 +408,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $nc(inst$)->find($cast($String, name));
+		return $nc(inst$)->find($cast($String, name));
 	}
 	$ModuleFinder* inst$ = nullptr;
 };
@@ -443,7 +443,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Optional, inst$)->stream();
+		return $sure($Optional, inst$)->stream();
 	}
 };
 $Class* ModuleBootstrap$$Lambda$stream$9::load$($String* name, bool initialize) {
@@ -509,7 +509,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return ModuleBootstrap::lambda$decode$8($cast($String, k));
+		return ModuleBootstrap::lambda$decode$8($cast($String, k));
 	}
 };
 $Class* ModuleBootstrap$$Lambda$lambda$decode$8$11::load$($String* name, bool initialize) {

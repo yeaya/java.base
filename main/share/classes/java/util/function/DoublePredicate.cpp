@@ -28,7 +28,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(double value) override {
-		 return $nc(inst$)->lambda$and$0(other, value);
+		return $nc(inst$)->lambda$and$0(other, value);
 	}
 	DoublePredicate* inst$ = nullptr;
 	DoublePredicate* other = nullptr;
@@ -66,7 +66,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(double value) override {
-		 return $nc(inst$)->lambda$negate$1(value);
+		return $nc(inst$)->lambda$negate$1(value);
 	}
 	DoublePredicate* inst$ = nullptr;
 };
@@ -103,7 +103,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(double value) override {
-		 return $nc(inst$)->lambda$or$2(other, value);
+		return $nc(inst$)->lambda$or$2(other, value);
 	}
 	DoublePredicate* inst$ = nullptr;
 	DoublePredicate* other = nullptr;

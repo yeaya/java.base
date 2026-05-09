@@ -28,7 +28,7 @@ public:
 		$set(this, before, before);
 	}
 	virtual int64_t applyAsLong(int64_t v) override {
-		 return $nc(inst$)->lambda$compose$0(before, v);
+		return $nc(inst$)->lambda$compose$0(before, v);
 	}
 	LongUnaryOperator* inst$ = nullptr;
 	LongUnaryOperator* before = nullptr;
@@ -67,7 +67,7 @@ public:
 		$set(this, after, after);
 	}
 	virtual int64_t applyAsLong(int64_t t) override {
-		 return $nc(inst$)->lambda$andThen$1(after, t);
+		return $nc(inst$)->lambda$andThen$1(after, t);
 	}
 	LongUnaryOperator* inst$ = nullptr;
 	LongUnaryOperator* after = nullptr;
@@ -104,7 +104,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(int64_t t) override {
-		 return LongUnaryOperator::lambda$identity$2(t);
+		return LongUnaryOperator::lambda$identity$2(t);
 	}
 };
 $Class* LongUnaryOperator$$Lambda$lambda$identity$2$2::load$($String* name, bool initialize) {

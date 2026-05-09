@@ -25,23 +25,23 @@ namespace java {
 		namespace stream {
 
 $String* Nodes$SpinedNodeBuilder::toString() {
-	 return this->$SpinedBuffer::toString();
+	return this->$SpinedBuffer::toString();
 }
 
 int64_t Nodes$SpinedNodeBuilder::count() {
-	 return this->$SpinedBuffer::count();
+	return this->$SpinedBuffer::count();
 }
 
 int32_t Nodes$SpinedNodeBuilder::hashCode() {
-	 return this->$SpinedBuffer::hashCode();
+	return this->$SpinedBuffer::hashCode();
 }
 
 bool Nodes$SpinedNodeBuilder::equals(Object$* obj) {
-	 return this->$SpinedBuffer::equals(obj);
+	return this->$SpinedBuffer::equals(obj);
 }
 
 $Object* Nodes$SpinedNodeBuilder::clone() {
-	 return this->$SpinedBuffer::clone();
+	return this->$SpinedBuffer::clone();
 }
 
 void Nodes$SpinedNodeBuilder::finalize() {
@@ -49,7 +49,7 @@ void Nodes$SpinedNodeBuilder::finalize() {
 }
 
 $Consumer* Nodes$SpinedNodeBuilder::andThen($Consumer* after) {
-	 return this->$SpinedBuffer::andThen(after);
+	return this->$SpinedBuffer::andThen(after);
 }
 
 bool Nodes$SpinedNodeBuilder::$assertionsDisabled = false;

@@ -81,7 +81,7 @@ public:
 	void init$() {
 	}
 	virtual bool accept(Object$* e) override {
-		 return UnixCopyFile::lambda$ensureEmptyDir$0($cast($Path, e));
+		return UnixCopyFile::lambda$ensureEmptyDir$0($cast($Path, e));
 	}
 };
 $Class* UnixCopyFile$$Lambda$lambda$ensureEmptyDir$0::load$($String* name, bool initialize) {

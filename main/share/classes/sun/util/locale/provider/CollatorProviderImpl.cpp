@@ -37,19 +37,19 @@ namespace sun {
 			namespace provider {
 
 int32_t CollatorProviderImpl::hashCode() {
-	 return this->$CollatorProvider::hashCode();
+	return this->$CollatorProvider::hashCode();
 }
 
 bool CollatorProviderImpl::equals(Object$* obj) {
-	 return this->$CollatorProvider::equals(obj);
+	return this->$CollatorProvider::equals(obj);
 }
 
 $Object* CollatorProviderImpl::clone() {
-	 return this->$CollatorProvider::clone();
+	return this->$CollatorProvider::clone();
 }
 
 $String* CollatorProviderImpl::toString() {
-	 return this->$CollatorProvider::toString();
+	return this->$CollatorProvider::toString();
 }
 
 void CollatorProviderImpl::finalize() {

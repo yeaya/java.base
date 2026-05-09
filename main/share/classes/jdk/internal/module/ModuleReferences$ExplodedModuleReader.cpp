@@ -59,7 +59,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return $of($nc(inst$)->lambda$list$0($cast($Path, f)));
+		return $of($nc(inst$)->lambda$list$0($cast($Path, f)));
 	}
 	ModuleReferences$ExplodedModuleReader* inst$ = nullptr;
 };
@@ -94,7 +94,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return ModuleReferences$ExplodedModuleReader::lambda$list$1($cast($String, s));
+		return ModuleReferences$ExplodedModuleReader::lambda$list$1($cast($String, s));
 	}
 };
 $Class* ModuleReferences$ExplodedModuleReader$$Lambda$lambda$list$1$1::load$($String* name, bool initialize) {

@@ -19,19 +19,19 @@ namespace java {
 		namespace stream {
 
 int32_t WhileOps$UnorderedWhileSpliterator$OfRef::hashCode() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::hashCode();
+	return this->$WhileOps$UnorderedWhileSpliterator::hashCode();
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfRef::equals(Object$* obj) {
-	 return this->$WhileOps$UnorderedWhileSpliterator::equals(obj);
+	return this->$WhileOps$UnorderedWhileSpliterator::equals(obj);
 }
 
 $Object* WhileOps$UnorderedWhileSpliterator$OfRef::clone() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::clone();
+	return this->$WhileOps$UnorderedWhileSpliterator::clone();
 }
 
 $String* WhileOps$UnorderedWhileSpliterator$OfRef::toString() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::toString();
+	return this->$WhileOps$UnorderedWhileSpliterator::toString();
 }
 
 void WhileOps$UnorderedWhileSpliterator$OfRef::finalize() {

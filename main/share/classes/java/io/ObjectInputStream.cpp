@@ -220,7 +220,7 @@ public:
 	void init$() {
 	}
 	virtual $String* readString(ObjectInputStream* inst$) override {
-		 return $nc(inst$)->readString();
+		return $nc(inst$)->readString();
 	}
 };
 $Class* ObjectInputStream$$Lambda$readString$1::load$($String* name, bool initialize) {
@@ -245,27 +245,27 @@ $Class* ObjectInputStream$$Lambda$readString$1::load$($String* name, bool initia
 $Class* ObjectInputStream$$Lambda$readString$1::class$ = nullptr;
 
 int32_t ObjectInputStream::read($bytes* b) {
-	 return this->$InputStream::read(b);
+	return this->$InputStream::read(b);
 }
 
 int64_t ObjectInputStream::skip(int64_t n) {
-	 return this->$InputStream::skip(n);
+	return this->$InputStream::skip(n);
 }
 
 int32_t ObjectInputStream::hashCode() {
-	 return this->$InputStream::hashCode();
+	return this->$InputStream::hashCode();
 }
 
 bool ObjectInputStream::equals(Object$* obj) {
-	 return this->$InputStream::equals(obj);
+	return this->$InputStream::equals(obj);
 }
 
 $Object* ObjectInputStream::clone() {
-	 return this->$InputStream::clone();
+	return this->$InputStream::clone();
 }
 
 $String* ObjectInputStream::toString() {
-	 return this->$InputStream::toString();
+	return this->$InputStream::toString();
 }
 
 void ObjectInputStream::finalize() {

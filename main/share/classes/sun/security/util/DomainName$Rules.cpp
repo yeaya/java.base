@@ -64,7 +64,7 @@ public:
 		$set(this, tld, tld);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return DomainName$Rules::lambda$getRules$0(tld, $cast($String, k));
+		return DomainName$Rules::lambda$getRules$0(tld, $cast($String, k));
 	}
 	$String* tld = nullptr;
 };

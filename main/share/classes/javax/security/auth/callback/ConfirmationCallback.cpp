@@ -26,19 +26,19 @@ namespace javax {
 			namespace callback {
 
 int32_t ConfirmationCallback::hashCode() {
-	 return this->$Callback::hashCode();
+	return this->$Callback::hashCode();
 }
 
 bool ConfirmationCallback::equals(Object$* obj) {
-	 return this->$Callback::equals(obj);
+	return this->$Callback::equals(obj);
 }
 
 $Object* ConfirmationCallback::clone() {
-	 return this->$Callback::clone();
+	return this->$Callback::clone();
 }
 
 $String* ConfirmationCallback::toString() {
-	 return this->$Callback::toString();
+	return this->$Callback::toString();
 }
 
 void ConfirmationCallback::finalize() {

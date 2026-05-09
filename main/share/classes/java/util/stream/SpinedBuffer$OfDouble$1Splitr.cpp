@@ -30,15 +30,15 @@ namespace java {
 		namespace stream {
 
 int64_t SpinedBuffer$OfDouble$1Splitr::estimateSize() {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::estimateSize();
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::estimateSize();
 }
 
 int32_t SpinedBuffer$OfDouble$1Splitr::characteristics() {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::characteristics();
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::characteristics();
 }
 
 bool SpinedBuffer$OfDouble$1Splitr::tryAdvance(Object$* consumer) {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::tryAdvance(consumer);
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::tryAdvance(consumer);
 }
 
 void SpinedBuffer$OfDouble$1Splitr::forEachRemaining(Object$* consumer) {
@@ -46,7 +46,7 @@ void SpinedBuffer$OfDouble$1Splitr::forEachRemaining(Object$* consumer) {
 }
 
 bool SpinedBuffer$OfDouble$1Splitr::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(action);
+	return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(action);
 }
 
 void SpinedBuffer$OfDouble$1Splitr::forEachRemaining($Consumer* action) {
@@ -54,31 +54,31 @@ void SpinedBuffer$OfDouble$1Splitr::forEachRemaining($Consumer* action) {
 }
 
 int64_t SpinedBuffer$OfDouble$1Splitr::getExactSizeIfKnown() {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::getExactSizeIfKnown();
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::getExactSizeIfKnown();
 }
 
 bool SpinedBuffer$OfDouble$1Splitr::hasCharacteristics(int32_t characteristics) {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::hasCharacteristics(characteristics);
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::hasCharacteristics(characteristics);
 }
 
 $Comparator* SpinedBuffer$OfDouble$1Splitr::getComparator() {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::getComparator();
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::getComparator();
 }
 
 int32_t SpinedBuffer$OfDouble$1Splitr::hashCode() {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::hashCode();
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::hashCode();
 }
 
 bool SpinedBuffer$OfDouble$1Splitr::equals(Object$* obj) {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::equals(obj);
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::equals(obj);
 }
 
 $Object* SpinedBuffer$OfDouble$1Splitr::clone() {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::clone();
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::clone();
 }
 
 $String* SpinedBuffer$OfDouble$1Splitr::toString() {
-	 return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::toString();
+	return this->$SpinedBuffer$OfPrimitive$BaseSpliterator::toString();
 }
 
 void SpinedBuffer$OfDouble$1Splitr::finalize() {

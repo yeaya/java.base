@@ -24,19 +24,19 @@ namespace java {
 		namespace file {
 
 $String* StandardOpenOption::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool StandardOpenOption::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t StandardOpenOption::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* StandardOpenOption::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void StandardOpenOption::finalize() {

@@ -118,19 +118,19 @@ void ServerSocketChannelImpl::close() {
 }
 
 bool ServerSocketChannelImpl::isOpen() {
-	 return this->$ServerSocketChannel::isOpen();
+	return this->$ServerSocketChannel::isOpen();
 }
 
 int32_t ServerSocketChannelImpl::hashCode() {
-	 return this->$ServerSocketChannel::hashCode();
+	return this->$ServerSocketChannel::hashCode();
 }
 
 bool ServerSocketChannelImpl::equals(Object$* obj) {
-	 return this->$ServerSocketChannel::equals(obj);
+	return this->$ServerSocketChannel::equals(obj);
 }
 
 $Object* ServerSocketChannelImpl::clone() {
-	 return this->$ServerSocketChannel::clone();
+	return this->$ServerSocketChannel::clone();
 }
 
 void ServerSocketChannelImpl::finalize() {

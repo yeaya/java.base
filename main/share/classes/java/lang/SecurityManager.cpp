@@ -110,7 +110,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Module, inst$)->getDescriptor();
+		return $sure($Module, inst$)->getDescriptor();
 	}
 };
 $Class* SecurityManager$$Lambda$getDescriptor::load$($String* name, bool initialize) {
@@ -142,7 +142,7 @@ public:
 		$set(this, platformModules, platformModules);
 	}
 	virtual bool test(Object$* md) override {
-		 return SecurityManager::lambda$addNonExportedPackages$0(bootModules, platformModules, $cast($ModuleDescriptor, md));
+		return SecurityManager::lambda$addNonExportedPackages$0(bootModules, platformModules, $cast($ModuleDescriptor, md));
 	}
 	$Set* bootModules = nullptr;
 	$Set* platformModules = nullptr;
@@ -179,7 +179,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* md) override {
-		 return SecurityManager::nonExportedPkgs($cast($ModuleDescriptor, md));
+		return SecurityManager::nonExportedPkgs($cast($ModuleDescriptor, md));
 	}
 };
 $Class* SecurityManager$$Lambda$nonExportedPkgs$2::load$($String* name, bool initialize) {
@@ -209,7 +209,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collection, inst$)->stream();
+		return $sure($Collection, inst$)->stream();
 	}
 };
 $Class* SecurityManager$$Lambda$stream$3::load$($String* name, bool initialize) {
@@ -269,7 +269,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return SecurityManager::lambda$nonExportedPkgs$2($cast($ModuleDescriptor$Exports, p));
+		return SecurityManager::lambda$nonExportedPkgs$2($cast($ModuleDescriptor$Exports, p));
 	}
 };
 $Class* SecurityManager$$Lambda$lambda$nonExportedPkgs$2$5::load$($String* name, bool initialize) {
@@ -299,7 +299,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Exports, inst$)->source());
+		return $of($sure($ModuleDescriptor$Exports, inst$)->source());
 	}
 };
 $Class* SecurityManager$$Lambda$source$6::load$($String* name, bool initialize) {
@@ -365,7 +365,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return SecurityManager::lambda$nonExportedPkgs$3($cast($ModuleDescriptor$Opens, p));
+		return SecurityManager::lambda$nonExportedPkgs$3($cast($ModuleDescriptor$Opens, p));
 	}
 };
 $Class* SecurityManager$$Lambda$lambda$nonExportedPkgs$3$8::load$($String* name, bool initialize) {
@@ -395,7 +395,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Opens, inst$)->source());
+		return $of($sure($ModuleDescriptor$Opens, inst$)->source());
 	}
 };
 $Class* SecurityManager$$Lambda$source$9::load$($String* name, bool initialize) {

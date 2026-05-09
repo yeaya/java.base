@@ -26,19 +26,19 @@ namespace sun {
 		namespace cs {
 
 int32_t KOI8_U::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool KOI8_U::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* KOI8_U::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* KOI8_U::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void KOI8_U::finalize() {

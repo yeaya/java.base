@@ -104,7 +104,7 @@ public:
 		$set(this, m, m);
 	}
 	virtual $Object* run() override {
-		 return ServiceLoader::lambda$findStaticProviderMethod$0(m);
+		return ServiceLoader::lambda$findStaticProviderMethod$0(m);
 	}
 	$Method* m = nullptr;
 };
@@ -141,7 +141,7 @@ public:
 		$set(this, cn, cn);
 	}
 	virtual $Object* run() override {
-		 return $of(ServiceLoader::lambda$loadProvider$1(module, cn));
+		return $of(ServiceLoader::lambda$loadProvider$1(module, cn));
 	}
 	$Module* module = nullptr;
 	$String* cn = nullptr;

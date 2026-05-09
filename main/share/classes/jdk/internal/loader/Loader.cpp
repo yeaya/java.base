@@ -214,7 +214,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual $Object* apply(Object$* parent) override {
-		 return $nc(inst$)->lambda$initRemotePackageMap$2(other, $cast($ModuleLayer, parent));
+		return $nc(inst$)->lambda$initRemotePackageMap$2(other, $cast($ModuleLayer, parent));
 	}
 	Loader* inst$ = nullptr;
 	$ResolvedModule* other = nullptr;
@@ -251,7 +251,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Optional, inst$)->stream();
+		return $sure($Optional, inst$)->stream();
 	}
 };
 $Class* Loader$$Lambda$stream$3::load$($String* name, bool initialize) {
@@ -281,7 +281,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Loader::lambda$initRemotePackageMap$3();
+		return Loader::lambda$initRemotePackageMap$3();
 	}
 };
 $Class* Loader$$Lambda$lambda$initRemotePackageMap$3$4::load$($String* name, bool initialize) {
@@ -351,7 +351,7 @@ public:
 		$set(this, cf, cf);
 	}
 	virtual bool test(Object$* l) override {
-		 return Loader::lambda$findModuleLayer$5(cf, $cast($ModuleLayer, l));
+		return Loader::lambda$findModuleLayer$5(cf, $cast($ModuleLayer, l));
 	}
 	$Configuration* cf = nullptr;
 };
@@ -389,7 +389,7 @@ public:
 		$set(this, loadedModule, loadedModule);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$findClassInModuleOrNull$6(cn, loadedModule));
+		return $of($nc(inst$)->lambda$findClassInModuleOrNull$6(cn, loadedModule));
 	}
 	Loader* inst$ = nullptr;
 	$String* cn = nullptr;
@@ -430,7 +430,7 @@ public:
 		$set(this, mref, mref);
 	}
 	virtual $Object* apply(Object$* m) override {
-		 return $nc(inst$)->lambda$moduleReaderFor$7(mref, $cast($ModuleReference, m));
+		return $nc(inst$)->lambda$moduleReaderFor$7(mref, $cast($ModuleReference, m));
 	}
 	Loader* inst$ = nullptr;
 	$ModuleReference* mref = nullptr;

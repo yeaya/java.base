@@ -63,7 +63,7 @@ public:
 		this->cap = cap;
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return DirectBufferAllocTest::lambda$main$1(pbs, cap, i);
+		return DirectBufferAllocTest::lambda$main$1(pbs, cap, i);
 	}
 	int32_t pbs = 0;
 	int32_t cap = 0;
@@ -101,7 +101,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* arg0) override {
-		 return $nc(inst$)->submit($cast($Callable, arg0));
+		return $nc(inst$)->submit($cast($Callable, arg0));
 	}
 	$ExecutorService* inst$ = nullptr;
 };
@@ -136,7 +136,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($Future, inst$)->isDone();
+		return $sure($Future, inst$)->isDone();
 	}
 };
 $Class* DirectBufferAllocTest$$Lambda$isDone$2::load$($String* name, bool initialize) {
@@ -169,7 +169,7 @@ public:
 		this->i = i;
 	}
 	virtual $Object* call() override {
-		 return DirectBufferAllocTest::lambda$main$0(pbs, cap, i);
+		return DirectBufferAllocTest::lambda$main$0(pbs, cap, i);
 	}
 	int32_t pbs = 0;
 	int32_t cap = 0;

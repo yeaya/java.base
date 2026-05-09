@@ -63,23 +63,23 @@ void SourceChannelImpl::close() {
 }
 
 bool SourceChannelImpl::isOpen() {
-	 return this->$Pipe$SourceChannel::isOpen();
+	return this->$Pipe$SourceChannel::isOpen();
 }
 
 int32_t SourceChannelImpl::hashCode() {
-	 return this->$Pipe$SourceChannel::hashCode();
+	return this->$Pipe$SourceChannel::hashCode();
 }
 
 bool SourceChannelImpl::equals(Object$* obj) {
-	 return this->$Pipe$SourceChannel::equals(obj);
+	return this->$Pipe$SourceChannel::equals(obj);
 }
 
 $Object* SourceChannelImpl::clone() {
-	 return this->$Pipe$SourceChannel::clone();
+	return this->$Pipe$SourceChannel::clone();
 }
 
 $String* SourceChannelImpl::toString() {
-	 return this->$Pipe$SourceChannel::toString();
+	return this->$Pipe$SourceChannel::toString();
 }
 
 void SourceChannelImpl::finalize() {

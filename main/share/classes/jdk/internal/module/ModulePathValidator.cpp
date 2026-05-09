@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* x$0) override {
-		 return $of(ModulePathValidator::lambda$scanAllModules$0($cast($String, x$0)));
+		return $of(ModulePathValidator::lambda$scanAllModules$0($cast($String, x$0)));
 	}
 };
 $Class* ModulePathValidator$$Lambda$lambda$scanAllModules$0::load$($String* name, bool initialize) {
@@ -139,7 +139,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ModuleReference, inst$)->descriptor();
+		return $sure($ModuleReference, inst$)->descriptor();
 	}
 };
 $Class* ModulePathValidator$$Lambda$descriptor$2::load$($String* name, bool initialize) {
@@ -205,7 +205,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* uri) override {
-		 return ModulePathValidator::lambda$printModule$2($cast($URI, uri));
+		return ModulePathValidator::lambda$printModule$2($cast($URI, uri));
 	}
 };
 $Class* ModulePathValidator$$Lambda$lambda$printModule$2$4::load$($String* name, bool initialize) {

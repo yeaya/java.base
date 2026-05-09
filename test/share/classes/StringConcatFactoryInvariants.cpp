@@ -58,7 +58,7 @@ public:
 		$set(this, mt, mt);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$0(methodName, mt);
+		return StringConcatFactoryInvariants::lambda$main$0(methodName, mt);
 	}
 	$String* methodName = nullptr;
 	$MethodType* mt = nullptr;
@@ -97,7 +97,7 @@ public:
 		$set(this, mt, mt);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$1(lookup, mt);
+		return StringConcatFactoryInvariants::lambda$main$1(lookup, mt);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$MethodType* mt = nullptr;
@@ -136,7 +136,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$2(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$2(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -177,7 +177,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$3(methodName, mt, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$3(methodName, mt, recipe, consts);
 	}
 	$String* methodName = nullptr;
 	$MethodType* mt = nullptr;
@@ -222,7 +222,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$4(lookup, mt, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$4(lookup, mt, recipe, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$MethodType* mt = nullptr;
@@ -267,7 +267,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$5(lookup, methodName, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$5(lookup, methodName, recipe, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -312,7 +312,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$6(lookup, methodName, mt, consts);
+		return StringConcatFactoryInvariants::lambda$main$6(lookup, methodName, mt, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -357,7 +357,7 @@ public:
 		$set(this, recipe, recipe);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$7(lookup, methodName, mt, recipe);
+		return StringConcatFactoryInvariants::lambda$main$7(lookup, methodName, mt, recipe);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -402,7 +402,7 @@ public:
 		$set(this, recipe, recipe);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$8(lookup, methodName, mt, recipe);
+		return StringConcatFactoryInvariants::lambda$main$8(lookup, methodName, mt, recipe);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -445,7 +445,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$9(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$9(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -484,7 +484,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$10(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$10(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -523,7 +523,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$11(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$11(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -562,7 +562,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$12(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$12(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -601,7 +601,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$13(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$13(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -640,7 +640,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$14(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$14(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -681,7 +681,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$15(lookup, methodName, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$15(lookup, methodName, recipe, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -726,7 +726,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$16(lookup, methodName, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$16(lookup, methodName, recipe, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -771,7 +771,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$17(lookup, methodName, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$17(lookup, methodName, recipe, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -816,7 +816,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$18(lookup, methodName, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$18(lookup, methodName, recipe, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -861,7 +861,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$19(lookup, methodName, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$19(lookup, methodName, recipe, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -906,7 +906,7 @@ public:
 		$set(this, consts, consts);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$20(lookup, methodName, recipe, consts);
+		return StringConcatFactoryInvariants::lambda$main$20(lookup, methodName, recipe, consts);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -950,7 +950,7 @@ public:
 		$set(this, mtUnderThreshold, mtUnderThreshold);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$21(lookup, methodName, mtUnderThreshold);
+		return StringConcatFactoryInvariants::lambda$main$21(lookup, methodName, mtUnderThreshold);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -994,7 +994,7 @@ public:
 		$set(this, constants, constants);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$24(lookup, methodName, mtUnderThreshold, recipeUnderThreshold, constants);
+		return StringConcatFactoryInvariants::lambda$main$24(lookup, methodName, mtUnderThreshold, recipeUnderThreshold, constants);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -1041,7 +1041,7 @@ public:
 		$set(this, recipeThreshold, recipeThreshold);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$27(lookup, methodName, mtThreshold, recipeThreshold);
+		return StringConcatFactoryInvariants::lambda$main$27(lookup, methodName, mtThreshold, recipeThreshold);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -1086,7 +1086,7 @@ public:
 		$set(this, recipeThreshold, recipeThreshold);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$28(lookup, methodName, mtThreshold, recipeThreshold);
+		return StringConcatFactoryInvariants::lambda$main$28(lookup, methodName, mtThreshold, recipeThreshold);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -1131,7 +1131,7 @@ public:
 		$set(this, recipeThreshold, recipeThreshold);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$29(lookup, methodName, mtThreshold, recipeThreshold);
+		return StringConcatFactoryInvariants::lambda$main$29(lookup, methodName, mtThreshold, recipeThreshold);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -1176,7 +1176,7 @@ public:
 		$set(this, recipeThreshold, recipeThreshold);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$30(lookup, methodName, mtThreshold, recipeThreshold);
+		return StringConcatFactoryInvariants::lambda$main$30(lookup, methodName, mtThreshold, recipeThreshold);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -1219,7 +1219,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$34(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$34(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -1258,7 +1258,7 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$35(lookup, methodName);
+		return StringConcatFactoryInvariants::lambda$main$35(lookup, methodName);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$String* methodName = nullptr;
@@ -1297,7 +1297,7 @@ public:
 		$set(this, mtEmpty, mtEmpty);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$38(methodName, mtEmpty);
+		return StringConcatFactoryInvariants::lambda$main$38(methodName, mtEmpty);
 	}
 	$String* methodName = nullptr;
 	$MethodType* mtEmpty = nullptr;
@@ -1337,7 +1337,7 @@ public:
 		$set(this, recipeEmpty, recipeEmpty);
 	}
 	virtual $Object* call() override {
-		 return StringConcatFactoryInvariants::lambda$main$39(methodName, mtEmpty, recipeEmpty);
+		return StringConcatFactoryInvariants::lambda$main$39(methodName, mtEmpty, recipeEmpty);
 	}
 	$String* methodName = nullptr;
 	$MethodType* mtEmpty = nullptr;

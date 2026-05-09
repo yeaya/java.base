@@ -71,7 +71,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$spliterator$0();
+		return $nc(inst$)->lambda$spliterator$0();
 	}
 	AbstractPipeline* inst$ = nullptr;
 };
@@ -107,7 +107,7 @@ public:
 		$set(this, sourceSpliterator, sourceSpliterator);
 	}
 	virtual $Object* get() override {
-		 return AbstractPipeline::lambda$wrapSpliterator$1(sourceSpliterator);
+		return AbstractPipeline::lambda$wrapSpliterator$1(sourceSpliterator);
 	}
 	$Spliterator* sourceSpliterator = nullptr;
 };
@@ -142,7 +142,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return AbstractPipeline::lambda$opEvaluateParallelLazy$2(i);
+		return AbstractPipeline::lambda$opEvaluateParallelLazy$2(i);
 	}
 };
 $Class* AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2::load$($String* name, bool initialize) {
@@ -167,19 +167,19 @@ $Class* AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2::load$($Strin
 $Class* AbstractPipeline$$Lambda$lambda$opEvaluateParallelLazy$2$2::class$ = nullptr;
 
 int32_t AbstractPipeline::hashCode() {
-	 return this->$PipelineHelper::hashCode();
+	return this->$PipelineHelper::hashCode();
 }
 
 bool AbstractPipeline::equals(Object$* obj) {
-	 return this->$PipelineHelper::equals(obj);
+	return this->$PipelineHelper::equals(obj);
 }
 
 $Object* AbstractPipeline::clone() {
-	 return this->$PipelineHelper::clone();
+	return this->$PipelineHelper::clone();
 }
 
 $String* AbstractPipeline::toString() {
-	 return this->$PipelineHelper::toString();
+	return this->$PipelineHelper::toString();
 }
 
 void AbstractPipeline::finalize() {

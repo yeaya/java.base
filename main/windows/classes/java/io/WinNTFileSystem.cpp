@@ -54,7 +54,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return $of($nc(inst$)->lambda$listRoots$0(i));
+		return $of($nc(inst$)->lambda$listRoots$0(i));
 	}
 	WinNTFileSystem* inst$ = nullptr;
 };
@@ -90,7 +90,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* f) override {
-		 return $nc(inst$)->lambda$listRoots$1($cast($File, f));
+		return $nc(inst$)->lambda$listRoots$1($cast($File, f));
 	}
 	WinNTFileSystem* inst$ = nullptr;
 };
@@ -125,7 +125,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return WinNTFileSystem::lambda$listRoots$2(x$0);
+		return WinNTFileSystem::lambda$listRoots$2(x$0);
 	}
 };
 $Class* WinNTFileSystem$$Lambda$lambda$listRoots$2$2::load$($String* name, bool initialize) {

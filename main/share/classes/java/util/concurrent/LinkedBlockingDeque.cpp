@@ -78,7 +78,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return LinkedBlockingDeque::lambda$removeAll$0(c, e);
+		return LinkedBlockingDeque::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -114,7 +114,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return LinkedBlockingDeque::lambda$retainAll$1(c, e);
+		return LinkedBlockingDeque::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -144,35 +144,35 @@ $Class* LinkedBlockingDeque$$Lambda$lambda$retainAll$1$1::load$($String* name, b
 $Class* LinkedBlockingDeque$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
 
 bool LinkedBlockingDeque::isEmpty() {
-	 return this->$AbstractQueue::isEmpty();
+	return this->$AbstractQueue::isEmpty();
 }
 
 bool LinkedBlockingDeque::containsAll($Collection* c) {
-	 return this->$AbstractQueue::containsAll(c);
+	return this->$AbstractQueue::containsAll(c);
 }
 
 $ObjectArray* LinkedBlockingDeque::toArray($IntFunction* generator) {
-	 return this->$AbstractQueue::toArray(generator);
+	return this->$AbstractQueue::toArray(generator);
 }
 
 bool LinkedBlockingDeque::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t LinkedBlockingDeque::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Stream* LinkedBlockingDeque::stream() {
-	 return this->$AbstractQueue::stream();
+	return this->$AbstractQueue::stream();
 }
 
 $Stream* LinkedBlockingDeque::parallelStream() {
-	 return this->$AbstractQueue::parallelStream();
+	return this->$AbstractQueue::parallelStream();
 }
 
 $Object* LinkedBlockingDeque::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void LinkedBlockingDeque::finalize() {

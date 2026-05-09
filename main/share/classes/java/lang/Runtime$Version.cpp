@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($ofnc(inst$)->toString());
+		return $of($ofnc(inst$)->toString());
 	}
 };
 $Class* Runtime$Version$$Lambda$toString::load$($String* name, bool initialize) {

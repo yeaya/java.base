@@ -38,19 +38,19 @@ namespace java {
 		namespace constant {
 
 bool ClassDesc::equals(Object$* o) {
-	 return this->$ConstantDesc::equals(o);
+	return this->$ConstantDesc::equals(o);
 }
 
 int32_t ClassDesc::hashCode() {
-	 return this->$ConstantDesc::hashCode();
+	return this->$ConstantDesc::hashCode();
 }
 
 $Object* ClassDesc::clone() {
-	 return this->$ConstantDesc::clone();
+	return this->$ConstantDesc::clone();
 }
 
 $String* ClassDesc::toString() {
-	 return this->$ConstantDesc::toString();
+	return this->$ConstantDesc::toString();
 }
 
 void ClassDesc::finalize() {

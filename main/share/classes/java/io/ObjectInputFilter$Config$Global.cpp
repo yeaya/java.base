@@ -52,7 +52,7 @@ public:
 		$set(this, pkg, pkg);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(ObjectInputFilter$Config$Global::lambda$new$0(pkg, $cast($Class, c)));
+		return $of(ObjectInputFilter$Config$Global::lambda$new$0(pkg, $cast($Class, c)));
 	}
 	$String* pkg = nullptr;
 };
@@ -88,7 +88,7 @@ public:
 		$set(this, pkg, pkg);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(ObjectInputFilter$Config$Global::lambda$new$1(pkg, $cast($Class, c)));
+		return $of(ObjectInputFilter$Config$Global::lambda$new$1(pkg, $cast($Class, c)));
 	}
 	$String* pkg = nullptr;
 };
@@ -124,7 +124,7 @@ public:
 		$set(this, pkgs, pkgs);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(ObjectInputFilter$Config$Global::lambda$new$2(pkgs, $cast($Class, c)));
+		return $of(ObjectInputFilter$Config$Global::lambda$new$2(pkgs, $cast($Class, c)));
 	}
 	$String* pkgs = nullptr;
 };
@@ -160,7 +160,7 @@ public:
 		$set(this, pkgs, pkgs);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(ObjectInputFilter$Config$Global::lambda$new$3(pkgs, $cast($Class, c)));
+		return $of(ObjectInputFilter$Config$Global::lambda$new$3(pkgs, $cast($Class, c)));
 	}
 	$String* pkgs = nullptr;
 };
@@ -196,7 +196,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(ObjectInputFilter$Config$Global::lambda$new$6(name, $cast($Class, c)));
+		return $of(ObjectInputFilter$Config$Global::lambda$new$6(name, $cast($Class, c)));
 	}
 	$String* name = nullptr;
 };
@@ -232,7 +232,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(ObjectInputFilter$Config$Global::lambda$new$7(name, $cast($Class, c)));
+		return $of(ObjectInputFilter$Config$Global::lambda$new$7(name, $cast($Class, c)));
 	}
 	$String* name = nullptr;
 };
@@ -269,7 +269,7 @@ public:
 		$set(this, patternFilter, patternFilter);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(ObjectInputFilter$Config$Global::lambda$new$8(moduleName, patternFilter, $cast($Class, c)));
+		return $of(ObjectInputFilter$Config$Global::lambda$new$8(moduleName, patternFilter, $cast($Class, c)));
 	}
 	$String* moduleName = nullptr;
 	$Function* patternFilter = nullptr;
@@ -307,7 +307,7 @@ public:
 		this->cl = cl;
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return $of(ObjectInputFilter$Config$Global::lambda$checkInput$9(cl, $cast($Function, f)));
+		return $of(ObjectInputFilter$Config$Global::lambda$checkInput$9(cl, $cast($Function, f)));
 	}
 	$Class* cl = nullptr;
 };
@@ -342,7 +342,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return ObjectInputFilter$Config$Global::lambda$checkInput$10($cast($ObjectInputFilter$Status, p));
+		return ObjectInputFilter$Config$Global::lambda$checkInput$10($cast($ObjectInputFilter$Status, p));
 	}
 };
 $Class* ObjectInputFilter$Config$Global$$Lambda$lambda$checkInput$10$8::load$($String* name, bool initialize) {

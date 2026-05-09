@@ -19,11 +19,11 @@ namespace java {
 	namespace lang {
 
 $Object* WeakPairMap$Pair$Weak::clone() {
-	 return this->$WeakPairMap$WeakRefPeer::clone();
+	return this->$WeakPairMap$WeakRefPeer::clone();
 }
 
 $String* WeakPairMap$Pair$Weak::toString() {
-	 return this->$WeakPairMap$WeakRefPeer::toString();
+	return this->$WeakPairMap$WeakRefPeer::toString();
 }
 
 void WeakPairMap$Pair$Weak::finalize() {

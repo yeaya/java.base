@@ -107,7 +107,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return $of(YearMonth::from(temporal));
+		return $of(YearMonth::from(temporal));
 	}
 };
 $Class* YearMonth$$Lambda$from::load$($String* name, bool initialize) {
@@ -132,7 +132,7 @@ $Class* YearMonth$$Lambda$from::load$($String* name, bool initialize) {
 $Class* YearMonth$$Lambda$from::class$ = nullptr;
 
 $Object* YearMonth::clone() {
-	 return this->$Temporal::clone();
+	return this->$Temporal::clone();
 }
 
 void YearMonth::finalize() {

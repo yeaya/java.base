@@ -21,7 +21,7 @@ namespace java {
 	namespace util {
 
 $Object* WeakHashMap$Entry::clone() {
-	 return this->$WeakReference::clone();
+	return this->$WeakReference::clone();
 }
 
 void WeakHashMap$Entry::finalize() {

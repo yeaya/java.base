@@ -37,15 +37,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t CRLNumberExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool CRLNumberExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* CRLNumberExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void CRLNumberExtension::finalize() {

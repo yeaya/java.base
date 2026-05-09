@@ -87,11 +87,11 @@ namespace sun {
 		namespace x509 {
 
 int32_t NameConstraintsExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool NameConstraintsExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 void NameConstraintsExtension::finalize() {

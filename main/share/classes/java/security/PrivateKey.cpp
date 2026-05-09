@@ -12,19 +12,19 @@ namespace java {
 	namespace security {
 
 int32_t PrivateKey::hashCode() {
-	 return this->$Key::hashCode();
+	return this->$Key::hashCode();
 }
 
 bool PrivateKey::equals(Object$* obj) {
-	 return this->$Key::equals(obj);
+	return this->$Key::equals(obj);
 }
 
 $Object* PrivateKey::clone() {
-	 return this->$Key::clone();
+	return this->$Key::clone();
 }
 
 $String* PrivateKey::toString() {
-	 return this->$Key::toString();
+	return this->$Key::toString();
 }
 
 void PrivateKey::finalize() {

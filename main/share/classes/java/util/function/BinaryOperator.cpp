@@ -29,7 +29,7 @@ public:
 		$set(this, comparator, comparator);
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return BinaryOperator::lambda$minBy$0(comparator, a, b);
+		return BinaryOperator::lambda$minBy$0(comparator, a, b);
 	}
 	$Comparator* comparator = nullptr;
 };
@@ -65,7 +65,7 @@ public:
 		$set(this, comparator, comparator);
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return BinaryOperator::lambda$maxBy$1(comparator, a, b);
+		return BinaryOperator::lambda$maxBy$1(comparator, a, b);
 	}
 	$Comparator* comparator = nullptr;
 };

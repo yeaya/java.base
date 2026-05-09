@@ -11,19 +11,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t RunnableScheduledFuture::hashCode() {
-	 return this->$RunnableFuture::hashCode();
+	return this->$RunnableFuture::hashCode();
 }
 
 bool RunnableScheduledFuture::equals(Object$* obj) {
-	 return this->$RunnableFuture::equals(obj);
+	return this->$RunnableFuture::equals(obj);
 }
 
 $Object* RunnableScheduledFuture::clone() {
-	 return this->$RunnableFuture::clone();
+	return this->$RunnableFuture::clone();
 }
 
 $String* RunnableScheduledFuture::toString() {
-	 return this->$RunnableFuture::toString();
+	return this->$RunnableFuture::toString();
 }
 
 void RunnableScheduledFuture::finalize() {

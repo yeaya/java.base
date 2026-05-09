@@ -18,19 +18,19 @@ namespace java {
 	namespace lang {
 
 bool String$CaseInsensitiveComparator::equals(Object$* obj) {
-	 return this->$Comparator::equals(obj);
+	return this->$Comparator::equals(obj);
 }
 
 int32_t String$CaseInsensitiveComparator::hashCode() {
-	 return this->$Comparator::hashCode();
+	return this->$Comparator::hashCode();
 }
 
 $Object* String$CaseInsensitiveComparator::clone() {
-	 return this->$Comparator::clone();
+	return this->$Comparator::clone();
 }
 
 $String* String$CaseInsensitiveComparator::toString() {
-	 return this->$Comparator::toString();
+	return this->$Comparator::toString();
 }
 
 void String$CaseInsensitiveComparator::finalize() {

@@ -22,15 +22,15 @@ namespace java {
 			namespace locks {
 
 int32_t ReentrantReadWriteLock$WriteLock::hashCode() {
-	 return this->$Lock::hashCode();
+	return this->$Lock::hashCode();
 }
 
 bool ReentrantReadWriteLock$WriteLock::equals(Object$* obj) {
-	 return this->$Lock::equals(obj);
+	return this->$Lock::equals(obj);
 }
 
 $Object* ReentrantReadWriteLock$WriteLock::clone() {
-	 return this->$Lock::clone();
+	return this->$Lock::clone();
 }
 
 void ReentrantReadWriteLock$WriteLock::finalize() {

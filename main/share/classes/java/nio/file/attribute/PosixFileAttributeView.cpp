@@ -16,19 +16,19 @@ namespace java {
 			namespace attribute {
 
 int32_t PosixFileAttributeView::hashCode() {
-	 return this->$BasicFileAttributeView::hashCode();
+	return this->$BasicFileAttributeView::hashCode();
 }
 
 bool PosixFileAttributeView::equals(Object$* obj) {
-	 return this->$BasicFileAttributeView::equals(obj);
+	return this->$BasicFileAttributeView::equals(obj);
 }
 
 $Object* PosixFileAttributeView::clone() {
-	 return this->$BasicFileAttributeView::clone();
+	return this->$BasicFileAttributeView::clone();
 }
 
 $String* PosixFileAttributeView::toString() {
-	 return this->$BasicFileAttributeView::toString();
+	return this->$BasicFileAttributeView::toString();
 }
 
 void PosixFileAttributeView::finalize() {

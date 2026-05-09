@@ -146,19 +146,19 @@ void SocketChannelImpl::close() {
 }
 
 bool SocketChannelImpl::isOpen() {
-	 return this->$SocketChannel::isOpen();
+	return this->$SocketChannel::isOpen();
 }
 
 int32_t SocketChannelImpl::hashCode() {
-	 return this->$SocketChannel::hashCode();
+	return this->$SocketChannel::hashCode();
 }
 
 bool SocketChannelImpl::equals(Object$* obj) {
-	 return this->$SocketChannel::equals(obj);
+	return this->$SocketChannel::equals(obj);
 }
 
 $Object* SocketChannelImpl::clone() {
-	 return this->$SocketChannel::clone();
+	return this->$SocketChannel::clone();
 }
 
 void SocketChannelImpl::finalize() {

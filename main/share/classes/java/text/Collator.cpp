@@ -44,11 +44,11 @@ namespace java {
 	namespace text {
 
 int32_t Collator::hashCode() {
-	 return this->$Comparator::hashCode();
+	return this->$Comparator::hashCode();
 }
 
 $String* Collator::toString() {
-	 return this->$Comparator::toString();
+	return this->$Comparator::toString();
 }
 
 void Collator::finalize() {

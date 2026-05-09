@@ -29,23 +29,23 @@ namespace java {
 		namespace concurrent {
 
 int64_t ConcurrentSkipListMap$ValueSpliterator::estimateSize() {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::estimateSize();
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::estimateSize();
 }
 
 int32_t ConcurrentSkipListMap$ValueSpliterator::hashCode() {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::hashCode();
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::hashCode();
 }
 
 bool ConcurrentSkipListMap$ValueSpliterator::equals(Object$* obj) {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::equals(obj);
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::equals(obj);
 }
 
 $Object* ConcurrentSkipListMap$ValueSpliterator::clone() {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::clone();
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::clone();
 }
 
 $String* ConcurrentSkipListMap$ValueSpliterator::toString() {
-	 return this->$ConcurrentSkipListMap$CSLMSpliterator::toString();
+	return this->$ConcurrentSkipListMap$CSLMSpliterator::toString();
 }
 
 void ConcurrentSkipListMap$ValueSpliterator::finalize() {

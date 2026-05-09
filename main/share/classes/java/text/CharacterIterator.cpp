@@ -13,7 +13,7 @@ namespace java {
 	namespace text {
 
 $Object* CharacterIterator::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 $Class* CharacterIterator::load$($String* name, bool initialize) {

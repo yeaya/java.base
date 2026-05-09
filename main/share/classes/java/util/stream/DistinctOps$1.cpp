@@ -87,7 +87,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($LinkedHashSet));
+		return $of($new($LinkedHashSet));
 	}
 };
 $Class* DistinctOps$1$$Lambda$LinkedHashSet::load$($String* name, bool initialize) {

@@ -117,7 +117,7 @@ public:
 		this->fullLength = fullLength;
 	}
 	virtual $Object* run() override {
-		 return JceKeyStore::lambda$engineLoad$0(ois2, fullLength);
+		return JceKeyStore::lambda$engineLoad$0(ois2, fullLength);
 	}
 	$ObjectInputStream* ois2 = nullptr;
 	int32_t fullLength = 0;

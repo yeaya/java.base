@@ -49,23 +49,23 @@ void FileChannel::close() {
 }
 
 bool FileChannel::isOpen() {
-	 return this->$AbstractInterruptibleChannel::isOpen();
+	return this->$AbstractInterruptibleChannel::isOpen();
 }
 
 int32_t FileChannel::hashCode() {
-	 return this->$AbstractInterruptibleChannel::hashCode();
+	return this->$AbstractInterruptibleChannel::hashCode();
 }
 
 bool FileChannel::equals(Object$* obj) {
-	 return this->$AbstractInterruptibleChannel::equals(obj);
+	return this->$AbstractInterruptibleChannel::equals(obj);
 }
 
 $Object* FileChannel::clone() {
-	 return this->$AbstractInterruptibleChannel::clone();
+	return this->$AbstractInterruptibleChannel::clone();
 }
 
 $String* FileChannel::toString() {
-	 return this->$AbstractInterruptibleChannel::toString();
+	return this->$AbstractInterruptibleChannel::toString();
 }
 
 void FileChannel::finalize() {

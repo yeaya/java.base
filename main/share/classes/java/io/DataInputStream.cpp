@@ -26,19 +26,19 @@ namespace java {
 	namespace io {
 
 int32_t DataInputStream::hashCode() {
-	 return this->$FilterInputStream::hashCode();
+	return this->$FilterInputStream::hashCode();
 }
 
 bool DataInputStream::equals(Object$* obj) {
-	 return this->$FilterInputStream::equals(obj);
+	return this->$FilterInputStream::equals(obj);
 }
 
 $Object* DataInputStream::clone() {
-	 return this->$FilterInputStream::clone();
+	return this->$FilterInputStream::clone();
 }
 
 $String* DataInputStream::toString() {
-	 return this->$FilterInputStream::toString();
+	return this->$FilterInputStream::toString();
 }
 
 void DataInputStream::finalize() {

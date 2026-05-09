@@ -31,15 +31,15 @@ using $List = ::java::util::List;
 namespace indify {
 
 int32_t Indify$Member::hashCode() {
-	 return this->$Indify$InnerOuter::hashCode();
+	return this->$Indify$InnerOuter::hashCode();
 }
 
 bool Indify$Member::equals(Object$* arg0) {
-	 return this->$Indify$InnerOuter::equals(arg0);
+	return this->$Indify$InnerOuter::equals(arg0);
 }
 
 $Object* Indify$Member::clone() {
-	 return this->$Indify$InnerOuter::clone();
+	return this->$Indify$InnerOuter::clone();
 }
 
 void Indify$Member::finalize() {

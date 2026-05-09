@@ -47,15 +47,15 @@ namespace java {
 		namespace temporal {
 
 bool JulianFields$Field::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t JulianFields$Field::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* JulianFields$Field::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void JulianFields$Field::finalize() {

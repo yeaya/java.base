@@ -8,15 +8,15 @@ namespace java {
 	namespace lang {
 
 bool Record::equals(Object$* obj) {
-	 return this->$Object::equals(obj);
+	return this->$Object::equals(obj);
 }
 
 int32_t Record::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $String* Record::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 void Record::init$() {

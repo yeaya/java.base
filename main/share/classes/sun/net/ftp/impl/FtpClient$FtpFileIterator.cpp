@@ -25,19 +25,19 @@ namespace sun {
 			namespace impl {
 
 int32_t FtpClient$FtpFileIterator::hashCode() {
-	 return this->$Iterator::hashCode();
+	return this->$Iterator::hashCode();
 }
 
 bool FtpClient$FtpFileIterator::equals(Object$* obj) {
-	 return this->$Iterator::equals(obj);
+	return this->$Iterator::equals(obj);
 }
 
 $Object* FtpClient$FtpFileIterator::clone() {
-	 return this->$Iterator::clone();
+	return this->$Iterator::clone();
 }
 
 $String* FtpClient$FtpFileIterator::toString() {
-	 return this->$Iterator::toString();
+	return this->$Iterator::toString();
 }
 
 void FtpClient$FtpFileIterator::finalize() {

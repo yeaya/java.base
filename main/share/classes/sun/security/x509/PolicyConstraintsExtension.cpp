@@ -40,15 +40,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t PolicyConstraintsExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool PolicyConstraintsExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* PolicyConstraintsExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void PolicyConstraintsExtension::finalize() {

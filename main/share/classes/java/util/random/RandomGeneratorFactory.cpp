@@ -80,7 +80,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getConstructors();
+		return $nc(inst$)->getConstructors();
 	}
 	$Class* inst$ = nullptr;
 };
@@ -115,7 +115,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return RandomGeneratorFactory::lambda$all$0($cast($ServiceLoader$Provider, p));
+		return RandomGeneratorFactory::lambda$all$0($cast($ServiceLoader$Provider, p));
 	}
 };
 $Class* RandomGeneratorFactory$$Lambda$lambda$all$0$1::load$($String* name, bool initialize) {
@@ -145,7 +145,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* provider) override {
-		 return $new(RandomGeneratorFactory, $cast($ServiceLoader$Provider, provider));
+		return $new(RandomGeneratorFactory, $cast($ServiceLoader$Provider, provider));
 	}
 };
 $Class* RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2::load$($String* name, bool initialize) {

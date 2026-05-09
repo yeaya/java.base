@@ -54,7 +54,7 @@ public:
 		$set(this, func, func);
 	}
 	virtual $Object* apply(Object$* k, Object$* v) override {
-		 return $nc(inst$)->lambda$typeCheck$0(func, k, v);
+		return $nc(inst$)->lambda$typeCheck$0(func, k, v);
 	}
 	Collections$CheckedMap* inst$ = nullptr;
 	$BiFunction* func = nullptr;
@@ -93,7 +93,7 @@ public:
 		$set(this, mappingFunction, mappingFunction);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return $nc(inst$)->lambda$computeIfAbsent$1(mappingFunction, k);
+		return $nc(inst$)->lambda$computeIfAbsent$1(mappingFunction, k);
 	}
 	Collections$CheckedMap* inst$ = nullptr;
 	$Function* mappingFunction = nullptr;
@@ -132,7 +132,7 @@ public:
 		$set(this, remappingFunction, remappingFunction);
 	}
 	virtual $Object* apply(Object$* v1, Object$* v2) override {
-		 return $nc(inst$)->lambda$merge$2(remappingFunction, v1, v2);
+		return $nc(inst$)->lambda$merge$2(remappingFunction, v1, v2);
 	}
 	Collections$CheckedMap* inst$ = nullptr;
 	$BiFunction* remappingFunction = nullptr;
@@ -164,7 +164,7 @@ $Class* Collections$CheckedMap$$Lambda$lambda$merge$2$2::load$($String* name, bo
 $Class* Collections$CheckedMap$$Lambda$lambda$merge$2$2::class$ = nullptr;
 
 $Object* Collections$CheckedMap::clone() {
-	 return this->$Map::clone();
+	return this->$Map::clone();
 }
 
 void Collections$CheckedMap::finalize() {

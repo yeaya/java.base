@@ -42,19 +42,19 @@ namespace java {
 		namespace temporal {
 
 $String* IsoFields$Field::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool IsoFields$Field::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t IsoFields$Field::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* IsoFields$Field::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void IsoFields$Field::finalize() {

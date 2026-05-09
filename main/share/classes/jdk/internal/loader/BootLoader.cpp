@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of(BootLoader::lambda$packages$0($cast($String, name)));
+		return $of(BootLoader::lambda$packages$0($cast($String, name)));
 	}
 };
 $Class* BootLoader$$Lambda$lambda$packages$0::load$($String* name, bool initialize) {

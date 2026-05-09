@@ -68,7 +68,7 @@ public:
 	void init$() {
 	}
 	virtual $ObjectInputStream* getExtObjectInputStream(SealedObject* obj, $Cipher* c) override {
-		 return SealedObject::lambda$static$0(obj, c);
+		return SealedObject::lambda$static$0(obj, c);
 	}
 };
 $Class* SealedObject$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

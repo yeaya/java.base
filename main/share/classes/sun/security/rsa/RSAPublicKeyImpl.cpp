@@ -47,23 +47,23 @@ namespace sun {
 		namespace rsa {
 
 $bytes* RSAPublicKeyImpl::getEncoded() {
-	 return this->$X509Key::getEncoded();
+	return this->$X509Key::getEncoded();
 }
 
 $String* RSAPublicKeyImpl::getFormat() {
-	 return this->$X509Key::getFormat();
+	return this->$X509Key::getFormat();
 }
 
 bool RSAPublicKeyImpl::equals(Object$* obj) {
-	 return this->$X509Key::equals(obj);
+	return this->$X509Key::equals(obj);
 }
 
 int32_t RSAPublicKeyImpl::hashCode() {
-	 return this->$X509Key::hashCode();
+	return this->$X509Key::hashCode();
 }
 
 $Object* RSAPublicKeyImpl::clone() {
-	 return this->$X509Key::clone();
+	return this->$X509Key::clone();
 }
 
 void RSAPublicKeyImpl::finalize() {

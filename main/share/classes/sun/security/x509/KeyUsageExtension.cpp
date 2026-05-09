@@ -42,15 +42,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t KeyUsageExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool KeyUsageExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* KeyUsageExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void KeyUsageExtension::finalize() {

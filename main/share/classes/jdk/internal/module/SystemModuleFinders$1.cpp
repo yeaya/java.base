@@ -38,7 +38,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return SystemModuleFinders$1::lambda$find$0(f, name);
+		return SystemModuleFinders$1::lambda$find$0(f, name);
 	}
 	$ModuleFinder* f = nullptr;
 	$String* name = nullptr;
@@ -76,7 +76,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->findAll();
+		return $nc(inst$)->findAll();
 	}
 	$ModuleFinder* inst$ = nullptr;
 };

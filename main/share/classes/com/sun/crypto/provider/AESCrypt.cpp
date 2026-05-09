@@ -41,19 +41,19 @@ namespace com {
 			namespace provider {
 
 int32_t AESCrypt::hashCode() {
-	 return this->$SymmetricCipher::hashCode();
+	return this->$SymmetricCipher::hashCode();
 }
 
 bool AESCrypt::equals(Object$* obj) {
-	 return this->$SymmetricCipher::equals(obj);
+	return this->$SymmetricCipher::equals(obj);
 }
 
 $Object* AESCrypt::clone() {
-	 return this->$SymmetricCipher::clone();
+	return this->$SymmetricCipher::clone();
 }
 
 $String* AESCrypt::toString() {
-	 return this->$SymmetricCipher::toString();
+	return this->$SymmetricCipher::toString();
 }
 
 void AESCrypt::finalize() {

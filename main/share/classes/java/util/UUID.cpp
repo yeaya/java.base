@@ -37,7 +37,7 @@ namespace java {
 	namespace util {
 
 $Object* UUID::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void UUID::finalize() {

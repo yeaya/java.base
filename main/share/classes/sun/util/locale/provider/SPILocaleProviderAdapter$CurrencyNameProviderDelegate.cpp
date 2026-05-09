@@ -27,19 +27,19 @@ namespace sun {
 			namespace provider {
 
 int32_t SPILocaleProviderAdapter$CurrencyNameProviderDelegate::hashCode() {
-	 return this->$CurrencyNameProvider::hashCode();
+	return this->$CurrencyNameProvider::hashCode();
 }
 
 bool SPILocaleProviderAdapter$CurrencyNameProviderDelegate::equals(Object$* obj) {
-	 return this->$CurrencyNameProvider::equals(obj);
+	return this->$CurrencyNameProvider::equals(obj);
 }
 
 $Object* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::clone() {
-	 return this->$CurrencyNameProvider::clone();
+	return this->$CurrencyNameProvider::clone();
 }
 
 $String* SPILocaleProviderAdapter$CurrencyNameProviderDelegate::toString() {
-	 return this->$CurrencyNameProvider::toString();
+	return this->$CurrencyNameProvider::toString();
 }
 
 void SPILocaleProviderAdapter$CurrencyNameProviderDelegate::finalize() {

@@ -47,51 +47,51 @@ void ConcurrentHashMap$KeySetView::clear() {
 }
 
 int32_t ConcurrentHashMap$KeySetView::size() {
-	 return this->$ConcurrentHashMap$CollectionView::size();
+	return this->$ConcurrentHashMap$CollectionView::size();
 }
 
 bool ConcurrentHashMap$KeySetView::isEmpty() {
-	 return this->$ConcurrentHashMap$CollectionView::isEmpty();
+	return this->$ConcurrentHashMap$CollectionView::isEmpty();
 }
 
 $ObjectArray* ConcurrentHashMap$KeySetView::toArray() {
-	 return this->$ConcurrentHashMap$CollectionView::toArray();
+	return this->$ConcurrentHashMap$CollectionView::toArray();
 }
 
 $ObjectArray* ConcurrentHashMap$KeySetView::toArray($ObjectArray* a) {
-	 return this->$ConcurrentHashMap$CollectionView::toArray(a);
+	return this->$ConcurrentHashMap$CollectionView::toArray(a);
 }
 
 $String* ConcurrentHashMap$KeySetView::toString() {
-	 return this->$ConcurrentHashMap$CollectionView::toString();
+	return this->$ConcurrentHashMap$CollectionView::toString();
 }
 
 bool ConcurrentHashMap$KeySetView::containsAll($Collection* c) {
-	 return this->$ConcurrentHashMap$CollectionView::containsAll(c);
+	return this->$ConcurrentHashMap$CollectionView::containsAll(c);
 }
 
 bool ConcurrentHashMap$KeySetView::retainAll($Collection* c) {
-	 return this->$ConcurrentHashMap$CollectionView::retainAll(c);
+	return this->$ConcurrentHashMap$CollectionView::retainAll(c);
 }
 
 $ObjectArray* ConcurrentHashMap$KeySetView::toArray($IntFunction* generator) {
-	 return this->$ConcurrentHashMap$CollectionView::toArray(generator);
+	return this->$ConcurrentHashMap$CollectionView::toArray(generator);
 }
 
 bool ConcurrentHashMap$KeySetView::removeIf($Predicate* filter) {
-	 return this->$ConcurrentHashMap$CollectionView::removeIf(filter);
+	return this->$ConcurrentHashMap$CollectionView::removeIf(filter);
 }
 
 $Stream* ConcurrentHashMap$KeySetView::stream() {
-	 return this->$ConcurrentHashMap$CollectionView::stream();
+	return this->$ConcurrentHashMap$CollectionView::stream();
 }
 
 $Stream* ConcurrentHashMap$KeySetView::parallelStream() {
-	 return this->$ConcurrentHashMap$CollectionView::parallelStream();
+	return this->$ConcurrentHashMap$CollectionView::parallelStream();
 }
 
 $Object* ConcurrentHashMap$KeySetView::clone() {
-	 return this->$ConcurrentHashMap$CollectionView::clone();
+	return this->$ConcurrentHashMap$CollectionView::clone();
 }
 
 void ConcurrentHashMap$KeySetView::finalize() {

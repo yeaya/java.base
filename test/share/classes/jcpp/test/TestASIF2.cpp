@@ -12,19 +12,19 @@ namespace jcpp {
 	namespace test {
 
 int32_t TestASIF2::hashCode() {
-	 return this->$TestASIF3::hashCode();
+	return this->$TestASIF3::hashCode();
 }
 
 bool TestASIF2::equals(Object$* arg0) {
-	 return this->$TestASIF3::equals(arg0);
+	return this->$TestASIF3::equals(arg0);
 }
 
 $Object* TestASIF2::clone() {
-	 return this->$TestASIF3::clone();
+	return this->$TestASIF3::clone();
 }
 
 $String* TestASIF2::toString() {
-	 return this->$TestASIF3::toString();
+	return this->$TestASIF3::toString();
 }
 
 void TestASIF2::finalize() {

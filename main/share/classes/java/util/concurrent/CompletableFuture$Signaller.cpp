@@ -17,19 +17,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t CompletableFuture$Signaller::hashCode() {
-	 return this->$CompletableFuture$Completion::hashCode();
+	return this->$CompletableFuture$Completion::hashCode();
 }
 
 bool CompletableFuture$Signaller::equals(Object$* obj) {
-	 return this->$CompletableFuture$Completion::equals(obj);
+	return this->$CompletableFuture$Completion::equals(obj);
 }
 
 $Object* CompletableFuture$Signaller::clone() {
-	 return this->$CompletableFuture$Completion::clone();
+	return this->$CompletableFuture$Completion::clone();
 }
 
 $String* CompletableFuture$Signaller::toString() {
-	 return this->$CompletableFuture$Completion::toString();
+	return this->$CompletableFuture$Completion::toString();
 }
 
 void CompletableFuture$Signaller::finalize() {

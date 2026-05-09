@@ -17,19 +17,19 @@ namespace java {
 			namespace locks {
 
 int32_t AbstractQueuedSynchronizer$ConditionNode::hashCode() {
-	 return this->$AbstractQueuedSynchronizer$Node::hashCode();
+	return this->$AbstractQueuedSynchronizer$Node::hashCode();
 }
 
 bool AbstractQueuedSynchronizer$ConditionNode::equals(Object$* obj) {
-	 return this->$AbstractQueuedSynchronizer$Node::equals(obj);
+	return this->$AbstractQueuedSynchronizer$Node::equals(obj);
 }
 
 $Object* AbstractQueuedSynchronizer$ConditionNode::clone() {
-	 return this->$AbstractQueuedSynchronizer$Node::clone();
+	return this->$AbstractQueuedSynchronizer$Node::clone();
 }
 
 $String* AbstractQueuedSynchronizer$ConditionNode::toString() {
-	 return this->$AbstractQueuedSynchronizer$Node::toString();
+	return this->$AbstractQueuedSynchronizer$Node::toString();
 }
 
 void AbstractQueuedSynchronizer$ConditionNode::finalize() {

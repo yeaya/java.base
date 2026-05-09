@@ -48,19 +48,19 @@ namespace java {
 	namespace nio {
 
 $String* DirectFloatBufferU::toString() {
-	 return this->$FloatBuffer::toString();
+	return this->$FloatBuffer::toString();
 }
 
 int32_t DirectFloatBufferU::hashCode() {
-	 return this->$FloatBuffer::hashCode();
+	return this->$FloatBuffer::hashCode();
 }
 
 bool DirectFloatBufferU::equals(Object$* ob) {
-	 return this->$FloatBuffer::equals(ob);
+	return this->$FloatBuffer::equals(ob);
 }
 
 $Object* DirectFloatBufferU::clone() {
-	 return this->$FloatBuffer::clone();
+	return this->$FloatBuffer::clone();
 }
 
 void DirectFloatBufferU::finalize() {

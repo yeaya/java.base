@@ -59,19 +59,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t SSLSocketInputRecord::hashCode() {
-	 return this->$InputRecord::hashCode();
+	return this->$InputRecord::hashCode();
 }
 
 bool SSLSocketInputRecord::equals(Object$* obj) {
-	 return this->$InputRecord::equals(obj);
+	return this->$InputRecord::equals(obj);
 }
 
 $Object* SSLSocketInputRecord::clone() {
-	 return this->$InputRecord::clone();
+	return this->$InputRecord::clone();
 }
 
 $String* SSLSocketInputRecord::toString() {
-	 return this->$InputRecord::toString();
+	return this->$InputRecord::toString();
 }
 
 void SSLSocketInputRecord::finalize() {

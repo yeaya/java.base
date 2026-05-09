@@ -264,7 +264,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* p) override {
-		 return PipelineTest::lambda$t4_failStartPipeline$5($cast($ProcessHandle, p));
+		return PipelineTest::lambda$t4_failStartPipeline$5($cast($ProcessHandle, p));
 	}
 };
 $Class* PipelineTest$$Lambda$lambda$t4_failStartPipeline$5$6::load$($String* name, bool initialize) {

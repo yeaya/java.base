@@ -9,7 +9,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $Object* ReferenceClone$CloneableRef::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 $Class* ReferenceClone$CloneableRef::load$($String* name, bool initialize) {

@@ -20,7 +20,7 @@ namespace java {
 		namespace stream {
 
 bool Streams$ConcatSpliterator$OfPrimitive::tryAdvance($Consumer* consumer) {
-	 return this->$Streams$ConcatSpliterator::tryAdvance(consumer);
+	return this->$Streams$ConcatSpliterator::tryAdvance(consumer);
 }
 
 void Streams$ConcatSpliterator$OfPrimitive::forEachRemaining($Consumer* consumer) {
@@ -28,39 +28,39 @@ void Streams$ConcatSpliterator$OfPrimitive::forEachRemaining($Consumer* consumer
 }
 
 int64_t Streams$ConcatSpliterator$OfPrimitive::estimateSize() {
-	 return this->$Streams$ConcatSpliterator::estimateSize();
+	return this->$Streams$ConcatSpliterator::estimateSize();
 }
 
 int32_t Streams$ConcatSpliterator$OfPrimitive::characteristics() {
-	 return this->$Streams$ConcatSpliterator::characteristics();
+	return this->$Streams$ConcatSpliterator::characteristics();
 }
 
 $Comparator* Streams$ConcatSpliterator$OfPrimitive::getComparator() {
-	 return this->$Streams$ConcatSpliterator::getComparator();
+	return this->$Streams$ConcatSpliterator::getComparator();
 }
 
 int64_t Streams$ConcatSpliterator$OfPrimitive::getExactSizeIfKnown() {
-	 return this->$Streams$ConcatSpliterator::getExactSizeIfKnown();
+	return this->$Streams$ConcatSpliterator::getExactSizeIfKnown();
 }
 
 bool Streams$ConcatSpliterator$OfPrimitive::hasCharacteristics(int32_t characteristics) {
-	 return this->$Streams$ConcatSpliterator::hasCharacteristics(characteristics);
+	return this->$Streams$ConcatSpliterator::hasCharacteristics(characteristics);
 }
 
 int32_t Streams$ConcatSpliterator$OfPrimitive::hashCode() {
-	 return this->$Streams$ConcatSpliterator::hashCode();
+	return this->$Streams$ConcatSpliterator::hashCode();
 }
 
 bool Streams$ConcatSpliterator$OfPrimitive::equals(Object$* obj) {
-	 return this->$Streams$ConcatSpliterator::equals(obj);
+	return this->$Streams$ConcatSpliterator::equals(obj);
 }
 
 $Object* Streams$ConcatSpliterator$OfPrimitive::clone() {
-	 return this->$Streams$ConcatSpliterator::clone();
+	return this->$Streams$ConcatSpliterator::clone();
 }
 
 $String* Streams$ConcatSpliterator$OfPrimitive::toString() {
-	 return this->$Streams$ConcatSpliterator::toString();
+	return this->$Streams$ConcatSpliterator::toString();
 }
 
 void Streams$ConcatSpliterator$OfPrimitive::finalize() {

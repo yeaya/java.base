@@ -45,7 +45,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t size) override {
-		 return ForEachOps$ForEachOrderedTask::lambda$doCompute$0(size);
+		return ForEachOps$ForEachOrderedTask::lambda$doCompute$0(size);
 	}
 };
 $Class* ForEachOps$ForEachOrderedTask$$Lambda$lambda$doCompute$0::load$($String* name, bool initialize) {

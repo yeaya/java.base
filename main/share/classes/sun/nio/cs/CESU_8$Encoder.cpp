@@ -35,19 +35,19 @@ namespace sun {
 		namespace cs {
 
 int32_t CESU_8$Encoder::hashCode() {
-	 return this->$CharsetEncoder::hashCode();
+	return this->$CharsetEncoder::hashCode();
 }
 
 bool CESU_8$Encoder::equals(Object$* obj) {
-	 return this->$CharsetEncoder::equals(obj);
+	return this->$CharsetEncoder::equals(obj);
 }
 
 $Object* CESU_8$Encoder::clone() {
-	 return this->$CharsetEncoder::clone();
+	return this->$CharsetEncoder::clone();
 }
 
 $String* CESU_8$Encoder::toString() {
-	 return this->$CharsetEncoder::toString();
+	return this->$CharsetEncoder::toString();
 }
 
 void CESU_8$Encoder::finalize() {

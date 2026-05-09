@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ImageReader$Node, inst$)->getNameString());
+		return $of($sure($ImageReader$Node, inst$)->getNameString());
 	}
 };
 $Class* RuntimeImageReader$$Lambda$getNameString::load$($String* name, bool initialize) {
@@ -91,7 +91,7 @@ public:
 		this->off = off;
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(RuntimeImageReader::lambda$getModuleNames$0(off, $cast($String, s)));
+		return $of(RuntimeImageReader::lambda$getModuleNames$0(off, $cast($String, s)));
 	}
 	int32_t off = 0;
 };
@@ -126,7 +126,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return RuntimeImageReader::lambda$getModuleNames$1(x$0);
+		return RuntimeImageReader::lambda$getModuleNames$1(x$0);
 	}
 };
 $Class* RuntimeImageReader$$Lambda$lambda$getModuleNames$1$2::load$($String* name, bool initialize) {

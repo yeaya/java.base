@@ -108,7 +108,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t pos) override {
-		 return $of($nc(inst$)->lambda$stream$0(pos));
+		return $of($nc(inst$)->lambda$stream$0(pos));
 	}
 	ZipFile* inst$ = nullptr;
 };
@@ -144,7 +144,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t pos) override {
-		 return $of($nc(inst$)->getEntryName(pos));
+		return $of($nc(inst$)->getEntryName(pos));
 	}
 	ZipFile* inst$ = nullptr;
 };
@@ -180,7 +180,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t pos) override {
-		 return $of($nc(inst$)->lambda$jarStream$1(pos));
+		return $of($nc(inst$)->lambda$jarStream$1(pos));
 	}
 	ZipFile* inst$ = nullptr;
 };
@@ -210,19 +210,19 @@ $Class* ZipFile$$Lambda$lambda$jarStream$1$2::load$($String* name, bool initiali
 $Class* ZipFile$$Lambda$lambda$jarStream$1$2::class$ = nullptr;
 
 int32_t ZipFile::hashCode() {
-	 return this->$ZipConstants::hashCode();
+	return this->$ZipConstants::hashCode();
 }
 
 bool ZipFile::equals(Object$* obj) {
-	 return this->$ZipConstants::equals(obj);
+	return this->$ZipConstants::equals(obj);
 }
 
 $Object* ZipFile::clone() {
-	 return this->$ZipConstants::clone();
+	return this->$ZipConstants::clone();
 }
 
 $String* ZipFile::toString() {
-	 return this->$ZipConstants::toString();
+	return this->$ZipConstants::toString();
 }
 
 void ZipFile::finalize() {

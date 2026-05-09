@@ -79,7 +79,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* url) override {
-		 return ResourcesStreamTest::lambda$testFailure$0($cast($URL, url));
+		return ResourcesStreamTest::lambda$testFailure$0($cast($URL, url));
 	}
 };
 $Class* ResourcesStreamTest$$Lambda$lambda$testFailure$0$1::load$($String* name, bool initialize) {
@@ -109,7 +109,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return ResourcesStreamTest::lambda$testFailure$1();
+		return ResourcesStreamTest::lambda$testFailure$1();
 	}
 };
 $Class* ResourcesStreamTest$$Lambda$lambda$testFailure$1$2::load$($String* name, bool initialize) {

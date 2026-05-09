@@ -166,7 +166,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getProtectionDomain();
+		return $nc(inst$)->getProtectionDomain();
 	}
 	$Class* inst$ = nullptr;
 };
@@ -204,7 +204,7 @@ public:
 		this->caller = caller;
 	}
 	virtual $Object* run() override {
-		 return System::lambda$getLogger$0(name, rb, caller);
+		return System::lambda$getLogger$0(name, rb, caller);
 	}
 	$String* name = nullptr;
 	$ResourceBundle* rb = nullptr;

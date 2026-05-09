@@ -33,23 +33,23 @@ void DatagramChannel::close() {
 }
 
 bool DatagramChannel::isOpen() {
-	 return this->$AbstractSelectableChannel::isOpen();
+	return this->$AbstractSelectableChannel::isOpen();
 }
 
 int32_t DatagramChannel::hashCode() {
-	 return this->$AbstractSelectableChannel::hashCode();
+	return this->$AbstractSelectableChannel::hashCode();
 }
 
 bool DatagramChannel::equals(Object$* obj) {
-	 return this->$AbstractSelectableChannel::equals(obj);
+	return this->$AbstractSelectableChannel::equals(obj);
 }
 
 $Object* DatagramChannel::clone() {
-	 return this->$AbstractSelectableChannel::clone();
+	return this->$AbstractSelectableChannel::clone();
 }
 
 $String* DatagramChannel::toString() {
-	 return this->$AbstractSelectableChannel::toString();
+	return this->$AbstractSelectableChannel::toString();
 }
 
 void DatagramChannel::finalize() {

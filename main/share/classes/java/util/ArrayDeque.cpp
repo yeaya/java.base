@@ -110,7 +110,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return ArrayDeque::lambda$removeAll$0(c, e);
+		return ArrayDeque::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -146,7 +146,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return ArrayDeque::lambda$retainAll$1(c, e);
+		return ArrayDeque::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -176,31 +176,31 @@ $Class* ArrayDeque$$Lambda$lambda$retainAll$1$2::load$($String* name, bool initi
 $Class* ArrayDeque$$Lambda$lambda$retainAll$1$2::class$ = nullptr;
 
 bool ArrayDeque::containsAll($Collection* c) {
-	 return this->$AbstractCollection::containsAll(c);
+	return this->$AbstractCollection::containsAll(c);
 }
 
 $String* ArrayDeque::toString() {
-	 return this->$AbstractCollection::toString();
+	return this->$AbstractCollection::toString();
 }
 
 $ObjectArray* ArrayDeque::toArray($IntFunction* generator) {
-	 return this->$AbstractCollection::toArray(generator);
+	return this->$AbstractCollection::toArray(generator);
 }
 
 bool ArrayDeque::equals(Object$* o) {
-	 return this->$AbstractCollection::equals(o);
+	return this->$AbstractCollection::equals(o);
 }
 
 int32_t ArrayDeque::hashCode() {
-	 return this->$AbstractCollection::hashCode();
+	return this->$AbstractCollection::hashCode();
 }
 
 $Stream* ArrayDeque::stream() {
-	 return this->$AbstractCollection::stream();
+	return this->$AbstractCollection::stream();
 }
 
 $Stream* ArrayDeque::parallelStream() {
-	 return this->$AbstractCollection::parallelStream();
+	return this->$AbstractCollection::parallelStream();
 }
 
 void ArrayDeque::finalize() {

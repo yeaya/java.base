@@ -30,15 +30,15 @@ namespace java {
 			namespace locks {
 
 int32_t ReentrantLock::hashCode() {
-	 return this->$Lock::hashCode();
+	return this->$Lock::hashCode();
 }
 
 bool ReentrantLock::equals(Object$* obj) {
-	 return this->$Lock::equals(obj);
+	return this->$Lock::equals(obj);
 }
 
 $Object* ReentrantLock::clone() {
-	 return this->$Lock::clone();
+	return this->$Lock::clone();
 }
 
 void ReentrantLock::finalize() {

@@ -15,19 +15,19 @@ namespace java {
 		namespace interfaces {
 
 int32_t RSAPublicKey::hashCode() {
-	 return this->$PublicKey::hashCode();
+	return this->$PublicKey::hashCode();
 }
 
 bool RSAPublicKey::equals(Object$* obj) {
-	 return this->$PublicKey::equals(obj);
+	return this->$PublicKey::equals(obj);
 }
 
 $Object* RSAPublicKey::clone() {
-	 return this->$PublicKey::clone();
+	return this->$PublicKey::clone();
 }
 
 $String* RSAPublicKey::toString() {
-	 return this->$PublicKey::toString();
+	return this->$PublicKey::toString();
 }
 
 void RSAPublicKey::finalize() {

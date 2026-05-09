@@ -17,19 +17,19 @@ namespace sun {
 		namespace util {
 
 $Object* MemoryCache$SoftCacheEntry::clone() {
-	 return this->$SoftReference::clone();
+	return this->$SoftReference::clone();
 }
 
 int32_t MemoryCache$SoftCacheEntry::hashCode() {
-	 return this->$SoftReference::hashCode();
+	return this->$SoftReference::hashCode();
 }
 
 bool MemoryCache$SoftCacheEntry::equals(Object$* obj) {
-	 return this->$SoftReference::equals(obj);
+	return this->$SoftReference::equals(obj);
 }
 
 $String* MemoryCache$SoftCacheEntry::toString() {
-	 return this->$SoftReference::toString();
+	return this->$SoftReference::toString();
 }
 
 void MemoryCache$SoftCacheEntry::finalize() {

@@ -81,7 +81,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor$Requires, inst$)->name());
+		return $of($sure($ModuleDescriptor$Requires, inst$)->name());
 	}
 };
 $Class* ModuleDescriptor$$Lambda$name::load$($String* name, bool initialize) {
@@ -111,7 +111,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(ModuleDescriptor::lambda$toString$0(e));
+		return $of(ModuleDescriptor::lambda$toString$0(e));
 	}
 };
 $Class* ModuleDescriptor$$Lambda$lambda$toString$0$1::load$($String* name, bool initialize) {

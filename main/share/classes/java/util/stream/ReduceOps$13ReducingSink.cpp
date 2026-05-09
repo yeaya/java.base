@@ -27,23 +27,23 @@ namespace java {
 		namespace stream {
 
 $Object* ReduceOps$13ReducingSink::get() {
-	 return this->$ReduceOps$Box::get();
+	return this->$ReduceOps$Box::get();
 }
 
 int32_t ReduceOps$13ReducingSink::hashCode() {
-	 return this->$ReduceOps$Box::hashCode();
+	return this->$ReduceOps$Box::hashCode();
 }
 
 bool ReduceOps$13ReducingSink::equals(Object$* obj) {
-	 return this->$ReduceOps$Box::equals(obj);
+	return this->$ReduceOps$Box::equals(obj);
 }
 
 $Object* ReduceOps$13ReducingSink::clone() {
-	 return this->$ReduceOps$Box::clone();
+	return this->$ReduceOps$Box::clone();
 }
 
 $String* ReduceOps$13ReducingSink::toString() {
-	 return this->$ReduceOps$Box::toString();
+	return this->$ReduceOps$Box::toString();
 }
 
 void ReduceOps$13ReducingSink::finalize() {
@@ -55,7 +55,7 @@ void ReduceOps$13ReducingSink::end() {
 }
 
 bool ReduceOps$13ReducingSink::cancellationRequested() {
-	 return this->$ReduceOps$AccumulatingSink::cancellationRequested();
+	return this->$ReduceOps$AccumulatingSink::cancellationRequested();
 }
 
 void ReduceOps$13ReducingSink::accept(int32_t value) {
@@ -71,7 +71,7 @@ void ReduceOps$13ReducingSink::accept(Object$* t) {
 }
 
 $Consumer* ReduceOps$13ReducingSink::andThen($Consumer* after) {
-	 return this->$ReduceOps$AccumulatingSink::andThen(after);
+	return this->$ReduceOps$AccumulatingSink::andThen(after);
 }
 
 void ReduceOps$13ReducingSink::init$($Supplier* val$supplier, $ObjDoubleConsumer* val$accumulator, $BinaryOperator* val$combiner) {

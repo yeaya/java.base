@@ -23,23 +23,23 @@ void Pipe$SourceChannel::close() {
 }
 
 bool Pipe$SourceChannel::isOpen() {
-	 return this->$AbstractSelectableChannel::isOpen();
+	return this->$AbstractSelectableChannel::isOpen();
 }
 
 int32_t Pipe$SourceChannel::hashCode() {
-	 return this->$AbstractSelectableChannel::hashCode();
+	return this->$AbstractSelectableChannel::hashCode();
 }
 
 bool Pipe$SourceChannel::equals(Object$* obj) {
-	 return this->$AbstractSelectableChannel::equals(obj);
+	return this->$AbstractSelectableChannel::equals(obj);
 }
 
 $Object* Pipe$SourceChannel::clone() {
-	 return this->$AbstractSelectableChannel::clone();
+	return this->$AbstractSelectableChannel::clone();
 }
 
 $String* Pipe$SourceChannel::toString() {
-	 return this->$AbstractSelectableChannel::toString();
+	return this->$AbstractSelectableChannel::toString();
 }
 
 void Pipe$SourceChannel::finalize() {

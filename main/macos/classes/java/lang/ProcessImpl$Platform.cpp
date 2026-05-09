@@ -58,7 +58,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$launchMechanism$0());
+		return $of($nc(inst$)->lambda$launchMechanism$0());
 	}
 	ProcessImpl$Platform* inst$ = nullptr;
 };

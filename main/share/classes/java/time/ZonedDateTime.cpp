@@ -114,7 +114,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return $of(ZonedDateTime::from(temporal));
+		return $of(ZonedDateTime::from(temporal));
 	}
 };
 $Class* ZonedDateTime$$Lambda$from::load$($String* name, bool initialize) {
@@ -139,7 +139,7 @@ $Class* ZonedDateTime$$Lambda$from::load$($String* name, bool initialize) {
 $Class* ZonedDateTime$$Lambda$from::class$ = nullptr;
 
 $Object* ZonedDateTime::clone() {
-	 return this->$ChronoZonedDateTime::clone();
+	return this->$ChronoZonedDateTime::clone();
 }
 
 void ZonedDateTime::finalize() {

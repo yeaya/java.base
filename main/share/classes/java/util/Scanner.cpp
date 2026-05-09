@@ -174,15 +174,15 @@ $Class* Scanner$$Lambda$close::load$($String* name, bool initialize) {
 $Class* Scanner$$Lambda$close::class$ = nullptr;
 
 int32_t Scanner::hashCode() {
-	 return this->$Iterator::hashCode();
+	return this->$Iterator::hashCode();
 }
 
 bool Scanner::equals(Object$* obj) {
-	 return this->$Iterator::equals(obj);
+	return this->$Iterator::equals(obj);
 }
 
 $Object* Scanner::clone() {
-	 return this->$Iterator::clone();
+	return this->$Iterator::clone();
 }
 
 void Scanner::finalize() {

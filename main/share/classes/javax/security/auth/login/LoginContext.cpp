@@ -104,7 +104,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$invoke$0();
+		return $nc(inst$)->lambda$invoke$0();
 	}
 	LoginContext* inst$ = nullptr;
 };

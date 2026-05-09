@@ -176,7 +176,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$openPassiveDataConnection$0();
+		return $nc(inst$)->lambda$openPassiveDataConnection$0();
 	}
 	FtpClient* inst$ = nullptr;
 };
@@ -212,7 +212,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$openPassiveDataConnection$1();
+		return $nc(inst$)->lambda$openPassiveDataConnection$1();
 	}
 	FtpClient* inst$ = nullptr;
 };
@@ -247,7 +247,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($InetAddress, inst$)->getHostAddress());
+		return $of($sure($InetAddress, inst$)->getHostAddress());
 	}
 };
 $Class* FtpClient$$Lambda$getHostAddress$2::load$($String* name, bool initialize) {
@@ -278,7 +278,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* anotherString) override {
-		 return $nc(inst$)->equalsIgnoreCase($cast($String, anotherString));
+		return $nc(inst$)->equalsIgnoreCase($cast($String, anotherString));
 	}
 	$String* inst$ = nullptr;
 };
@@ -313,7 +313,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $InetAddress::getLocalHost();
+		return $InetAddress::getLocalHost();
 	}
 };
 $Class* FtpClient$$Lambda$getLocalHost$4::load$($String* name, bool initialize) {
@@ -344,7 +344,7 @@ public:
 		$set(this, hostName, hostName);
 	}
 	virtual $Object* run() override {
-		 return FtpClient::lambda$privilegedGetAllByName$2(hostName);
+		return FtpClient::lambda$privilegedGetAllByName$2(hostName);
 	}
 	$String* hostName = nullptr;
 };

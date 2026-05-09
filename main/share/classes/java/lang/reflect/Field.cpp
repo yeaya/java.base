@@ -57,7 +57,7 @@ namespace java {
 		namespace reflect {
 
 $Object* Field::clone() {
-	 return this->$AccessibleObject::clone();
+	return this->$AccessibleObject::clone();
 }
 
 void Field::finalize() {

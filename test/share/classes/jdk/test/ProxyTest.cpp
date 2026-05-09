@@ -47,7 +47,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* invoke(Object$* proxy, $Method* m, $ObjectArray* params) override {
-		 return ProxyTest::lambda$static$0(proxy, m, params);
+		return ProxyTest::lambda$static$0(proxy, m, params);
 	}
 };
 $Class* ProxyTest$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

@@ -84,7 +84,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* apply(Object$* cf) override {
-		 return Configuration::lambda$findModule$0(name, $cast(Configuration, cf));
+		return Configuration::lambda$findModule$0(name, $cast(Configuration, cf));
 	}
 	$String* name = nullptr;
 };
@@ -119,7 +119,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* obj) override {
-		 return $Objects::nonNull(obj);
+		return $Objects::nonNull(obj);
 	}
 };
 $Class* Configuration$$Lambda$nonNull$1::load$($String* name, bool initialize) {
@@ -149,7 +149,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ResolvedModule, inst$)->reference();
+		return $sure($ResolvedModule, inst$)->reference();
 	}
 };
 $Class* Configuration$$Lambda$reference$2::load$($String* name, bool initialize) {
@@ -179,7 +179,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ModuleReference, inst$)->descriptor();
+		return $sure($ModuleReference, inst$)->descriptor();
 	}
 };
 $Class* Configuration$$Lambda$descriptor$3::load$($String* name, bool initialize) {
@@ -209,7 +209,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ResolvedModule, inst$)->name());
+		return $of($sure($ResolvedModule, inst$)->name());
 	}
 };
 $Class* Configuration$$Lambda$name$4::load$($String* name, bool initialize) {

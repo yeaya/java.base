@@ -100,15 +100,15 @@ namespace sun {
 		namespace ssl {
 
 bool SSLHandshake::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t SSLHandshake::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* SSLHandshake::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void SSLHandshake::finalize() {

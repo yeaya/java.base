@@ -61,7 +61,7 @@ namespace java {
 		namespace invoke {
 
 $MethodHandle* DelegatingMethodHandle::asTypeUncached($MethodType* newType) {
-	 return this->$MethodHandle::asTypeUncached(newType);
+	return this->$MethodHandle::asTypeUncached(newType);
 }
 
 bool DelegatingMethodHandle::$assertionsDisabled = false;

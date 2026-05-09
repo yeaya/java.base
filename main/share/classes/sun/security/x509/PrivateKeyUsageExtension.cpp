@@ -51,15 +51,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t PrivateKeyUsageExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool PrivateKeyUsageExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* PrivateKeyUsageExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void PrivateKeyUsageExtension::finalize() {

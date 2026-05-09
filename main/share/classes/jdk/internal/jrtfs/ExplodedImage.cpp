@@ -74,7 +74,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* x$0) override {
-		 return ExplodedImage::lambda$initNodes$0($cast($Path, x$0));
+		return ExplodedImage::lambda$initNodes$0($cast($Path, x$0));
 	}
 };
 $Class* ExplodedImage$$Lambda$lambda$initNodes$0::load$($String* name, bool initialize) {

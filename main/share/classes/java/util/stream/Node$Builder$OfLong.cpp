@@ -22,7 +22,7 @@ void Node$Builder$OfLong::end() {
 }
 
 bool Node$Builder$OfLong::cancellationRequested() {
-	 return this->$Node$Builder::cancellationRequested();
+	return this->$Node$Builder::cancellationRequested();
 }
 
 void Node$Builder$OfLong::accept(int32_t value) {
@@ -38,23 +38,23 @@ void Node$Builder$OfLong::accept(double value) {
 }
 
 $Consumer* Node$Builder$OfLong::andThen($Consumer* after) {
-	 return this->$Node$Builder::andThen(after);
+	return this->$Node$Builder::andThen(after);
 }
 
 int32_t Node$Builder$OfLong::hashCode() {
-	 return this->$Node$Builder::hashCode();
+	return this->$Node$Builder::hashCode();
 }
 
 bool Node$Builder$OfLong::equals(Object$* obj) {
-	 return this->$Node$Builder::equals(obj);
+	return this->$Node$Builder::equals(obj);
 }
 
 $Object* Node$Builder$OfLong::clone() {
-	 return this->$Node$Builder::clone();
+	return this->$Node$Builder::clone();
 }
 
 $String* Node$Builder$OfLong::toString() {
-	 return this->$Node$Builder::toString();
+	return this->$Node$Builder::toString();
 }
 
 void Node$Builder$OfLong::finalize() {

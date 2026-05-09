@@ -108,7 +108,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return ProxyGenerator::lambda$addProxyMethod$0($cast($String, f));
+		return ProxyGenerator::lambda$addProxyMethod$0($cast($String, f));
 	}
 };
 $Class* ProxyGenerator$$Lambda$lambda$addProxyMethod$0::load$($String* name, bool initialize) {

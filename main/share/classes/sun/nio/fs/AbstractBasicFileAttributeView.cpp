@@ -38,19 +38,19 @@ namespace sun {
 		namespace fs {
 
 int32_t AbstractBasicFileAttributeView::hashCode() {
-	 return this->$BasicFileAttributeView::hashCode();
+	return this->$BasicFileAttributeView::hashCode();
 }
 
 bool AbstractBasicFileAttributeView::equals(Object$* obj) {
-	 return this->$BasicFileAttributeView::equals(obj);
+	return this->$BasicFileAttributeView::equals(obj);
 }
 
 $Object* AbstractBasicFileAttributeView::clone() {
-	 return this->$BasicFileAttributeView::clone();
+	return this->$BasicFileAttributeView::clone();
 }
 
 $String* AbstractBasicFileAttributeView::toString() {
-	 return this->$BasicFileAttributeView::toString();
+	return this->$BasicFileAttributeView::toString();
 }
 
 void AbstractBasicFileAttributeView::finalize() {

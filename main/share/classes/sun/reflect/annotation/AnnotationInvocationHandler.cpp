@@ -120,7 +120,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(double d) override {
-		 return $of(AnnotationInvocationHandler::toSourceString(d));
+		return $of(AnnotationInvocationHandler::toSourceString(d));
 	}
 };
 $Class* AnnotationInvocationHandler$$Lambda$toSourceString::load$($String* name, bool initialize) {
@@ -150,7 +150,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return $of($String::valueOf(i));
+		return $of($String::valueOf(i));
 	}
 };
 $Class* AnnotationInvocationHandler$$Lambda$valueOf$1::load$($String* name, bool initialize) {
@@ -180,7 +180,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int64_t ell) override {
-		 return $of(AnnotationInvocationHandler::toSourceString(ell));
+		return $of(AnnotationInvocationHandler::toSourceString(ell));
 	}
 };
 $Class* AnnotationInvocationHandler$$Lambda$toSourceString$2::load$($String* name, bool initialize) {
@@ -210,7 +210,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* clazz) override {
-		 return $of(AnnotationInvocationHandler::toSourceString($cast($Class, clazz)));
+		return $of(AnnotationInvocationHandler::toSourceString($cast($Class, clazz)));
 	}
 };
 $Class* AnnotationInvocationHandler$$Lambda$toSourceString$3::load$($String* name, bool initialize) {
@@ -240,7 +240,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(AnnotationInvocationHandler::toSourceString($cast($String, s)));
+		return $of(AnnotationInvocationHandler::toSourceString($cast($String, s)));
 	}
 };
 $Class* AnnotationInvocationHandler$$Lambda$toSourceString$4::load$($String* name, bool initialize) {
@@ -270,7 +270,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* o) override {
-		 return $of($Objects::toString(o));
+		return $of($Objects::toString(o));
 	}
 };
 $Class* AnnotationInvocationHandler$$Lambda$toString$5::load$($String* name, bool initialize) {
@@ -295,19 +295,19 @@ $Class* AnnotationInvocationHandler$$Lambda$toString$5::load$($String* name, boo
 $Class* AnnotationInvocationHandler$$Lambda$toString$5::class$ = nullptr;
 
 int32_t AnnotationInvocationHandler::hashCode() {
-	 return this->$InvocationHandler::hashCode();
+	return this->$InvocationHandler::hashCode();
 }
 
 bool AnnotationInvocationHandler::equals(Object$* obj) {
-	 return this->$InvocationHandler::equals(obj);
+	return this->$InvocationHandler::equals(obj);
 }
 
 $Object* AnnotationInvocationHandler::clone() {
-	 return this->$InvocationHandler::clone();
+	return this->$InvocationHandler::clone();
 }
 
 $String* AnnotationInvocationHandler::toString() {
-	 return this->$InvocationHandler::toString();
+	return this->$InvocationHandler::toString();
 }
 
 void AnnotationInvocationHandler::finalize() {

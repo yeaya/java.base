@@ -102,7 +102,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getClassLoader();
+		return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
 };
@@ -137,7 +137,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Module, inst$)->getName());
+		return $of($sure($Module, inst$)->getName());
 	}
 };
 $Class* Modules$$Lambda$getName$1::load$($String* name, bool initialize) {
@@ -167,7 +167,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($ModuleDescriptor$Exports, inst$)->isQualified();
+		return $sure($ModuleDescriptor$Exports, inst$)->isQualified();
 	}
 };
 $Class* Modules$$Lambda$isQualified$2::load$($String* name, bool initialize) {
@@ -236,7 +236,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($ModuleDescriptor$Opens, inst$)->isQualified();
+		return $sure($ModuleDescriptor$Opens, inst$)->isQualified();
 	}
 };
 $Class* Modules$$Lambda$isQualified$4::load$($String* name, bool initialize) {
@@ -305,7 +305,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Modules::lambda$loadModule$4();
+		return Modules::lambda$loadModule$4();
 	}
 };
 $Class* Modules$$Lambda$lambda$loadModule$4$6::load$($String* name, bool initialize) {

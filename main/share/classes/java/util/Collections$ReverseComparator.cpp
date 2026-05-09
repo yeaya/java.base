@@ -18,19 +18,19 @@ namespace java {
 	namespace util {
 
 bool Collections$ReverseComparator::equals(Object$* obj) {
-	 return this->$Comparator::equals(obj);
+	return this->$Comparator::equals(obj);
 }
 
 int32_t Collections$ReverseComparator::hashCode() {
-	 return this->$Comparator::hashCode();
+	return this->$Comparator::hashCode();
 }
 
 $Object* Collections$ReverseComparator::clone() {
-	 return this->$Comparator::clone();
+	return this->$Comparator::clone();
 }
 
 $String* Collections$ReverseComparator::toString() {
-	 return this->$Comparator::toString();
+	return this->$Comparator::toString();
 }
 
 void Collections$ReverseComparator::finalize() {

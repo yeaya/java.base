@@ -83,19 +83,19 @@ namespace jdk {
 					namespace commons {
 
 int32_t JSRInlinerAdapter::hashCode() {
-	 return this->$MethodNode::hashCode();
+	return this->$MethodNode::hashCode();
 }
 
 bool JSRInlinerAdapter::equals(Object$* obj) {
-	 return this->$MethodNode::equals(obj);
+	return this->$MethodNode::equals(obj);
 }
 
 $Object* JSRInlinerAdapter::clone() {
-	 return this->$MethodNode::clone();
+	return this->$MethodNode::clone();
 }
 
 $String* JSRInlinerAdapter::toString() {
-	 return this->$MethodNode::toString();
+	return this->$MethodNode::toString();
 }
 
 void JSRInlinerAdapter::finalize() {

@@ -135,7 +135,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of($nc(inst$)->getBasename($cast($String, name)));
+		return $of($nc(inst$)->getBasename($cast($String, name)));
 	}
 	JarFile* inst$ = nullptr;
 };
@@ -170,7 +170,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* obj) override {
-		 return $Objects::nonNull(obj);
+		return $Objects::nonNull(obj);
 	}
 };
 $Class* JarFile$$Lambda$nonNull$1::load$($String* name, bool initialize) {
@@ -201,7 +201,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of($nc(inst$)->getJarEntry($cast($String, name)));
+		return $of($nc(inst$)->getJarEntry($cast($String, name)));
 	}
 	JarFile* inst$ = nullptr;
 };

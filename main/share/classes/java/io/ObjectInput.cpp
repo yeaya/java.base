@@ -10,19 +10,19 @@ namespace java {
 	namespace io {
 
 int32_t ObjectInput::hashCode() {
-	 return this->$DataInput::hashCode();
+	return this->$DataInput::hashCode();
 }
 
 bool ObjectInput::equals(Object$* obj) {
-	 return this->$DataInput::equals(obj);
+	return this->$DataInput::equals(obj);
 }
 
 $Object* ObjectInput::clone() {
-	 return this->$DataInput::clone();
+	return this->$DataInput::clone();
 }
 
 $String* ObjectInput::toString() {
-	 return this->$DataInput::toString();
+	return this->$DataInput::toString();
 }
 
 void ObjectInput::finalize() {

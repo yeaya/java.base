@@ -72,19 +72,19 @@ namespace sun {
 		namespace ch {
 
 int32_t AsynchronousChannelGroupImpl::hashCode() {
-	 return this->$AsynchronousChannelGroup::hashCode();
+	return this->$AsynchronousChannelGroup::hashCode();
 }
 
 bool AsynchronousChannelGroupImpl::equals(Object$* obj) {
-	 return this->$AsynchronousChannelGroup::equals(obj);
+	return this->$AsynchronousChannelGroup::equals(obj);
 }
 
 $Object* AsynchronousChannelGroupImpl::clone() {
-	 return this->$AsynchronousChannelGroup::clone();
+	return this->$AsynchronousChannelGroup::clone();
 }
 
 $String* AsynchronousChannelGroupImpl::toString() {
-	 return this->$AsynchronousChannelGroup::toString();
+	return this->$AsynchronousChannelGroup::toString();
 }
 
 void AsynchronousChannelGroupImpl::finalize() {

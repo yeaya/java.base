@@ -53,19 +53,19 @@ namespace sun {
 			namespace http {
 
 $Object* KeepAliveCache::clone() {
-	 return this->$HashMap::clone();
+	return this->$HashMap::clone();
 }
 
 bool KeepAliveCache::equals(Object$* o) {
-	 return this->$HashMap::equals(o);
+	return this->$HashMap::equals(o);
 }
 
 int32_t KeepAliveCache::hashCode() {
-	 return this->$HashMap::hashCode();
+	return this->$HashMap::hashCode();
 }
 
 $String* KeepAliveCache::toString() {
-	 return this->$HashMap::toString();
+	return this->$HashMap::toString();
 }
 
 void KeepAliveCache::finalize() {

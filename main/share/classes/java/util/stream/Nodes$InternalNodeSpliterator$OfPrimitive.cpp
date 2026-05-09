@@ -25,11 +25,11 @@ namespace java {
 		namespace stream {
 
 int64_t Nodes$InternalNodeSpliterator$OfPrimitive::estimateSize() {
-	 return this->$Nodes$InternalNodeSpliterator::estimateSize();
+	return this->$Nodes$InternalNodeSpliterator::estimateSize();
 }
 
 int32_t Nodes$InternalNodeSpliterator$OfPrimitive::characteristics() {
-	 return this->$Nodes$InternalNodeSpliterator::characteristics();
+	return this->$Nodes$InternalNodeSpliterator::characteristics();
 }
 
 void Nodes$InternalNodeSpliterator$OfPrimitive::forEachRemaining($Consumer* action) {
@@ -37,31 +37,31 @@ void Nodes$InternalNodeSpliterator$OfPrimitive::forEachRemaining($Consumer* acti
 }
 
 int64_t Nodes$InternalNodeSpliterator$OfPrimitive::getExactSizeIfKnown() {
-	 return this->$Nodes$InternalNodeSpliterator::getExactSizeIfKnown();
+	return this->$Nodes$InternalNodeSpliterator::getExactSizeIfKnown();
 }
 
 bool Nodes$InternalNodeSpliterator$OfPrimitive::hasCharacteristics(int32_t characteristics) {
-	 return this->$Nodes$InternalNodeSpliterator::hasCharacteristics(characteristics);
+	return this->$Nodes$InternalNodeSpliterator::hasCharacteristics(characteristics);
 }
 
 $Comparator* Nodes$InternalNodeSpliterator$OfPrimitive::getComparator() {
-	 return this->$Nodes$InternalNodeSpliterator::getComparator();
+	return this->$Nodes$InternalNodeSpliterator::getComparator();
 }
 
 int32_t Nodes$InternalNodeSpliterator$OfPrimitive::hashCode() {
-	 return this->$Nodes$InternalNodeSpliterator::hashCode();
+	return this->$Nodes$InternalNodeSpliterator::hashCode();
 }
 
 bool Nodes$InternalNodeSpliterator$OfPrimitive::equals(Object$* obj) {
-	 return this->$Nodes$InternalNodeSpliterator::equals(obj);
+	return this->$Nodes$InternalNodeSpliterator::equals(obj);
 }
 
 $Object* Nodes$InternalNodeSpliterator$OfPrimitive::clone() {
-	 return this->$Nodes$InternalNodeSpliterator::clone();
+	return this->$Nodes$InternalNodeSpliterator::clone();
 }
 
 $String* Nodes$InternalNodeSpliterator$OfPrimitive::toString() {
-	 return this->$Nodes$InternalNodeSpliterator::toString();
+	return this->$Nodes$InternalNodeSpliterator::toString();
 }
 
 void Nodes$InternalNodeSpliterator$OfPrimitive::finalize() {

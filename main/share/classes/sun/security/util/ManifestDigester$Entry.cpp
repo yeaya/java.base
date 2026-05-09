@@ -39,7 +39,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($ManifestDigester$Section, inst$)->isProperlySectionDelimited();
+		return $sure($ManifestDigester$Section, inst$)->isProperlySectionDelimited();
 	}
 };
 $Class* ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::load$($String* name, bool initialize) {

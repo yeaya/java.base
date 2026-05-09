@@ -34,7 +34,7 @@ namespace tck {
 		namespace time {
 
 $Object* MockSimplePeriod::clone() {
-	 return this->$TemporalAmount::clone();
+	return this->$TemporalAmount::clone();
 }
 
 void MockSimplePeriod::finalize() {

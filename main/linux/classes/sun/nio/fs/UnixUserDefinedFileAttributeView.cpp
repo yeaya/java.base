@@ -71,7 +71,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return UnixUserDefinedFileAttributeView::lambda$list$0($cast($String, s));
+		return UnixUserDefinedFileAttributeView::lambda$list$0($cast($String, s));
 	}
 };
 $Class* UnixUserDefinedFileAttributeView$$Lambda$lambda$list$0::load$($String* name, bool initialize) {
@@ -101,7 +101,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(UnixUserDefinedFileAttributeView::lambda$list$1($cast($String, s)));
+		return $of(UnixUserDefinedFileAttributeView::lambda$list$1($cast($String, s)));
 	}
 };
 $Class* UnixUserDefinedFileAttributeView$$Lambda$lambda$list$1$1::load$($String* name, bool initialize) {

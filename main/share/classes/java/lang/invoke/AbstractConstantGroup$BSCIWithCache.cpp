@@ -25,51 +25,51 @@ namespace java {
 		namespace invoke {
 
 $Object* AbstractConstantGroup$BSCIWithCache::get(int32_t i) {
-	 return this->$AbstractConstantGroup$WithCache::get(i);
+	return this->$AbstractConstantGroup$WithCache::get(i);
 }
 
 $Object* AbstractConstantGroup$BSCIWithCache::get(int32_t i, Object$* ifNotAvailable) {
-	 return this->$AbstractConstantGroup$WithCache::get(i, ifNotAvailable);
+	return this->$AbstractConstantGroup$WithCache::get(i, ifNotAvailable);
 }
 
 bool AbstractConstantGroup$BSCIWithCache::isPresent(int32_t i) {
-	 return this->$AbstractConstantGroup$WithCache::isPresent(i);
+	return this->$AbstractConstantGroup$WithCache::isPresent(i);
 }
 
 int32_t AbstractConstantGroup$BSCIWithCache::size() {
-	 return this->$AbstractConstantGroup$WithCache::size();
+	return this->$AbstractConstantGroup$WithCache::size();
 }
 
 $List* AbstractConstantGroup$BSCIWithCache::asList() {
-	 return this->$AbstractConstantGroup$WithCache::asList();
+	return this->$AbstractConstantGroup$WithCache::asList();
 }
 
 $List* AbstractConstantGroup$BSCIWithCache::asList(Object$* ifNotPresent) {
-	 return this->$AbstractConstantGroup$WithCache::asList(ifNotPresent);
+	return this->$AbstractConstantGroup$WithCache::asList(ifNotPresent);
 }
 
 $ConstantGroup* AbstractConstantGroup$BSCIWithCache::subGroup(int32_t start, int32_t end) {
-	 return this->$AbstractConstantGroup$WithCache::subGroup(start, end);
+	return this->$AbstractConstantGroup$WithCache::subGroup(start, end);
 }
 
 int32_t AbstractConstantGroup$BSCIWithCache::copyConstants(int32_t start, int32_t end, $ObjectArray* buf, int32_t pos) {
-	 return this->$AbstractConstantGroup$WithCache::copyConstants(start, end, buf, pos);
+	return this->$AbstractConstantGroup$WithCache::copyConstants(start, end, buf, pos);
 }
 
 int32_t AbstractConstantGroup$BSCIWithCache::copyConstants(int32_t start, int32_t end, $ObjectArray* buf, int32_t pos, Object$* ifNotPresent) {
-	 return this->$AbstractConstantGroup$WithCache::copyConstants(start, end, buf, pos, ifNotPresent);
+	return this->$AbstractConstantGroup$WithCache::copyConstants(start, end, buf, pos, ifNotPresent);
 }
 
 int32_t AbstractConstantGroup$BSCIWithCache::hashCode() {
-	 return this->$AbstractConstantGroup$WithCache::hashCode();
+	return this->$AbstractConstantGroup$WithCache::hashCode();
 }
 
 bool AbstractConstantGroup$BSCIWithCache::equals(Object$* obj) {
-	 return this->$AbstractConstantGroup$WithCache::equals(obj);
+	return this->$AbstractConstantGroup$WithCache::equals(obj);
 }
 
 $Object* AbstractConstantGroup$BSCIWithCache::clone() {
-	 return this->$AbstractConstantGroup$WithCache::clone();
+	return this->$AbstractConstantGroup$WithCache::clone();
 }
 
 void AbstractConstantGroup$BSCIWithCache::finalize() {

@@ -43,7 +43,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* desc) override {
-		 return $DynamicConstantDesc::canonicalizePrimitiveClass($cast($DynamicConstantDesc, desc));
+		return $DynamicConstantDesc::canonicalizePrimitiveClass($cast($DynamicConstantDesc, desc));
 	}
 };
 $Class* DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizePrimitiveClass::load$($String* name, bool initialize) {
@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* desc) override {
-		 return $DynamicConstantDesc::canonicalizeEnum($cast($DynamicConstantDesc, desc));
+		return $DynamicConstantDesc::canonicalizeEnum($cast($DynamicConstantDesc, desc));
 	}
 };
 $Class* DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeEnum$1::load$($String* name, bool initialize) {
@@ -103,7 +103,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* desc) override {
-		 return $DynamicConstantDesc::canonicalizeNull($cast($DynamicConstantDesc, desc));
+		return $DynamicConstantDesc::canonicalizeNull($cast($DynamicConstantDesc, desc));
 	}
 };
 $Class* DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeNull$2::load$($String* name, bool initialize) {
@@ -133,7 +133,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* desc) override {
-		 return $DynamicConstantDesc::canonicalizeStaticFieldVarHandle($cast($DynamicConstantDesc, desc));
+		return $DynamicConstantDesc::canonicalizeStaticFieldVarHandle($cast($DynamicConstantDesc, desc));
 	}
 };
 $Class* DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeStaticFieldVarHandle$3::load$($String* name, bool initialize) {
@@ -163,7 +163,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* desc) override {
-		 return $DynamicConstantDesc::canonicalizeFieldVarHandle($cast($DynamicConstantDesc, desc));
+		return $DynamicConstantDesc::canonicalizeFieldVarHandle($cast($DynamicConstantDesc, desc));
 	}
 };
 $Class* DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeFieldVarHandle$4::load$($String* name, bool initialize) {
@@ -193,7 +193,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* desc) override {
-		 return $DynamicConstantDesc::canonicalizeArrayVarHandle($cast($DynamicConstantDesc, desc));
+		return $DynamicConstantDesc::canonicalizeArrayVarHandle($cast($DynamicConstantDesc, desc));
 	}
 };
 $Class* DynamicConstantDesc$CanonicalMapHolder$$Lambda$canonicalizeArrayVarHandle$5::load$($String* name, bool initialize) {

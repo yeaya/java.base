@@ -180,7 +180,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return ModulePath::lambda$jmodPackages$0($cast($JmodFile$Entry, e));
+		return ModulePath::lambda$jmodPackages$0($cast($JmodFile$Entry, e));
 	}
 };
 $Class* ModulePath$$Lambda$lambda$jmodPackages$0::load$($String* name, bool initialize) {
@@ -210,7 +210,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($JmodFile$Entry, inst$)->name());
+		return $of($sure($JmodFile$Entry, inst$)->name());
 	}
 };
 $Class* ModulePath$$Lambda$name$1::load$($String* name, bool initialize) {
@@ -241,7 +241,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $nc(inst$)->toPackageName($cast($String, name));
+		return $nc(inst$)->toPackageName($cast($String, name));
 	}
 	ModulePath* inst$ = nullptr;
 };
@@ -276,7 +276,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Optional, inst$)->stream();
+		return $sure($Optional, inst$)->stream();
 	}
 };
 $Class* ModulePath$$Lambda$stream$3::load$($String* name, bool initialize) {
@@ -308,7 +308,7 @@ public:
 		$set(this, jf, jf);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$readJMod$1(jf);
+		return $nc(inst$)->lambda$readJMod$1(jf);
 	}
 	ModulePath* inst$ = nullptr;
 	$JmodFile* jf = nullptr;
@@ -345,7 +345,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return ModulePath::lambda$deriveModuleDescriptor$2($cast($JarEntry, e));
+		return ModulePath::lambda$deriveModuleDescriptor$2($cast($JarEntry, e));
 	}
 };
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::load$($String* name, bool initialize) {
@@ -375,7 +375,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ZipEntry, inst$)->getName());
+		return $of($sure($ZipEntry, inst$)->getName());
 	}
 };
 $Class* ModulePath$$Lambda$getName$6::load$($String* name, bool initialize) {
@@ -405,7 +405,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return ModulePath::lambda$deriveModuleDescriptor$3($cast($String, e));
+		return ModulePath::lambda$deriveModuleDescriptor$3($cast($String, e));
 	}
 };
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::load$($String* name, bool initialize) {
@@ -435,7 +435,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return ModulePath::lambda$deriveModuleDescriptor$4($cast($String, e));
+		return ModulePath::lambda$deriveModuleDescriptor$4($cast($String, e));
 	}
 };
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::load$($String* name, bool initialize) {
@@ -466,7 +466,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* cf) override {
-		 return $nc(inst$)->toServiceName($cast($String, cf));
+		return $nc(inst$)->toServiceName($cast($String, cf));
 	}
 	ModulePath* inst$ = nullptr;
 };
@@ -503,7 +503,7 @@ public:
 		$set(this, jf, jf);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$readJar$6(jf);
+		return $nc(inst$)->lambda$readJar$6(jf);
 	}
 	ModulePath* inst$ = nullptr;
 	$JarFile* jf = nullptr;
@@ -541,7 +541,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* path, Object$* attrs) override {
-		 return $nc(inst$)->lambda$explodedPackages$7($cast($Path, path), $cast($BasicFileAttributes, attrs));
+		return $nc(inst$)->lambda$explodedPackages$7($cast($Path, path), $cast($BasicFileAttributes, attrs));
 	}
 	ModulePath* inst$ = nullptr;
 };
@@ -577,7 +577,7 @@ public:
 		$set(this, dir, dir);
 	}
 	virtual $Object* apply(Object$* path) override {
-		 return $of(ModulePath::lambda$explodedPackages$8(dir, $cast($Path, path)));
+		return $of(ModulePath::lambda$explodedPackages$8(dir, $cast($Path, path)));
 	}
 	$Path* dir = nullptr;
 };
@@ -613,7 +613,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* file) override {
-		 return $nc(inst$)->toPackageName($cast($Path, file));
+		return $nc(inst$)->toPackageName($cast($Path, file));
 	}
 	ModulePath* inst$ = nullptr;
 };
@@ -650,7 +650,7 @@ public:
 		$set(this, dir, dir);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$readExplodedModule$9(dir);
+		return $nc(inst$)->lambda$readExplodedModule$9(dir);
 	}
 	ModulePath* inst$ = nullptr;
 	$Path* dir = nullptr;

@@ -21,19 +21,19 @@ namespace java {
 		namespace concurrent {
 
 $String* ThreadPoolExecutor$Worker::toString() {
-	 return this->$AbstractQueuedSynchronizer::toString();
+	return this->$AbstractQueuedSynchronizer::toString();
 }
 
 int32_t ThreadPoolExecutor$Worker::hashCode() {
-	 return this->$AbstractQueuedSynchronizer::hashCode();
+	return this->$AbstractQueuedSynchronizer::hashCode();
 }
 
 bool ThreadPoolExecutor$Worker::equals(Object$* obj) {
-	 return this->$AbstractQueuedSynchronizer::equals(obj);
+	return this->$AbstractQueuedSynchronizer::equals(obj);
 }
 
 $Object* ThreadPoolExecutor$Worker::clone() {
-	 return this->$AbstractQueuedSynchronizer::clone();
+	return this->$AbstractQueuedSynchronizer::clone();
 }
 
 void ThreadPoolExecutor$Worker::finalize() {

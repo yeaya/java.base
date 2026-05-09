@@ -205,7 +205,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$newInstance$0();
+		return $nc(inst$)->lambda$newInstance$0();
 	}
 	ObjectStreamClass* inst$ = nullptr;
 };
@@ -241,7 +241,7 @@ public:
 		this->cls = cls;
 	}
 	virtual $Object* run() override {
-		 return ObjectStreamClass::lambda$canonicalRecordCtr$2(cls);
+		return ObjectStreamClass::lambda$canonicalRecordCtr$2(cls);
 	}
 	$Class* cls = nullptr;
 };
@@ -276,7 +276,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($RecordComponent, inst$)->getType());
+		return $of($sure($RecordComponent, inst$)->getType());
 	}
 };
 $Class* ObjectStreamClass$$Lambda$getType$2::load$($String* name, bool initialize) {
@@ -306,7 +306,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return ObjectStreamClass::lambda$canonicalRecordCtr$1(x$0);
+		return ObjectStreamClass::lambda$canonicalRecordCtr$1(x$0);
 	}
 };
 $Class* ObjectStreamClass$$Lambda$lambda$canonicalRecordCtr$1$3::load$($String* name, bool initialize) {

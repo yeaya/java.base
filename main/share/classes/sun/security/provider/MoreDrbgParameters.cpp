@@ -20,15 +20,15 @@ namespace sun {
 		namespace provider {
 
 int32_t MoreDrbgParameters::hashCode() {
-	 return this->$SecureRandomParameters::hashCode();
+	return this->$SecureRandomParameters::hashCode();
 }
 
 bool MoreDrbgParameters::equals(Object$* obj) {
-	 return this->$SecureRandomParameters::equals(obj);
+	return this->$SecureRandomParameters::equals(obj);
 }
 
 $Object* MoreDrbgParameters::clone() {
-	 return this->$SecureRandomParameters::clone();
+	return this->$SecureRandomParameters::clone();
 }
 
 void MoreDrbgParameters::finalize() {

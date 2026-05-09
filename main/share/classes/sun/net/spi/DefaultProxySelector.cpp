@@ -74,7 +74,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* list) override {
-		 return $Collections::unmodifiableList($cast($List, list));
+		return $Collections::unmodifiableList($cast($List, list));
 	}
 };
 $Class* DefaultProxySelector$$Lambda$unmodifiableList::load$($String* name, bool initialize) {

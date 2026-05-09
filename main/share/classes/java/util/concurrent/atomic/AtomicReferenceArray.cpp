@@ -57,7 +57,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(AtomicReferenceArray::lambda$readObject$0());
+		return $of(AtomicReferenceArray::lambda$readObject$0());
 	}
 };
 $Class* AtomicReferenceArray$$Lambda$lambda$readObject$0::load$($String* name, bool initialize) {

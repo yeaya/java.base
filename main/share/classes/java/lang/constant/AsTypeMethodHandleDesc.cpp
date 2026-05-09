@@ -34,15 +34,15 @@ namespace java {
 		namespace constant {
 
 bool AsTypeMethodHandleDesc::equals(Object$* o) {
-	 return this->$DynamicConstantDesc::equals(o);
+	return this->$DynamicConstantDesc::equals(o);
 }
 
 int32_t AsTypeMethodHandleDesc::hashCode() {
-	 return this->$DynamicConstantDesc::hashCode();
+	return this->$DynamicConstantDesc::hashCode();
 }
 
 $Object* AsTypeMethodHandleDesc::clone() {
-	 return this->$DynamicConstantDesc::clone();
+	return this->$DynamicConstantDesc::clone();
 }
 
 void AsTypeMethodHandleDesc::finalize() {

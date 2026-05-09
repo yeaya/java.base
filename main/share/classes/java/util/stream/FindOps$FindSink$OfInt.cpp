@@ -46,7 +46,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* inst$) override {
-		 return $sure($OptionalInt, inst$)->isPresent();
+		return $sure($OptionalInt, inst$)->isPresent();
 	}
 };
 $Class* FindOps$FindSink$OfInt$$Lambda$isPresent::load$($String* name, bool initialize) {
@@ -76,7 +76,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new(FindOps$FindSink$OfInt));
+		return $of($new(FindOps$FindSink$OfInt));
 	}
 };
 $Class* FindOps$FindSink$OfInt$$Lambda$OfInt$1::load$($String* name, bool initialize) {
@@ -105,7 +105,7 @@ void FindOps$FindSink$OfInt::accept(Object$* value) {
 }
 
 bool FindOps$FindSink$OfInt::cancellationRequested() {
-	 return this->$FindOps$FindSink::cancellationRequested();
+	return this->$FindOps$FindSink::cancellationRequested();
 }
 
 void FindOps$FindSink$OfInt::begin(int64_t size) {
@@ -125,23 +125,23 @@ void FindOps$FindSink$OfInt::accept(double value) {
 }
 
 $Consumer* FindOps$FindSink$OfInt::andThen($Consumer* after) {
-	 return this->$FindOps$FindSink::andThen(after);
+	return this->$FindOps$FindSink::andThen(after);
 }
 
 int32_t FindOps$FindSink$OfInt::hashCode() {
-	 return this->$FindOps$FindSink::hashCode();
+	return this->$FindOps$FindSink::hashCode();
 }
 
 bool FindOps$FindSink$OfInt::equals(Object$* obj) {
-	 return this->$FindOps$FindSink::equals(obj);
+	return this->$FindOps$FindSink::equals(obj);
 }
 
 $Object* FindOps$FindSink$OfInt::clone() {
-	 return this->$FindOps$FindSink::clone();
+	return this->$FindOps$FindSink::clone();
 }
 
 $String* FindOps$FindSink$OfInt::toString() {
-	 return this->$FindOps$FindSink::toString();
+	return this->$FindOps$FindSink::toString();
 }
 
 void FindOps$FindSink$OfInt::finalize() {

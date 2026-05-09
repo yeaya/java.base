@@ -25,19 +25,19 @@ namespace sun {
 			namespace provider {
 
 int32_t DecimalFormatSymbolsProviderImpl::hashCode() {
-	 return this->$DecimalFormatSymbolsProvider::hashCode();
+	return this->$DecimalFormatSymbolsProvider::hashCode();
 }
 
 bool DecimalFormatSymbolsProviderImpl::equals(Object$* obj) {
-	 return this->$DecimalFormatSymbolsProvider::equals(obj);
+	return this->$DecimalFormatSymbolsProvider::equals(obj);
 }
 
 $Object* DecimalFormatSymbolsProviderImpl::clone() {
-	 return this->$DecimalFormatSymbolsProvider::clone();
+	return this->$DecimalFormatSymbolsProvider::clone();
 }
 
 $String* DecimalFormatSymbolsProviderImpl::toString() {
-	 return this->$DecimalFormatSymbolsProvider::toString();
+	return this->$DecimalFormatSymbolsProvider::toString();
 }
 
 void DecimalFormatSymbolsProviderImpl::finalize() {

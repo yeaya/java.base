@@ -96,7 +96,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return PriorityBlockingQueue::lambda$removeAll$0(c, e);
+		return PriorityBlockingQueue::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -132,7 +132,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return PriorityBlockingQueue::lambda$retainAll$1(c, e);
+		return PriorityBlockingQueue::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -162,47 +162,47 @@ $Class* PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::load$($String* name,
 $Class* PriorityBlockingQueue$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
 
 $Object* PriorityBlockingQueue::remove() {
-	 return this->$AbstractQueue::remove();
+	return this->$AbstractQueue::remove();
 }
 
 $Object* PriorityBlockingQueue::element() {
-	 return this->$AbstractQueue::element();
+	return this->$AbstractQueue::element();
 }
 
 bool PriorityBlockingQueue::addAll($Collection* c) {
-	 return this->$AbstractQueue::addAll(c);
+	return this->$AbstractQueue::addAll(c);
 }
 
 bool PriorityBlockingQueue::isEmpty() {
-	 return this->$AbstractQueue::isEmpty();
+	return this->$AbstractQueue::isEmpty();
 }
 
 bool PriorityBlockingQueue::containsAll($Collection* c) {
-	 return this->$AbstractQueue::containsAll(c);
+	return this->$AbstractQueue::containsAll(c);
 }
 
 $ObjectArray* PriorityBlockingQueue::toArray($IntFunction* generator) {
-	 return this->$AbstractQueue::toArray(generator);
+	return this->$AbstractQueue::toArray(generator);
 }
 
 bool PriorityBlockingQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t PriorityBlockingQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Stream* PriorityBlockingQueue::stream() {
-	 return this->$AbstractQueue::stream();
+	return this->$AbstractQueue::stream();
 }
 
 $Stream* PriorityBlockingQueue::parallelStream() {
-	 return this->$AbstractQueue::parallelStream();
+	return this->$AbstractQueue::parallelStream();
 }
 
 $Object* PriorityBlockingQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void PriorityBlockingQueue::finalize() {

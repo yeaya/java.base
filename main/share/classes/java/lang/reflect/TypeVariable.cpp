@@ -16,19 +16,19 @@ namespace java {
 		namespace reflect {
 
 int32_t TypeVariable::hashCode() {
-	 return this->$Type::hashCode();
+	return this->$Type::hashCode();
 }
 
 bool TypeVariable::equals(Object$* obj) {
-	 return this->$Type::equals(obj);
+	return this->$Type::equals(obj);
 }
 
 $Object* TypeVariable::clone() {
-	 return this->$Type::clone();
+	return this->$Type::clone();
 }
 
 $String* TypeVariable::toString() {
-	 return this->$Type::toString();
+	return this->$Type::toString();
 }
 
 void TypeVariable::finalize() {

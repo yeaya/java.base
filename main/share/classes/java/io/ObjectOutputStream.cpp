@@ -108,19 +108,19 @@ namespace java {
 	namespace io {
 
 int32_t ObjectOutputStream::hashCode() {
-	 return this->$OutputStream::hashCode();
+	return this->$OutputStream::hashCode();
 }
 
 bool ObjectOutputStream::equals(Object$* obj) {
-	 return this->$OutputStream::equals(obj);
+	return this->$OutputStream::equals(obj);
 }
 
 $Object* ObjectOutputStream::clone() {
-	 return this->$OutputStream::clone();
+	return this->$OutputStream::clone();
 }
 
 $String* ObjectOutputStream::toString() {
-	 return this->$OutputStream::toString();
+	return this->$OutputStream::toString();
 }
 
 void ObjectOutputStream::finalize() {

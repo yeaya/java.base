@@ -13,7 +13,7 @@ namespace java {
 		namespace cert {
 
 $Object* CertSelector::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 $Class* CertSelector::load$($String* name, bool initialize) {

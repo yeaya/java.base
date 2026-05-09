@@ -44,7 +44,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return DatagramSocketAdaptor$DatagramPackets::lambda$static$0();
+		return DatagramSocketAdaptor$DatagramPackets::lambda$static$0();
 	}
 };
 $Class* DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

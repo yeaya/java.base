@@ -15,7 +15,7 @@ namespace java {
 	namespace util {
 
 bool LinkedHashMap$LinkedValueIterator::hasNext() {
-	 return this->$LinkedHashMap$LinkedHashIterator::hasNext();
+	return this->$LinkedHashMap$LinkedHashIterator::hasNext();
 }
 
 void LinkedHashMap$LinkedValueIterator::remove() {
@@ -23,19 +23,19 @@ void LinkedHashMap$LinkedValueIterator::remove() {
 }
 
 int32_t LinkedHashMap$LinkedValueIterator::hashCode() {
-	 return this->$LinkedHashMap$LinkedHashIterator::hashCode();
+	return this->$LinkedHashMap$LinkedHashIterator::hashCode();
 }
 
 bool LinkedHashMap$LinkedValueIterator::equals(Object$* obj) {
-	 return this->$LinkedHashMap$LinkedHashIterator::equals(obj);
+	return this->$LinkedHashMap$LinkedHashIterator::equals(obj);
 }
 
 $Object* LinkedHashMap$LinkedValueIterator::clone() {
-	 return this->$LinkedHashMap$LinkedHashIterator::clone();
+	return this->$LinkedHashMap$LinkedHashIterator::clone();
 }
 
 $String* LinkedHashMap$LinkedValueIterator::toString() {
-	 return this->$LinkedHashMap$LinkedHashIterator::toString();
+	return this->$LinkedHashMap$LinkedHashIterator::toString();
 }
 
 void LinkedHashMap$LinkedValueIterator::finalize() {

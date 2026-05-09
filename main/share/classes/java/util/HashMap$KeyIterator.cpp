@@ -15,7 +15,7 @@ namespace java {
 	namespace util {
 
 bool HashMap$KeyIterator::hasNext() {
-	 return this->$HashMap$HashIterator::hasNext();
+	return this->$HashMap$HashIterator::hasNext();
 }
 
 void HashMap$KeyIterator::remove() {
@@ -23,19 +23,19 @@ void HashMap$KeyIterator::remove() {
 }
 
 int32_t HashMap$KeyIterator::hashCode() {
-	 return this->$HashMap$HashIterator::hashCode();
+	return this->$HashMap$HashIterator::hashCode();
 }
 
 bool HashMap$KeyIterator::equals(Object$* obj) {
-	 return this->$HashMap$HashIterator::equals(obj);
+	return this->$HashMap$HashIterator::equals(obj);
 }
 
 $Object* HashMap$KeyIterator::clone() {
-	 return this->$HashMap$HashIterator::clone();
+	return this->$HashMap$HashIterator::clone();
 }
 
 $String* HashMap$KeyIterator::toString() {
-	 return this->$HashMap$HashIterator::toString();
+	return this->$HashMap$HashIterator::toString();
 }
 
 void HashMap$KeyIterator::finalize() {

@@ -38,7 +38,7 @@ namespace java {
 	namespace lang {
 
 $Object* Double::clone() {
-	 return this->$Number::clone();
+	return this->$Number::clone();
 }
 
 void Double::finalize() {

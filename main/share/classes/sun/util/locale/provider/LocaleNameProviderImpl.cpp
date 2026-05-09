@@ -24,19 +24,19 @@ namespace sun {
 			namespace provider {
 
 int32_t LocaleNameProviderImpl::hashCode() {
-	 return this->$LocaleNameProvider::hashCode();
+	return this->$LocaleNameProvider::hashCode();
 }
 
 bool LocaleNameProviderImpl::equals(Object$* obj) {
-	 return this->$LocaleNameProvider::equals(obj);
+	return this->$LocaleNameProvider::equals(obj);
 }
 
 $Object* LocaleNameProviderImpl::clone() {
-	 return this->$LocaleNameProvider::clone();
+	return this->$LocaleNameProvider::clone();
 }
 
 $String* LocaleNameProviderImpl::toString() {
-	 return this->$LocaleNameProvider::toString();
+	return this->$LocaleNameProvider::toString();
 }
 
 void LocaleNameProviderImpl::finalize() {

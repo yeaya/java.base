@@ -32,7 +32,7 @@ public:
 	void init$() {
 	}
 	virtual $String* convert($String* z) override {
-		 return RepetitiveLambdaSerialization::lambda$main$4db77a28$1(z);
+		return RepetitiveLambdaSerialization::lambda$main$4db77a28$1(z);
 	}
 };
 $Class* RepetitiveLambdaSerialization$$Lambda$lambda$main$4db77a28$1::load$($String* name, bool initialize) {

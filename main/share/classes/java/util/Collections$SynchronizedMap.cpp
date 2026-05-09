@@ -31,7 +31,7 @@ namespace java {
 	namespace util {
 
 $Object* Collections$SynchronizedMap::clone() {
-	 return this->$Map::clone();
+	return this->$Map::clone();
 }
 
 void Collections$SynchronizedMap::finalize() {

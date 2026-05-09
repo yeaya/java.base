@@ -23,7 +23,7 @@ namespace java {
 		namespace stream {
 
 bool MatchOps$2MatchSink::cancellationRequested() {
-	 return this->$MatchOps$BooleanTerminalSink::cancellationRequested();
+	return this->$MatchOps$BooleanTerminalSink::cancellationRequested();
 }
 
 void MatchOps$2MatchSink::begin(int64_t size) {
@@ -47,23 +47,23 @@ void MatchOps$2MatchSink::accept(Object$* t) {
 }
 
 $Consumer* MatchOps$2MatchSink::andThen($Consumer* after) {
-	 return this->$MatchOps$BooleanTerminalSink::andThen(after);
+	return this->$MatchOps$BooleanTerminalSink::andThen(after);
 }
 
 int32_t MatchOps$2MatchSink::hashCode() {
-	 return this->$MatchOps$BooleanTerminalSink::hashCode();
+	return this->$MatchOps$BooleanTerminalSink::hashCode();
 }
 
 bool MatchOps$2MatchSink::equals(Object$* obj) {
-	 return this->$MatchOps$BooleanTerminalSink::equals(obj);
+	return this->$MatchOps$BooleanTerminalSink::equals(obj);
 }
 
 $Object* MatchOps$2MatchSink::clone() {
-	 return this->$MatchOps$BooleanTerminalSink::clone();
+	return this->$MatchOps$BooleanTerminalSink::clone();
 }
 
 $String* MatchOps$2MatchSink::toString() {
-	 return this->$MatchOps$BooleanTerminalSink::toString();
+	return this->$MatchOps$BooleanTerminalSink::toString();
 }
 
 void MatchOps$2MatchSink::finalize() {

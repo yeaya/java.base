@@ -29,15 +29,15 @@ namespace java {
 	namespace util {
 
 bool Collections$AsLIFOQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t Collections$AsLIFOQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Object* Collections$AsLIFOQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void Collections$AsLIFOQueue::finalize() {

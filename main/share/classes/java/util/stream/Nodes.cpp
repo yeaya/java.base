@@ -137,7 +137,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t size) override {
-		 return Nodes::lambda$castingArray$0(size);
+		return Nodes::lambda$castingArray$0(size);
 	}
 };
 $Class* Nodes$$Lambda$lambda$castingArray$0::load$($String* name, bool initialize) {

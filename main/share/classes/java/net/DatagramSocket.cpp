@@ -77,7 +77,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DatagramSocket::lambda$usePlainDatagramSocketImpl$0());
+		return $of(DatagramSocket::lambda$usePlainDatagramSocketImpl$0());
 	}
 };
 $Class* DatagramSocket$$Lambda$lambda$usePlainDatagramSocketImpl$0::load$($String* name, bool initialize) {

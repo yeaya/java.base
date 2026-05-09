@@ -31,19 +31,19 @@ void OCSPNoCheckExtension::encode($OutputStream* out) {
 }
 
 $String* OCSPNoCheckExtension::toString() {
-	 return this->$Extension::toString();
+	return this->$Extension::toString();
 }
 
 int32_t OCSPNoCheckExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool OCSPNoCheckExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* OCSPNoCheckExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void OCSPNoCheckExtension::finalize() {

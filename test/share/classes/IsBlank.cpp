@@ -28,7 +28,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(int32_t c) override {
-		 return IsBlank::lambda$testWhitespace$0(c);
+		return IsBlank::lambda$testWhitespace$0(c);
 	}
 };
 $Class* IsBlank$$Lambda$lambda$testWhitespace$0::load$($String* name, bool initialize) {

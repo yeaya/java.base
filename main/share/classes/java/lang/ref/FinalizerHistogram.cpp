@@ -84,7 +84,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* inst$) override {
-		 return $sure($FinalizerHistogram$Entry, inst$)->getInstanceCount();
+		return $sure($FinalizerHistogram$Entry, inst$)->getInstanceCount();
 	}
 };
 $Class* FinalizerHistogram$$Lambda$getInstanceCount$1::load$($String* name, bool initialize) {
@@ -114,7 +114,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* className) override {
-		 return $new($FinalizerHistogram$Entry, $cast($String, className));
+		return $new($FinalizerHistogram$Entry, $cast($String, className));
 	}
 };
 $Class* FinalizerHistogram$$Lambda$Entry$2::load$($String* name, bool initialize) {

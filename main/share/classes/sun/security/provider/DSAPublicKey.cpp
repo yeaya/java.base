@@ -38,27 +38,27 @@ namespace sun {
 		namespace provider {
 
 $String* DSAPublicKey::getAlgorithm() {
-	 return this->$X509Key::getAlgorithm();
+	return this->$X509Key::getAlgorithm();
 }
 
 $bytes* DSAPublicKey::getEncoded() {
-	 return this->$X509Key::getEncoded();
+	return this->$X509Key::getEncoded();
 }
 
 $String* DSAPublicKey::getFormat() {
-	 return this->$X509Key::getFormat();
+	return this->$X509Key::getFormat();
 }
 
 bool DSAPublicKey::equals(Object$* obj) {
-	 return this->$X509Key::equals(obj);
+	return this->$X509Key::equals(obj);
 }
 
 int32_t DSAPublicKey::hashCode() {
-	 return this->$X509Key::hashCode();
+	return this->$X509Key::hashCode();
 }
 
 $Object* DSAPublicKey::clone() {
-	 return this->$X509Key::clone();
+	return this->$X509Key::clone();
 }
 
 void DSAPublicKey::finalize() {

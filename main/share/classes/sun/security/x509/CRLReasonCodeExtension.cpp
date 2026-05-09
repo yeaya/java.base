@@ -36,15 +36,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t CRLReasonCodeExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool CRLReasonCodeExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* CRLReasonCodeExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void CRLReasonCodeExtension::finalize() {

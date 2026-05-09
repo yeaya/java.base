@@ -27,7 +27,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Transform::lambda$test1$0($cast($String, s)));
+		return $of(Transform::lambda$test1$0($cast($String, s)));
 	}
 };
 $Class* Transform$$Lambda$lambda$test1$0::load$($String* name, bool initialize) {
@@ -57,7 +57,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Transform::lambda$test1$1($cast($String, s)));
+		return $of(Transform::lambda$test1$1($cast($String, s)));
 	}
 };
 $Class* Transform$$Lambda$lambda$test1$1$1::load$($String* name, bool initialize) {
@@ -87,7 +87,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Transform::lambda$test1$2($cast($String, s)));
+		return $of(Transform::lambda$test1$2($cast($String, s)));
 	}
 };
 $Class* Transform$$Lambda$lambda$test1$2$2::load$($String* name, bool initialize) {
@@ -117,7 +117,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* string) override {
-		 return $of(Transform::lambda$test1$5($cast($String, string)));
+		return $of(Transform::lambda$test1$5($cast($String, string)));
 	}
 };
 $Class* Transform$$Lambda$lambda$test1$5$3::load$($String* name, bool initialize) {
@@ -147,7 +147,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Transform::lambda$test1$4($cast($String, s)));
+		return $of(Transform::lambda$test1$4($cast($String, s)));
 	}
 };
 $Class* Transform$$Lambda$lambda$test1$4$4::load$($String* name, bool initialize) {
@@ -177,7 +177,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* t) override {
-		 return $of(Transform::lambda$test1$3($cast($String, t)));
+		return $of(Transform::lambda$test1$3($cast($String, t)));
 	}
 };
 $Class* Transform$$Lambda$lambda$test1$3$5::load$($String* name, bool initialize) {

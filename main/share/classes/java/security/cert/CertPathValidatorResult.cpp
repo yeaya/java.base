@@ -11,7 +11,7 @@ namespace java {
 		namespace cert {
 
 $Object* CertPathValidatorResult::clone() {
-	 return this->$Cloneable::clone();
+	return this->$Cloneable::clone();
 }
 
 $Class* CertPathValidatorResult::load$($String* name, bool initialize) {

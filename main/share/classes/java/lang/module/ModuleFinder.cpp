@@ -49,7 +49,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $SystemModuleFinders::ofSystem();
+		return $SystemModuleFinders::ofSystem();
 	}
 };
 $Class* ModuleFinder$$Lambda$ofSystem::load$($String* name, bool initialize) {

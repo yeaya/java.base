@@ -64,7 +64,7 @@ namespace java {
 		namespace chrono {
 
 $Object* ChronoZonedDateTimeImpl::clone() {
-	 return this->$ChronoZonedDateTime::clone();
+	return this->$ChronoZonedDateTime::clone();
 }
 
 void ChronoZonedDateTimeImpl::finalize() {

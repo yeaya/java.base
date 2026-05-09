@@ -25,19 +25,19 @@ namespace java {
 	namespace util {
 
 int32_t Hashtable$Enumerator::hashCode() {
-	 return this->$Enumeration::hashCode();
+	return this->$Enumeration::hashCode();
 }
 
 bool Hashtable$Enumerator::equals(Object$* obj) {
-	 return this->$Enumeration::equals(obj);
+	return this->$Enumeration::equals(obj);
 }
 
 $Object* Hashtable$Enumerator::clone() {
-	 return this->$Enumeration::clone();
+	return this->$Enumeration::clone();
 }
 
 $String* Hashtable$Enumerator::toString() {
-	 return this->$Enumeration::toString();
+	return this->$Enumeration::toString();
 }
 
 void Hashtable$Enumerator::finalize() {

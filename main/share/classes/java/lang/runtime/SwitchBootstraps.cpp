@@ -90,7 +90,7 @@ public:
 		this->enumClass = enumClass;
 	}
 	virtual $Object* apply(Object$* l) override {
-		 return SwitchBootstraps::lambda$enumSwitch$0(lookup, enumClass, l);
+		return SwitchBootstraps::lambda$enumSwitch$0(lookup, enumClass, l);
 	}
 	$MethodHandles$Lookup* lookup = nullptr;
 	$Class* enumClass = nullptr;

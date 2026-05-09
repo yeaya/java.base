@@ -81,15 +81,15 @@ namespace java {
 		namespace chrono {
 
 bool Chronology::equals(Object$* obj) {
-	 return this->$Comparable::equals(obj);
+	return this->$Comparable::equals(obj);
 }
 
 int32_t Chronology::hashCode() {
-	 return this->$Comparable::hashCode();
+	return this->$Comparable::hashCode();
 }
 
 $String* Chronology::toString() {
-	 return this->$Comparable::toString();
+	return this->$Comparable::toString();
 }
 
 Chronology* Chronology::from($TemporalAccessor* temporal) {

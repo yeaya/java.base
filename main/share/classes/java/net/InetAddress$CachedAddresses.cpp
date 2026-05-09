@@ -19,19 +19,19 @@ namespace java {
 	namespace net {
 
 int32_t InetAddress$CachedAddresses::hashCode() {
-	 return this->$InetAddress$Addresses::hashCode();
+	return this->$InetAddress$Addresses::hashCode();
 }
 
 bool InetAddress$CachedAddresses::equals(Object$* obj) {
-	 return this->$InetAddress$Addresses::equals(obj);
+	return this->$InetAddress$Addresses::equals(obj);
 }
 
 $Object* InetAddress$CachedAddresses::clone() {
-	 return this->$InetAddress$Addresses::clone();
+	return this->$InetAddress$Addresses::clone();
 }
 
 $String* InetAddress$CachedAddresses::toString() {
-	 return this->$InetAddress$Addresses::toString();
+	return this->$InetAddress$Addresses::toString();
 }
 
 void InetAddress$CachedAddresses::finalize() {

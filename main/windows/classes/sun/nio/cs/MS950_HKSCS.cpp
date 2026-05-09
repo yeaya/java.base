@@ -26,19 +26,19 @@ namespace sun {
 		namespace cs {
 
 int32_t MS950_HKSCS::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool MS950_HKSCS::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* MS950_HKSCS::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* MS950_HKSCS::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void MS950_HKSCS::finalize() {

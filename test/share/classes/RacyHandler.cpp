@@ -113,7 +113,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $URLStreamHandler* createURLStreamHandler($String* proto) override {
-		 return $nc(inst$)->lambda$runTest$0(proto);
+		return $nc(inst$)->lambda$runTest$0(proto);
 	}
 	RacyHandler* inst$ = nullptr;
 };

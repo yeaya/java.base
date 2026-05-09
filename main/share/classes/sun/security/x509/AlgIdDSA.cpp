@@ -27,15 +27,15 @@ namespace sun {
 		namespace x509 {
 
 bool AlgIdDSA::equals(Object$* other) {
-	 return this->$AlgorithmId::equals(other);
+	return this->$AlgorithmId::equals(other);
 }
 
 int32_t AlgIdDSA::hashCode() {
-	 return this->$AlgorithmId::hashCode();
+	return this->$AlgorithmId::hashCode();
 }
 
 $Object* AlgIdDSA::clone() {
-	 return this->$AlgorithmId::clone();
+	return this->$AlgorithmId::clone();
 }
 
 void AlgIdDSA::finalize() {

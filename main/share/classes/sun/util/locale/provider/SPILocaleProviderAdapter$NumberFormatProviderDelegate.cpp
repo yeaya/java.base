@@ -31,19 +31,19 @@ namespace sun {
 			namespace provider {
 
 int32_t SPILocaleProviderAdapter$NumberFormatProviderDelegate::hashCode() {
-	 return this->$NumberFormatProvider::hashCode();
+	return this->$NumberFormatProvider::hashCode();
 }
 
 bool SPILocaleProviderAdapter$NumberFormatProviderDelegate::equals(Object$* obj) {
-	 return this->$NumberFormatProvider::equals(obj);
+	return this->$NumberFormatProvider::equals(obj);
 }
 
 $Object* SPILocaleProviderAdapter$NumberFormatProviderDelegate::clone() {
-	 return this->$NumberFormatProvider::clone();
+	return this->$NumberFormatProvider::clone();
 }
 
 $String* SPILocaleProviderAdapter$NumberFormatProviderDelegate::toString() {
-	 return this->$NumberFormatProvider::toString();
+	return this->$NumberFormatProvider::toString();
 }
 
 void SPILocaleProviderAdapter$NumberFormatProviderDelegate::finalize() {

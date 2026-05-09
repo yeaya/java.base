@@ -68,7 +68,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* bb) override {
-		 return $nc(inst$)->toInputStream($cast($ByteBuffer, bb));
+		return $nc(inst$)->toInputStream($cast($ByteBuffer, bb));
 	}
 	SystemModuleFinders$SystemModuleReader* inst$ = nullptr;
 };

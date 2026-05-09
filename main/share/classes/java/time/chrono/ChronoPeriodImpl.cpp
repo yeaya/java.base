@@ -61,7 +61,7 @@ namespace java {
 		namespace chrono {
 
 $Object* ChronoPeriodImpl::clone() {
-	 return this->$ChronoPeriod::clone();
+	return this->$ChronoPeriod::clone();
 }
 
 void ChronoPeriodImpl::finalize() {

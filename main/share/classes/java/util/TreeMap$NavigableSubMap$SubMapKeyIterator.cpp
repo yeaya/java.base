@@ -29,19 +29,19 @@ namespace java {
 	namespace util {
 
 int32_t TreeMap$NavigableSubMap$SubMapKeyIterator::hashCode() {
-	 return this->$TreeMap$NavigableSubMap$SubMapIterator::hashCode();
+	return this->$TreeMap$NavigableSubMap$SubMapIterator::hashCode();
 }
 
 bool TreeMap$NavigableSubMap$SubMapKeyIterator::equals(Object$* obj) {
-	 return this->$TreeMap$NavigableSubMap$SubMapIterator::equals(obj);
+	return this->$TreeMap$NavigableSubMap$SubMapIterator::equals(obj);
 }
 
 $Object* TreeMap$NavigableSubMap$SubMapKeyIterator::clone() {
-	 return this->$TreeMap$NavigableSubMap$SubMapIterator::clone();
+	return this->$TreeMap$NavigableSubMap$SubMapIterator::clone();
 }
 
 $String* TreeMap$NavigableSubMap$SubMapKeyIterator::toString() {
-	 return this->$TreeMap$NavigableSubMap$SubMapIterator::toString();
+	return this->$TreeMap$NavigableSubMap$SubMapIterator::toString();
 }
 
 void TreeMap$NavigableSubMap$SubMapKeyIterator::finalize() {

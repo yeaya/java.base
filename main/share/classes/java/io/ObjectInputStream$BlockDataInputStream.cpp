@@ -41,19 +41,19 @@ namespace java {
 	namespace io {
 
 int32_t ObjectInputStream$BlockDataInputStream::hashCode() {
-	 return this->$InputStream::hashCode();
+	return this->$InputStream::hashCode();
 }
 
 bool ObjectInputStream$BlockDataInputStream::equals(Object$* obj) {
-	 return this->$InputStream::equals(obj);
+	return this->$InputStream::equals(obj);
 }
 
 $Object* ObjectInputStream$BlockDataInputStream::clone() {
-	 return this->$InputStream::clone();
+	return this->$InputStream::clone();
 }
 
 $String* ObjectInputStream$BlockDataInputStream::toString() {
-	 return this->$InputStream::toString();
+	return this->$InputStream::toString();
 }
 
 void ObjectInputStream$BlockDataInputStream::finalize() {

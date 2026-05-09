@@ -76,19 +76,19 @@ $Class* StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemaining$0
 $Class* StreamSpliterators$DistinctSpliterator$$Lambda$lambda$forEachRemaining$0::class$ = nullptr;
 
 int32_t StreamSpliterators$DistinctSpliterator::hashCode() {
-	 return this->$Spliterator::hashCode();
+	return this->$Spliterator::hashCode();
 }
 
 bool StreamSpliterators$DistinctSpliterator::equals(Object$* obj) {
-	 return this->$Spliterator::equals(obj);
+	return this->$Spliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$DistinctSpliterator::clone() {
-	 return this->$Spliterator::clone();
+	return this->$Spliterator::clone();
 }
 
 $String* StreamSpliterators$DistinctSpliterator::toString() {
-	 return this->$Spliterator::toString();
+	return this->$Spliterator::toString();
 }
 
 void StreamSpliterators$DistinctSpliterator::finalize() {

@@ -31,27 +31,27 @@ void Nodes$DoubleSpinedNodeBuilder::forEach($Consumer* consumer) {
 }
 
 $Object* Nodes$DoubleSpinedNodeBuilder::newArray(int32_t size) {
-	 return this->$SpinedBuffer$OfDouble::newArray(size);
+	return this->$SpinedBuffer$OfDouble::newArray(size);
 }
 
 $String* Nodes$DoubleSpinedNodeBuilder::toString() {
-	 return this->$SpinedBuffer$OfDouble::toString();
+	return this->$SpinedBuffer$OfDouble::toString();
 }
 
 int64_t Nodes$DoubleSpinedNodeBuilder::count() {
-	 return this->$SpinedBuffer$OfDouble::count();
+	return this->$SpinedBuffer$OfDouble::count();
 }
 
 int32_t Nodes$DoubleSpinedNodeBuilder::hashCode() {
-	 return this->$SpinedBuffer$OfDouble::hashCode();
+	return this->$SpinedBuffer$OfDouble::hashCode();
 }
 
 bool Nodes$DoubleSpinedNodeBuilder::equals(Object$* obj) {
-	 return this->$SpinedBuffer$OfDouble::equals(obj);
+	return this->$SpinedBuffer$OfDouble::equals(obj);
 }
 
 $Object* Nodes$DoubleSpinedNodeBuilder::clone() {
-	 return this->$SpinedBuffer$OfDouble::clone();
+	return this->$SpinedBuffer$OfDouble::clone();
 }
 
 void Nodes$DoubleSpinedNodeBuilder::finalize() {
@@ -59,7 +59,7 @@ void Nodes$DoubleSpinedNodeBuilder::finalize() {
 }
 
 $DoubleConsumer* Nodes$DoubleSpinedNodeBuilder::andThen($DoubleConsumer* after) {
-	 return this->$SpinedBuffer$OfDouble::andThen(after);
+	return this->$SpinedBuffer$OfDouble::andThen(after);
 }
 
 bool Nodes$DoubleSpinedNodeBuilder::$assertionsDisabled = false;

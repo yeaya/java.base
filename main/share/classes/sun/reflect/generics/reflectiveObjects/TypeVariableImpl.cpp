@@ -58,7 +58,7 @@ namespace sun {
 			namespace reflectiveObjects {
 
 $Object* TypeVariableImpl::clone() {
-	 return this->$LazyReflectiveObjectGenerator::clone();
+	return this->$LazyReflectiveObjectGenerator::clone();
 }
 
 void TypeVariableImpl::finalize() {

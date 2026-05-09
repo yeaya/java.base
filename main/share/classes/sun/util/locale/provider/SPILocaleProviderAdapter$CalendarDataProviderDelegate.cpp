@@ -27,19 +27,19 @@ namespace sun {
 			namespace provider {
 
 int32_t SPILocaleProviderAdapter$CalendarDataProviderDelegate::hashCode() {
-	 return this->$CalendarDataProvider::hashCode();
+	return this->$CalendarDataProvider::hashCode();
 }
 
 bool SPILocaleProviderAdapter$CalendarDataProviderDelegate::equals(Object$* obj) {
-	 return this->$CalendarDataProvider::equals(obj);
+	return this->$CalendarDataProvider::equals(obj);
 }
 
 $Object* SPILocaleProviderAdapter$CalendarDataProviderDelegate::clone() {
-	 return this->$CalendarDataProvider::clone();
+	return this->$CalendarDataProvider::clone();
 }
 
 $String* SPILocaleProviderAdapter$CalendarDataProviderDelegate::toString() {
-	 return this->$CalendarDataProvider::toString();
+	return this->$CalendarDataProvider::toString();
 }
 
 void SPILocaleProviderAdapter$CalendarDataProviderDelegate::finalize() {

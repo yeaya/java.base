@@ -24,7 +24,7 @@ namespace java {
 	namespace lang {
 
 $Object* Boolean::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void Boolean::finalize() {

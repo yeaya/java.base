@@ -41,15 +41,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t InhibitAnyPolicyExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool InhibitAnyPolicyExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* InhibitAnyPolicyExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void InhibitAnyPolicyExtension::finalize() {

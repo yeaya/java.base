@@ -33,15 +33,15 @@ namespace java {
 	namespace security {
 
 $String* MessageDigest$Delegate::toString() {
-	 return this->$MessageDigest::toString();
+	return this->$MessageDigest::toString();
 }
 
 int32_t MessageDigest$Delegate::hashCode() {
-	 return this->$MessageDigest::hashCode();
+	return this->$MessageDigest::hashCode();
 }
 
 bool MessageDigest$Delegate::equals(Object$* obj) {
-	 return this->$MessageDigest::equals(obj);
+	return this->$MessageDigest::equals(obj);
 }
 
 void MessageDigest$Delegate::finalize() {

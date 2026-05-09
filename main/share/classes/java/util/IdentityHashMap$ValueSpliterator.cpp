@@ -22,23 +22,23 @@ namespace java {
 	namespace util {
 
 int64_t IdentityHashMap$ValueSpliterator::estimateSize() {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::estimateSize();
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::estimateSize();
 }
 
 int32_t IdentityHashMap$ValueSpliterator::hashCode() {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::hashCode();
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::hashCode();
 }
 
 bool IdentityHashMap$ValueSpliterator::equals(Object$* obj) {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::equals(obj);
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::equals(obj);
 }
 
 $Object* IdentityHashMap$ValueSpliterator::clone() {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::clone();
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::clone();
 }
 
 $String* IdentityHashMap$ValueSpliterator::toString() {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::toString();
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::toString();
 }
 
 void IdentityHashMap$ValueSpliterator::finalize() {

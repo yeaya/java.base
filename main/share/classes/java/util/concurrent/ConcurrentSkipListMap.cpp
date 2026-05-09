@@ -114,11 +114,11 @@ void ConcurrentSkipListMap::putAll($Map* m) {
 }
 
 int32_t ConcurrentSkipListMap::hashCode() {
-	 return this->$AbstractMap::hashCode();
+	return this->$AbstractMap::hashCode();
 }
 
 $String* ConcurrentSkipListMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 void ConcurrentSkipListMap::finalize() {

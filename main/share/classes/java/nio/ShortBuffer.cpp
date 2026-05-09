@@ -54,7 +54,7 @@ namespace java {
 	namespace nio {
 
 $Object* ShortBuffer::clone() {
-	 return this->$Buffer::clone();
+	return this->$Buffer::clone();
 }
 
 void ShortBuffer::finalize() {

@@ -52,7 +52,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* strval) override {
-		 return $of($CgroupV1SubsystemController::convertStringToLong($cast($String, strval)));
+		return $of($CgroupV1SubsystemController::convertStringToLong($cast($String, strval)));
 	}
 };
 $Class* CgroupV1Subsystem$$Lambda$convertStringToLong::load$($String* name, bool initialize) {
@@ -77,19 +77,19 @@ $Class* CgroupV1Subsystem$$Lambda$convertStringToLong::load$($String* name, bool
 $Class* CgroupV1Subsystem$$Lambda$convertStringToLong::class$ = nullptr;
 
 int32_t CgroupV1Subsystem::hashCode() {
-	 return this->$CgroupSubsystem::hashCode();
+	return this->$CgroupSubsystem::hashCode();
 }
 
 bool CgroupV1Subsystem::equals(Object$* obj) {
-	 return this->$CgroupSubsystem::equals(obj);
+	return this->$CgroupSubsystem::equals(obj);
 }
 
 $Object* CgroupV1Subsystem::clone() {
-	 return this->$CgroupSubsystem::clone();
+	return this->$CgroupSubsystem::clone();
 }
 
 $String* CgroupV1Subsystem::toString() {
-	 return this->$CgroupSubsystem::toString();
+	return this->$CgroupSubsystem::toString();
 }
 
 void CgroupV1Subsystem::finalize() {

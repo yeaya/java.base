@@ -57,15 +57,15 @@ namespace java {
 	namespace util {
 
 int32_t TimeZone::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool TimeZone::equals(Object$* obj) {
-	 return this->$Serializable::equals(obj);
+	return this->$Serializable::equals(obj);
 }
 
 $String* TimeZone::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void TimeZone::finalize() {

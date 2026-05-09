@@ -16,19 +16,19 @@ namespace java {
 	namespace util {
 
 bool Collections$CheckedRandomAccessList::equals(Object$* o) {
-	 return this->$Collections$CheckedList::equals(o);
+	return this->$Collections$CheckedList::equals(o);
 }
 
 int32_t Collections$CheckedRandomAccessList::hashCode() {
-	 return this->$Collections$CheckedList::hashCode();
+	return this->$Collections$CheckedList::hashCode();
 }
 
 $String* Collections$CheckedRandomAccessList::toString() {
-	 return this->$Collections$CheckedList::toString();
+	return this->$Collections$CheckedList::toString();
 }
 
 $Object* Collections$CheckedRandomAccessList::clone() {
-	 return this->$Collections$CheckedList::clone();
+	return this->$Collections$CheckedList::clone();
 }
 
 void Collections$CheckedRandomAccessList::finalize() {

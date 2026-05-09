@@ -86,19 +86,19 @@ namespace jdk {
 						namespace analysis {
 
 int32_t SourceInterpreter::hashCode() {
-	 return this->$Interpreter::hashCode();
+	return this->$Interpreter::hashCode();
 }
 
 bool SourceInterpreter::equals(Object$* obj) {
-	 return this->$Interpreter::equals(obj);
+	return this->$Interpreter::equals(obj);
 }
 
 $Object* SourceInterpreter::clone() {
-	 return this->$Interpreter::clone();
+	return this->$Interpreter::clone();
 }
 
 $String* SourceInterpreter::toString() {
-	 return this->$Interpreter::toString();
+	return this->$Interpreter::toString();
 }
 
 void SourceInterpreter::finalize() {

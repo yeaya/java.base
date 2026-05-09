@@ -67,7 +67,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return SliceOps$3::lambda$opEvaluateParallelLazy$0(x$0);
+		return SliceOps$3::lambda$opEvaluateParallelLazy$0(x$0);
 	}
 };
 $Class* SliceOps$3$$Lambda$lambda$opEvaluateParallelLazy$0::load$($String* name, bool initialize) {

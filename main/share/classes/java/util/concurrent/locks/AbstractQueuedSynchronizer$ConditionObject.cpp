@@ -42,19 +42,19 @@ namespace java {
 			namespace locks {
 
 int32_t AbstractQueuedSynchronizer$ConditionObject::hashCode() {
-	 return this->$Condition::hashCode();
+	return this->$Condition::hashCode();
 }
 
 bool AbstractQueuedSynchronizer$ConditionObject::equals(Object$* obj) {
-	 return this->$Condition::equals(obj);
+	return this->$Condition::equals(obj);
 }
 
 $Object* AbstractQueuedSynchronizer$ConditionObject::clone() {
-	 return this->$Condition::clone();
+	return this->$Condition::clone();
 }
 
 $String* AbstractQueuedSynchronizer$ConditionObject::toString() {
-	 return this->$Condition::toString();
+	return this->$Condition::toString();
 }
 
 void AbstractQueuedSynchronizer$ConditionObject::finalize() {

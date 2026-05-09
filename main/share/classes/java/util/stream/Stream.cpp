@@ -119,7 +119,7 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return Stream::lambda$mapMulti$0(mapper, e);
+		return Stream::lambda$mapMulti$0(mapper, e);
 	}
 	$BiConsumer* mapper = nullptr;
 };
@@ -155,7 +155,7 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return Stream::lambda$mapMultiToInt$1(mapper, e);
+		return Stream::lambda$mapMultiToInt$1(mapper, e);
 	}
 	$BiConsumer* mapper = nullptr;
 };
@@ -191,7 +191,7 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return Stream::lambda$mapMultiToLong$2(mapper, e);
+		return Stream::lambda$mapMultiToLong$2(mapper, e);
 	}
 	$BiConsumer* mapper = nullptr;
 };
@@ -227,7 +227,7 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return Stream::lambda$mapMultiToDouble$3(mapper, e);
+		return Stream::lambda$mapMultiToDouble$3(mapper, e);
 	}
 	$BiConsumer* mapper = nullptr;
 };

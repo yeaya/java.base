@@ -265,7 +265,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t cp) override {
-		 return Pattern::lambda$VertWS$1(cp);
+		return Pattern::lambda$VertWS$1(cp);
 	}
 };
 $Class* Pattern$$Lambda$lambda$VertWS$1$1::load$($String* name, bool initialize) {
@@ -295,7 +295,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t cp) override {
-		 return Pattern::lambda$HorizWS$2(cp);
+		return Pattern::lambda$HorizWS$2(cp);
 	}
 };
 $Class* Pattern$$Lambda$lambda$HorizWS$2$2::load$($String* name, bool initialize) {
@@ -325,7 +325,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$ALL$3(ch);
+		return Pattern::lambda$ALL$3(ch);
 	}
 };
 $Class* Pattern$$Lambda$lambda$ALL$3$3::load$($String* name, bool initialize) {
@@ -355,7 +355,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$DOT$4(ch);
+		return Pattern::lambda$DOT$4(ch);
 	}
 };
 $Class* Pattern$$Lambda$lambda$DOT$4$4::load$($String* name, bool initialize) {
@@ -385,7 +385,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$UNIXDOT$5(ch);
+		return Pattern::lambda$UNIXDOT$5(ch);
 	}
 };
 $Class* Pattern$$Lambda$lambda$UNIXDOT$5$5::load$($String* name, bool initialize) {
@@ -416,7 +416,7 @@ public:
 		this->c = c;
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$SingleS$6(c, ch);
+		return Pattern::lambda$SingleS$6(c, ch);
 	}
 	int32_t c = 0;
 };
@@ -453,7 +453,7 @@ public:
 		this->upper = upper;
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$SingleI$8(lower, upper, ch);
+		return Pattern::lambda$SingleI$8(lower, upper, ch);
 	}
 	int32_t lower = 0;
 	int32_t upper = 0;
@@ -491,7 +491,7 @@ public:
 		this->lower = lower;
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$SingleU$9(lower, ch);
+		return Pattern::lambda$SingleU$9(lower, ch);
 	}
 	int32_t lower = 0;
 };
@@ -528,7 +528,7 @@ public:
 		this->upper = upper;
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$Range$10(lower, upper, ch);
+		return Pattern::lambda$Range$10(lower, upper, ch);
 	}
 	int32_t lower = 0;
 	int32_t upper = 0;
@@ -567,7 +567,7 @@ public:
 		this->upper = upper;
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$CIRange$12(lower, upper, ch);
+		return Pattern::lambda$CIRange$12(lower, upper, ch);
 	}
 	int32_t lower = 0;
 	int32_t upper = 0;
@@ -606,7 +606,7 @@ public:
 		this->upper = upper;
 	}
 	virtual bool is(int32_t ch) override {
-		 return Pattern::lambda$CIRangeU$13(lower, upper, ch);
+		return Pattern::lambda$CIRangeU$13(lower, upper, ch);
 	}
 	int32_t lower = 0;
 	int32_t upper = 0;
@@ -644,7 +644,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* s) override {
-		 return $nc(inst$)->lambda$asPredicate$14($cast($String, s));
+		return $nc(inst$)->lambda$asPredicate$14($cast($String, s));
 	}
 	Pattern* inst$ = nullptr;
 };
@@ -680,7 +680,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* s) override {
-		 return $nc(inst$)->lambda$asMatchPredicate$15($cast($String, s));
+		return $nc(inst$)->lambda$asMatchPredicate$15($cast($String, s));
 	}
 	Pattern* inst$ = nullptr;
 };

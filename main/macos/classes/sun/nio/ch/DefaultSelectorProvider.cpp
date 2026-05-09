@@ -33,7 +33,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $new($KQueueSelectorProvider);
+		return $new($KQueueSelectorProvider);
 	}
 };
 $Class* DefaultSelectorProvider$$Lambda$KQueueSelectorProvider::load$($String* name, bool initialize) {

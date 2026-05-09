@@ -132,15 +132,15 @@ namespace java {
 		namespace concurrent {
 
 int32_t CompletableFuture::hashCode() {
-	 return this->$Future::hashCode();
+	return this->$Future::hashCode();
 }
 
 bool CompletableFuture::equals(Object$* obj) {
-	 return this->$Future::equals(obj);
+	return this->$Future::equals(obj);
 }
 
 $Object* CompletableFuture::clone() {
-	 return this->$Future::clone();
+	return this->$Future::clone();
 }
 
 void CompletableFuture::finalize() {

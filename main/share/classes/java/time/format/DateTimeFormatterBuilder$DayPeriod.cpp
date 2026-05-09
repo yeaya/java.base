@@ -73,7 +73,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* dp1, Object$* dp2) override {
-		 return DateTimeFormatterBuilder$DayPeriod::lambda$static$0($cast(DateTimeFormatterBuilder$DayPeriod, dp1), $cast(DateTimeFormatterBuilder$DayPeriod, dp2));
+		return DateTimeFormatterBuilder$DayPeriod::lambda$static$0($cast(DateTimeFormatterBuilder$DayPeriod, dp1), $cast(DateTimeFormatterBuilder$DayPeriod, dp2));
 	}
 };
 $Class* DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -103,7 +103,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* l) override {
-		 return DateTimeFormatterBuilder$DayPeriod::lambda$getDayPeriodMap$2($cast($Locale, l));
+		return DateTimeFormatterBuilder$DayPeriod::lambda$getDayPeriodMap$2($cast($Locale, l));
 	}
 };
 $Class* DateTimeFormatterBuilder$DayPeriod$$Lambda$lambda$getDayPeriodMap$2$1::load$($String* name, bool initialize) {
@@ -134,7 +134,7 @@ public:
 		this->index = index;
 	}
 	virtual bool test(Object$* dp) override {
-		 return DateTimeFormatterBuilder$DayPeriod::lambda$ofLocale$3(index, $cast(DateTimeFormatterBuilder$DayPeriod, dp));
+		return DateTimeFormatterBuilder$DayPeriod::lambda$ofLocale$3(index, $cast(DateTimeFormatterBuilder$DayPeriod, dp));
 	}
 	int64_t index = 0;
 };
@@ -171,7 +171,7 @@ public:
 		this->index = index;
 	}
 	virtual $Object* get() override {
-		 return DateTimeFormatterBuilder$DayPeriod::lambda$ofLocale$4(locale, index);
+		return DateTimeFormatterBuilder$DayPeriod::lambda$ofLocale$4(locale, index);
 	}
 	$Locale* locale = nullptr;
 	int64_t index = 0;

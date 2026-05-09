@@ -39,27 +39,27 @@ namespace java {
 	namespace util {
 
 int32_t Collections$CheckedNavigableMap::size() {
-	 return this->$Collections$CheckedSortedMap::size();
+	return this->$Collections$CheckedSortedMap::size();
 }
 
 bool Collections$CheckedNavigableMap::isEmpty() {
-	 return this->$Collections$CheckedSortedMap::isEmpty();
+	return this->$Collections$CheckedSortedMap::isEmpty();
 }
 
 bool Collections$CheckedNavigableMap::containsKey(Object$* key) {
-	 return this->$Collections$CheckedSortedMap::containsKey(key);
+	return this->$Collections$CheckedSortedMap::containsKey(key);
 }
 
 bool Collections$CheckedNavigableMap::containsValue(Object$* v) {
-	 return this->$Collections$CheckedSortedMap::containsValue(v);
+	return this->$Collections$CheckedSortedMap::containsValue(v);
 }
 
 $Object* Collections$CheckedNavigableMap::get(Object$* key) {
-	 return this->$Collections$CheckedSortedMap::get(key);
+	return this->$Collections$CheckedSortedMap::get(key);
 }
 
 $Object* Collections$CheckedNavigableMap::remove(Object$* key) {
-	 return this->$Collections$CheckedSortedMap::remove(key);
+	return this->$Collections$CheckedSortedMap::remove(key);
 }
 
 void Collections$CheckedNavigableMap::clear() {
@@ -67,23 +67,23 @@ void Collections$CheckedNavigableMap::clear() {
 }
 
 $Collection* Collections$CheckedNavigableMap::values() {
-	 return this->$Collections$CheckedSortedMap::values();
+	return this->$Collections$CheckedSortedMap::values();
 }
 
 bool Collections$CheckedNavigableMap::equals(Object$* o) {
-	 return this->$Collections$CheckedSortedMap::equals(o);
+	return this->$Collections$CheckedSortedMap::equals(o);
 }
 
 int32_t Collections$CheckedNavigableMap::hashCode() {
-	 return this->$Collections$CheckedSortedMap::hashCode();
+	return this->$Collections$CheckedSortedMap::hashCode();
 }
 
 $String* Collections$CheckedNavigableMap::toString() {
-	 return this->$Collections$CheckedSortedMap::toString();
+	return this->$Collections$CheckedSortedMap::toString();
 }
 
 $Object* Collections$CheckedNavigableMap::put(Object$* key, Object$* value) {
-	 return this->$Collections$CheckedSortedMap::put(key, value);
+	return this->$Collections$CheckedSortedMap::put(key, value);
 }
 
 void Collections$CheckedNavigableMap::putAll($Map* t) {
@@ -91,7 +91,7 @@ void Collections$CheckedNavigableMap::putAll($Map* t) {
 }
 
 $Set* Collections$CheckedNavigableMap::entrySet() {
-	 return this->$Collections$CheckedSortedMap::entrySet();
+	return this->$Collections$CheckedSortedMap::entrySet();
 }
 
 void Collections$CheckedNavigableMap::forEach($BiConsumer* action) {
@@ -103,43 +103,43 @@ void Collections$CheckedNavigableMap::replaceAll($BiFunction* function) {
 }
 
 $Object* Collections$CheckedNavigableMap::putIfAbsent(Object$* key, Object$* value) {
-	 return this->$Collections$CheckedSortedMap::putIfAbsent(key, value);
+	return this->$Collections$CheckedSortedMap::putIfAbsent(key, value);
 }
 
 bool Collections$CheckedNavigableMap::remove(Object$* key, Object$* value) {
-	 return this->$Collections$CheckedSortedMap::remove(key, value);
+	return this->$Collections$CheckedSortedMap::remove(key, value);
 }
 
 bool Collections$CheckedNavigableMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	 return this->$Collections$CheckedSortedMap::replace(key, oldValue, newValue);
+	return this->$Collections$CheckedSortedMap::replace(key, oldValue, newValue);
 }
 
 $Object* Collections$CheckedNavigableMap::replace(Object$* key, Object$* value) {
-	 return this->$Collections$CheckedSortedMap::replace(key, value);
+	return this->$Collections$CheckedSortedMap::replace(key, value);
 }
 
 $Object* Collections$CheckedNavigableMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	 return this->$Collections$CheckedSortedMap::computeIfAbsent(key, mappingFunction);
+	return this->$Collections$CheckedSortedMap::computeIfAbsent(key, mappingFunction);
 }
 
 $Object* Collections$CheckedNavigableMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$CheckedSortedMap::computeIfPresent(key, remappingFunction);
+	return this->$Collections$CheckedSortedMap::computeIfPresent(key, remappingFunction);
 }
 
 $Object* Collections$CheckedNavigableMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$CheckedSortedMap::compute(key, remappingFunction);
+	return this->$Collections$CheckedSortedMap::compute(key, remappingFunction);
 }
 
 $Object* Collections$CheckedNavigableMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	 return this->$Collections$CheckedSortedMap::merge(key, value, remappingFunction);
+	return this->$Collections$CheckedSortedMap::merge(key, value, remappingFunction);
 }
 
 $Object* Collections$CheckedNavigableMap::getOrDefault(Object$* key, Object$* defaultValue) {
-	 return this->$Collections$CheckedSortedMap::getOrDefault(key, defaultValue);
+	return this->$Collections$CheckedSortedMap::getOrDefault(key, defaultValue);
 }
 
 $Object* Collections$CheckedNavigableMap::clone() {
-	 return this->$Collections$CheckedSortedMap::clone();
+	return this->$Collections$CheckedSortedMap::clone();
 }
 
 void Collections$CheckedNavigableMap::finalize() {

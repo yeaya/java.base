@@ -104,19 +104,19 @@ void UnixAsynchronousSocketChannelImpl::close() {
 }
 
 $String* UnixAsynchronousSocketChannelImpl::toString() {
-	 return this->$AsynchronousSocketChannelImpl::toString();
+	return this->$AsynchronousSocketChannelImpl::toString();
 }
 
 int32_t UnixAsynchronousSocketChannelImpl::hashCode() {
-	 return this->$AsynchronousSocketChannelImpl::hashCode();
+	return this->$AsynchronousSocketChannelImpl::hashCode();
 }
 
 bool UnixAsynchronousSocketChannelImpl::equals(Object$* obj) {
-	 return this->$AsynchronousSocketChannelImpl::equals(obj);
+	return this->$AsynchronousSocketChannelImpl::equals(obj);
 }
 
 $Object* UnixAsynchronousSocketChannelImpl::clone() {
-	 return this->$AsynchronousSocketChannelImpl::clone();
+	return this->$AsynchronousSocketChannelImpl::clone();
 }
 
 void UnixAsynchronousSocketChannelImpl::finalize() {

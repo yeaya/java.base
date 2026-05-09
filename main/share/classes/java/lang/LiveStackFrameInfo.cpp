@@ -28,55 +28,55 @@ namespace java {
 	namespace lang {
 
 $String* LiveStackFrameInfo::getClassName() {
-	 return this->$StackFrameInfo::getClassName();
+	return this->$StackFrameInfo::getClassName();
 }
 
 $Class* LiveStackFrameInfo::getDeclaringClass() {
-	 return this->$StackFrameInfo::getDeclaringClass();
+	return this->$StackFrameInfo::getDeclaringClass();
 }
 
 $String* LiveStackFrameInfo::getMethodName() {
-	 return this->$StackFrameInfo::getMethodName();
+	return this->$StackFrameInfo::getMethodName();
 }
 
 $MethodType* LiveStackFrameInfo::getMethodType() {
-	 return this->$StackFrameInfo::getMethodType();
+	return this->$StackFrameInfo::getMethodType();
 }
 
 $String* LiveStackFrameInfo::getDescriptor() {
-	 return this->$StackFrameInfo::getDescriptor();
+	return this->$StackFrameInfo::getDescriptor();
 }
 
 int32_t LiveStackFrameInfo::getByteCodeIndex() {
-	 return this->$StackFrameInfo::getByteCodeIndex();
+	return this->$StackFrameInfo::getByteCodeIndex();
 }
 
 $String* LiveStackFrameInfo::getFileName() {
-	 return this->$StackFrameInfo::getFileName();
+	return this->$StackFrameInfo::getFileName();
 }
 
 int32_t LiveStackFrameInfo::getLineNumber() {
-	 return this->$StackFrameInfo::getLineNumber();
+	return this->$StackFrameInfo::getLineNumber();
 }
 
 bool LiveStackFrameInfo::isNativeMethod() {
-	 return this->$StackFrameInfo::isNativeMethod();
+	return this->$StackFrameInfo::isNativeMethod();
 }
 
 $StackTraceElement* LiveStackFrameInfo::toStackTraceElement() {
-	 return this->$StackFrameInfo::toStackTraceElement();
+	return this->$StackFrameInfo::toStackTraceElement();
 }
 
 int32_t LiveStackFrameInfo::hashCode() {
-	 return this->$StackFrameInfo::hashCode();
+	return this->$StackFrameInfo::hashCode();
 }
 
 bool LiveStackFrameInfo::equals(Object$* obj) {
-	 return this->$StackFrameInfo::equals(obj);
+	return this->$StackFrameInfo::equals(obj);
 }
 
 $Object* LiveStackFrameInfo::clone() {
-	 return this->$StackFrameInfo::clone();
+	return this->$StackFrameInfo::clone();
 }
 
 void LiveStackFrameInfo::finalize() {

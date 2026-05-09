@@ -19,15 +19,15 @@ namespace java {
 	namespace util {
 
 int32_t LongSummaryStatistics::hashCode() {
-	 return this->$LongConsumer::hashCode();
+	return this->$LongConsumer::hashCode();
 }
 
 bool LongSummaryStatistics::equals(Object$* obj) {
-	 return this->$LongConsumer::equals(obj);
+	return this->$LongConsumer::equals(obj);
 }
 
 $Object* LongSummaryStatistics::clone() {
-	 return this->$LongConsumer::clone();
+	return this->$LongConsumer::clone();
 }
 
 void LongSummaryStatistics::finalize() {

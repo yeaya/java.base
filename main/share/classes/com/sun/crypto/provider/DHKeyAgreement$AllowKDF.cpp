@@ -33,7 +33,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DHKeyAgreement$AllowKDF::lambda$getValue$0());
+		return $of(DHKeyAgreement$AllowKDF::lambda$getValue$0());
 	}
 };
 $Class* DHKeyAgreement$AllowKDF$$Lambda$lambda$getValue$0::load$($String* name, bool initialize) {

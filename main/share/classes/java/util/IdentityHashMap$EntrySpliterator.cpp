@@ -25,23 +25,23 @@ namespace java {
 	namespace util {
 
 int64_t IdentityHashMap$EntrySpliterator::estimateSize() {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::estimateSize();
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::estimateSize();
 }
 
 int32_t IdentityHashMap$EntrySpliterator::hashCode() {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::hashCode();
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::hashCode();
 }
 
 bool IdentityHashMap$EntrySpliterator::equals(Object$* obj) {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::equals(obj);
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::equals(obj);
 }
 
 $Object* IdentityHashMap$EntrySpliterator::clone() {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::clone();
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::clone();
 }
 
 $String* IdentityHashMap$EntrySpliterator::toString() {
-	 return this->$IdentityHashMap$IdentityHashMapSpliterator::toString();
+	return this->$IdentityHashMap$IdentityHashMapSpliterator::toString();
 }
 
 void IdentityHashMap$EntrySpliterator::finalize() {

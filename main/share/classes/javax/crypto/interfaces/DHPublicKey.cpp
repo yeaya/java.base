@@ -15,19 +15,19 @@ namespace javax {
 		namespace interfaces {
 
 int32_t DHPublicKey::hashCode() {
-	 return this->$DHKey::hashCode();
+	return this->$DHKey::hashCode();
 }
 
 bool DHPublicKey::equals(Object$* obj) {
-	 return this->$DHKey::equals(obj);
+	return this->$DHKey::equals(obj);
 }
 
 $Object* DHPublicKey::clone() {
-	 return this->$DHKey::clone();
+	return this->$DHKey::clone();
 }
 
 $String* DHPublicKey::toString() {
-	 return this->$DHKey::toString();
+	return this->$DHKey::toString();
 }
 
 void DHPublicKey::finalize() {

@@ -33,19 +33,19 @@ namespace java {
 		namespace stream {
 
 int32_t Nodes$SizedCollectorTask::hashCode() {
-	 return this->$CountedCompleter::hashCode();
+	return this->$CountedCompleter::hashCode();
 }
 
 bool Nodes$SizedCollectorTask::equals(Object$* obj) {
-	 return this->$CountedCompleter::equals(obj);
+	return this->$CountedCompleter::equals(obj);
 }
 
 $Object* Nodes$SizedCollectorTask::clone() {
-	 return this->$CountedCompleter::clone();
+	return this->$CountedCompleter::clone();
 }
 
 $String* Nodes$SizedCollectorTask::toString() {
-	 return this->$CountedCompleter::toString();
+	return this->$CountedCompleter::toString();
 }
 
 void Nodes$SizedCollectorTask::finalize() {

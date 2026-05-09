@@ -89,27 +89,27 @@ namespace java {
 	namespace util {
 
 bool TreeMap::isEmpty() {
-	 return this->$AbstractMap::isEmpty();
+	return this->$AbstractMap::isEmpty();
 }
 
 bool TreeMap::equals(Object$* o) {
-	 return this->$AbstractMap::equals(o);
+	return this->$AbstractMap::equals(o);
 }
 
 int32_t TreeMap::hashCode() {
-	 return this->$AbstractMap::hashCode();
+	return this->$AbstractMap::hashCode();
 }
 
 $String* TreeMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 $Object* TreeMap::getOrDefault(Object$* key, Object$* defaultValue) {
-	 return this->$AbstractMap::getOrDefault(key, defaultValue);
+	return this->$AbstractMap::getOrDefault(key, defaultValue);
 }
 
 bool TreeMap::remove(Object$* key, Object$* value) {
-	 return this->$AbstractMap::remove(key, value);
+	return this->$AbstractMap::remove(key, value);
 }
 
 void TreeMap::finalize() {

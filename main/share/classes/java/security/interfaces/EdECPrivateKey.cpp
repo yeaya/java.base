@@ -13,19 +13,19 @@ namespace java {
 		namespace interfaces {
 
 int32_t EdECPrivateKey::hashCode() {
-	 return this->$EdECKey::hashCode();
+	return this->$EdECKey::hashCode();
 }
 
 bool EdECPrivateKey::equals(Object$* obj) {
-	 return this->$EdECKey::equals(obj);
+	return this->$EdECKey::equals(obj);
 }
 
 $Object* EdECPrivateKey::clone() {
-	 return this->$EdECKey::clone();
+	return this->$EdECKey::clone();
 }
 
 $String* EdECPrivateKey::toString() {
-	 return this->$EdECKey::toString();
+	return this->$EdECKey::toString();
 }
 
 void EdECPrivateKey::finalize() {

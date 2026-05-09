@@ -51,15 +51,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t NetscapeCertTypeExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool NetscapeCertTypeExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* NetscapeCertTypeExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void NetscapeCertTypeExtension::finalize() {

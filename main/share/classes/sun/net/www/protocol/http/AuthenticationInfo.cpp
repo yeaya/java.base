@@ -69,7 +69,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return $of(AuthenticationInfo::getCachedServerAuth($cast($String, key)));
+		return $of(AuthenticationInfo::getCachedServerAuth($cast($String, key)));
 	}
 };
 $Class* AuthenticationInfo$$Lambda$getCachedServerAuth::load$($String* name, bool initialize) {
@@ -99,7 +99,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return $of(AuthenticationInfo::getCachedProxyAuth($cast($String, key)));
+		return $of(AuthenticationInfo::getCachedProxyAuth($cast($String, key)));
 	}
 };
 $Class* AuthenticationInfo$$Lambda$getCachedProxyAuth$1::load$($String* name, bool initialize) {
@@ -124,15 +124,15 @@ $Class* AuthenticationInfo$$Lambda$getCachedProxyAuth$1::load$($String* name, bo
 $Class* AuthenticationInfo$$Lambda$getCachedProxyAuth$1::class$ = nullptr;
 
 int32_t AuthenticationInfo::hashCode() {
-	 return this->$AuthCacheValue::hashCode();
+	return this->$AuthCacheValue::hashCode();
 }
 
 bool AuthenticationInfo::equals(Object$* obj) {
-	 return this->$AuthCacheValue::equals(obj);
+	return this->$AuthCacheValue::equals(obj);
 }
 
 $String* AuthenticationInfo::toString() {
-	 return this->$AuthCacheValue::toString();
+	return this->$AuthCacheValue::toString();
 }
 
 void AuthenticationInfo::finalize() {

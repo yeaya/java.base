@@ -69,7 +69,7 @@ namespace java {
 	namespace nio {
 
 $Object* ByteBuffer::clone() {
-	 return this->$Buffer::clone();
+	return this->$Buffer::clone();
 }
 
 void ByteBuffer::finalize() {

@@ -219,7 +219,7 @@ namespace java {
 		namespace concurrent {
 
 $Object* ConcurrentHashMap::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 void ConcurrentHashMap::finalize() {

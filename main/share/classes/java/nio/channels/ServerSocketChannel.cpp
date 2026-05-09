@@ -33,23 +33,23 @@ void ServerSocketChannel::close() {
 }
 
 bool ServerSocketChannel::isOpen() {
-	 return this->$AbstractSelectableChannel::isOpen();
+	return this->$AbstractSelectableChannel::isOpen();
 }
 
 int32_t ServerSocketChannel::hashCode() {
-	 return this->$AbstractSelectableChannel::hashCode();
+	return this->$AbstractSelectableChannel::hashCode();
 }
 
 bool ServerSocketChannel::equals(Object$* obj) {
-	 return this->$AbstractSelectableChannel::equals(obj);
+	return this->$AbstractSelectableChannel::equals(obj);
 }
 
 $Object* ServerSocketChannel::clone() {
-	 return this->$AbstractSelectableChannel::clone();
+	return this->$AbstractSelectableChannel::clone();
 }
 
 $String* ServerSocketChannel::toString() {
-	 return this->$AbstractSelectableChannel::toString();
+	return this->$AbstractSelectableChannel::toString();
 }
 
 void ServerSocketChannel::finalize() {

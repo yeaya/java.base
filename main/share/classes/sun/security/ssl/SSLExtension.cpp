@@ -176,15 +176,15 @@ namespace sun {
 		namespace ssl {
 
 bool SSLExtension::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t SSLExtension::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* SSLExtension::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void SSLExtension::finalize() {

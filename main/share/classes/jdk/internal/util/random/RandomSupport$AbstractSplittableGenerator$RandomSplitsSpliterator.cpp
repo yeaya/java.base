@@ -23,27 +23,27 @@ namespace jdk {
 			namespace random {
 
 int64_t RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::estimateSize() {
-	 return this->$RandomSupport$RandomSpliterator::estimateSize();
+	return this->$RandomSupport$RandomSpliterator::estimateSize();
 }
 
 int32_t RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::characteristics() {
-	 return this->$RandomSupport$RandomSpliterator::characteristics();
+	return this->$RandomSupport$RandomSpliterator::characteristics();
 }
 
 int32_t RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::hashCode() {
-	 return this->$RandomSupport$RandomSpliterator::hashCode();
+	return this->$RandomSupport$RandomSpliterator::hashCode();
 }
 
 bool RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::equals(Object$* obj) {
-	 return this->$RandomSupport$RandomSpliterator::equals(obj);
+	return this->$RandomSupport$RandomSpliterator::equals(obj);
 }
 
 $Object* RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::clone() {
-	 return this->$RandomSupport$RandomSpliterator::clone();
+	return this->$RandomSupport$RandomSpliterator::clone();
 }
 
 $String* RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::toString() {
-	 return this->$RandomSupport$RandomSpliterator::toString();
+	return this->$RandomSupport$RandomSpliterator::toString();
 }
 
 void RandomSupport$AbstractSplittableGenerator$RandomSplitsSpliterator::finalize() {

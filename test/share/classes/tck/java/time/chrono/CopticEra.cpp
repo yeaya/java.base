@@ -19,19 +19,19 @@ namespace tck {
 			namespace chrono {
 
 $String* CopticEra::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool CopticEra::equals(Object$* arg0) {
-	 return this->$Enum::equals(arg0);
+	return this->$Enum::equals(arg0);
 }
 
 int32_t CopticEra::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* CopticEra::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void CopticEra::finalize() {

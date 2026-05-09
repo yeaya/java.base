@@ -29,19 +29,19 @@ namespace java {
 		namespace stream {
 
 int32_t Streams$StreamBuilderImpl::hashCode() {
-	 return this->$Streams$AbstractStreamBuilderImpl::hashCode();
+	return this->$Streams$AbstractStreamBuilderImpl::hashCode();
 }
 
 bool Streams$StreamBuilderImpl::equals(Object$* obj) {
-	 return this->$Streams$AbstractStreamBuilderImpl::equals(obj);
+	return this->$Streams$AbstractStreamBuilderImpl::equals(obj);
 }
 
 $Object* Streams$StreamBuilderImpl::clone() {
-	 return this->$Streams$AbstractStreamBuilderImpl::clone();
+	return this->$Streams$AbstractStreamBuilderImpl::clone();
 }
 
 $String* Streams$StreamBuilderImpl::toString() {
-	 return this->$Streams$AbstractStreamBuilderImpl::toString();
+	return this->$Streams$AbstractStreamBuilderImpl::toString();
 }
 
 void Streams$StreamBuilderImpl::finalize() {

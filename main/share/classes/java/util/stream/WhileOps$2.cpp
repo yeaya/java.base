@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return WhileOps$2::lambda$opEvaluateParallelLazy$0(x$0);
+		return WhileOps$2::lambda$opEvaluateParallelLazy$0(x$0);
 	}
 };
 $Class* WhileOps$2$$Lambda$lambda$opEvaluateParallelLazy$0::load$($String* name, bool initialize) {

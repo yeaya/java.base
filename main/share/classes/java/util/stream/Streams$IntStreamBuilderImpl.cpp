@@ -34,15 +34,15 @@ namespace java {
 		namespace stream {
 
 int64_t Streams$IntStreamBuilderImpl::estimateSize() {
-	 return this->$Streams$AbstractStreamBuilderImpl::estimateSize();
+	return this->$Streams$AbstractStreamBuilderImpl::estimateSize();
 }
 
 int32_t Streams$IntStreamBuilderImpl::characteristics() {
-	 return this->$Streams$AbstractStreamBuilderImpl::characteristics();
+	return this->$Streams$AbstractStreamBuilderImpl::characteristics();
 }
 
 bool Streams$IntStreamBuilderImpl::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(action);
+	return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(action);
 }
 
 void Streams$IntStreamBuilderImpl::forEachRemaining($Consumer* action) {
@@ -50,31 +50,31 @@ void Streams$IntStreamBuilderImpl::forEachRemaining($Consumer* action) {
 }
 
 int64_t Streams$IntStreamBuilderImpl::getExactSizeIfKnown() {
-	 return this->$Streams$AbstractStreamBuilderImpl::getExactSizeIfKnown();
+	return this->$Streams$AbstractStreamBuilderImpl::getExactSizeIfKnown();
 }
 
 bool Streams$IntStreamBuilderImpl::hasCharacteristics(int32_t characteristics) {
-	 return this->$Streams$AbstractStreamBuilderImpl::hasCharacteristics(characteristics);
+	return this->$Streams$AbstractStreamBuilderImpl::hasCharacteristics(characteristics);
 }
 
 $Comparator* Streams$IntStreamBuilderImpl::getComparator() {
-	 return this->$Streams$AbstractStreamBuilderImpl::getComparator();
+	return this->$Streams$AbstractStreamBuilderImpl::getComparator();
 }
 
 int32_t Streams$IntStreamBuilderImpl::hashCode() {
-	 return this->$Streams$AbstractStreamBuilderImpl::hashCode();
+	return this->$Streams$AbstractStreamBuilderImpl::hashCode();
 }
 
 bool Streams$IntStreamBuilderImpl::equals(Object$* obj) {
-	 return this->$Streams$AbstractStreamBuilderImpl::equals(obj);
+	return this->$Streams$AbstractStreamBuilderImpl::equals(obj);
 }
 
 $Object* Streams$IntStreamBuilderImpl::clone() {
-	 return this->$Streams$AbstractStreamBuilderImpl::clone();
+	return this->$Streams$AbstractStreamBuilderImpl::clone();
 }
 
 $String* Streams$IntStreamBuilderImpl::toString() {
-	 return this->$Streams$AbstractStreamBuilderImpl::toString();
+	return this->$Streams$AbstractStreamBuilderImpl::toString();
 }
 
 void Streams$IntStreamBuilderImpl::finalize() {

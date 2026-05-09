@@ -35,55 +35,55 @@ namespace java {
 	namespace util {
 
 $Comparator* Collections$CheckedNavigableSet::comparator() {
-	 return this->$Collections$CheckedSortedSet::comparator();
+	return this->$Collections$CheckedSortedSet::comparator();
 }
 
 $Object* Collections$CheckedNavigableSet::first() {
-	 return this->$Collections$CheckedSortedSet::first();
+	return this->$Collections$CheckedSortedSet::first();
 }
 
 $Object* Collections$CheckedNavigableSet::last() {
-	 return this->$Collections$CheckedSortedSet::last();
+	return this->$Collections$CheckedSortedSet::last();
 }
 
 bool Collections$CheckedNavigableSet::equals(Object$* o) {
-	 return this->$Collections$CheckedSortedSet::equals(o);
+	return this->$Collections$CheckedSortedSet::equals(o);
 }
 
 int32_t Collections$CheckedNavigableSet::hashCode() {
-	 return this->$Collections$CheckedSortedSet::hashCode();
+	return this->$Collections$CheckedSortedSet::hashCode();
 }
 
 int32_t Collections$CheckedNavigableSet::size() {
-	 return this->$Collections$CheckedSortedSet::size();
+	return this->$Collections$CheckedSortedSet::size();
 }
 
 bool Collections$CheckedNavigableSet::isEmpty() {
-	 return this->$Collections$CheckedSortedSet::isEmpty();
+	return this->$Collections$CheckedSortedSet::isEmpty();
 }
 
 bool Collections$CheckedNavigableSet::contains(Object$* o) {
-	 return this->$Collections$CheckedSortedSet::contains(o);
+	return this->$Collections$CheckedSortedSet::contains(o);
 }
 
 $ObjectArray* Collections$CheckedNavigableSet::toArray() {
-	 return this->$Collections$CheckedSortedSet::toArray();
+	return this->$Collections$CheckedSortedSet::toArray();
 }
 
 $ObjectArray* Collections$CheckedNavigableSet::toArray($ObjectArray* a) {
-	 return this->$Collections$CheckedSortedSet::toArray(a);
+	return this->$Collections$CheckedSortedSet::toArray(a);
 }
 
 $ObjectArray* Collections$CheckedNavigableSet::toArray($IntFunction* f) {
-	 return this->$Collections$CheckedSortedSet::toArray(f);
+	return this->$Collections$CheckedSortedSet::toArray(f);
 }
 
 $String* Collections$CheckedNavigableSet::toString() {
-	 return this->$Collections$CheckedSortedSet::toString();
+	return this->$Collections$CheckedSortedSet::toString();
 }
 
 bool Collections$CheckedNavigableSet::remove(Object$* o) {
-	 return this->$Collections$CheckedSortedSet::remove(o);
+	return this->$Collections$CheckedSortedSet::remove(o);
 }
 
 void Collections$CheckedNavigableSet::clear() {
@@ -91,27 +91,27 @@ void Collections$CheckedNavigableSet::clear() {
 }
 
 bool Collections$CheckedNavigableSet::containsAll($Collection* coll) {
-	 return this->$Collections$CheckedSortedSet::containsAll(coll);
+	return this->$Collections$CheckedSortedSet::containsAll(coll);
 }
 
 bool Collections$CheckedNavigableSet::removeAll($Collection* coll) {
-	 return this->$Collections$CheckedSortedSet::removeAll(coll);
+	return this->$Collections$CheckedSortedSet::removeAll(coll);
 }
 
 bool Collections$CheckedNavigableSet::retainAll($Collection* coll) {
-	 return this->$Collections$CheckedSortedSet::retainAll(coll);
+	return this->$Collections$CheckedSortedSet::retainAll(coll);
 }
 
 $Iterator* Collections$CheckedNavigableSet::iterator() {
-	 return this->$Collections$CheckedSortedSet::iterator();
+	return this->$Collections$CheckedSortedSet::iterator();
 }
 
 bool Collections$CheckedNavigableSet::add(Object$* e) {
-	 return this->$Collections$CheckedSortedSet::add(e);
+	return this->$Collections$CheckedSortedSet::add(e);
 }
 
 bool Collections$CheckedNavigableSet::addAll($Collection* coll) {
-	 return this->$Collections$CheckedSortedSet::addAll(coll);
+	return this->$Collections$CheckedSortedSet::addAll(coll);
 }
 
 void Collections$CheckedNavigableSet::forEach($Consumer* action) {
@@ -119,23 +119,23 @@ void Collections$CheckedNavigableSet::forEach($Consumer* action) {
 }
 
 bool Collections$CheckedNavigableSet::removeIf($Predicate* filter) {
-	 return this->$Collections$CheckedSortedSet::removeIf(filter);
+	return this->$Collections$CheckedSortedSet::removeIf(filter);
 }
 
 $Spliterator* Collections$CheckedNavigableSet::spliterator() {
-	 return this->$Collections$CheckedSortedSet::spliterator();
+	return this->$Collections$CheckedSortedSet::spliterator();
 }
 
 $Stream* Collections$CheckedNavigableSet::stream() {
-	 return this->$Collections$CheckedSortedSet::stream();
+	return this->$Collections$CheckedSortedSet::stream();
 }
 
 $Stream* Collections$CheckedNavigableSet::parallelStream() {
-	 return this->$Collections$CheckedSortedSet::parallelStream();
+	return this->$Collections$CheckedSortedSet::parallelStream();
 }
 
 $Object* Collections$CheckedNavigableSet::clone() {
-	 return this->$Collections$CheckedSortedSet::clone();
+	return this->$Collections$CheckedSortedSet::clone();
 }
 
 void Collections$CheckedNavigableSet::finalize() {

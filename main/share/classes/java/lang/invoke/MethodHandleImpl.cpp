@@ -214,7 +214,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* h) override {
-		 return $of(MethodHandleImpl::lambda$makeLoop$0($cast($MethodHandle, h)));
+		return $of(MethodHandleImpl::lambda$makeLoop$0($cast($MethodHandle, h)));
 	}
 };
 $Class* MethodHandleImpl$$Lambda$lambda$makeLoop$0::load$($String* name, bool initialize) {
@@ -244,7 +244,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* type) override {
-		 return $of($LambdaForm$BasicType::basicType($cast($Class, type)));
+		return $of($LambdaForm$BasicType::basicType($cast($Class, type)));
 	}
 };
 $Class* MethodHandleImpl$$Lambda$basicType$1::load$($String* name, bool initialize) {
@@ -274,7 +274,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return MethodHandleImpl::lambda$makeLoop$1(x$0);
+		return MethodHandleImpl::lambda$makeLoop$1(x$0);
 	}
 };
 $Class* MethodHandleImpl$$Lambda$lambda$makeLoop$1$2::load$($String* name, bool initialize) {
@@ -304,7 +304,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* h) override {
-		 return MethodHandleImpl::lambda$loop$2($cast($MethodHandle, h));
+		return MethodHandleImpl::lambda$loop$2($cast($MethodHandle, h));
 	}
 };
 $Class* MethodHandleImpl$$Lambda$lambda$loop$2$3::load$($String* name, bool initialize) {

@@ -35,15 +35,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t InvalidityDateExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool InvalidityDateExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* InvalidityDateExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void InvalidityDateExtension::finalize() {

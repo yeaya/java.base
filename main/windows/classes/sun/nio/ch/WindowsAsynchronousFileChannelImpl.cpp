@@ -82,19 +82,19 @@ namespace sun {
 		namespace ch {
 
 int32_t WindowsAsynchronousFileChannelImpl::hashCode() {
-	 return this->$AsynchronousFileChannelImpl::hashCode();
+	return this->$AsynchronousFileChannelImpl::hashCode();
 }
 
 bool WindowsAsynchronousFileChannelImpl::equals(Object$* obj) {
-	 return this->$AsynchronousFileChannelImpl::equals(obj);
+	return this->$AsynchronousFileChannelImpl::equals(obj);
 }
 
 $Object* WindowsAsynchronousFileChannelImpl::clone() {
-	 return this->$AsynchronousFileChannelImpl::clone();
+	return this->$AsynchronousFileChannelImpl::clone();
 }
 
 $String* WindowsAsynchronousFileChannelImpl::toString() {
-	 return this->$AsynchronousFileChannelImpl::toString();
+	return this->$AsynchronousFileChannelImpl::toString();
 }
 
 void WindowsAsynchronousFileChannelImpl::finalize() {

@@ -36,7 +36,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Map$Entry::lambda$comparingByKey$bbdbfea9$1($cast(Map$Entry, c1), $cast(Map$Entry, c2));
+		return Map$Entry::lambda$comparingByKey$bbdbfea9$1($cast(Map$Entry, c1), $cast(Map$Entry, c2));
 	}
 };
 $Class* Map$Entry$$Lambda$lambda$comparingByKey$bbdbfea9$1::load$($String* name, bool initialize) {
@@ -66,7 +66,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Map$Entry::lambda$comparingByValue$1065357e$1($cast(Map$Entry, c1), $cast(Map$Entry, c2));
+		return Map$Entry::lambda$comparingByValue$1065357e$1($cast(Map$Entry, c1), $cast(Map$Entry, c2));
 	}
 };
 $Class* Map$Entry$$Lambda$lambda$comparingByValue$1065357e$1$1::load$($String* name, bool initialize) {
@@ -97,7 +97,7 @@ public:
 		$set(this, cmp, cmp);
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Map$Entry::lambda$comparingByKey$6d558cbf$1(cmp, $cast(Map$Entry, c1), $cast(Map$Entry, c2));
+		return Map$Entry::lambda$comparingByKey$6d558cbf$1(cmp, $cast(Map$Entry, c1), $cast(Map$Entry, c2));
 	}
 	$Comparator* cmp = nullptr;
 };
@@ -133,7 +133,7 @@ public:
 		$set(this, cmp, cmp);
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Map$Entry::lambda$comparingByValue$827a17d5$1(cmp, $cast(Map$Entry, c1), $cast(Map$Entry, c2));
+		return Map$Entry::lambda$comparingByValue$827a17d5$1(cmp, $cast(Map$Entry, c1), $cast(Map$Entry, c2));
 	}
 	$Comparator* cmp = nullptr;
 };
@@ -163,11 +163,11 @@ $Class* Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::load$($String* n
 $Class* Map$Entry$$Lambda$lambda$comparingByValue$827a17d5$1$3::class$ = nullptr;
 
 bool Map$Entry::equals(Object$* o) {
-	 return this->$Object::equals(o);
+	return this->$Object::equals(o);
 }
 
 int32_t Map$Entry::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $Comparator* Map$Entry::comparingByKey() {

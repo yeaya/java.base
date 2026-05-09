@@ -132,15 +132,15 @@ void SSLSocketImpl::finalize() {
 }
 
 int32_t SSLSocketImpl::hashCode() {
-	 return this->$BaseSSLSocketImpl::hashCode();
+	return this->$BaseSSLSocketImpl::hashCode();
 }
 
 bool SSLSocketImpl::equals(Object$* obj) {
-	 return this->$BaseSSLSocketImpl::equals(obj);
+	return this->$BaseSSLSocketImpl::equals(obj);
 }
 
 $Object* SSLSocketImpl::clone() {
-	 return this->$BaseSSLSocketImpl::clone();
+	return this->$BaseSSLSocketImpl::clone();
 }
 
 bool SSLSocketImpl::trustNameService = false;

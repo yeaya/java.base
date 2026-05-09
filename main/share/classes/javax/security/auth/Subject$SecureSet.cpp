@@ -77,11 +77,11 @@ namespace javax {
 		namespace auth {
 
 $Object* Subject$SecureSet::clone() {
-	 return this->$Set::clone();
+	return this->$Set::clone();
 }
 
 $String* Subject$SecureSet::toString() {
-	 return this->$Set::toString();
+	return this->$Set::toString();
 }
 
 void Subject$SecureSet::finalize() {

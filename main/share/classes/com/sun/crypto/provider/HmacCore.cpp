@@ -43,15 +43,15 @@ namespace com {
 			namespace provider {
 
 int32_t HmacCore::hashCode() {
-	 return this->$MacSpi::hashCode();
+	return this->$MacSpi::hashCode();
 }
 
 bool HmacCore::equals(Object$* obj) {
-	 return this->$MacSpi::equals(obj);
+	return this->$MacSpi::equals(obj);
 }
 
 $String* HmacCore::toString() {
-	 return this->$MacSpi::toString();
+	return this->$MacSpi::toString();
 }
 
 void HmacCore::finalize() {

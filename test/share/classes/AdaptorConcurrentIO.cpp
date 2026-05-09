@@ -42,7 +42,7 @@ public:
 		$set(this, s, s);
 	}
 	virtual $Object* call() override {
-		 return $of(AdaptorConcurrentIO::lambda$testConcurrentSendReceive$0(s));
+		return $of(AdaptorConcurrentIO::lambda$testConcurrentSendReceive$0(s));
 	}
 	$DatagramSocket* s = nullptr;
 };

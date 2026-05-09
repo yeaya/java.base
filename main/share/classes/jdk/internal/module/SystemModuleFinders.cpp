@@ -112,7 +112,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return SystemModuleFinders::lambda$ofModuleInfos$0(hashes, name, $cast($String, k));
+		return SystemModuleFinders::lambda$ofModuleInfos$0(hashes, name, $cast($String, k));
 	}
 	$ModuleHashes* hashes = nullptr;
 	$String* name = nullptr;

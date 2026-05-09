@@ -34,75 +34,75 @@ namespace java {
 	namespace util {
 
 $Comparator* Collections$SynchronizedNavigableSet::comparator() {
-	 return this->$Collections$SynchronizedSortedSet::comparator();
+	return this->$Collections$SynchronizedSortedSet::comparator();
 }
 
 $Object* Collections$SynchronizedNavigableSet::first() {
-	 return this->$Collections$SynchronizedSortedSet::first();
+	return this->$Collections$SynchronizedSortedSet::first();
 }
 
 $Object* Collections$SynchronizedNavigableSet::last() {
-	 return this->$Collections$SynchronizedSortedSet::last();
+	return this->$Collections$SynchronizedSortedSet::last();
 }
 
 bool Collections$SynchronizedNavigableSet::equals(Object$* o) {
-	 return this->$Collections$SynchronizedSortedSet::equals(o);
+	return this->$Collections$SynchronizedSortedSet::equals(o);
 }
 
 int32_t Collections$SynchronizedNavigableSet::hashCode() {
-	 return this->$Collections$SynchronizedSortedSet::hashCode();
+	return this->$Collections$SynchronizedSortedSet::hashCode();
 }
 
 int32_t Collections$SynchronizedNavigableSet::size() {
-	 return this->$Collections$SynchronizedSortedSet::size();
+	return this->$Collections$SynchronizedSortedSet::size();
 }
 
 bool Collections$SynchronizedNavigableSet::isEmpty() {
-	 return this->$Collections$SynchronizedSortedSet::isEmpty();
+	return this->$Collections$SynchronizedSortedSet::isEmpty();
 }
 
 bool Collections$SynchronizedNavigableSet::contains(Object$* o) {
-	 return this->$Collections$SynchronizedSortedSet::contains(o);
+	return this->$Collections$SynchronizedSortedSet::contains(o);
 }
 
 $ObjectArray* Collections$SynchronizedNavigableSet::toArray() {
-	 return this->$Collections$SynchronizedSortedSet::toArray();
+	return this->$Collections$SynchronizedSortedSet::toArray();
 }
 
 $ObjectArray* Collections$SynchronizedNavigableSet::toArray($ObjectArray* a) {
-	 return this->$Collections$SynchronizedSortedSet::toArray(a);
+	return this->$Collections$SynchronizedSortedSet::toArray(a);
 }
 
 $ObjectArray* Collections$SynchronizedNavigableSet::toArray($IntFunction* f) {
-	 return this->$Collections$SynchronizedSortedSet::toArray(f);
+	return this->$Collections$SynchronizedSortedSet::toArray(f);
 }
 
 $Iterator* Collections$SynchronizedNavigableSet::iterator() {
-	 return this->$Collections$SynchronizedSortedSet::iterator();
+	return this->$Collections$SynchronizedSortedSet::iterator();
 }
 
 bool Collections$SynchronizedNavigableSet::add(Object$* e) {
-	 return this->$Collections$SynchronizedSortedSet::add(e);
+	return this->$Collections$SynchronizedSortedSet::add(e);
 }
 
 bool Collections$SynchronizedNavigableSet::remove(Object$* o) {
-	 return this->$Collections$SynchronizedSortedSet::remove(o);
+	return this->$Collections$SynchronizedSortedSet::remove(o);
 }
 
 bool Collections$SynchronizedNavigableSet::containsAll($Collection* coll) {
-	 return this->$Collections$SynchronizedSortedSet::containsAll(coll);
+	return this->$Collections$SynchronizedSortedSet::containsAll(coll);
 }
 
 bool Collections$SynchronizedNavigableSet::addAll($Collection* coll) {
-	 return this->$Collections$SynchronizedSortedSet::addAll(coll);
+	return this->$Collections$SynchronizedSortedSet::addAll(coll);
 }
 
 bool Collections$SynchronizedNavigableSet::removeAll($Collection* coll) {
-	 return this->$Collections$SynchronizedSortedSet::removeAll(coll);
+	return this->$Collections$SynchronizedSortedSet::removeAll(coll);
 }
 
 bool Collections$SynchronizedNavigableSet::retainAll($Collection* coll) {
-	 return this->$Collections$SynchronizedSortedSet::retainAll(coll);
+	return this->$Collections$SynchronizedSortedSet::retainAll(coll);
 }
 
 void Collections$SynchronizedNavigableSet::clear() {
@@ -110,7 +110,7 @@ void Collections$SynchronizedNavigableSet::clear() {
 }
 
 $String* Collections$SynchronizedNavigableSet::toString() {
-	 return this->$Collections$SynchronizedSortedSet::toString();
+	return this->$Collections$SynchronizedSortedSet::toString();
 }
 
 void Collections$SynchronizedNavigableSet::forEach($Consumer* consumer) {
@@ -118,23 +118,23 @@ void Collections$SynchronizedNavigableSet::forEach($Consumer* consumer) {
 }
 
 bool Collections$SynchronizedNavigableSet::removeIf($Predicate* filter) {
-	 return this->$Collections$SynchronizedSortedSet::removeIf(filter);
+	return this->$Collections$SynchronizedSortedSet::removeIf(filter);
 }
 
 $Spliterator* Collections$SynchronizedNavigableSet::spliterator() {
-	 return this->$Collections$SynchronizedSortedSet::spliterator();
+	return this->$Collections$SynchronizedSortedSet::spliterator();
 }
 
 $Stream* Collections$SynchronizedNavigableSet::stream() {
-	 return this->$Collections$SynchronizedSortedSet::stream();
+	return this->$Collections$SynchronizedSortedSet::stream();
 }
 
 $Stream* Collections$SynchronizedNavigableSet::parallelStream() {
-	 return this->$Collections$SynchronizedSortedSet::parallelStream();
+	return this->$Collections$SynchronizedSortedSet::parallelStream();
 }
 
 $Object* Collections$SynchronizedNavigableSet::clone() {
-	 return this->$Collections$SynchronizedSortedSet::clone();
+	return this->$Collections$SynchronizedSortedSet::clone();
 }
 
 void Collections$SynchronizedNavigableSet::finalize() {

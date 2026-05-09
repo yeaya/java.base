@@ -64,7 +64,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getClassLoader();
+		return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
 };

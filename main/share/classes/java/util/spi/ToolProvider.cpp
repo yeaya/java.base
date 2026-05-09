@@ -47,7 +47,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return ToolProvider::lambda$findFirst$1(systemClassLoader, name);
+		return ToolProvider::lambda$findFirst$1(systemClassLoader, name);
 	}
 	$ClassLoader* systemClassLoader = nullptr;
 	$String* name = nullptr;
@@ -85,7 +85,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual bool test(Object$* p) override {
-		 return ToolProvider::lambda$findFirst$0(name, $cast(ToolProvider, p));
+		return ToolProvider::lambda$findFirst$0(name, $cast(ToolProvider, p));
 	}
 	$String* name = nullptr;
 };

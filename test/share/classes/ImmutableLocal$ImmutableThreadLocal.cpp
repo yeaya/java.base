@@ -10,7 +10,7 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 
 $Object* ImmutableLocal$ImmutableThreadLocal::initialValue() {
-	 return this->$ThreadLocal::initialValue();
+	return this->$ThreadLocal::initialValue();
 }
 
 void ImmutableLocal$ImmutableThreadLocal::init$() {

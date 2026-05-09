@@ -28,19 +28,19 @@ namespace java {
 		namespace stream {
 
 int32_t ForEachOps$ForEachOp::hashCode() {
-	 return this->$TerminalOp::hashCode();
+	return this->$TerminalOp::hashCode();
 }
 
 bool ForEachOps$ForEachOp::equals(Object$* obj) {
-	 return this->$TerminalOp::equals(obj);
+	return this->$TerminalOp::equals(obj);
 }
 
 $Object* ForEachOps$ForEachOp::clone() {
-	 return this->$TerminalOp::clone();
+	return this->$TerminalOp::clone();
 }
 
 $String* ForEachOps$ForEachOp::toString() {
-	 return this->$TerminalOp::toString();
+	return this->$TerminalOp::toString();
 }
 
 void ForEachOps$ForEachOp::finalize() {

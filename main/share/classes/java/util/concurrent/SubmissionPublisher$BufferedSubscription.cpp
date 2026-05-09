@@ -64,19 +64,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t SubmissionPublisher$BufferedSubscription::hashCode() {
-	 return this->$Flow$Subscription::hashCode();
+	return this->$Flow$Subscription::hashCode();
 }
 
 bool SubmissionPublisher$BufferedSubscription::equals(Object$* obj) {
-	 return this->$Flow$Subscription::equals(obj);
+	return this->$Flow$Subscription::equals(obj);
 }
 
 $Object* SubmissionPublisher$BufferedSubscription::clone() {
-	 return this->$Flow$Subscription::clone();
+	return this->$Flow$Subscription::clone();
 }
 
 $String* SubmissionPublisher$BufferedSubscription::toString() {
-	 return this->$Flow$Subscription::toString();
+	return this->$Flow$Subscription::toString();
 }
 
 void SubmissionPublisher$BufferedSubscription::finalize() {

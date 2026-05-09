@@ -30,67 +30,67 @@ namespace java {
 	namespace util {
 
 bool AbstractQueue::isEmpty() {
-	 return this->$AbstractCollection::isEmpty();
+	return this->$AbstractCollection::isEmpty();
 }
 
 bool AbstractQueue::contains(Object$* o) {
-	 return this->$AbstractCollection::contains(o);
+	return this->$AbstractCollection::contains(o);
 }
 
 $ObjectArray* AbstractQueue::toArray() {
-	 return this->$AbstractCollection::toArray();
+	return this->$AbstractCollection::toArray();
 }
 
 $ObjectArray* AbstractQueue::toArray($ObjectArray* a) {
-	 return this->$AbstractCollection::toArray(a);
+	return this->$AbstractCollection::toArray(a);
 }
 
 bool AbstractQueue::remove(Object$* o) {
-	 return this->$AbstractCollection::remove(o);
+	return this->$AbstractCollection::remove(o);
 }
 
 bool AbstractQueue::containsAll($Collection* c) {
-	 return this->$AbstractCollection::containsAll(c);
+	return this->$AbstractCollection::containsAll(c);
 }
 
 bool AbstractQueue::removeAll($Collection* c) {
-	 return this->$AbstractCollection::removeAll(c);
+	return this->$AbstractCollection::removeAll(c);
 }
 
 bool AbstractQueue::retainAll($Collection* c) {
-	 return this->$AbstractCollection::retainAll(c);
+	return this->$AbstractCollection::retainAll(c);
 }
 
 $String* AbstractQueue::toString() {
-	 return this->$AbstractCollection::toString();
+	return this->$AbstractCollection::toString();
 }
 
 $ObjectArray* AbstractQueue::toArray($IntFunction* generator) {
-	 return this->$AbstractCollection::toArray(generator);
+	return this->$AbstractCollection::toArray(generator);
 }
 
 bool AbstractQueue::removeIf($Predicate* filter) {
-	 return this->$AbstractCollection::removeIf(filter);
+	return this->$AbstractCollection::removeIf(filter);
 }
 
 bool AbstractQueue::equals(Object$* o) {
-	 return this->$AbstractCollection::equals(o);
+	return this->$AbstractCollection::equals(o);
 }
 
 int32_t AbstractQueue::hashCode() {
-	 return this->$AbstractCollection::hashCode();
+	return this->$AbstractCollection::hashCode();
 }
 
 $Spliterator* AbstractQueue::spliterator() {
-	 return this->$AbstractCollection::spliterator();
+	return this->$AbstractCollection::spliterator();
 }
 
 $Stream* AbstractQueue::stream() {
-	 return this->$AbstractCollection::stream();
+	return this->$AbstractCollection::stream();
 }
 
 $Stream* AbstractQueue::parallelStream() {
-	 return this->$AbstractCollection::parallelStream();
+	return this->$AbstractCollection::parallelStream();
 }
 
 void AbstractQueue::forEach($Consumer* action) {
@@ -98,7 +98,7 @@ void AbstractQueue::forEach($Consumer* action) {
 }
 
 $Object* AbstractQueue::clone() {
-	 return this->$AbstractCollection::clone();
+	return this->$AbstractCollection::clone();
 }
 
 void AbstractQueue::finalize() {

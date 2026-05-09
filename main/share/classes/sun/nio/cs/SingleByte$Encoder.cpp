@@ -34,19 +34,19 @@ namespace sun {
 		namespace cs {
 
 int32_t SingleByte$Encoder::hashCode() {
-	 return this->$CharsetEncoder::hashCode();
+	return this->$CharsetEncoder::hashCode();
 }
 
 bool SingleByte$Encoder::equals(Object$* obj) {
-	 return this->$CharsetEncoder::equals(obj);
+	return this->$CharsetEncoder::equals(obj);
 }
 
 $Object* SingleByte$Encoder::clone() {
-	 return this->$CharsetEncoder::clone();
+	return this->$CharsetEncoder::clone();
 }
 
 $String* SingleByte$Encoder::toString() {
-	 return this->$CharsetEncoder::toString();
+	return this->$CharsetEncoder::toString();
 }
 
 void SingleByte$Encoder::finalize() {

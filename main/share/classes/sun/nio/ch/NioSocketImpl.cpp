@@ -219,19 +219,19 @@ $Class* NioSocketImpl$$Lambda$lambda$closerFor$1$1::load$($String* name, bool in
 $Class* NioSocketImpl$$Lambda$lambda$closerFor$1$1::class$ = nullptr;
 
 $String* NioSocketImpl::toString() {
-	 return this->$SocketImpl::toString();
+	return this->$SocketImpl::toString();
 }
 
 int32_t NioSocketImpl::hashCode() {
-	 return this->$SocketImpl::hashCode();
+	return this->$SocketImpl::hashCode();
 }
 
 bool NioSocketImpl::equals(Object$* obj) {
-	 return this->$SocketImpl::equals(obj);
+	return this->$SocketImpl::equals(obj);
 }
 
 $Object* NioSocketImpl::clone() {
-	 return this->$SocketImpl::clone();
+	return this->$SocketImpl::clone();
 }
 
 void NioSocketImpl::finalize() {

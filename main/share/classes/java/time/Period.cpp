@@ -78,7 +78,7 @@ namespace java {
 	namespace time {
 
 $Object* Period::clone() {
-	 return this->$ChronoPeriod::clone();
+	return this->$ChronoPeriod::clone();
 }
 
 void Period::finalize() {

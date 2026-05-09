@@ -25,19 +25,19 @@ namespace java {
 	namespace io {
 
 int32_t ObjectOutputStream$BlockDataOutputStream::hashCode() {
-	 return this->$OutputStream::hashCode();
+	return this->$OutputStream::hashCode();
 }
 
 bool ObjectOutputStream$BlockDataOutputStream::equals(Object$* obj) {
-	 return this->$OutputStream::equals(obj);
+	return this->$OutputStream::equals(obj);
 }
 
 $Object* ObjectOutputStream$BlockDataOutputStream::clone() {
-	 return this->$OutputStream::clone();
+	return this->$OutputStream::clone();
 }
 
 $String* ObjectOutputStream$BlockDataOutputStream::toString() {
-	 return this->$OutputStream::toString();
+	return this->$OutputStream::toString();
 }
 
 void ObjectOutputStream$BlockDataOutputStream::finalize() {

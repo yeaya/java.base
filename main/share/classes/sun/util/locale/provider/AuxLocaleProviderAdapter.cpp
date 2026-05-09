@@ -79,7 +79,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return AuxLocaleProviderAdapter::lambda$static$0();
+		return AuxLocaleProviderAdapter::lambda$static$0();
 	}
 };
 $Class* AuxLocaleProviderAdapter$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

@@ -17,19 +17,19 @@ namespace java {
 		namespace file {
 
 $String* StandardCopyOption::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool StandardCopyOption::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t StandardCopyOption::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* StandardCopyOption::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void StandardCopyOption::finalize() {

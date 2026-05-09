@@ -30,7 +30,7 @@ namespace sun {
 			namespace reflectiveObjects {
 
 $Object* WildcardTypeImpl::clone() {
-	 return this->$LazyReflectiveObjectGenerator::clone();
+	return this->$LazyReflectiveObjectGenerator::clone();
 }
 
 void WildcardTypeImpl::finalize() {

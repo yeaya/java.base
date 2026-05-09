@@ -29,7 +29,7 @@ namespace java {
 		namespace stream {
 
 bool StreamSpliterators$UnorderedSliceSpliterator$OfDouble::tryAdvance(Object$* action) {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::tryAdvance(action);
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::tryAdvance(action);
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfDouble::forEachRemaining(Object$* action) {
@@ -37,27 +37,27 @@ void StreamSpliterators$UnorderedSliceSpliterator$OfDouble::forEachRemaining(Obj
 }
 
 int64_t StreamSpliterators$UnorderedSliceSpliterator$OfDouble::estimateSize() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::estimateSize();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::estimateSize();
 }
 
 int32_t StreamSpliterators$UnorderedSliceSpliterator$OfDouble::characteristics() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::characteristics();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::characteristics();
 }
 
 int32_t StreamSpliterators$UnorderedSliceSpliterator$OfDouble::hashCode() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::hashCode();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::hashCode();
 }
 
 bool StreamSpliterators$UnorderedSliceSpliterator$OfDouble::equals(Object$* obj) {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::equals(obj);
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::equals(obj);
 }
 
 $Object* StreamSpliterators$UnorderedSliceSpliterator$OfDouble::clone() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::clone();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::clone();
 }
 
 $String* StreamSpliterators$UnorderedSliceSpliterator$OfDouble::toString() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::toString();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::toString();
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfDouble::finalize() {
@@ -65,7 +65,7 @@ void StreamSpliterators$UnorderedSliceSpliterator$OfDouble::finalize() {
 }
 
 bool StreamSpliterators$UnorderedSliceSpliterator$OfDouble::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(action);
+	return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(action);
 }
 
 void StreamSpliterators$UnorderedSliceSpliterator$OfDouble::forEachRemaining($Consumer* action) {
@@ -73,15 +73,15 @@ void StreamSpliterators$UnorderedSliceSpliterator$OfDouble::forEachRemaining($Co
 }
 
 int64_t StreamSpliterators$UnorderedSliceSpliterator$OfDouble::getExactSizeIfKnown() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::getExactSizeIfKnown();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::getExactSizeIfKnown();
 }
 
 bool StreamSpliterators$UnorderedSliceSpliterator$OfDouble::hasCharacteristics(int32_t characteristics) {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::hasCharacteristics(characteristics);
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::hasCharacteristics(characteristics);
 }
 
 $Comparator* StreamSpliterators$UnorderedSliceSpliterator$OfDouble::getComparator() {
-	 return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::getComparator();
+	return this->$StreamSpliterators$UnorderedSliceSpliterator$OfPrimitive::getComparator();
 }
 
 StreamSpliterators$UnorderedSliceSpliterator$OfDouble::MemberClass0$::MemberClass0$() {

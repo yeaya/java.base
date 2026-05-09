@@ -104,19 +104,19 @@ namespace java {
 		namespace chrono {
 
 bool JapaneseChronology::equals(Object$* obj) {
-	 return this->$AbstractChronology::equals(obj);
+	return this->$AbstractChronology::equals(obj);
 }
 
 int32_t JapaneseChronology::hashCode() {
-	 return this->$AbstractChronology::hashCode();
+	return this->$AbstractChronology::hashCode();
 }
 
 $String* JapaneseChronology::toString() {
-	 return this->$AbstractChronology::toString();
+	return this->$AbstractChronology::toString();
 }
 
 $Object* JapaneseChronology::clone() {
-	 return this->$AbstractChronology::clone();
+	return this->$AbstractChronology::clone();
 }
 
 void JapaneseChronology::finalize() {

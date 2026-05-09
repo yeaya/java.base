@@ -14,19 +14,19 @@ namespace jcpp {
 	namespace test {
 
 int32_t TestAS::hashCode() {
-	 return this->$TestASBase::hashCode();
+	return this->$TestASBase::hashCode();
 }
 
 bool TestAS::equals(Object$* arg0) {
-	 return this->$TestASBase::equals(arg0);
+	return this->$TestASBase::equals(arg0);
 }
 
 $Object* TestAS::clone() {
-	 return this->$TestASBase::clone();
+	return this->$TestASBase::clone();
 }
 
 $String* TestAS::toString() {
-	 return this->$TestASBase::toString();
+	return this->$TestASBase::toString();
 }
 
 void TestAS::finalize() {

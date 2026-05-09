@@ -15,15 +15,15 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $PhantomReference = ::java::lang::ref::PhantomReference;
 
 int32_t ReferenceClone$PhantomRef::hashCode() {
-	 return this->$PhantomReference::hashCode();
+	return this->$PhantomReference::hashCode();
 }
 
 bool ReferenceClone$PhantomRef::equals(Object$* arg0) {
-	 return this->$PhantomReference::equals(arg0);
+	return this->$PhantomReference::equals(arg0);
 }
 
 $String* ReferenceClone$PhantomRef::toString() {
-	 return this->$PhantomReference::toString();
+	return this->$PhantomReference::toString();
 }
 
 void ReferenceClone$PhantomRef::finalize() {

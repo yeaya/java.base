@@ -65,19 +65,19 @@ namespace java {
 	namespace time {
 
 $String* Month::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool Month::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t Month::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* Month::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void Month::finalize() {

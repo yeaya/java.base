@@ -25,15 +25,15 @@ namespace java {
 		namespace stream {
 
 int32_t Nodes$LongFixedNodeBuilder::hashCode() {
-	 return this->$Nodes$LongArrayNode::hashCode();
+	return this->$Nodes$LongArrayNode::hashCode();
 }
 
 bool Nodes$LongFixedNodeBuilder::equals(Object$* obj) {
-	 return this->$Nodes$LongArrayNode::equals(obj);
+	return this->$Nodes$LongArrayNode::equals(obj);
 }
 
 $Object* Nodes$LongFixedNodeBuilder::clone() {
-	 return this->$Nodes$LongArrayNode::clone();
+	return this->$Nodes$LongArrayNode::clone();
 }
 
 void Nodes$LongFixedNodeBuilder::finalize() {

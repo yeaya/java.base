@@ -29,19 +29,19 @@ namespace sun {
 			namespace provider {
 
 int32_t SPILocaleProviderAdapter$DateFormatProviderDelegate::hashCode() {
-	 return this->$DateFormatProvider::hashCode();
+	return this->$DateFormatProvider::hashCode();
 }
 
 bool SPILocaleProviderAdapter$DateFormatProviderDelegate::equals(Object$* obj) {
-	 return this->$DateFormatProvider::equals(obj);
+	return this->$DateFormatProvider::equals(obj);
 }
 
 $Object* SPILocaleProviderAdapter$DateFormatProviderDelegate::clone() {
-	 return this->$DateFormatProvider::clone();
+	return this->$DateFormatProvider::clone();
 }
 
 $String* SPILocaleProviderAdapter$DateFormatProviderDelegate::toString() {
-	 return this->$DateFormatProvider::toString();
+	return this->$DateFormatProvider::toString();
 }
 
 void SPILocaleProviderAdapter$DateFormatProviderDelegate::finalize() {

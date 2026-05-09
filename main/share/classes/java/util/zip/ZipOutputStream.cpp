@@ -64,19 +64,19 @@ namespace java {
 		namespace zip {
 
 int32_t ZipOutputStream::hashCode() {
-	 return this->$DeflaterOutputStream::hashCode();
+	return this->$DeflaterOutputStream::hashCode();
 }
 
 bool ZipOutputStream::equals(Object$* obj) {
-	 return this->$DeflaterOutputStream::equals(obj);
+	return this->$DeflaterOutputStream::equals(obj);
 }
 
 $Object* ZipOutputStream::clone() {
-	 return this->$DeflaterOutputStream::clone();
+	return this->$DeflaterOutputStream::clone();
 }
 
 $String* ZipOutputStream::toString() {
-	 return this->$DeflaterOutputStream::toString();
+	return this->$DeflaterOutputStream::toString();
 }
 
 void ZipOutputStream::finalize() {

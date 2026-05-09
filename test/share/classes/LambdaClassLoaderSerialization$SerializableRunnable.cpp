@@ -9,19 +9,19 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 
 int32_t LambdaClassLoaderSerialization$SerializableRunnable::hashCode() {
-	 return this->$Runnable::hashCode();
+	return this->$Runnable::hashCode();
 }
 
 bool LambdaClassLoaderSerialization$SerializableRunnable::equals(Object$* arg0) {
-	 return this->$Runnable::equals(arg0);
+	return this->$Runnable::equals(arg0);
 }
 
 $Object* LambdaClassLoaderSerialization$SerializableRunnable::clone() {
-	 return this->$Runnable::clone();
+	return this->$Runnable::clone();
 }
 
 $String* LambdaClassLoaderSerialization$SerializableRunnable::toString() {
-	 return this->$Runnable::toString();
+	return this->$Runnable::toString();
 }
 
 void LambdaClassLoaderSerialization$SerializableRunnable::finalize() {

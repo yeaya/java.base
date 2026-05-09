@@ -53,19 +53,19 @@ namespace sun {
 		namespace util {
 
 $String* DerOutputStream::toString() {
-	 return this->$ByteArrayOutputStream::toString();
+	return this->$ByteArrayOutputStream::toString();
 }
 
 int32_t DerOutputStream::hashCode() {
-	 return this->$ByteArrayOutputStream::hashCode();
+	return this->$ByteArrayOutputStream::hashCode();
 }
 
 bool DerOutputStream::equals(Object$* obj) {
-	 return this->$ByteArrayOutputStream::equals(obj);
+	return this->$ByteArrayOutputStream::equals(obj);
 }
 
 $Object* DerOutputStream::clone() {
-	 return this->$ByteArrayOutputStream::clone();
+	return this->$ByteArrayOutputStream::clone();
 }
 
 void DerOutputStream::finalize() {

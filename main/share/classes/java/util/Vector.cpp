@@ -88,7 +88,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return Vector::lambda$removeAll$0(c, e);
+		return Vector::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -124,7 +124,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return Vector::lambda$retainAll$1(c, e);
+		return Vector::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };

@@ -29,19 +29,19 @@ namespace java {
 		namespace channels {
 
 int32_t AsynchronousSocketChannel::hashCode() {
-	 return this->$AsynchronousByteChannel::hashCode();
+	return this->$AsynchronousByteChannel::hashCode();
 }
 
 bool AsynchronousSocketChannel::equals(Object$* obj) {
-	 return this->$AsynchronousByteChannel::equals(obj);
+	return this->$AsynchronousByteChannel::equals(obj);
 }
 
 $Object* AsynchronousSocketChannel::clone() {
-	 return this->$AsynchronousByteChannel::clone();
+	return this->$AsynchronousByteChannel::clone();
 }
 
 $String* AsynchronousSocketChannel::toString() {
-	 return this->$AsynchronousByteChannel::toString();
+	return this->$AsynchronousByteChannel::toString();
 }
 
 void AsynchronousSocketChannel::finalize() {

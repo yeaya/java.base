@@ -24,11 +24,11 @@ namespace java {
 	namespace util {
 
 bool ArrayList$ListItr::hasNext() {
-	 return this->$ArrayList$Itr::hasNext();
+	return this->$ArrayList$Itr::hasNext();
 }
 
 $Object* ArrayList$ListItr::next() {
-	 return this->$ArrayList$Itr::next();
+	return this->$ArrayList$Itr::next();
 }
 
 void ArrayList$ListItr::remove() {
@@ -40,19 +40,19 @@ void ArrayList$ListItr::forEachRemaining($Consumer* action) {
 }
 
 int32_t ArrayList$ListItr::hashCode() {
-	 return this->$ArrayList$Itr::hashCode();
+	return this->$ArrayList$Itr::hashCode();
 }
 
 bool ArrayList$ListItr::equals(Object$* obj) {
-	 return this->$ArrayList$Itr::equals(obj);
+	return this->$ArrayList$Itr::equals(obj);
 }
 
 $Object* ArrayList$ListItr::clone() {
-	 return this->$ArrayList$Itr::clone();
+	return this->$ArrayList$Itr::clone();
 }
 
 $String* ArrayList$ListItr::toString() {
-	 return this->$ArrayList$Itr::toString();
+	return this->$ArrayList$Itr::toString();
 }
 
 void ArrayList$ListItr::finalize() {

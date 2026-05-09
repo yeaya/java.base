@@ -105,7 +105,7 @@ public:
 		$set(this, mapper, mapper);
 	}
 	virtual $Object* apply(int64_t e) override {
-		 return LongStream::lambda$mapMulti$0(mapper, e);
+		return LongStream::lambda$mapMulti$0(mapper, e);
 	}
 	$LongStream$LongMapMultiConsumer* mapper = nullptr;
 };

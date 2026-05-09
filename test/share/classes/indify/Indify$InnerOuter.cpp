@@ -15,19 +15,19 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace indify {
 
 int32_t Indify$InnerOuter::hashCode() {
-	 return this->$Indify$Outer::hashCode();
+	return this->$Indify$Outer::hashCode();
 }
 
 bool Indify$InnerOuter::equals(Object$* arg0) {
-	 return this->$Indify$Outer::equals(arg0);
+	return this->$Indify$Outer::equals(arg0);
 }
 
 $Object* Indify$InnerOuter::clone() {
-	 return this->$Indify$Outer::clone();
+	return this->$Indify$Outer::clone();
 }
 
 $String* Indify$InnerOuter::toString() {
-	 return this->$Indify$Outer::toString();
+	return this->$Indify$Outer::toString();
 }
 
 void Indify$InnerOuter::finalize() {

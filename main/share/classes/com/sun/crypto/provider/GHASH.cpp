@@ -33,15 +33,15 @@ namespace com {
 			namespace provider {
 
 int32_t GHASH::hashCode() {
-	 return this->$Cloneable::hashCode();
+	return this->$Cloneable::hashCode();
 }
 
 bool GHASH::equals(Object$* obj) {
-	 return this->$Cloneable::equals(obj);
+	return this->$Cloneable::equals(obj);
 }
 
 $String* GHASH::toString() {
-	 return this->$Cloneable::toString();
+	return this->$Cloneable::toString();
 }
 
 void GHASH::finalize() {

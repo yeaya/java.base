@@ -39,7 +39,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getInetAddresses();
+		return $nc(inst$)->getInetAddresses();
 	}
 	$NetworkInterface* inst$ = nullptr;
 };

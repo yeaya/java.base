@@ -20,19 +20,19 @@ namespace sun {
 		namespace resources {
 
 $Object* Bundles$BundleReference::clone() {
-	 return this->$SoftReference::clone();
+	return this->$SoftReference::clone();
 }
 
 int32_t Bundles$BundleReference::hashCode() {
-	 return this->$SoftReference::hashCode();
+	return this->$SoftReference::hashCode();
 }
 
 bool Bundles$BundleReference::equals(Object$* obj) {
-	 return this->$SoftReference::equals(obj);
+	return this->$SoftReference::equals(obj);
 }
 
 $String* Bundles$BundleReference::toString() {
-	 return this->$SoftReference::toString();
+	return this->$SoftReference::toString();
 }
 
 void Bundles$BundleReference::finalize() {

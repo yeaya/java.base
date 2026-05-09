@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual $String* getKey(Authenticator* a) override {
-		 return Authenticator::getKey(a);
+		return Authenticator::getKey(a);
 	}
 };
 $Class* Authenticator$$Lambda$getKey::load$($String* name, bool initialize) {

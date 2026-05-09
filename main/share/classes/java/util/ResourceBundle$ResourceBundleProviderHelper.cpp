@@ -80,7 +80,7 @@ public:
 		$set(this, ctor, ctor);
 	}
 	virtual $Object* run() override {
-		 return ResourceBundle$ResourceBundleProviderHelper::lambda$newResourceBundle$0(ctor);
+		return ResourceBundle$ResourceBundleProviderHelper::lambda$newResourceBundle$0(ctor);
 	}
 	$Constructor* ctor = nullptr;
 };
@@ -117,7 +117,7 @@ public:
 		$set(this, bundleName, bundleName);
 	}
 	virtual $Object* run() override {
-		 return $of(ResourceBundle$ResourceBundleProviderHelper::lambda$loadResourceBundle$1(module, bundleName));
+		return $of(ResourceBundle$ResourceBundleProviderHelper::lambda$loadResourceBundle$1(module, bundleName));
 	}
 	$Module* module = nullptr;
 	$String* bundleName = nullptr;
@@ -157,7 +157,7 @@ public:
 		$set(this, callerModule, callerModule);
 	}
 	virtual $Object* run() override {
-		 return ResourceBundle$ResourceBundleProviderHelper::lambda$loadPropertyResourceBundle$2(bundleName, module, callerModule);
+		return ResourceBundle$ResourceBundleProviderHelper::lambda$loadPropertyResourceBundle$2(bundleName, module, callerModule);
 	}
 	$String* bundleName = nullptr;
 	$Module* module = nullptr;

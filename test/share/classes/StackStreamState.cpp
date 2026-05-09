@@ -28,7 +28,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return StackStreamState::lambda$testStatic$0($cast($Stream, s));
+		return StackStreamState::lambda$testStatic$0($cast($Stream, s));
 	}
 };
 $Class* StackStreamState$$Lambda$lambda$testStatic$0::load$($String* name, bool initialize) {
@@ -59,7 +59,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $nc(inst$)->lambda$testInstance$1($cast($Stream, s));
+		return $nc(inst$)->lambda$testInstance$1($cast($Stream, s));
 	}
 	StackStreamState* inst$ = nullptr;
 };
@@ -94,7 +94,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return StackStreamState::lambda$testLocal$2($cast($Stream, s));
+		return StackStreamState::lambda$testLocal$2($cast($Stream, s));
 	}
 };
 $Class* StackStreamState$$Lambda$lambda$testLocal$2$2::load$($String* name, bool initialize) {

@@ -26,11 +26,11 @@ namespace java {
 	namespace util {
 
 bool Collection::equals(Object$* o) {
-	 return this->$Iterable::equals(o);
+	return this->$Iterable::equals(o);
 }
 
 int32_t Collection::hashCode() {
-	 return this->$Iterable::hashCode();
+	return this->$Iterable::hashCode();
 }
 
 $ObjectArray* Collection::toArray($IntFunction* generator) {

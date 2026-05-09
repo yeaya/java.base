@@ -31,19 +31,19 @@ namespace sun {
 		namespace fs {
 
 int32_t FileOwnerAttributeViewImpl::hashCode() {
-	 return this->$FileOwnerAttributeView::hashCode();
+	return this->$FileOwnerAttributeView::hashCode();
 }
 
 bool FileOwnerAttributeViewImpl::equals(Object$* obj) {
-	 return this->$FileOwnerAttributeView::equals(obj);
+	return this->$FileOwnerAttributeView::equals(obj);
 }
 
 $Object* FileOwnerAttributeViewImpl::clone() {
-	 return this->$FileOwnerAttributeView::clone();
+	return this->$FileOwnerAttributeView::clone();
 }
 
 $String* FileOwnerAttributeViewImpl::toString() {
-	 return this->$FileOwnerAttributeView::toString();
+	return this->$FileOwnerAttributeView::toString();
 }
 
 void FileOwnerAttributeViewImpl::finalize() {

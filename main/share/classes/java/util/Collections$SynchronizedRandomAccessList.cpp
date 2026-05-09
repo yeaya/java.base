@@ -16,19 +16,19 @@ namespace java {
 	namespace util {
 
 bool Collections$SynchronizedRandomAccessList::equals(Object$* o) {
-	 return this->$Collections$SynchronizedList::equals(o);
+	return this->$Collections$SynchronizedList::equals(o);
 }
 
 int32_t Collections$SynchronizedRandomAccessList::hashCode() {
-	 return this->$Collections$SynchronizedList::hashCode();
+	return this->$Collections$SynchronizedList::hashCode();
 }
 
 $String* Collections$SynchronizedRandomAccessList::toString() {
-	 return this->$Collections$SynchronizedList::toString();
+	return this->$Collections$SynchronizedList::toString();
 }
 
 $Object* Collections$SynchronizedRandomAccessList::clone() {
-	 return this->$Collections$SynchronizedList::clone();
+	return this->$Collections$SynchronizedList::clone();
 }
 
 void Collections$SynchronizedRandomAccessList::finalize() {

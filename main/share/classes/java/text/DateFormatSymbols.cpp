@@ -76,7 +76,7 @@ namespace java {
 	namespace text {
 
 $String* DateFormatSymbols::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void DateFormatSymbols::finalize() {

@@ -27,23 +27,23 @@ namespace java {
 		namespace stream {
 
 int64_t WhileOps$UnorderedWhileSpliterator$OfLong::estimateSize() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::estimateSize();
+	return this->$WhileOps$UnorderedWhileSpliterator::estimateSize();
 }
 
 int32_t WhileOps$UnorderedWhileSpliterator$OfLong::characteristics() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::characteristics();
+	return this->$WhileOps$UnorderedWhileSpliterator::characteristics();
 }
 
 int64_t WhileOps$UnorderedWhileSpliterator$OfLong::getExactSizeIfKnown() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::getExactSizeIfKnown();
+	return this->$WhileOps$UnorderedWhileSpliterator::getExactSizeIfKnown();
 }
 
 $Comparator* WhileOps$UnorderedWhileSpliterator$OfLong::getComparator() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::getComparator();
+	return this->$WhileOps$UnorderedWhileSpliterator::getComparator();
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfLong::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
+	return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
 }
 
 void WhileOps$UnorderedWhileSpliterator$OfLong::forEachRemaining($Consumer* action) {
@@ -51,23 +51,23 @@ void WhileOps$UnorderedWhileSpliterator$OfLong::forEachRemaining($Consumer* acti
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfLong::hasCharacteristics(int32_t characteristics) {
-	 return this->$WhileOps$UnorderedWhileSpliterator::hasCharacteristics(characteristics);
+	return this->$WhileOps$UnorderedWhileSpliterator::hasCharacteristics(characteristics);
 }
 
 int32_t WhileOps$UnorderedWhileSpliterator$OfLong::hashCode() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::hashCode();
+	return this->$WhileOps$UnorderedWhileSpliterator::hashCode();
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfLong::equals(Object$* obj) {
-	 return this->$WhileOps$UnorderedWhileSpliterator::equals(obj);
+	return this->$WhileOps$UnorderedWhileSpliterator::equals(obj);
 }
 
 $Object* WhileOps$UnorderedWhileSpliterator$OfLong::clone() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::clone();
+	return this->$WhileOps$UnorderedWhileSpliterator::clone();
 }
 
 $String* WhileOps$UnorderedWhileSpliterator$OfLong::toString() {
-	 return this->$WhileOps$UnorderedWhileSpliterator::toString();
+	return this->$WhileOps$UnorderedWhileSpliterator::toString();
 }
 
 void WhileOps$UnorderedWhileSpliterator$OfLong::finalize() {
@@ -83,7 +83,7 @@ void WhileOps$UnorderedWhileSpliterator$OfLong::forEachRemaining(Object$* action
 }
 
 bool WhileOps$UnorderedWhileSpliterator$OfLong::tryAdvance(Object$* action) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
+	return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
 }
 
 WhileOps$UnorderedWhileSpliterator$OfLong::MemberClass0$::MemberClass0$() {

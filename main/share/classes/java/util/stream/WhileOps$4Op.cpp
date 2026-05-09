@@ -62,7 +62,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return WhileOps$4Op::lambda$opEvaluateParallelLazy$0(x$0);
+		return WhileOps$4Op::lambda$opEvaluateParallelLazy$0(x$0);
 	}
 };
 $Class* WhileOps$4Op$$Lambda$lambda$opEvaluateParallelLazy$0::load$($String* name, bool initialize) {
@@ -87,19 +87,19 @@ $Class* WhileOps$4Op$$Lambda$lambda$opEvaluateParallelLazy$0::load$($String* nam
 $Class* WhileOps$4Op$$Lambda$lambda$opEvaluateParallelLazy$0::class$ = nullptr;
 
 int32_t WhileOps$4Op::hashCode() {
-	 return this->$DoublePipeline$StatefulOp::hashCode();
+	return this->$DoublePipeline$StatefulOp::hashCode();
 }
 
 bool WhileOps$4Op::equals(Object$* obj) {
-	 return this->$DoublePipeline$StatefulOp::equals(obj);
+	return this->$DoublePipeline$StatefulOp::equals(obj);
 }
 
 $Object* WhileOps$4Op::clone() {
-	 return this->$DoublePipeline$StatefulOp::clone();
+	return this->$DoublePipeline$StatefulOp::clone();
 }
 
 $String* WhileOps$4Op::toString() {
-	 return this->$DoublePipeline$StatefulOp::toString();
+	return this->$DoublePipeline$StatefulOp::toString();
 }
 
 void WhileOps$4Op::finalize() {

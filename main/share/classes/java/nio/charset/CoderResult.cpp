@@ -53,7 +53,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* n) override {
-		 return CoderResult::lambda$malformedForLength$0($cast($Integer, n));
+		return CoderResult::lambda$malformedForLength$0($cast($Integer, n));
 	}
 };
 $Class* CoderResult$$Lambda$lambda$malformedForLength$0::load$($String* name, bool initialize) {
@@ -83,7 +83,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* n) override {
-		 return CoderResult::lambda$unmappableForLength$1($cast($Integer, n));
+		return CoderResult::lambda$unmappableForLength$1($cast($Integer, n));
 	}
 };
 $Class* CoderResult$$Lambda$lambda$unmappableForLength$1$1::load$($String* name, bool initialize) {

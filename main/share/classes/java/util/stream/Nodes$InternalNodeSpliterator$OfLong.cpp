@@ -25,7 +25,7 @@ namespace java {
 		namespace stream {
 
 bool Nodes$InternalNodeSpliterator$OfLong::tryAdvance(Object$* consumer) {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::tryAdvance(consumer);
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::tryAdvance(consumer);
 }
 
 void Nodes$InternalNodeSpliterator$OfLong::forEachRemaining(Object$* consumer) {
@@ -33,15 +33,15 @@ void Nodes$InternalNodeSpliterator$OfLong::forEachRemaining(Object$* consumer) {
 }
 
 int64_t Nodes$InternalNodeSpliterator$OfLong::estimateSize() {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::estimateSize();
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::estimateSize();
 }
 
 int32_t Nodes$InternalNodeSpliterator$OfLong::characteristics() {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::characteristics();
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::characteristics();
 }
 
 bool Nodes$InternalNodeSpliterator$OfLong::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
+	return $as($Spliterator$OfLong, this)->$Spliterator$OfLong::tryAdvance(action);
 }
 
 void Nodes$InternalNodeSpliterator$OfLong::forEachRemaining($Consumer* action) {
@@ -49,31 +49,31 @@ void Nodes$InternalNodeSpliterator$OfLong::forEachRemaining($Consumer* action) {
 }
 
 int64_t Nodes$InternalNodeSpliterator$OfLong::getExactSizeIfKnown() {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::getExactSizeIfKnown();
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::getExactSizeIfKnown();
 }
 
 bool Nodes$InternalNodeSpliterator$OfLong::hasCharacteristics(int32_t characteristics) {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::hasCharacteristics(characteristics);
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::hasCharacteristics(characteristics);
 }
 
 $Comparator* Nodes$InternalNodeSpliterator$OfLong::getComparator() {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::getComparator();
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::getComparator();
 }
 
 int32_t Nodes$InternalNodeSpliterator$OfLong::hashCode() {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::hashCode();
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::hashCode();
 }
 
 bool Nodes$InternalNodeSpliterator$OfLong::equals(Object$* obj) {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::equals(obj);
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::equals(obj);
 }
 
 $Object* Nodes$InternalNodeSpliterator$OfLong::clone() {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::clone();
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::clone();
 }
 
 $String* Nodes$InternalNodeSpliterator$OfLong::toString() {
-	 return this->$Nodes$InternalNodeSpliterator$OfPrimitive::toString();
+	return this->$Nodes$InternalNodeSpliterator$OfPrimitive::toString();
 }
 
 void Nodes$InternalNodeSpliterator$OfLong::finalize() {

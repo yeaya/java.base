@@ -67,7 +67,7 @@ public:
 	void init$() {
 	}
 	virtual $Thread* newThread($Runnable* r) override {
-		 return ThreadPool::lambda$defaultThreadFactory$0(r);
+		return ThreadPool::lambda$defaultThreadFactory$0(r);
 	}
 };
 $Class* ThreadPool$$Lambda$lambda$defaultThreadFactory$0::load$($String* name, bool initialize) {
@@ -97,7 +97,7 @@ public:
 	void init$() {
 	}
 	virtual $Thread* newThread($Runnable* r) override {
-		 return ThreadPool::lambda$defaultThreadFactory$2(r);
+		return ThreadPool::lambda$defaultThreadFactory$2(r);
 	}
 };
 $Class* ThreadPool$$Lambda$lambda$defaultThreadFactory$2$1::load$($String* name, bool initialize) {
@@ -128,7 +128,7 @@ public:
 		$set(this, r, r);
 	}
 	virtual $Object* run() override {
-		 return ThreadPool::lambda$defaultThreadFactory$1(r);
+		return ThreadPool::lambda$defaultThreadFactory$1(r);
 	}
 	$Runnable* r = nullptr;
 };

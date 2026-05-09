@@ -31,15 +31,15 @@ namespace java {
 	namespace text {
 
 int32_t Format::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool Format::equals(Object$* obj) {
-	 return this->$Serializable::equals(obj);
+	return this->$Serializable::equals(obj);
 }
 
 $String* Format::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void Format::finalize() {

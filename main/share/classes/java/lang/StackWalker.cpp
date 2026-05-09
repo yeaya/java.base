@@ -58,7 +58,7 @@ public:
 		$set(this, action, action);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return StackWalker::lambda$forEach$0(action, $cast($Stream, s));
+		return StackWalker::lambda$forEach$0(action, $cast($Stream, s));
 	}
 	$Consumer* action = nullptr;
 };

@@ -10,19 +10,19 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 
 int32_t TestClassArray::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool TestClassArray::equals(Object$* arg0) {
-	 return this->$Serializable::equals(arg0);
+	return this->$Serializable::equals(arg0);
 }
 
 $Object* TestClassArray::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 $String* TestClassArray::toString() {
-	 return this->$Serializable::toString();
+	return this->$Serializable::toString();
 }
 
 void TestClassArray::finalize() {

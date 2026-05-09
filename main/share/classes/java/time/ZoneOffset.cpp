@@ -63,7 +63,7 @@ namespace java {
 	namespace time {
 
 $Object* ZoneOffset::clone() {
-	 return this->$ZoneId::clone();
+	return this->$ZoneId::clone();
 }
 
 void ZoneOffset::finalize() {

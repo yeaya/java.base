@@ -113,7 +113,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* zid) override {
-		 return DateTimeFormatterBuilder$ZoneTextPrinterParser::lambda$getTree$0($cast($String, zid));
+		return DateTimeFormatterBuilder$ZoneTextPrinterParser::lambda$getTree$0($cast($String, zid));
 	}
 };
 $Class* DateTimeFormatterBuilder$ZoneTextPrinterParser$$Lambda$lambda$getTree$0::load$($String* name, bool initialize) {

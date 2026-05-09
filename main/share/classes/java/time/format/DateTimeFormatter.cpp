@@ -140,7 +140,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* t) override {
-		 return $of(DateTimeFormatter::lambda$static$0(t));
+		return $of(DateTimeFormatter::lambda$static$0(t));
 	}
 };
 $Class* DateTimeFormatter$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
@@ -170,7 +170,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* t) override {
-		 return $of(DateTimeFormatter::lambda$static$1(t));
+		return $of(DateTimeFormatter::lambda$static$1(t));
 	}
 };
 $Class* DateTimeFormatter$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
@@ -200,7 +200,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* zoneId) override {
-		 return $ZoneId::of($cast($String, zoneId));
+		return $ZoneId::of($cast($String, zoneId));
 	}
 };
 $Class* DateTimeFormatter$$Lambda$of$2::load$($String* name, bool initialize) {

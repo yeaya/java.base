@@ -29,19 +29,19 @@ namespace sun {
 			namespace provider {
 
 int32_t SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::hashCode() {
-	 return this->$TimeZoneNameProvider::hashCode();
+	return this->$TimeZoneNameProvider::hashCode();
 }
 
 bool SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::equals(Object$* obj) {
-	 return this->$TimeZoneNameProvider::equals(obj);
+	return this->$TimeZoneNameProvider::equals(obj);
 }
 
 $Object* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::clone() {
-	 return this->$TimeZoneNameProvider::clone();
+	return this->$TimeZoneNameProvider::clone();
 }
 
 $String* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::toString() {
-	 return this->$TimeZoneNameProvider::toString();
+	return this->$TimeZoneNameProvider::toString();
 }
 
 void SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::finalize() {

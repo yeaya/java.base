@@ -16,7 +16,7 @@ namespace java {
 	namespace util {
 
 $Object* AbstractMap$SimpleImmutableEntry::clone() {
-	 return this->$Map$Entry::clone();
+	return this->$Map$Entry::clone();
 }
 
 void AbstractMap$SimpleImmutableEntry::finalize() {

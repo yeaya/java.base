@@ -38,43 +38,43 @@ namespace java {
 	namespace util {
 
 $Comparator* Collections$SynchronizedNavigableMap::comparator() {
-	 return this->$Collections$SynchronizedSortedMap::comparator();
+	return this->$Collections$SynchronizedSortedMap::comparator();
 }
 
 $Object* Collections$SynchronizedNavigableMap::firstKey() {
-	 return this->$Collections$SynchronizedSortedMap::firstKey();
+	return this->$Collections$SynchronizedSortedMap::firstKey();
 }
 
 $Object* Collections$SynchronizedNavigableMap::lastKey() {
-	 return this->$Collections$SynchronizedSortedMap::lastKey();
+	return this->$Collections$SynchronizedSortedMap::lastKey();
 }
 
 int32_t Collections$SynchronizedNavigableMap::size() {
-	 return this->$Collections$SynchronizedSortedMap::size();
+	return this->$Collections$SynchronizedSortedMap::size();
 }
 
 bool Collections$SynchronizedNavigableMap::isEmpty() {
-	 return this->$Collections$SynchronizedSortedMap::isEmpty();
+	return this->$Collections$SynchronizedSortedMap::isEmpty();
 }
 
 bool Collections$SynchronizedNavigableMap::containsKey(Object$* key) {
-	 return this->$Collections$SynchronizedSortedMap::containsKey(key);
+	return this->$Collections$SynchronizedSortedMap::containsKey(key);
 }
 
 bool Collections$SynchronizedNavigableMap::containsValue(Object$* value) {
-	 return this->$Collections$SynchronizedSortedMap::containsValue(value);
+	return this->$Collections$SynchronizedSortedMap::containsValue(value);
 }
 
 $Object* Collections$SynchronizedNavigableMap::get(Object$* key) {
-	 return this->$Collections$SynchronizedSortedMap::get(key);
+	return this->$Collections$SynchronizedSortedMap::get(key);
 }
 
 $Object* Collections$SynchronizedNavigableMap::put(Object$* key, Object$* value) {
-	 return this->$Collections$SynchronizedSortedMap::put(key, value);
+	return this->$Collections$SynchronizedSortedMap::put(key, value);
 }
 
 $Object* Collections$SynchronizedNavigableMap::remove(Object$* key) {
-	 return this->$Collections$SynchronizedSortedMap::remove(key);
+	return this->$Collections$SynchronizedSortedMap::remove(key);
 }
 
 void Collections$SynchronizedNavigableMap::putAll($Map* map) {
@@ -86,27 +86,27 @@ void Collections$SynchronizedNavigableMap::clear() {
 }
 
 $Set* Collections$SynchronizedNavigableMap::entrySet() {
-	 return this->$Collections$SynchronizedSortedMap::entrySet();
+	return this->$Collections$SynchronizedSortedMap::entrySet();
 }
 
 $Collection* Collections$SynchronizedNavigableMap::values() {
-	 return this->$Collections$SynchronizedSortedMap::values();
+	return this->$Collections$SynchronizedSortedMap::values();
 }
 
 bool Collections$SynchronizedNavigableMap::equals(Object$* o) {
-	 return this->$Collections$SynchronizedSortedMap::equals(o);
+	return this->$Collections$SynchronizedSortedMap::equals(o);
 }
 
 int32_t Collections$SynchronizedNavigableMap::hashCode() {
-	 return this->$Collections$SynchronizedSortedMap::hashCode();
+	return this->$Collections$SynchronizedSortedMap::hashCode();
 }
 
 $String* Collections$SynchronizedNavigableMap::toString() {
-	 return this->$Collections$SynchronizedSortedMap::toString();
+	return this->$Collections$SynchronizedSortedMap::toString();
 }
 
 $Object* Collections$SynchronizedNavigableMap::getOrDefault(Object$* k, Object$* defaultValue) {
-	 return this->$Collections$SynchronizedSortedMap::getOrDefault(k, defaultValue);
+	return this->$Collections$SynchronizedSortedMap::getOrDefault(k, defaultValue);
 }
 
 void Collections$SynchronizedNavigableMap::forEach($BiConsumer* action) {
@@ -118,39 +118,39 @@ void Collections$SynchronizedNavigableMap::replaceAll($BiFunction* function) {
 }
 
 $Object* Collections$SynchronizedNavigableMap::putIfAbsent(Object$* key, Object$* value) {
-	 return this->$Collections$SynchronizedSortedMap::putIfAbsent(key, value);
+	return this->$Collections$SynchronizedSortedMap::putIfAbsent(key, value);
 }
 
 bool Collections$SynchronizedNavigableMap::remove(Object$* key, Object$* value) {
-	 return this->$Collections$SynchronizedSortedMap::remove(key, value);
+	return this->$Collections$SynchronizedSortedMap::remove(key, value);
 }
 
 bool Collections$SynchronizedNavigableMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	 return this->$Collections$SynchronizedSortedMap::replace(key, oldValue, newValue);
+	return this->$Collections$SynchronizedSortedMap::replace(key, oldValue, newValue);
 }
 
 $Object* Collections$SynchronizedNavigableMap::replace(Object$* key, Object$* value) {
-	 return this->$Collections$SynchronizedSortedMap::replace(key, value);
+	return this->$Collections$SynchronizedSortedMap::replace(key, value);
 }
 
 $Object* Collections$SynchronizedNavigableMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	 return this->$Collections$SynchronizedSortedMap::computeIfAbsent(key, mappingFunction);
+	return this->$Collections$SynchronizedSortedMap::computeIfAbsent(key, mappingFunction);
 }
 
 $Object* Collections$SynchronizedNavigableMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$SynchronizedSortedMap::computeIfPresent(key, remappingFunction);
+	return this->$Collections$SynchronizedSortedMap::computeIfPresent(key, remappingFunction);
 }
 
 $Object* Collections$SynchronizedNavigableMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$SynchronizedSortedMap::compute(key, remappingFunction);
+	return this->$Collections$SynchronizedSortedMap::compute(key, remappingFunction);
 }
 
 $Object* Collections$SynchronizedNavigableMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	 return this->$Collections$SynchronizedSortedMap::merge(key, value, remappingFunction);
+	return this->$Collections$SynchronizedSortedMap::merge(key, value, remappingFunction);
 }
 
 $Object* Collections$SynchronizedNavigableMap::clone() {
-	 return this->$Collections$SynchronizedSortedMap::clone();
+	return this->$Collections$SynchronizedSortedMap::clone();
 }
 
 void Collections$SynchronizedNavigableMap::finalize() {

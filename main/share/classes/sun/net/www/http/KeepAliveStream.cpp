@@ -44,19 +44,19 @@ void KeepAliveStream::finalize() {
 }
 
 int32_t KeepAliveStream::hashCode() {
-	 return this->$MeteredStream::hashCode();
+	return this->$MeteredStream::hashCode();
 }
 
 bool KeepAliveStream::equals(Object$* obj) {
-	 return this->$MeteredStream::equals(obj);
+	return this->$MeteredStream::equals(obj);
 }
 
 $Object* KeepAliveStream::clone() {
-	 return this->$MeteredStream::clone();
+	return this->$MeteredStream::clone();
 }
 
 $String* KeepAliveStream::toString() {
-	 return this->$MeteredStream::toString();
+	return this->$MeteredStream::toString();
 }
 
 bool KeepAliveStream::$assertionsDisabled = false;

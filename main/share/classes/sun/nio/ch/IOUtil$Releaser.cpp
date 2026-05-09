@@ -60,7 +60,7 @@ $Class* IOUtil$Releaser$$Lambda$lambda$ofNullable$0::load$($String* name, bool i
 $Class* IOUtil$Releaser$$Lambda$lambda$ofNullable$0::class$ = nullptr;
 
 $Object* IOUtil$Releaser::clone() {
-	 return this->$Record::clone();
+	return this->$Record::clone();
 }
 
 void IOUtil$Releaser::finalize() {

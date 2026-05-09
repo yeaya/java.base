@@ -164,7 +164,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return ReferencePipeline::lambda$toArray$0(x$0);
+		return ReferencePipeline::lambda$toArray$0(x$0);
 	}
 };
 $Class* ReferencePipeline$$Lambda$lambda$toArray$0::load$($String* name, bool initialize) {
@@ -228,11 +228,11 @@ $Class* ReferencePipeline$$Lambda$lambda$collect$1$1::load$($String* name, bool 
 $Class* ReferencePipeline$$Lambda$lambda$collect$1$1::class$ = nullptr;
 
 $BaseStream* ReferencePipeline::sequential() {
-	 return this->$AbstractPipeline::sequential();
+	return this->$AbstractPipeline::sequential();
 }
 
 $BaseStream* ReferencePipeline::parallel() {
-	 return this->$AbstractPipeline::parallel();
+	return this->$AbstractPipeline::parallel();
 }
 
 void ReferencePipeline::close() {
@@ -240,31 +240,31 @@ void ReferencePipeline::close() {
 }
 
 $BaseStream* ReferencePipeline::onClose($Runnable* closeHandler) {
-	 return this->$AbstractPipeline::onClose(closeHandler);
+	return this->$AbstractPipeline::onClose(closeHandler);
 }
 
 $Spliterator* ReferencePipeline::spliterator() {
-	 return this->$AbstractPipeline::spliterator();
+	return this->$AbstractPipeline::spliterator();
 }
 
 bool ReferencePipeline::isParallel() {
-	 return this->$AbstractPipeline::isParallel();
+	return this->$AbstractPipeline::isParallel();
 }
 
 int32_t ReferencePipeline::hashCode() {
-	 return this->$AbstractPipeline::hashCode();
+	return this->$AbstractPipeline::hashCode();
 }
 
 bool ReferencePipeline::equals(Object$* obj) {
-	 return this->$AbstractPipeline::equals(obj);
+	return this->$AbstractPipeline::equals(obj);
 }
 
 $Object* ReferencePipeline::clone() {
-	 return this->$AbstractPipeline::clone();
+	return this->$AbstractPipeline::clone();
 }
 
 $String* ReferencePipeline::toString() {
-	 return this->$AbstractPipeline::toString();
+	return this->$AbstractPipeline::toString();
 }
 
 void ReferencePipeline::finalize() {

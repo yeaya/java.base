@@ -42,7 +42,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return DatagramSocketAdaptor$DatagramSockets::lambda$static$0();
+		return DatagramSocketAdaptor$DatagramSockets::lambda$static$0();
 	}
 };
 $Class* DatagramSocketAdaptor$DatagramSockets$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

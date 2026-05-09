@@ -24,7 +24,7 @@ namespace java {
 		namespace stream {
 
 bool Streams$ConcatSpliterator$OfInt::tryAdvance(Object$* action) {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::tryAdvance(action);
+	return this->$Streams$ConcatSpliterator$OfPrimitive::tryAdvance(action);
 }
 
 void Streams$ConcatSpliterator$OfInt::forEachRemaining(Object$* action) {
@@ -32,7 +32,7 @@ void Streams$ConcatSpliterator$OfInt::forEachRemaining(Object$* action) {
 }
 
 bool Streams$ConcatSpliterator$OfInt::tryAdvance($Consumer* consumer) {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::tryAdvance(consumer);
+	return this->$Streams$ConcatSpliterator$OfPrimitive::tryAdvance(consumer);
 }
 
 void Streams$ConcatSpliterator$OfInt::forEachRemaining($Consumer* consumer) {
@@ -40,39 +40,39 @@ void Streams$ConcatSpliterator$OfInt::forEachRemaining($Consumer* consumer) {
 }
 
 int64_t Streams$ConcatSpliterator$OfInt::estimateSize() {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::estimateSize();
+	return this->$Streams$ConcatSpliterator$OfPrimitive::estimateSize();
 }
 
 int32_t Streams$ConcatSpliterator$OfInt::characteristics() {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::characteristics();
+	return this->$Streams$ConcatSpliterator$OfPrimitive::characteristics();
 }
 
 $Comparator* Streams$ConcatSpliterator$OfInt::getComparator() {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::getComparator();
+	return this->$Streams$ConcatSpliterator$OfPrimitive::getComparator();
 }
 
 int64_t Streams$ConcatSpliterator$OfInt::getExactSizeIfKnown() {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::getExactSizeIfKnown();
+	return this->$Streams$ConcatSpliterator$OfPrimitive::getExactSizeIfKnown();
 }
 
 bool Streams$ConcatSpliterator$OfInt::hasCharacteristics(int32_t characteristics) {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::hasCharacteristics(characteristics);
+	return this->$Streams$ConcatSpliterator$OfPrimitive::hasCharacteristics(characteristics);
 }
 
 int32_t Streams$ConcatSpliterator$OfInt::hashCode() {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::hashCode();
+	return this->$Streams$ConcatSpliterator$OfPrimitive::hashCode();
 }
 
 bool Streams$ConcatSpliterator$OfInt::equals(Object$* obj) {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::equals(obj);
+	return this->$Streams$ConcatSpliterator$OfPrimitive::equals(obj);
 }
 
 $Object* Streams$ConcatSpliterator$OfInt::clone() {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::clone();
+	return this->$Streams$ConcatSpliterator$OfPrimitive::clone();
 }
 
 $String* Streams$ConcatSpliterator$OfInt::toString() {
-	 return this->$Streams$ConcatSpliterator$OfPrimitive::toString();
+	return this->$Streams$ConcatSpliterator$OfPrimitive::toString();
 }
 
 void Streams$ConcatSpliterator$OfInt::finalize() {

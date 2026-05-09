@@ -47,7 +47,7 @@ public:
 		$set(this, path, path);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getResourceAsStream$0(path);
+		return $nc(inst$)->lambda$getResourceAsStream$0(path);
 	}
 	BreakIteratorResourceBundle* inst$ = nullptr;
 	$String* path = nullptr;

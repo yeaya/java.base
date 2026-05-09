@@ -28,15 +28,15 @@ namespace java {
 		namespace format {
 
 bool DateTimeFormatterBuilder$SettingsParser::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t DateTimeFormatterBuilder$SettingsParser::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* DateTimeFormatterBuilder$SettingsParser::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void DateTimeFormatterBuilder$SettingsParser::finalize() {

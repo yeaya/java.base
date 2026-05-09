@@ -60,7 +60,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ia) override {
-		 return ManySourcesAndTargets::networkInterface($cast($InetAddress, ia));
+		return ManySourcesAndTargets::networkInterface($cast($InetAddress, ia));
 	}
 };
 $Class* ManySourcesAndTargets$$Lambda$networkInterface::load$($String* name, bool initialize) {
@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Optional, inst$)->stream();
+		return $sure($Optional, inst$)->stream();
 	}
 };
 $Class* ManySourcesAndTargets$$Lambda$stream$1::load$($String* name, bool initialize) {
@@ -120,7 +120,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($NetworkInterface, inst$)->inetAddresses();
+		return $sure($NetworkInterface, inst$)->inetAddresses();
 	}
 };
 $Class* ManySourcesAndTargets$$Lambda$inetAddresses$2::load$($String* name, bool initialize) {
@@ -150,7 +150,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* ia) override {
-		 return ManySourcesAndTargets::lambda$main$0($cast($InetAddress, ia));
+		return ManySourcesAndTargets::lambda$main$0($cast($InetAddress, ia));
 	}
 };
 $Class* ManySourcesAndTargets$$Lambda$lambda$main$0$3::load$($String* name, bool initialize) {

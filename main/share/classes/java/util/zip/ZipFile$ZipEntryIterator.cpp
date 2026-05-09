@@ -22,19 +22,19 @@ namespace java {
 		namespace zip {
 
 int32_t ZipFile$ZipEntryIterator::hashCode() {
-	 return this->$Enumeration::hashCode();
+	return this->$Enumeration::hashCode();
 }
 
 bool ZipFile$ZipEntryIterator::equals(Object$* obj) {
-	 return this->$Enumeration::equals(obj);
+	return this->$Enumeration::equals(obj);
 }
 
 $Object* ZipFile$ZipEntryIterator::clone() {
-	 return this->$Enumeration::clone();
+	return this->$Enumeration::clone();
 }
 
 $String* ZipFile$ZipEntryIterator::toString() {
-	 return this->$Enumeration::toString();
+	return this->$Enumeration::toString();
 }
 
 void ZipFile$ZipEntryIterator::finalize() {

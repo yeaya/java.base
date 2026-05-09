@@ -47,7 +47,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Annotation, inst$)->annotationType());
+		return $of($sure($Annotation, inst$)->annotationType());
 	}
 };
 $Class* AnnotatedElement$$Lambda$annotationType::load$($String* name, bool initialize) {
@@ -77,7 +77,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* first, Object$* second) override {
-		 return AnnotatedElement::lambda$getDeclaredAnnotationsByType$0($cast($Annotation, first), $cast($Annotation, second));
+		return AnnotatedElement::lambda$getDeclaredAnnotationsByType$0($cast($Annotation, first), $cast($Annotation, second));
 	}
 };
 $Class* AnnotatedElement$$Lambda$lambda$getDeclaredAnnotationsByType$0$1::load$($String* name, bool initialize) {
@@ -107,7 +107,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($LinkedHashMap));
+		return $of($new($LinkedHashMap));
 	}
 };
 $Class* AnnotatedElement$$Lambda$LinkedHashMap$2::load$($String* name, bool initialize) {

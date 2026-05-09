@@ -63,7 +63,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* get() override {
-		 return BootLoader$PackageHelper::lambda$findModule$0(name);
+		return BootLoader$PackageHelper::lambda$findModule$0(name);
 	}
 	$String* name = nullptr;
 };

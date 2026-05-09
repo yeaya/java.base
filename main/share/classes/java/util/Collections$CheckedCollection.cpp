@@ -38,15 +38,15 @@ namespace java {
 	namespace util {
 
 bool Collections$CheckedCollection::equals(Object$* o) {
-	 return this->$Collection::equals(o);
+	return this->$Collection::equals(o);
 }
 
 int32_t Collections$CheckedCollection::hashCode() {
-	 return this->$Collection::hashCode();
+	return this->$Collection::hashCode();
 }
 
 $Object* Collections$CheckedCollection::clone() {
-	 return this->$Collection::clone();
+	return this->$Collection::clone();
 }
 
 void Collections$CheckedCollection::finalize() {

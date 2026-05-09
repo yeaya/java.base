@@ -84,15 +84,15 @@ namespace java {
 		namespace temporal {
 
 bool ChronoField::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t ChronoField::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* ChronoField::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void ChronoField::finalize() {

@@ -143,7 +143,7 @@ public:
 		$set(this, resourceName, resourceName);
 	}
 	virtual $Object* run() override {
-		 return HijrahChronology::lambda$readConfigProperties$1(resourceName);
+		return HijrahChronology::lambda$readConfigProperties$1(resourceName);
 	}
 	$String* resourceName = nullptr;
 };
@@ -179,7 +179,7 @@ public:
 		$set(this, resourceName, resourceName);
 	}
 	virtual $Object* run() override {
-		 return HijrahChronology::lambda$readConfigProperties$2(resourceName);
+		return HijrahChronology::lambda$readConfigProperties$2(resourceName);
 	}
 	$String* resourceName = nullptr;
 };
@@ -214,7 +214,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return HijrahChronology::lambda$registerCustomChrono$7();
+		return HijrahChronology::lambda$registerCustomChrono$7();
 	}
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$7$2::load$($String* name, bool initialize) {
@@ -244,7 +244,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of(HijrahChronology::lambda$registerCustomChrono$3($cast($Path, p)));
+		return $of(HijrahChronology::lambda$registerCustomChrono$3($cast($Path, p)));
 	}
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$3$3::load$($String* name, bool initialize) {
@@ -274,7 +274,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* fn) override {
-		 return HijrahChronology::lambda$registerCustomChrono$4($cast($String, fn));
+		return HijrahChronology::lambda$registerCustomChrono$4($cast($String, fn));
 	}
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$4$4::load$($String* name, bool initialize) {
@@ -304,7 +304,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* fn) override {
-		 return $of(HijrahChronology::lambda$registerCustomChrono$5($cast($String, fn)));
+		return $of(HijrahChronology::lambda$registerCustomChrono$5($cast($String, fn)));
 	}
 };
 $Class* HijrahChronology$$Lambda$lambda$registerCustomChrono$5$5::load$($String* name, bool initialize) {
@@ -364,7 +364,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(HijrahChronology::lambda$static$0());
+		return $of(HijrahChronology::lambda$static$0());
 	}
 };
 $Class* HijrahChronology$$Lambda$lambda$static$0$7::load$($String* name, bool initialize) {
@@ -389,19 +389,19 @@ $Class* HijrahChronology$$Lambda$lambda$static$0$7::load$($String* name, bool in
 $Class* HijrahChronology$$Lambda$lambda$static$0$7::class$ = nullptr;
 
 bool HijrahChronology::equals(Object$* obj) {
-	 return this->$AbstractChronology::equals(obj);
+	return this->$AbstractChronology::equals(obj);
 }
 
 int32_t HijrahChronology::hashCode() {
-	 return this->$AbstractChronology::hashCode();
+	return this->$AbstractChronology::hashCode();
 }
 
 $String* HijrahChronology::toString() {
-	 return this->$AbstractChronology::toString();
+	return this->$AbstractChronology::toString();
 }
 
 $Object* HijrahChronology::clone() {
-	 return this->$AbstractChronology::clone();
+	return this->$AbstractChronology::clone();
 }
 
 void HijrahChronology::finalize() {

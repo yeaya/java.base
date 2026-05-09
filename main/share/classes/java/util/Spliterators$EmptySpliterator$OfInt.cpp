@@ -21,7 +21,7 @@ namespace java {
 	namespace util {
 
 bool Spliterators$EmptySpliterator$OfInt::tryAdvance(Object$* consumer) {
-	 return this->$Spliterators$EmptySpliterator::tryAdvance(consumer);
+	return this->$Spliterators$EmptySpliterator::tryAdvance(consumer);
 }
 
 void Spliterators$EmptySpliterator$OfInt::forEachRemaining(Object$* consumer) {
@@ -29,27 +29,27 @@ void Spliterators$EmptySpliterator$OfInt::forEachRemaining(Object$* consumer) {
 }
 
 int64_t Spliterators$EmptySpliterator$OfInt::estimateSize() {
-	 return this->$Spliterators$EmptySpliterator::estimateSize();
+	return this->$Spliterators$EmptySpliterator::estimateSize();
 }
 
 int32_t Spliterators$EmptySpliterator$OfInt::characteristics() {
-	 return this->$Spliterators$EmptySpliterator::characteristics();
+	return this->$Spliterators$EmptySpliterator::characteristics();
 }
 
 int32_t Spliterators$EmptySpliterator$OfInt::hashCode() {
-	 return this->$Spliterators$EmptySpliterator::hashCode();
+	return this->$Spliterators$EmptySpliterator::hashCode();
 }
 
 bool Spliterators$EmptySpliterator$OfInt::equals(Object$* obj) {
-	 return this->$Spliterators$EmptySpliterator::equals(obj);
+	return this->$Spliterators$EmptySpliterator::equals(obj);
 }
 
 $Object* Spliterators$EmptySpliterator$OfInt::clone() {
-	 return this->$Spliterators$EmptySpliterator::clone();
+	return this->$Spliterators$EmptySpliterator::clone();
 }
 
 $String* Spliterators$EmptySpliterator$OfInt::toString() {
-	 return this->$Spliterators$EmptySpliterator::toString();
+	return this->$Spliterators$EmptySpliterator::toString();
 }
 
 void Spliterators$EmptySpliterator$OfInt::finalize() {
@@ -57,7 +57,7 @@ void Spliterators$EmptySpliterator$OfInt::finalize() {
 }
 
 bool Spliterators$EmptySpliterator$OfInt::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(action);
+	return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::tryAdvance(action);
 }
 
 void Spliterators$EmptySpliterator$OfInt::forEachRemaining($Consumer* action) {
@@ -65,15 +65,15 @@ void Spliterators$EmptySpliterator$OfInt::forEachRemaining($Consumer* action) {
 }
 
 int64_t Spliterators$EmptySpliterator$OfInt::getExactSizeIfKnown() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getExactSizeIfKnown();
+	return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getExactSizeIfKnown();
 }
 
 bool Spliterators$EmptySpliterator$OfInt::hasCharacteristics(int32_t characteristics) {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::hasCharacteristics(characteristics);
+	return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::hasCharacteristics(characteristics);
 }
 
 $Comparator* Spliterators$EmptySpliterator$OfInt::getComparator() {
-	 return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getComparator();
+	return $as($Spliterator$OfInt, this)->$Spliterator$OfInt::getComparator();
 }
 
 Spliterators$EmptySpliterator$OfInt::MemberClass0$::MemberClass0$() {

@@ -41,59 +41,59 @@ namespace java {
 	namespace util {
 
 bool TreeMap$KeySet::equals(Object$* o) {
-	 return this->$AbstractSet::equals(o);
+	return this->$AbstractSet::equals(o);
 }
 
 int32_t TreeMap$KeySet::hashCode() {
-	 return this->$AbstractSet::hashCode();
+	return this->$AbstractSet::hashCode();
 }
 
 bool TreeMap$KeySet::removeAll($Collection* c) {
-	 return this->$AbstractSet::removeAll(c);
+	return this->$AbstractSet::removeAll(c);
 }
 
 $ObjectArray* TreeMap$KeySet::toArray() {
-	 return this->$AbstractSet::toArray();
+	return this->$AbstractSet::toArray();
 }
 
 $ObjectArray* TreeMap$KeySet::toArray($ObjectArray* a) {
-	 return this->$AbstractSet::toArray(a);
+	return this->$AbstractSet::toArray(a);
 }
 
 bool TreeMap$KeySet::add(Object$* e) {
-	 return this->$AbstractSet::add(e);
+	return this->$AbstractSet::add(e);
 }
 
 bool TreeMap$KeySet::containsAll($Collection* c) {
-	 return this->$AbstractSet::containsAll(c);
+	return this->$AbstractSet::containsAll(c);
 }
 
 bool TreeMap$KeySet::addAll($Collection* c) {
-	 return this->$AbstractSet::addAll(c);
+	return this->$AbstractSet::addAll(c);
 }
 
 bool TreeMap$KeySet::retainAll($Collection* c) {
-	 return this->$AbstractSet::retainAll(c);
+	return this->$AbstractSet::retainAll(c);
 }
 
 $String* TreeMap$KeySet::toString() {
-	 return this->$AbstractSet::toString();
+	return this->$AbstractSet::toString();
 }
 
 $ObjectArray* TreeMap$KeySet::toArray($IntFunction* generator) {
-	 return this->$AbstractSet::toArray(generator);
+	return this->$AbstractSet::toArray(generator);
 }
 
 bool TreeMap$KeySet::removeIf($Predicate* filter) {
-	 return this->$AbstractSet::removeIf(filter);
+	return this->$AbstractSet::removeIf(filter);
 }
 
 $Stream* TreeMap$KeySet::stream() {
-	 return this->$AbstractSet::stream();
+	return this->$AbstractSet::stream();
 }
 
 $Stream* TreeMap$KeySet::parallelStream() {
-	 return this->$AbstractSet::parallelStream();
+	return this->$AbstractSet::parallelStream();
 }
 
 void TreeMap$KeySet::forEach($Consumer* action) {
@@ -101,7 +101,7 @@ void TreeMap$KeySet::forEach($Consumer* action) {
 }
 
 $Object* TreeMap$KeySet::clone() {
-	 return this->$AbstractSet::clone();
+	return this->$AbstractSet::clone();
 }
 
 void TreeMap$KeySet::finalize() {

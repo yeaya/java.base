@@ -142,7 +142,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* ld, Object$* clv) override {
-		 return Proxy$ProxyBuilder::lambda$getDynamicModule$1($cast($ClassLoader, ld), $cast($ClassLoaderValue, clv));
+		return Proxy$ProxyBuilder::lambda$getDynamicModule$1($cast($ClassLoader, ld), $cast($ClassLoaderValue, clv));
 	}
 };
 $Class* Proxy$ProxyBuilder$$Lambda$lambda$getDynamicModule$1$1::load$($String* name, bool initialize) {

@@ -123,7 +123,7 @@ public:
 		$set(this, visited, visited);
 	}
 	virtual bool test(Object$* v) override {
-		 return ModuleHashesBuilder$Graph::lambda$dfs$2(visited, v);
+		return ModuleHashesBuilder$Graph::lambda$dfs$2(visited, v);
 	}
 	$Set* visited = nullptr;
 };

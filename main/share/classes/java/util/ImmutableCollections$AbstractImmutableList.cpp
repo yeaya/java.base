@@ -46,11 +46,11 @@ namespace java {
 	namespace util {
 
 bool ImmutableCollections$AbstractImmutableList::add(Object$* e) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::add(e);
+	return this->$ImmutableCollections$AbstractImmutableCollection::add(e);
 }
 
 bool ImmutableCollections$AbstractImmutableList::addAll($Collection* c) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::addAll(c);
+	return this->$ImmutableCollections$AbstractImmutableCollection::addAll(c);
 }
 
 void ImmutableCollections$AbstractImmutableList::clear() {
@@ -58,55 +58,55 @@ void ImmutableCollections$AbstractImmutableList::clear() {
 }
 
 bool ImmutableCollections$AbstractImmutableList::remove(Object$* o) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::remove(o);
+	return this->$ImmutableCollections$AbstractImmutableCollection::remove(o);
 }
 
 bool ImmutableCollections$AbstractImmutableList::removeAll($Collection* c) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::removeAll(c);
+	return this->$ImmutableCollections$AbstractImmutableCollection::removeAll(c);
 }
 
 bool ImmutableCollections$AbstractImmutableList::removeIf($Predicate* filter) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::removeIf(filter);
+	return this->$ImmutableCollections$AbstractImmutableCollection::removeIf(filter);
 }
 
 bool ImmutableCollections$AbstractImmutableList::retainAll($Collection* c) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::retainAll(c);
+	return this->$ImmutableCollections$AbstractImmutableCollection::retainAll(c);
 }
 
 bool ImmutableCollections$AbstractImmutableList::isEmpty() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::isEmpty();
+	return this->$ImmutableCollections$AbstractImmutableCollection::isEmpty();
 }
 
 $ObjectArray* ImmutableCollections$AbstractImmutableList::toArray() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::toArray();
+	return this->$ImmutableCollections$AbstractImmutableCollection::toArray();
 }
 
 $ObjectArray* ImmutableCollections$AbstractImmutableList::toArray($ObjectArray* a) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::toArray(a);
+	return this->$ImmutableCollections$AbstractImmutableCollection::toArray(a);
 }
 
 bool ImmutableCollections$AbstractImmutableList::containsAll($Collection* c) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::containsAll(c);
+	return this->$ImmutableCollections$AbstractImmutableCollection::containsAll(c);
 }
 
 $String* ImmutableCollections$AbstractImmutableList::toString() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::toString();
+	return this->$ImmutableCollections$AbstractImmutableCollection::toString();
 }
 
 $ObjectArray* ImmutableCollections$AbstractImmutableList::toArray($IntFunction* generator) {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::toArray(generator);
+	return this->$ImmutableCollections$AbstractImmutableCollection::toArray(generator);
 }
 
 $Spliterator* ImmutableCollections$AbstractImmutableList::spliterator() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::spliterator();
+	return this->$ImmutableCollections$AbstractImmutableCollection::spliterator();
 }
 
 $Stream* ImmutableCollections$AbstractImmutableList::stream() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::stream();
+	return this->$ImmutableCollections$AbstractImmutableCollection::stream();
 }
 
 $Stream* ImmutableCollections$AbstractImmutableList::parallelStream() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::parallelStream();
+	return this->$ImmutableCollections$AbstractImmutableCollection::parallelStream();
 }
 
 void ImmutableCollections$AbstractImmutableList::forEach($Consumer* action) {
@@ -114,7 +114,7 @@ void ImmutableCollections$AbstractImmutableList::forEach($Consumer* action) {
 }
 
 $Object* ImmutableCollections$AbstractImmutableList::clone() {
-	 return this->$ImmutableCollections$AbstractImmutableCollection::clone();
+	return this->$ImmutableCollections$AbstractImmutableCollection::clone();
 }
 
 void ImmutableCollections$AbstractImmutableList::finalize() {

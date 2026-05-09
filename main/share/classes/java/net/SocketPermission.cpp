@@ -91,7 +91,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($RegisteredDomain, inst$)->name());
+		return $of($sure($RegisteredDomain, inst$)->name());
 	}
 };
 $Class* SocketPermission$$Lambda$name::load$($String* name, bool initialize) {

@@ -26,19 +26,19 @@ void DataOutputStream::write($bytes* b) {
 }
 
 int32_t DataOutputStream::hashCode() {
-	 return this->$FilterOutputStream::hashCode();
+	return this->$FilterOutputStream::hashCode();
 }
 
 bool DataOutputStream::equals(Object$* obj) {
-	 return this->$FilterOutputStream::equals(obj);
+	return this->$FilterOutputStream::equals(obj);
 }
 
 $Object* DataOutputStream::clone() {
-	 return this->$FilterOutputStream::clone();
+	return this->$FilterOutputStream::clone();
 }
 
 $String* DataOutputStream::toString() {
-	 return this->$FilterOutputStream::toString();
+	return this->$FilterOutputStream::toString();
 }
 
 void DataOutputStream::finalize() {

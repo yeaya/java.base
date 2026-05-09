@@ -105,7 +105,7 @@ namespace java {
 	namespace math {
 
 $Object* BigInteger::clone() {
-	 return this->$Number::clone();
+	return this->$Number::clone();
 }
 
 void BigInteger::finalize() {

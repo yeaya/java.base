@@ -28,7 +28,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return Test8076596::lambda$new$0();
+		return Test8076596::lambda$new$0();
 	}
 };
 $Class* Test8076596$$Lambda$lambda$new$0::load$($String* name, bool initialize) {

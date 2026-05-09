@@ -37,7 +37,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->copyAndLeap();
+		return $nc(inst$)->copyAndLeap();
 	}
 	RandomGenerator$LeapableGenerator* inst$ = nullptr;
 };

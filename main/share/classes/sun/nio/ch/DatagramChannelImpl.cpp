@@ -300,23 +300,23 @@ void DatagramChannelImpl::close() {
 }
 
 bool DatagramChannelImpl::isOpen() {
-	 return this->$DatagramChannel::isOpen();
+	return this->$DatagramChannel::isOpen();
 }
 
 int32_t DatagramChannelImpl::hashCode() {
-	 return this->$DatagramChannel::hashCode();
+	return this->$DatagramChannel::hashCode();
 }
 
 bool DatagramChannelImpl::equals(Object$* obj) {
-	 return this->$DatagramChannel::equals(obj);
+	return this->$DatagramChannel::equals(obj);
 }
 
 $Object* DatagramChannelImpl::clone() {
-	 return this->$DatagramChannel::clone();
+	return this->$DatagramChannel::clone();
 }
 
 $String* DatagramChannelImpl::toString() {
-	 return this->$DatagramChannel::toString();
+	return this->$DatagramChannel::toString();
 }
 
 void DatagramChannelImpl::finalize() {

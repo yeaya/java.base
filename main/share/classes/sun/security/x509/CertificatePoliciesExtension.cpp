@@ -42,15 +42,15 @@ namespace sun {
 		namespace x509 {
 
 int32_t CertificatePoliciesExtension::hashCode() {
-	 return this->$Extension::hashCode();
+	return this->$Extension::hashCode();
 }
 
 bool CertificatePoliciesExtension::equals(Object$* other) {
-	 return this->$Extension::equals(other);
+	return this->$Extension::equals(other);
 }
 
 $Object* CertificatePoliciesExtension::clone() {
-	 return this->$Extension::clone();
+	return this->$Extension::clone();
 }
 
 void CertificatePoliciesExtension::finalize() {

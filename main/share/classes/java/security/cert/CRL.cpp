@@ -14,7 +14,7 @@ namespace java {
 		namespace cert {
 
 $String* CRL::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 void CRL::init$($String* type) {

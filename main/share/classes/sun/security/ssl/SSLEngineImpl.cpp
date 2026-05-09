@@ -129,23 +129,23 @@ namespace sun {
 		namespace ssl {
 
 $String* SSLEngineImpl::getPeerHost() {
-	 return this->$SSLEngine::getPeerHost();
+	return this->$SSLEngine::getPeerHost();
 }
 
 int32_t SSLEngineImpl::getPeerPort() {
-	 return this->$SSLEngine::getPeerPort();
+	return this->$SSLEngine::getPeerPort();
 }
 
 int32_t SSLEngineImpl::hashCode() {
-	 return this->$SSLEngine::hashCode();
+	return this->$SSLEngine::hashCode();
 }
 
 bool SSLEngineImpl::equals(Object$* obj) {
-	 return this->$SSLEngine::equals(obj);
+	return this->$SSLEngine::equals(obj);
 }
 
 $Object* SSLEngineImpl::clone() {
-	 return this->$SSLEngine::clone();
+	return this->$SSLEngine::clone();
 }
 
 void SSLEngineImpl::finalize() {

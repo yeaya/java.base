@@ -53,19 +53,19 @@ namespace sun {
 		namespace ssl {
 
 $String* NamedGroup$NamedGroupSpec::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool NamedGroup$NamedGroupSpec::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t NamedGroup$NamedGroupSpec::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* NamedGroup$NamedGroupSpec::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void NamedGroup$NamedGroupSpec::finalize() {

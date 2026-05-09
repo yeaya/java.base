@@ -98,7 +98,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isAlphabetic(codePoint);
+		return $Character::isAlphabetic(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isAlphabetic::load$($String* name, bool initialize) {
@@ -128,7 +128,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isDigit(codePoint);
+		return $Character::isDigit(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isDigit$1::load$($String* name, bool initialize) {
@@ -158,7 +158,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isLetter(codePoint);
+		return $Character::isLetter(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isLetter$2::load$($String* name, bool initialize) {
@@ -188,7 +188,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isIdeographic(codePoint);
+		return $Character::isIdeographic(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isIdeographic$3::load$($String* name, bool initialize) {
@@ -218,7 +218,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isLowerCase(codePoint);
+		return $Character::isLowerCase(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isLowerCase$4::load$($String* name, bool initialize) {
@@ -248,7 +248,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isUpperCase(codePoint);
+		return $Character::isUpperCase(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isUpperCase$5::load$($String* name, bool initialize) {
@@ -278,7 +278,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isTitleCase(codePoint);
+		return $Character::isTitleCase(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isTitleCase$6::load$($String* name, bool initialize) {
@@ -308,7 +308,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$WHITE_SPACE$0(ch);
+		return CharPredicates::lambda$WHITE_SPACE$0(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$WHITE_SPACE$0$7::load$($String* name, bool initialize) {
@@ -338,7 +338,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$CONTROL$1(ch);
+		return CharPredicates::lambda$CONTROL$1(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$CONTROL$1$8::load$($String* name, bool initialize) {
@@ -368,7 +368,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$PUNCTUATION$2(ch);
+		return CharPredicates::lambda$PUNCTUATION$2(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$PUNCTUATION$2$9::load$($String* name, bool initialize) {
@@ -398,7 +398,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$HEX_DIGIT$3(ch);
+		return CharPredicates::lambda$HEX_DIGIT$3(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$HEX_DIGIT$3$10::load$($String* name, bool initialize) {
@@ -428,7 +428,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$ASSIGNED$4(ch);
+		return CharPredicates::lambda$ASSIGNED$4(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$ASSIGNED$4$11::load$($String* name, bool initialize) {
@@ -458,7 +458,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$NONCHARACTER_CODE_POINT$5(ch);
+		return CharPredicates::lambda$NONCHARACTER_CODE_POINT$5(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$NONCHARACTER_CODE_POINT$5$12::load$($String* name, bool initialize) {
@@ -488,7 +488,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$BLANK$6(ch);
+		return CharPredicates::lambda$BLANK$6(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$BLANK$6$13::load$($String* name, bool initialize) {
@@ -518,7 +518,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$GRAPH$7(ch);
+		return CharPredicates::lambda$GRAPH$7(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$GRAPH$7$14::load$($String* name, bool initialize) {
@@ -548,7 +548,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$JOIN_CONTROL$8(ch);
+		return CharPredicates::lambda$JOIN_CONTROL$8(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$JOIN_CONTROL$8$15::load$($String* name, bool initialize) {
@@ -578,7 +578,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$WORD$9(ch);
+		return CharPredicates::lambda$WORD$9(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$WORD$9$16::load$($String* name, bool initialize) {
@@ -609,7 +609,7 @@ public:
 		$set(this, script, script);
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$forUnicodeScript$10(script, ch);
+		return CharPredicates::lambda$forUnicodeScript$10(script, ch);
 	}
 	$Character$UnicodeScript* script = nullptr;
 };
@@ -645,7 +645,7 @@ public:
 		$set(this, block, block);
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$forUnicodeBlock$11(block, ch);
+		return CharPredicates::lambda$forUnicodeBlock$11(block, ch);
 	}
 	$Character$UnicodeBlock* block = nullptr;
 };
@@ -680,7 +680,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t c) override {
-		 return CharPredicates::lambda$forProperty$12(c);
+		return CharPredicates::lambda$forProperty$12(c);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$forProperty$12$19::load$($String* name, bool initialize) {
@@ -710,7 +710,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t c) override {
-		 return CharPredicates::lambda$forProperty$13(c);
+		return CharPredicates::lambda$forProperty$13(c);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$forProperty$13$20::load$($String* name, bool initialize) {
@@ -740,7 +740,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t c) override {
-		 return CharPredicates::lambda$forProperty$14(c);
+		return CharPredicates::lambda$forProperty$14(c);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$forProperty$14$21::load$($String* name, bool initialize) {
@@ -770,7 +770,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isDefined(codePoint);
+		return $Character::isDefined(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isDefined$22::load$($String* name, bool initialize) {
@@ -800,7 +800,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isLetterOrDigit(codePoint);
+		return $Character::isLetterOrDigit(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isLetterOrDigit$23::load$($String* name, bool initialize) {
@@ -830,7 +830,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isJavaIdentifierStart(codePoint);
+		return $Character::isJavaIdentifierStart(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isJavaIdentifierStart$24::load$($String* name, bool initialize) {
@@ -860,7 +860,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isJavaIdentifierPart(codePoint);
+		return $Character::isJavaIdentifierPart(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isJavaIdentifierPart$25::load$($String* name, bool initialize) {
@@ -890,7 +890,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isUnicodeIdentifierStart(codePoint);
+		return $Character::isUnicodeIdentifierStart(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isUnicodeIdentifierStart$26::load$($String* name, bool initialize) {
@@ -920,7 +920,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isUnicodeIdentifierPart(codePoint);
+		return $Character::isUnicodeIdentifierPart(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isUnicodeIdentifierPart$27::load$($String* name, bool initialize) {
@@ -950,7 +950,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isIdentifierIgnorable(codePoint);
+		return $Character::isIdentifierIgnorable(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isIdentifierIgnorable$28::load$($String* name, bool initialize) {
@@ -980,7 +980,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isSpaceChar(codePoint);
+		return $Character::isSpaceChar(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isSpaceChar$29::load$($String* name, bool initialize) {
@@ -1010,7 +1010,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isWhitespace(codePoint);
+		return $Character::isWhitespace(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isWhitespace$30::load$($String* name, bool initialize) {
@@ -1040,7 +1040,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isISOControl(codePoint);
+		return $Character::isISOControl(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isISOControl$31::load$($String* name, bool initialize) {
@@ -1070,7 +1070,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t codePoint) override {
-		 return $Character::isMirrored(codePoint);
+		return $Character::isMirrored(codePoint);
 	}
 };
 $Class* CharPredicates$$Lambda$isMirrored$32::load$($String* name, bool initialize) {
@@ -1101,7 +1101,7 @@ public:
 		this->typeMask = typeMask;
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$category$15(typeMask, ch);
+		return CharPredicates::lambda$category$15(typeMask, ch);
 	}
 	int32_t typeMask = 0;
 };
@@ -1138,7 +1138,7 @@ public:
 		this->upper = upper;
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$range$16(lower, upper, ch);
+		return CharPredicates::lambda$range$16(lower, upper, ch);
 	}
 	int32_t lower = 0;
 	int32_t upper = 0;
@@ -1176,7 +1176,7 @@ public:
 		this->ctype = ctype;
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$ctype$17(ctype, ch);
+		return CharPredicates::lambda$ctype$17(ctype, ch);
 	}
 	int32_t ctype = 0;
 };
@@ -1211,7 +1211,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$ASCII_DIGIT$18(ch);
+		return CharPredicates::lambda$ASCII_DIGIT$18(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$ASCII_DIGIT$18$36::load$($String* name, bool initialize) {
@@ -1241,7 +1241,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$ASCII_WORD$19(ch);
+		return CharPredicates::lambda$ASCII_WORD$19(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$ASCII_WORD$19$37::load$($String* name, bool initialize) {
@@ -1271,7 +1271,7 @@ public:
 	void init$() {
 	}
 	virtual bool is(int32_t ch) override {
-		 return CharPredicates::lambda$ASCII_SPACE$20(ch);
+		return CharPredicates::lambda$ASCII_SPACE$20(ch);
 	}
 };
 $Class* CharPredicates$$Lambda$lambda$ASCII_SPACE$20$38::load$($String* name, bool initialize) {

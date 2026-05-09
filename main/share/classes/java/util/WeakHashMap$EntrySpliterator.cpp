@@ -28,23 +28,23 @@ namespace java {
 	namespace util {
 
 int64_t WeakHashMap$EntrySpliterator::estimateSize() {
-	 return this->$WeakHashMap$WeakHashMapSpliterator::estimateSize();
+	return this->$WeakHashMap$WeakHashMapSpliterator::estimateSize();
 }
 
 int32_t WeakHashMap$EntrySpliterator::hashCode() {
-	 return this->$WeakHashMap$WeakHashMapSpliterator::hashCode();
+	return this->$WeakHashMap$WeakHashMapSpliterator::hashCode();
 }
 
 bool WeakHashMap$EntrySpliterator::equals(Object$* obj) {
-	 return this->$WeakHashMap$WeakHashMapSpliterator::equals(obj);
+	return this->$WeakHashMap$WeakHashMapSpliterator::equals(obj);
 }
 
 $Object* WeakHashMap$EntrySpliterator::clone() {
-	 return this->$WeakHashMap$WeakHashMapSpliterator::clone();
+	return this->$WeakHashMap$WeakHashMapSpliterator::clone();
 }
 
 $String* WeakHashMap$EntrySpliterator::toString() {
-	 return this->$WeakHashMap$WeakHashMapSpliterator::toString();
+	return this->$WeakHashMap$WeakHashMapSpliterator::toString();
 }
 
 void WeakHashMap$EntrySpliterator::finalize() {

@@ -33,63 +33,63 @@ namespace java {
 	namespace util {
 
 bool Collections$SynchronizedSortedSet::equals(Object$* o) {
-	 return this->$Collections$SynchronizedSet::equals(o);
+	return this->$Collections$SynchronizedSet::equals(o);
 }
 
 int32_t Collections$SynchronizedSortedSet::hashCode() {
-	 return this->$Collections$SynchronizedSet::hashCode();
+	return this->$Collections$SynchronizedSet::hashCode();
 }
 
 int32_t Collections$SynchronizedSortedSet::size() {
-	 return this->$Collections$SynchronizedSet::size();
+	return this->$Collections$SynchronizedSet::size();
 }
 
 bool Collections$SynchronizedSortedSet::isEmpty() {
-	 return this->$Collections$SynchronizedSet::isEmpty();
+	return this->$Collections$SynchronizedSet::isEmpty();
 }
 
 bool Collections$SynchronizedSortedSet::contains(Object$* o) {
-	 return this->$Collections$SynchronizedSet::contains(o);
+	return this->$Collections$SynchronizedSet::contains(o);
 }
 
 $ObjectArray* Collections$SynchronizedSortedSet::toArray() {
-	 return this->$Collections$SynchronizedSet::toArray();
+	return this->$Collections$SynchronizedSet::toArray();
 }
 
 $ObjectArray* Collections$SynchronizedSortedSet::toArray($ObjectArray* a) {
-	 return this->$Collections$SynchronizedSet::toArray(a);
+	return this->$Collections$SynchronizedSet::toArray(a);
 }
 
 $ObjectArray* Collections$SynchronizedSortedSet::toArray($IntFunction* f) {
-	 return this->$Collections$SynchronizedSet::toArray(f);
+	return this->$Collections$SynchronizedSet::toArray(f);
 }
 
 $Iterator* Collections$SynchronizedSortedSet::iterator() {
-	 return this->$Collections$SynchronizedSet::iterator();
+	return this->$Collections$SynchronizedSet::iterator();
 }
 
 bool Collections$SynchronizedSortedSet::add(Object$* e) {
-	 return this->$Collections$SynchronizedSet::add(e);
+	return this->$Collections$SynchronizedSet::add(e);
 }
 
 bool Collections$SynchronizedSortedSet::remove(Object$* o) {
-	 return this->$Collections$SynchronizedSet::remove(o);
+	return this->$Collections$SynchronizedSet::remove(o);
 }
 
 bool Collections$SynchronizedSortedSet::containsAll($Collection* coll) {
-	 return this->$Collections$SynchronizedSet::containsAll(coll);
+	return this->$Collections$SynchronizedSet::containsAll(coll);
 }
 
 bool Collections$SynchronizedSortedSet::addAll($Collection* coll) {
-	 return this->$Collections$SynchronizedSet::addAll(coll);
+	return this->$Collections$SynchronizedSet::addAll(coll);
 }
 
 bool Collections$SynchronizedSortedSet::removeAll($Collection* coll) {
-	 return this->$Collections$SynchronizedSet::removeAll(coll);
+	return this->$Collections$SynchronizedSet::removeAll(coll);
 }
 
 bool Collections$SynchronizedSortedSet::retainAll($Collection* coll) {
-	 return this->$Collections$SynchronizedSet::retainAll(coll);
+	return this->$Collections$SynchronizedSet::retainAll(coll);
 }
 
 void Collections$SynchronizedSortedSet::clear() {
@@ -97,7 +97,7 @@ void Collections$SynchronizedSortedSet::clear() {
 }
 
 $String* Collections$SynchronizedSortedSet::toString() {
-	 return this->$Collections$SynchronizedSet::toString();
+	return this->$Collections$SynchronizedSet::toString();
 }
 
 void Collections$SynchronizedSortedSet::forEach($Consumer* consumer) {
@@ -105,23 +105,23 @@ void Collections$SynchronizedSortedSet::forEach($Consumer* consumer) {
 }
 
 bool Collections$SynchronizedSortedSet::removeIf($Predicate* filter) {
-	 return this->$Collections$SynchronizedSet::removeIf(filter);
+	return this->$Collections$SynchronizedSet::removeIf(filter);
 }
 
 $Spliterator* Collections$SynchronizedSortedSet::spliterator() {
-	 return this->$Collections$SynchronizedSet::spliterator();
+	return this->$Collections$SynchronizedSet::spliterator();
 }
 
 $Stream* Collections$SynchronizedSortedSet::stream() {
-	 return this->$Collections$SynchronizedSet::stream();
+	return this->$Collections$SynchronizedSet::stream();
 }
 
 $Stream* Collections$SynchronizedSortedSet::parallelStream() {
-	 return this->$Collections$SynchronizedSet::parallelStream();
+	return this->$Collections$SynchronizedSet::parallelStream();
 }
 
 $Object* Collections$SynchronizedSortedSet::clone() {
-	 return this->$Collections$SynchronizedSet::clone();
+	return this->$Collections$SynchronizedSet::clone();
 }
 
 void Collections$SynchronizedSortedSet::finalize() {

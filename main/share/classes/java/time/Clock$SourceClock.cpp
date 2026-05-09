@@ -18,7 +18,7 @@ namespace java {
 	namespace time {
 
 $Object* Clock$SourceClock::clone() {
-	 return this->$Clock::clone();
+	return this->$Clock::clone();
 }
 
 void Clock$SourceClock::finalize() {

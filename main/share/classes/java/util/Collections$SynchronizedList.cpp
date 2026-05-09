@@ -39,55 +39,55 @@ namespace java {
 	namespace util {
 
 int32_t Collections$SynchronizedList::size() {
-	 return this->$Collections$SynchronizedCollection::size();
+	return this->$Collections$SynchronizedCollection::size();
 }
 
 bool Collections$SynchronizedList::isEmpty() {
-	 return this->$Collections$SynchronizedCollection::isEmpty();
+	return this->$Collections$SynchronizedCollection::isEmpty();
 }
 
 bool Collections$SynchronizedList::contains(Object$* o) {
-	 return this->$Collections$SynchronizedCollection::contains(o);
+	return this->$Collections$SynchronizedCollection::contains(o);
 }
 
 $ObjectArray* Collections$SynchronizedList::toArray() {
-	 return this->$Collections$SynchronizedCollection::toArray();
+	return this->$Collections$SynchronizedCollection::toArray();
 }
 
 $ObjectArray* Collections$SynchronizedList::toArray($ObjectArray* a) {
-	 return this->$Collections$SynchronizedCollection::toArray(a);
+	return this->$Collections$SynchronizedCollection::toArray(a);
 }
 
 $ObjectArray* Collections$SynchronizedList::toArray($IntFunction* f) {
-	 return this->$Collections$SynchronizedCollection::toArray(f);
+	return this->$Collections$SynchronizedCollection::toArray(f);
 }
 
 $Iterator* Collections$SynchronizedList::iterator() {
-	 return this->$Collections$SynchronizedCollection::iterator();
+	return this->$Collections$SynchronizedCollection::iterator();
 }
 
 bool Collections$SynchronizedList::add(Object$* e) {
-	 return this->$Collections$SynchronizedCollection::add(e);
+	return this->$Collections$SynchronizedCollection::add(e);
 }
 
 bool Collections$SynchronizedList::remove(Object$* o) {
-	 return this->$Collections$SynchronizedCollection::remove(o);
+	return this->$Collections$SynchronizedCollection::remove(o);
 }
 
 bool Collections$SynchronizedList::containsAll($Collection* coll) {
-	 return this->$Collections$SynchronizedCollection::containsAll(coll);
+	return this->$Collections$SynchronizedCollection::containsAll(coll);
 }
 
 bool Collections$SynchronizedList::addAll($Collection* coll) {
-	 return this->$Collections$SynchronizedCollection::addAll(coll);
+	return this->$Collections$SynchronizedCollection::addAll(coll);
 }
 
 bool Collections$SynchronizedList::removeAll($Collection* coll) {
-	 return this->$Collections$SynchronizedCollection::removeAll(coll);
+	return this->$Collections$SynchronizedCollection::removeAll(coll);
 }
 
 bool Collections$SynchronizedList::retainAll($Collection* coll) {
-	 return this->$Collections$SynchronizedCollection::retainAll(coll);
+	return this->$Collections$SynchronizedCollection::retainAll(coll);
 }
 
 void Collections$SynchronizedList::clear() {
@@ -95,7 +95,7 @@ void Collections$SynchronizedList::clear() {
 }
 
 $String* Collections$SynchronizedList::toString() {
-	 return this->$Collections$SynchronizedCollection::toString();
+	return this->$Collections$SynchronizedCollection::toString();
 }
 
 void Collections$SynchronizedList::forEach($Consumer* consumer) {
@@ -103,23 +103,23 @@ void Collections$SynchronizedList::forEach($Consumer* consumer) {
 }
 
 bool Collections$SynchronizedList::removeIf($Predicate* filter) {
-	 return this->$Collections$SynchronizedCollection::removeIf(filter);
+	return this->$Collections$SynchronizedCollection::removeIf(filter);
 }
 
 $Spliterator* Collections$SynchronizedList::spliterator() {
-	 return this->$Collections$SynchronizedCollection::spliterator();
+	return this->$Collections$SynchronizedCollection::spliterator();
 }
 
 $Stream* Collections$SynchronizedList::stream() {
-	 return this->$Collections$SynchronizedCollection::stream();
+	return this->$Collections$SynchronizedCollection::stream();
 }
 
 $Stream* Collections$SynchronizedList::parallelStream() {
-	 return this->$Collections$SynchronizedCollection::parallelStream();
+	return this->$Collections$SynchronizedCollection::parallelStream();
 }
 
 $Object* Collections$SynchronizedList::clone() {
-	 return this->$Collections$SynchronizedCollection::clone();
+	return this->$Collections$SynchronizedCollection::clone();
 }
 
 void Collections$SynchronizedList::finalize() {

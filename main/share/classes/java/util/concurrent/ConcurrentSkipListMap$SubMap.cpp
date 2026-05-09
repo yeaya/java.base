@@ -62,23 +62,23 @@ void ConcurrentSkipListMap$SubMap::putAll($Map* m) {
 }
 
 bool ConcurrentSkipListMap$SubMap::equals(Object$* o) {
-	 return this->$AbstractMap::equals(o);
+	return this->$AbstractMap::equals(o);
 }
 
 int32_t ConcurrentSkipListMap$SubMap::hashCode() {
-	 return this->$AbstractMap::hashCode();
+	return this->$AbstractMap::hashCode();
 }
 
 $String* ConcurrentSkipListMap$SubMap::toString() {
-	 return this->$AbstractMap::toString();
+	return this->$AbstractMap::toString();
 }
 
 $Object* ConcurrentSkipListMap$SubMap::clone() {
-	 return this->$AbstractMap::clone();
+	return this->$AbstractMap::clone();
 }
 
 $Object* ConcurrentSkipListMap$SubMap::getOrDefault(Object$* key, Object$* defaultValue) {
-	 return this->$AbstractMap::getOrDefault(key, defaultValue);
+	return this->$AbstractMap::getOrDefault(key, defaultValue);
 }
 
 void ConcurrentSkipListMap$SubMap::forEach($BiConsumer* action) {
@@ -90,19 +90,19 @@ void ConcurrentSkipListMap$SubMap::replaceAll($BiFunction* function) {
 }
 
 $Object* ConcurrentSkipListMap$SubMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	 return this->$AbstractMap::computeIfAbsent(key, mappingFunction);
+	return this->$AbstractMap::computeIfAbsent(key, mappingFunction);
 }
 
 $Object* ConcurrentSkipListMap$SubMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$AbstractMap::computeIfPresent(key, remappingFunction);
+	return this->$AbstractMap::computeIfPresent(key, remappingFunction);
 }
 
 $Object* ConcurrentSkipListMap$SubMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$AbstractMap::compute(key, remappingFunction);
+	return this->$AbstractMap::compute(key, remappingFunction);
 }
 
 $Object* ConcurrentSkipListMap$SubMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	 return this->$AbstractMap::merge(key, value, remappingFunction);
+	return this->$AbstractMap::merge(key, value, remappingFunction);
 }
 
 void ConcurrentSkipListMap$SubMap::finalize() {

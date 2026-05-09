@@ -27,31 +27,31 @@ namespace sun {
 				namespace intpoly {
 
 $IntegerFieldModuloP* IntegerPolynomial$ImmutableElement::getField() {
-	 return this->$IntegerPolynomial$Element::getField();
+	return this->$IntegerPolynomial$Element::getField();
 }
 
 $BigInteger* IntegerPolynomial$ImmutableElement::asBigInteger() {
-	 return this->$IntegerPolynomial$Element::asBigInteger();
+	return this->$IntegerPolynomial$Element::asBigInteger();
 }
 
 $MutableIntegerModuloP* IntegerPolynomial$ImmutableElement::mutable$() {
-	 return this->$IntegerPolynomial$Element::mutable$();
+	return this->$IntegerPolynomial$Element::mutable$();
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$ImmutableElement::add($IntegerModuloP* genB) {
-	 return this->$IntegerPolynomial$Element::add(genB);
+	return this->$IntegerPolynomial$Element::add(genB);
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$ImmutableElement::additiveInverse() {
-	 return this->$IntegerPolynomial$Element::additiveInverse();
+	return this->$IntegerPolynomial$Element::additiveInverse();
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$ImmutableElement::multiply($IntegerModuloP* genB) {
-	 return this->$IntegerPolynomial$Element::multiply(genB);
+	return this->$IntegerPolynomial$Element::multiply(genB);
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$ImmutableElement::square() {
-	 return this->$IntegerPolynomial$Element::square();
+	return this->$IntegerPolynomial$Element::square();
 }
 
 void IntegerPolynomial$ImmutableElement::addModPowerTwo($IntegerModuloP* arg, $bytes* result) {
@@ -63,39 +63,39 @@ void IntegerPolynomial$ImmutableElement::asByteArray($bytes* result) {
 }
 
 $bytes* IntegerPolynomial$ImmutableElement::addModPowerTwo($IntegerModuloP* b, int32_t len) {
-	 return this->$IntegerPolynomial$Element::addModPowerTwo(b, len);
+	return this->$IntegerPolynomial$Element::addModPowerTwo(b, len);
 }
 
 $bytes* IntegerPolynomial$ImmutableElement::asByteArray(int32_t len) {
-	 return this->$IntegerPolynomial$Element::asByteArray(len);
+	return this->$IntegerPolynomial$Element::asByteArray(len);
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$ImmutableElement::multiplicativeInverse() {
-	 return this->$IntegerPolynomial$Element::multiplicativeInverse();
+	return this->$IntegerPolynomial$Element::multiplicativeInverse();
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$ImmutableElement::subtract($IntegerModuloP* b) {
-	 return this->$IntegerPolynomial$Element::subtract(b);
+	return this->$IntegerPolynomial$Element::subtract(b);
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$ImmutableElement::pow($BigInteger* b) {
-	 return this->$IntegerPolynomial$Element::pow(b);
+	return this->$IntegerPolynomial$Element::pow(b);
 }
 
 int32_t IntegerPolynomial$ImmutableElement::hashCode() {
-	 return this->$IntegerPolynomial$Element::hashCode();
+	return this->$IntegerPolynomial$Element::hashCode();
 }
 
 bool IntegerPolynomial$ImmutableElement::equals(Object$* obj) {
-	 return this->$IntegerPolynomial$Element::equals(obj);
+	return this->$IntegerPolynomial$Element::equals(obj);
 }
 
 $Object* IntegerPolynomial$ImmutableElement::clone() {
-	 return this->$IntegerPolynomial$Element::clone();
+	return this->$IntegerPolynomial$Element::clone();
 }
 
 $String* IntegerPolynomial$ImmutableElement::toString() {
-	 return this->$IntegerPolynomial$Element::toString();
+	return this->$IntegerPolynomial$Element::toString();
 }
 
 void IntegerPolynomial$ImmutableElement::finalize() {

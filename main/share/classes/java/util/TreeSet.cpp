@@ -51,51 +51,51 @@ namespace java {
 	namespace util {
 
 bool TreeSet::equals(Object$* o) {
-	 return this->$AbstractSet::equals(o);
+	return this->$AbstractSet::equals(o);
 }
 
 int32_t TreeSet::hashCode() {
-	 return this->$AbstractSet::hashCode();
+	return this->$AbstractSet::hashCode();
 }
 
 bool TreeSet::removeAll($Collection* c) {
-	 return this->$AbstractSet::removeAll(c);
+	return this->$AbstractSet::removeAll(c);
 }
 
 $ObjectArray* TreeSet::toArray() {
-	 return this->$AbstractSet::toArray();
+	return this->$AbstractSet::toArray();
 }
 
 $ObjectArray* TreeSet::toArray($ObjectArray* a) {
-	 return this->$AbstractSet::toArray(a);
+	return this->$AbstractSet::toArray(a);
 }
 
 bool TreeSet::containsAll($Collection* c) {
-	 return this->$AbstractSet::containsAll(c);
+	return this->$AbstractSet::containsAll(c);
 }
 
 bool TreeSet::retainAll($Collection* c) {
-	 return this->$AbstractSet::retainAll(c);
+	return this->$AbstractSet::retainAll(c);
 }
 
 $String* TreeSet::toString() {
-	 return this->$AbstractSet::toString();
+	return this->$AbstractSet::toString();
 }
 
 $ObjectArray* TreeSet::toArray($IntFunction* generator) {
-	 return this->$AbstractSet::toArray(generator);
+	return this->$AbstractSet::toArray(generator);
 }
 
 bool TreeSet::removeIf($Predicate* filter) {
-	 return this->$AbstractSet::removeIf(filter);
+	return this->$AbstractSet::removeIf(filter);
 }
 
 $Stream* TreeSet::stream() {
-	 return this->$AbstractSet::stream();
+	return this->$AbstractSet::stream();
 }
 
 $Stream* TreeSet::parallelStream() {
-	 return this->$AbstractSet::parallelStream();
+	return this->$AbstractSet::parallelStream();
 }
 
 void TreeSet::forEach($Consumer* action) {

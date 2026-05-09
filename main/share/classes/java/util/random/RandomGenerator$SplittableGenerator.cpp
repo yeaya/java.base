@@ -33,7 +33,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* x) override {
-		 return RandomGenerator$SplittableGenerator::lambda$rngs$0($cast(RandomGenerator$SplittableGenerator, x));
+		return RandomGenerator$SplittableGenerator::lambda$rngs$0($cast(RandomGenerator$SplittableGenerator, x));
 	}
 };
 $Class* RandomGenerator$SplittableGenerator$$Lambda$lambda$rngs$0::load$($String* name, bool initialize) {

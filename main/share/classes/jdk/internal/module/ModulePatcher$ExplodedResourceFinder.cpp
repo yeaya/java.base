@@ -47,7 +47,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return $of($nc(inst$)->lambda$list$0($cast($Path, f)));
+		return $of($nc(inst$)->lambda$list$0($cast($Path, f)));
 	}
 	ModulePatcher$ExplodedResourceFinder* inst$ = nullptr;
 };
@@ -82,7 +82,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* s) override {
-		 return ModulePatcher$ExplodedResourceFinder::lambda$list$1($cast($String, s));
+		return ModulePatcher$ExplodedResourceFinder::lambda$list$1($cast($String, s));
 	}
 };
 $Class* ModulePatcher$ExplodedResourceFinder$$Lambda$lambda$list$1$1::load$($String* name, bool initialize) {

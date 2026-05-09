@@ -28,7 +28,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(int64_t value) override {
-		 return $nc(inst$)->lambda$and$0(other, value);
+		return $nc(inst$)->lambda$and$0(other, value);
 	}
 	LongPredicate* inst$ = nullptr;
 	LongPredicate* other = nullptr;
@@ -66,7 +66,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(int64_t value) override {
-		 return $nc(inst$)->lambda$negate$1(value);
+		return $nc(inst$)->lambda$negate$1(value);
 	}
 	LongPredicate* inst$ = nullptr;
 };
@@ -103,7 +103,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(int64_t value) override {
-		 return $nc(inst$)->lambda$or$2(other, value);
+		return $nc(inst$)->lambda$or$2(other, value);
 	}
 	LongPredicate* inst$ = nullptr;
 	LongPredicate* other = nullptr;

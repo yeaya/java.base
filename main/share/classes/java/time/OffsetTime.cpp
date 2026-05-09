@@ -97,7 +97,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return $of(OffsetTime::from(temporal));
+		return $of(OffsetTime::from(temporal));
 	}
 };
 $Class* OffsetTime$$Lambda$from::load$($String* name, bool initialize) {
@@ -122,7 +122,7 @@ $Class* OffsetTime$$Lambda$from::load$($String* name, bool initialize) {
 $Class* OffsetTime$$Lambda$from::class$ = nullptr;
 
 $Object* OffsetTime::clone() {
-	 return this->$Temporal::clone();
+	return this->$Temporal::clone();
 }
 
 void OffsetTime::finalize() {

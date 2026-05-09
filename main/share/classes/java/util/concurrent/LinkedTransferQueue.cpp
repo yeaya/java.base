@@ -91,7 +91,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return LinkedTransferQueue::lambda$removeAll$0(c, e);
+		return LinkedTransferQueue::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -127,7 +127,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return LinkedTransferQueue::lambda$retainAll$1(c, e);
+		return LinkedTransferQueue::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -162,7 +162,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return LinkedTransferQueue::lambda$clear$2(e);
+		return LinkedTransferQueue::lambda$clear$2(e);
 	}
 };
 $Class* LinkedTransferQueue$$Lambda$lambda$clear$2$2::load$($String* name, bool initialize) {
@@ -187,43 +187,43 @@ $Class* LinkedTransferQueue$$Lambda$lambda$clear$2$2::load$($String* name, bool 
 $Class* LinkedTransferQueue$$Lambda$lambda$clear$2$2::class$ = nullptr;
 
 $Object* LinkedTransferQueue::remove() {
-	 return this->$AbstractQueue::remove();
+	return this->$AbstractQueue::remove();
 }
 
 $Object* LinkedTransferQueue::element() {
-	 return this->$AbstractQueue::element();
+	return this->$AbstractQueue::element();
 }
 
 bool LinkedTransferQueue::addAll($Collection* c) {
-	 return this->$AbstractQueue::addAll(c);
+	return this->$AbstractQueue::addAll(c);
 }
 
 bool LinkedTransferQueue::containsAll($Collection* c) {
-	 return this->$AbstractQueue::containsAll(c);
+	return this->$AbstractQueue::containsAll(c);
 }
 
 $ObjectArray* LinkedTransferQueue::toArray($IntFunction* generator) {
-	 return this->$AbstractQueue::toArray(generator);
+	return this->$AbstractQueue::toArray(generator);
 }
 
 bool LinkedTransferQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t LinkedTransferQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Stream* LinkedTransferQueue::stream() {
-	 return this->$AbstractQueue::stream();
+	return this->$AbstractQueue::stream();
 }
 
 $Stream* LinkedTransferQueue::parallelStream() {
-	 return this->$AbstractQueue::parallelStream();
+	return this->$AbstractQueue::parallelStream();
 }
 
 $Object* LinkedTransferQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void LinkedTransferQueue::finalize() {

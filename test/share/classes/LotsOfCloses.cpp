@@ -59,7 +59,7 @@ public:
 		$set(this, watcher, watcher);
 	}
 	virtual $Object* call() override {
-		 return LotsOfCloses::lambda$newCloserTask$0(watcher);
+		return LotsOfCloses::lambda$newCloserTask$0(watcher);
 	}
 	$WatchService* watcher = nullptr;
 };
@@ -96,7 +96,7 @@ public:
 		$set(this, watcher, watcher);
 	}
 	virtual $Object* call() override {
-		 return $of(LotsOfCloses::lambda$newRegisterTask$1(dir, watcher));
+		return $of(LotsOfCloses::lambda$newRegisterTask$1(dir, watcher));
 	}
 	$Path* dir = nullptr;
 	$WatchService* watcher = nullptr;

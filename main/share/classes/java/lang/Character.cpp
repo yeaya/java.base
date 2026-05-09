@@ -117,7 +117,7 @@ namespace java {
 	namespace lang {
 
 $Object* Character::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void Character::finalize() {

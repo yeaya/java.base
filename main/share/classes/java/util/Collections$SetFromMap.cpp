@@ -34,7 +34,7 @@ namespace java {
 	namespace util {
 
 $Object* Collections$SetFromMap::clone() {
-	 return this->$AbstractSet::clone();
+	return this->$AbstractSet::clone();
 }
 
 void Collections$SetFromMap::finalize() {

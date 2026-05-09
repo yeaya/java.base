@@ -12,19 +12,19 @@ namespace sun {
 			namespace tree {
 
 int32_t FieldTypeSignature::hashCode() {
-	 return this->$BaseType::hashCode();
+	return this->$BaseType::hashCode();
 }
 
 bool FieldTypeSignature::equals(Object$* obj) {
-	 return this->$BaseType::equals(obj);
+	return this->$BaseType::equals(obj);
 }
 
 $Object* FieldTypeSignature::clone() {
-	 return this->$BaseType::clone();
+	return this->$BaseType::clone();
 }
 
 $String* FieldTypeSignature::toString() {
-	 return this->$BaseType::toString();
+	return this->$BaseType::toString();
 }
 
 void FieldTypeSignature::finalize() {

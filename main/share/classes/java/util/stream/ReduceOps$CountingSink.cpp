@@ -17,19 +17,19 @@ namespace java {
 		namespace stream {
 
 int32_t ReduceOps$CountingSink::hashCode() {
-	 return this->$ReduceOps$Box::hashCode();
+	return this->$ReduceOps$Box::hashCode();
 }
 
 bool ReduceOps$CountingSink::equals(Object$* obj) {
-	 return this->$ReduceOps$Box::equals(obj);
+	return this->$ReduceOps$Box::equals(obj);
 }
 
 $Object* ReduceOps$CountingSink::clone() {
-	 return this->$ReduceOps$Box::clone();
+	return this->$ReduceOps$Box::clone();
 }
 
 $String* ReduceOps$CountingSink::toString() {
-	 return this->$ReduceOps$Box::toString();
+	return this->$ReduceOps$Box::toString();
 }
 
 void ReduceOps$CountingSink::finalize() {

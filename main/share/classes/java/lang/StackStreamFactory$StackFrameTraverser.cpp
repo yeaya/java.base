@@ -43,19 +43,19 @@ namespace java {
 	namespace lang {
 
 int32_t StackStreamFactory$StackFrameTraverser::hashCode() {
-	 return this->$StackStreamFactory$AbstractStackWalker::hashCode();
+	return this->$StackStreamFactory$AbstractStackWalker::hashCode();
 }
 
 bool StackStreamFactory$StackFrameTraverser::equals(Object$* obj) {
-	 return this->$StackStreamFactory$AbstractStackWalker::equals(obj);
+	return this->$StackStreamFactory$AbstractStackWalker::equals(obj);
 }
 
 $Object* StackStreamFactory$StackFrameTraverser::clone() {
-	 return this->$StackStreamFactory$AbstractStackWalker::clone();
+	return this->$StackStreamFactory$AbstractStackWalker::clone();
 }
 
 $String* StackStreamFactory$StackFrameTraverser::toString() {
-	 return this->$StackStreamFactory$AbstractStackWalker::toString();
+	return this->$StackStreamFactory$AbstractStackWalker::toString();
 }
 
 void StackStreamFactory$StackFrameTraverser::finalize() {

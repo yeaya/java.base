@@ -44,55 +44,55 @@ namespace java {
 	namespace util {
 
 $Comparator* Collections$UnmodifiableNavigableMap::comparator() {
-	 return this->$Collections$UnmodifiableSortedMap::comparator();
+	return this->$Collections$UnmodifiableSortedMap::comparator();
 }
 
 $SortedMap* Collections$UnmodifiableNavigableMap::subMap(Object$* fromKey, Object$* toKey) {
-	 return this->$Collections$UnmodifiableSortedMap::subMap(fromKey, toKey);
+	return this->$Collections$UnmodifiableSortedMap::subMap(fromKey, toKey);
 }
 
 $SortedMap* Collections$UnmodifiableNavigableMap::headMap(Object$* toKey) {
-	 return this->$Collections$UnmodifiableSortedMap::headMap(toKey);
+	return this->$Collections$UnmodifiableSortedMap::headMap(toKey);
 }
 
 $SortedMap* Collections$UnmodifiableNavigableMap::tailMap(Object$* fromKey) {
-	 return this->$Collections$UnmodifiableSortedMap::tailMap(fromKey);
+	return this->$Collections$UnmodifiableSortedMap::tailMap(fromKey);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::firstKey() {
-	 return this->$Collections$UnmodifiableSortedMap::firstKey();
+	return this->$Collections$UnmodifiableSortedMap::firstKey();
 }
 
 $Object* Collections$UnmodifiableNavigableMap::lastKey() {
-	 return this->$Collections$UnmodifiableSortedMap::lastKey();
+	return this->$Collections$UnmodifiableSortedMap::lastKey();
 }
 
 int32_t Collections$UnmodifiableNavigableMap::size() {
-	 return this->$Collections$UnmodifiableSortedMap::size();
+	return this->$Collections$UnmodifiableSortedMap::size();
 }
 
 bool Collections$UnmodifiableNavigableMap::isEmpty() {
-	 return this->$Collections$UnmodifiableSortedMap::isEmpty();
+	return this->$Collections$UnmodifiableSortedMap::isEmpty();
 }
 
 bool Collections$UnmodifiableNavigableMap::containsKey(Object$* key) {
-	 return this->$Collections$UnmodifiableSortedMap::containsKey(key);
+	return this->$Collections$UnmodifiableSortedMap::containsKey(key);
 }
 
 bool Collections$UnmodifiableNavigableMap::containsValue(Object$* val) {
-	 return this->$Collections$UnmodifiableSortedMap::containsValue(val);
+	return this->$Collections$UnmodifiableSortedMap::containsValue(val);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::get(Object$* key) {
-	 return this->$Collections$UnmodifiableSortedMap::get(key);
+	return this->$Collections$UnmodifiableSortedMap::get(key);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::put(Object$* key, Object$* value) {
-	 return this->$Collections$UnmodifiableSortedMap::put(key, value);
+	return this->$Collections$UnmodifiableSortedMap::put(key, value);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::remove(Object$* key) {
-	 return this->$Collections$UnmodifiableSortedMap::remove(key);
+	return this->$Collections$UnmodifiableSortedMap::remove(key);
 }
 
 void Collections$UnmodifiableNavigableMap::putAll($Map* m) {
@@ -104,31 +104,31 @@ void Collections$UnmodifiableNavigableMap::clear() {
 }
 
 $Set* Collections$UnmodifiableNavigableMap::keySet() {
-	 return this->$Collections$UnmodifiableSortedMap::keySet();
+	return this->$Collections$UnmodifiableSortedMap::keySet();
 }
 
 $Set* Collections$UnmodifiableNavigableMap::entrySet() {
-	 return this->$Collections$UnmodifiableSortedMap::entrySet();
+	return this->$Collections$UnmodifiableSortedMap::entrySet();
 }
 
 $Collection* Collections$UnmodifiableNavigableMap::values() {
-	 return this->$Collections$UnmodifiableSortedMap::values();
+	return this->$Collections$UnmodifiableSortedMap::values();
 }
 
 bool Collections$UnmodifiableNavigableMap::equals(Object$* o) {
-	 return this->$Collections$UnmodifiableSortedMap::equals(o);
+	return this->$Collections$UnmodifiableSortedMap::equals(o);
 }
 
 int32_t Collections$UnmodifiableNavigableMap::hashCode() {
-	 return this->$Collections$UnmodifiableSortedMap::hashCode();
+	return this->$Collections$UnmodifiableSortedMap::hashCode();
 }
 
 $String* Collections$UnmodifiableNavigableMap::toString() {
-	 return this->$Collections$UnmodifiableSortedMap::toString();
+	return this->$Collections$UnmodifiableSortedMap::toString();
 }
 
 $Object* Collections$UnmodifiableNavigableMap::getOrDefault(Object$* k, Object$* defaultValue) {
-	 return this->$Collections$UnmodifiableSortedMap::getOrDefault(k, defaultValue);
+	return this->$Collections$UnmodifiableSortedMap::getOrDefault(k, defaultValue);
 }
 
 void Collections$UnmodifiableNavigableMap::forEach($BiConsumer* action) {
@@ -140,39 +140,39 @@ void Collections$UnmodifiableNavigableMap::replaceAll($BiFunction* function) {
 }
 
 $Object* Collections$UnmodifiableNavigableMap::putIfAbsent(Object$* key, Object$* value) {
-	 return this->$Collections$UnmodifiableSortedMap::putIfAbsent(key, value);
+	return this->$Collections$UnmodifiableSortedMap::putIfAbsent(key, value);
 }
 
 bool Collections$UnmodifiableNavigableMap::remove(Object$* key, Object$* value) {
-	 return this->$Collections$UnmodifiableSortedMap::remove(key, value);
+	return this->$Collections$UnmodifiableSortedMap::remove(key, value);
 }
 
 bool Collections$UnmodifiableNavigableMap::replace(Object$* key, Object$* oldValue, Object$* newValue) {
-	 return this->$Collections$UnmodifiableSortedMap::replace(key, oldValue, newValue);
+	return this->$Collections$UnmodifiableSortedMap::replace(key, oldValue, newValue);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::replace(Object$* key, Object$* value) {
-	 return this->$Collections$UnmodifiableSortedMap::replace(key, value);
+	return this->$Collections$UnmodifiableSortedMap::replace(key, value);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::computeIfAbsent(Object$* key, $Function* mappingFunction) {
-	 return this->$Collections$UnmodifiableSortedMap::computeIfAbsent(key, mappingFunction);
+	return this->$Collections$UnmodifiableSortedMap::computeIfAbsent(key, mappingFunction);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::computeIfPresent(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$UnmodifiableSortedMap::computeIfPresent(key, remappingFunction);
+	return this->$Collections$UnmodifiableSortedMap::computeIfPresent(key, remappingFunction);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::compute(Object$* key, $BiFunction* remappingFunction) {
-	 return this->$Collections$UnmodifiableSortedMap::compute(key, remappingFunction);
+	return this->$Collections$UnmodifiableSortedMap::compute(key, remappingFunction);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::merge(Object$* key, Object$* value, $BiFunction* remappingFunction) {
-	 return this->$Collections$UnmodifiableSortedMap::merge(key, value, remappingFunction);
+	return this->$Collections$UnmodifiableSortedMap::merge(key, value, remappingFunction);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::clone() {
-	 return this->$Collections$UnmodifiableSortedMap::clone();
+	return this->$Collections$UnmodifiableSortedMap::clone();
 }
 
 void Collections$UnmodifiableNavigableMap::finalize() {

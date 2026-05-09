@@ -31,15 +31,15 @@ namespace java {
 	namespace util {
 
 bool Collections$EmptySet::equals(Object$* o) {
-	 return this->$AbstractSet::equals(o);
+	return this->$AbstractSet::equals(o);
 }
 
 $String* Collections$EmptySet::toString() {
-	 return this->$AbstractSet::toString();
+	return this->$AbstractSet::toString();
 }
 
 $Object* Collections$EmptySet::clone() {
-	 return this->$AbstractSet::clone();
+	return this->$AbstractSet::clone();
 }
 
 void Collections$EmptySet::finalize() {

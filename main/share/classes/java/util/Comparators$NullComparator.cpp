@@ -15,19 +15,19 @@ namespace java {
 	namespace util {
 
 bool Comparators$NullComparator::equals(Object$* obj) {
-	 return this->$Comparator::equals(obj);
+	return this->$Comparator::equals(obj);
 }
 
 int32_t Comparators$NullComparator::hashCode() {
-	 return this->$Comparator::hashCode();
+	return this->$Comparator::hashCode();
 }
 
 $Object* Comparators$NullComparator::clone() {
-	 return this->$Comparator::clone();
+	return this->$Comparator::clone();
 }
 
 $String* Comparators$NullComparator::toString() {
-	 return this->$Comparator::toString();
+	return this->$Comparator::toString();
 }
 
 void Comparators$NullComparator::finalize() {

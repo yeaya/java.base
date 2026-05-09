@@ -28,7 +28,7 @@ public:
 		$set(this, before, before);
 	}
 	virtual int32_t applyAsInt(int32_t v) override {
-		 return $nc(inst$)->lambda$compose$0(before, v);
+		return $nc(inst$)->lambda$compose$0(before, v);
 	}
 	IntUnaryOperator* inst$ = nullptr;
 	IntUnaryOperator* before = nullptr;
@@ -67,7 +67,7 @@ public:
 		$set(this, after, after);
 	}
 	virtual int32_t applyAsInt(int32_t t) override {
-		 return $nc(inst$)->lambda$andThen$1(after, t);
+		return $nc(inst$)->lambda$andThen$1(after, t);
 	}
 	IntUnaryOperator* inst$ = nullptr;
 	IntUnaryOperator* after = nullptr;
@@ -104,7 +104,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t t) override {
-		 return IntUnaryOperator::lambda$identity$2(t);
+		return IntUnaryOperator::lambda$identity$2(t);
 	}
 };
 $Class* IntUnaryOperator$$Lambda$lambda$identity$2$2::load$($String* name, bool initialize) {

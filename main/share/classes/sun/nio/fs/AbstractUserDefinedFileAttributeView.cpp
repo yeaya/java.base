@@ -34,19 +34,19 @@ namespace sun {
 		namespace fs {
 
 int32_t AbstractUserDefinedFileAttributeView::hashCode() {
-	 return this->$UserDefinedFileAttributeView::hashCode();
+	return this->$UserDefinedFileAttributeView::hashCode();
 }
 
 bool AbstractUserDefinedFileAttributeView::equals(Object$* obj) {
-	 return this->$UserDefinedFileAttributeView::equals(obj);
+	return this->$UserDefinedFileAttributeView::equals(obj);
 }
 
 $Object* AbstractUserDefinedFileAttributeView::clone() {
-	 return this->$UserDefinedFileAttributeView::clone();
+	return this->$UserDefinedFileAttributeView::clone();
 }
 
 $String* AbstractUserDefinedFileAttributeView::toString() {
-	 return this->$UserDefinedFileAttributeView::toString();
+	return this->$UserDefinedFileAttributeView::toString();
 }
 
 void AbstractUserDefinedFileAttributeView::finalize() {

@@ -30,19 +30,19 @@ namespace java {
 	namespace io {
 
 int32_t Reader::hashCode() {
-	 return this->$Readable::hashCode();
+	return this->$Readable::hashCode();
 }
 
 bool Reader::equals(Object$* obj) {
-	 return this->$Readable::equals(obj);
+	return this->$Readable::equals(obj);
 }
 
 $Object* Reader::clone() {
-	 return this->$Readable::clone();
+	return this->$Readable::clone();
 }
 
 $String* Reader::toString() {
-	 return this->$Readable::toString();
+	return this->$Readable::toString();
 }
 
 void Reader::finalize() {

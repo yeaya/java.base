@@ -21,15 +21,15 @@ namespace java {
 		namespace cert {
 
 $Object* PKIXCertPathBuilderResult::clone() {
-	 return this->$PKIXCertPathValidatorResult::clone();
+	return this->$PKIXCertPathValidatorResult::clone();
 }
 
 int32_t PKIXCertPathBuilderResult::hashCode() {
-	 return this->$PKIXCertPathValidatorResult::hashCode();
+	return this->$PKIXCertPathValidatorResult::hashCode();
 }
 
 bool PKIXCertPathBuilderResult::equals(Object$* obj) {
-	 return this->$PKIXCertPathValidatorResult::equals(obj);
+	return this->$PKIXCertPathValidatorResult::equals(obj);
 }
 
 void PKIXCertPathBuilderResult::finalize() {

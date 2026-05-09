@@ -42,7 +42,7 @@ public:
 		$set(this, spaces, spaces);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Indent::lambda$test1$0(spaces, $cast($String, s)));
+		return $of(Indent::lambda$test1$0(spaces, $cast($String, s)));
 	}
 	$String* spaces = nullptr;
 };
@@ -78,7 +78,7 @@ public:
 		this->adjust = adjust;
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(Indent::lambda$test1$1(adjust, $cast($String, s)));
+		return $of(Indent::lambda$test1$1(adjust, $cast($String, s)));
 	}
 	int32_t adjust = 0;
 };

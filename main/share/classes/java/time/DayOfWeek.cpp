@@ -50,19 +50,19 @@ namespace java {
 	namespace time {
 
 $String* DayOfWeek::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool DayOfWeek::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t DayOfWeek::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* DayOfWeek::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void DayOfWeek::finalize() {

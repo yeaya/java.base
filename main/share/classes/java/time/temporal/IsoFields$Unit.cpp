@@ -38,15 +38,15 @@ namespace java {
 		namespace temporal {
 
 bool IsoFields$Unit::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t IsoFields$Unit::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* IsoFields$Unit::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void IsoFields$Unit::finalize() {

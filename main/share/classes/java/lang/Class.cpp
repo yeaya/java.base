@@ -285,7 +285,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* typeVar) override {
-		 return $of(Class::typeVarBounds($cast($TypeVariable, typeVar)));
+		return $of(Class::typeVarBounds($cast($TypeVariable, typeVar)));
 	}
 };
 Class* Class$$Lambda$typeVarBounds::load$($String* name, bool initialize) {
@@ -315,7 +315,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Type, inst$)->getTypeName());
+		return $of($sure($Type, inst$)->getTypeName());
 	}
 };
 Class* Class$$Lambda$getTypeName$1::load$($String* name, bool initialize) {
@@ -346,7 +346,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->getClassLoader();
+		return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
 };
@@ -381,7 +381,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(Class::lambda$methodToString$0($cast(Class, c)));
+		return $of(Class::lambda$methodToString$0($cast(Class, c)));
 	}
 };
 Class* Class$$Lambda$lambda$methodToString$0$3::load$($String* name, bool initialize) {
@@ -412,7 +412,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* c) override {
-		 return $nc(inst$)->lambda$getPermittedSubclasses$1($cast(Class, c));
+		return $nc(inst$)->lambda$getPermittedSubclasses$1($cast(Class, c));
 	}
 	Class* inst$ = nullptr;
 };
@@ -448,7 +448,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* c) override {
-		 return $nc(inst$)->isDirectSubType($cast(Class, c));
+		return $nc(inst$)->isDirectSubType($cast(Class, c));
 	}
 	Class* inst$ = nullptr;
 };
@@ -483,7 +483,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t s) override {
-		 return Class::lambda$getPermittedSubclasses$2(s);
+		return Class::lambda$getPermittedSubclasses$2(s);
 	}
 };
 Class* Class$$Lambda$lambda$getPermittedSubclasses$2$6::load$($String* name, bool initialize) {
@@ -508,15 +508,15 @@ Class* Class$$Lambda$lambda$getPermittedSubclasses$2$6::load$($String* name, boo
 Class* Class$$Lambda$lambda$getPermittedSubclasses$2$6::class$ = nullptr;
 
 int32_t Class::hashCode() {
-	 return this->$Serializable::hashCode();
+	return this->$Serializable::hashCode();
 }
 
 bool Class::equals(Object$* obj) {
-	 return this->$Serializable::equals(obj);
+	return this->$Serializable::equals(obj);
 }
 
 $Object* Class::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void Class::finalize() {

@@ -28,19 +28,19 @@ namespace sun {
 		namespace cs {
 
 int32_t SJIS::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool SJIS::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* SJIS::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* SJIS::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void SJIS::finalize() {

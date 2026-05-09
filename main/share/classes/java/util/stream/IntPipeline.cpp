@@ -202,7 +202,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return $of($Integer::valueOf(i));
+		return $of($Integer::valueOf(i));
 	}
 };
 $Class* IntPipeline$$Lambda$valueOf$1::load$($String* name, bool initialize) {
@@ -232,7 +232,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(Object$* i) override {
-		 return IntPipeline::lambda$distinct$0($cast($Integer, i));
+		return IntPipeline::lambda$distinct$0($cast($Integer, i));
 	}
 };
 $Class* IntPipeline$$Lambda$lambda$distinct$0$2::load$($String* name, bool initialize) {
@@ -262,7 +262,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t a, int32_t b) override {
-		 return $Integer::sum(a, b);
+		return $Integer::sum(a, b);
 	}
 };
 $Class* IntPipeline$$Lambda$sum$3::load$($String* name, bool initialize) {
@@ -292,7 +292,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t a, int32_t b) override {
-		 return $Math::min(a, b);
+		return $Math::min(a, b);
 	}
 };
 $Class* IntPipeline$$Lambda$min$4::load$($String* name, bool initialize) {
@@ -322,7 +322,7 @@ public:
 	void init$() {
 	}
 	virtual int32_t applyAsInt(int32_t a, int32_t b) override {
-		 return $Math::max(a, b);
+		return $Math::max(a, b);
 	}
 };
 $Class* IntPipeline$$Lambda$max$5::load$($String* name, bool initialize) {
@@ -352,7 +352,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return IntPipeline::lambda$average$1();
+		return IntPipeline::lambda$average$1();
 	}
 };
 $Class* IntPipeline$$Lambda$lambda$average$1$6::load$($String* name, bool initialize) {
@@ -442,7 +442,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $new($IntSummaryStatistics);
+		return $new($IntSummaryStatistics);
 	}
 };
 $Class* IntPipeline$$Lambda$IntSummaryStatistics$9::load$($String* name, bool initialize) {
@@ -533,7 +533,7 @@ public:
 		$set(this, combiner, combiner);
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return IntPipeline::lambda$collect$4(combiner, left, right);
+		return IntPipeline::lambda$collect$4(combiner, left, right);
 	}
 	$BiConsumer* combiner = nullptr;
 };
@@ -568,7 +568,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return IntPipeline::lambda$toArray$5(x$0);
+		return IntPipeline::lambda$toArray$5(x$0);
 	}
 };
 $Class* IntPipeline$$Lambda$lambda$toArray$5$13::load$($String* name, bool initialize) {
@@ -597,27 +597,27 @@ void IntPipeline::close() {
 }
 
 $BaseStream* IntPipeline::onClose($Runnable* closeHandler) {
-	 return this->$AbstractPipeline::onClose(closeHandler);
+	return this->$AbstractPipeline::onClose(closeHandler);
 }
 
 bool IntPipeline::isParallel() {
-	 return this->$AbstractPipeline::isParallel();
+	return this->$AbstractPipeline::isParallel();
 }
 
 int32_t IntPipeline::hashCode() {
-	 return this->$AbstractPipeline::hashCode();
+	return this->$AbstractPipeline::hashCode();
 }
 
 bool IntPipeline::equals(Object$* obj) {
-	 return this->$AbstractPipeline::equals(obj);
+	return this->$AbstractPipeline::equals(obj);
 }
 
 $Object* IntPipeline::clone() {
-	 return this->$AbstractPipeline::clone();
+	return this->$AbstractPipeline::clone();
 }
 
 $String* IntPipeline::toString() {
-	 return this->$AbstractPipeline::toString();
+	return this->$AbstractPipeline::toString();
 }
 
 void IntPipeline::finalize() {

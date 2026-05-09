@@ -36,19 +36,19 @@ namespace sun {
 		namespace cs {
 
 int32_t DoubleByte$Decoder::hashCode() {
-	 return this->$CharsetDecoder::hashCode();
+	return this->$CharsetDecoder::hashCode();
 }
 
 bool DoubleByte$Decoder::equals(Object$* obj) {
-	 return this->$CharsetDecoder::equals(obj);
+	return this->$CharsetDecoder::equals(obj);
 }
 
 $Object* DoubleByte$Decoder::clone() {
-	 return this->$CharsetDecoder::clone();
+	return this->$CharsetDecoder::clone();
 }
 
 $String* DoubleByte$Decoder::toString() {
-	 return this->$CharsetDecoder::toString();
+	return this->$CharsetDecoder::toString();
 }
 
 void DoubleByte$Decoder::finalize() {

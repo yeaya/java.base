@@ -20,19 +20,19 @@ namespace java {
 	namespace util {
 
 $String* Comparators$NaturalOrderComparator::toString() {
-	 return this->$Enum::toString();
+	return this->$Enum::toString();
 }
 
 bool Comparators$NaturalOrderComparator::equals(Object$* other) {
-	 return this->$Enum::equals(other);
+	return this->$Enum::equals(other);
 }
 
 int32_t Comparators$NaturalOrderComparator::hashCode() {
-	 return this->$Enum::hashCode();
+	return this->$Enum::hashCode();
 }
 
 $Object* Comparators$NaturalOrderComparator::clone() {
-	 return this->$Enum::clone();
+	return this->$Enum::clone();
 }
 
 void Comparators$NaturalOrderComparator::finalize() {

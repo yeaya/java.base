@@ -15,19 +15,19 @@ namespace java {
 	namespace security {
 
 $Object* MessageDigest$Delegate$CloneableDelegate::clone() {
-	 return this->$MessageDigest$Delegate::clone();
+	return this->$MessageDigest$Delegate::clone();
 }
 
 $String* MessageDigest$Delegate$CloneableDelegate::toString() {
-	 return this->$MessageDigest$Delegate::toString();
+	return this->$MessageDigest$Delegate::toString();
 }
 
 int32_t MessageDigest$Delegate$CloneableDelegate::hashCode() {
-	 return this->$MessageDigest$Delegate::hashCode();
+	return this->$MessageDigest$Delegate::hashCode();
 }
 
 bool MessageDigest$Delegate$CloneableDelegate::equals(Object$* obj) {
-	 return this->$MessageDigest$Delegate::equals(obj);
+	return this->$MessageDigest$Delegate::equals(obj);
 }
 
 void MessageDigest$Delegate$CloneableDelegate::finalize() {

@@ -57,7 +57,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(int32_t i) override {
-		 return $nc(inst$)->lambda$stream$0(i);
+		return $nc(inst$)->lambda$stream$0(i);
 	}
 	Collections$CopiesList* inst$ = nullptr;
 };
@@ -87,11 +87,11 @@ $Class* Collections$CopiesList$$Lambda$lambda$stream$0::load$($String* name, boo
 $Class* Collections$CopiesList$$Lambda$lambda$stream$0::class$ = nullptr;
 
 $String* Collections$CopiesList::toString() {
-	 return this->$AbstractList::toString();
+	return this->$AbstractList::toString();
 }
 
 $Object* Collections$CopiesList::clone() {
-	 return this->$AbstractList::clone();
+	return this->$AbstractList::clone();
 }
 
 void Collections$CopiesList::finalize() {

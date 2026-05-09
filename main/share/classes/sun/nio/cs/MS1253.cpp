@@ -24,19 +24,19 @@ namespace sun {
 		namespace cs {
 
 int32_t MS1253::hashCode() {
-	 return this->$Charset::hashCode();
+	return this->$Charset::hashCode();
 }
 
 bool MS1253::equals(Object$* ob) {
-	 return this->$Charset::equals(ob);
+	return this->$Charset::equals(ob);
 }
 
 $String* MS1253::toString() {
-	 return this->$Charset::toString();
+	return this->$Charset::toString();
 }
 
 $Object* MS1253::clone() {
-	 return this->$Charset::clone();
+	return this->$Charset::clone();
 }
 
 void MS1253::finalize() {

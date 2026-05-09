@@ -15,19 +15,19 @@ namespace java {
 	namespace util {
 
 bool Collections$UnmodifiableRandomAccessList::equals(Object$* o) {
-	 return this->$Collections$UnmodifiableList::equals(o);
+	return this->$Collections$UnmodifiableList::equals(o);
 }
 
 int32_t Collections$UnmodifiableRandomAccessList::hashCode() {
-	 return this->$Collections$UnmodifiableList::hashCode();
+	return this->$Collections$UnmodifiableList::hashCode();
 }
 
 $String* Collections$UnmodifiableRandomAccessList::toString() {
-	 return this->$Collections$UnmodifiableList::toString();
+	return this->$Collections$UnmodifiableList::toString();
 }
 
 $Object* Collections$UnmodifiableRandomAccessList::clone() {
-	 return this->$Collections$UnmodifiableList::clone();
+	return this->$Collections$UnmodifiableList::clone();
 }
 
 void Collections$UnmodifiableRandomAccessList::finalize() {

@@ -56,7 +56,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* descriptor) override {
-		 return $of($ClassDesc::ofDescriptor($cast($String, descriptor)));
+		return $of($ClassDesc::ofDescriptor($cast($String, descriptor)));
 	}
 };
 $Class* MethodTypeDescImpl$$Lambda$ofDescriptor::load$($String* name, bool initialize) {
@@ -86,7 +86,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return MethodTypeDescImpl::lambda$ofDescriptor$0(x$0);
+		return MethodTypeDescImpl::lambda$ofDescriptor$0(x$0);
 	}
 };
 $Class* MethodTypeDescImpl$$Lambda$lambda$ofDescriptor$0$1::load$($String* name, bool initialize) {

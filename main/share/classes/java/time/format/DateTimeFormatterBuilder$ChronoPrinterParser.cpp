@@ -53,7 +53,7 @@ public:
 		$set(this, chrono, chrono);
 	}
 	virtual $Object* get() override {
-		 return $of(DateTimeFormatterBuilder$ChronoPrinterParser::lambda$getChronologyName$0(chrono));
+		return $of(DateTimeFormatterBuilder$ChronoPrinterParser::lambda$getChronologyName$0(chrono));
 	}
 	$Chronology* chrono = nullptr;
 };

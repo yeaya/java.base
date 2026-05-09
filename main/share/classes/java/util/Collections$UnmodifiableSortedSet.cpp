@@ -32,67 +32,67 @@ namespace java {
 	namespace util {
 
 bool Collections$UnmodifiableSortedSet::equals(Object$* o) {
-	 return this->$Collections$UnmodifiableSet::equals(o);
+	return this->$Collections$UnmodifiableSet::equals(o);
 }
 
 int32_t Collections$UnmodifiableSortedSet::hashCode() {
-	 return this->$Collections$UnmodifiableSet::hashCode();
+	return this->$Collections$UnmodifiableSet::hashCode();
 }
 
 int32_t Collections$UnmodifiableSortedSet::size() {
-	 return this->$Collections$UnmodifiableSet::size();
+	return this->$Collections$UnmodifiableSet::size();
 }
 
 bool Collections$UnmodifiableSortedSet::isEmpty() {
-	 return this->$Collections$UnmodifiableSet::isEmpty();
+	return this->$Collections$UnmodifiableSet::isEmpty();
 }
 
 bool Collections$UnmodifiableSortedSet::contains(Object$* o) {
-	 return this->$Collections$UnmodifiableSet::contains(o);
+	return this->$Collections$UnmodifiableSet::contains(o);
 }
 
 $ObjectArray* Collections$UnmodifiableSortedSet::toArray() {
-	 return this->$Collections$UnmodifiableSet::toArray();
+	return this->$Collections$UnmodifiableSet::toArray();
 }
 
 $ObjectArray* Collections$UnmodifiableSortedSet::toArray($ObjectArray* a) {
-	 return this->$Collections$UnmodifiableSet::toArray(a);
+	return this->$Collections$UnmodifiableSet::toArray(a);
 }
 
 $ObjectArray* Collections$UnmodifiableSortedSet::toArray($IntFunction* f) {
-	 return this->$Collections$UnmodifiableSet::toArray(f);
+	return this->$Collections$UnmodifiableSet::toArray(f);
 }
 
 $String* Collections$UnmodifiableSortedSet::toString() {
-	 return this->$Collections$UnmodifiableSet::toString();
+	return this->$Collections$UnmodifiableSet::toString();
 }
 
 $Iterator* Collections$UnmodifiableSortedSet::iterator() {
-	 return this->$Collections$UnmodifiableSet::iterator();
+	return this->$Collections$UnmodifiableSet::iterator();
 }
 
 bool Collections$UnmodifiableSortedSet::add(Object$* e) {
-	 return this->$Collections$UnmodifiableSet::add(e);
+	return this->$Collections$UnmodifiableSet::add(e);
 }
 
 bool Collections$UnmodifiableSortedSet::remove(Object$* o) {
-	 return this->$Collections$UnmodifiableSet::remove(o);
+	return this->$Collections$UnmodifiableSet::remove(o);
 }
 
 bool Collections$UnmodifiableSortedSet::containsAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableSet::containsAll(coll);
+	return this->$Collections$UnmodifiableSet::containsAll(coll);
 }
 
 bool Collections$UnmodifiableSortedSet::addAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableSet::addAll(coll);
+	return this->$Collections$UnmodifiableSet::addAll(coll);
 }
 
 bool Collections$UnmodifiableSortedSet::removeAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableSet::removeAll(coll);
+	return this->$Collections$UnmodifiableSet::removeAll(coll);
 }
 
 bool Collections$UnmodifiableSortedSet::retainAll($Collection* coll) {
-	 return this->$Collections$UnmodifiableSet::retainAll(coll);
+	return this->$Collections$UnmodifiableSet::retainAll(coll);
 }
 
 void Collections$UnmodifiableSortedSet::clear() {
@@ -104,23 +104,23 @@ void Collections$UnmodifiableSortedSet::forEach($Consumer* action) {
 }
 
 bool Collections$UnmodifiableSortedSet::removeIf($Predicate* filter) {
-	 return this->$Collections$UnmodifiableSet::removeIf(filter);
+	return this->$Collections$UnmodifiableSet::removeIf(filter);
 }
 
 $Spliterator* Collections$UnmodifiableSortedSet::spliterator() {
-	 return this->$Collections$UnmodifiableSet::spliterator();
+	return this->$Collections$UnmodifiableSet::spliterator();
 }
 
 $Stream* Collections$UnmodifiableSortedSet::stream() {
-	 return this->$Collections$UnmodifiableSet::stream();
+	return this->$Collections$UnmodifiableSet::stream();
 }
 
 $Stream* Collections$UnmodifiableSortedSet::parallelStream() {
-	 return this->$Collections$UnmodifiableSet::parallelStream();
+	return this->$Collections$UnmodifiableSet::parallelStream();
 }
 
 $Object* Collections$UnmodifiableSortedSet::clone() {
-	 return this->$Collections$UnmodifiableSet::clone();
+	return this->$Collections$UnmodifiableSet::clone();
 }
 
 void Collections$UnmodifiableSortedSet::finalize() {

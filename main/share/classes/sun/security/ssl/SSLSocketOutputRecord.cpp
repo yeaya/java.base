@@ -54,19 +54,19 @@ namespace sun {
 		namespace ssl {
 
 $String* SSLSocketOutputRecord::toString() {
-	 return this->$OutputRecord::toString();
+	return this->$OutputRecord::toString();
 }
 
 int32_t SSLSocketOutputRecord::hashCode() {
-	 return this->$OutputRecord::hashCode();
+	return this->$OutputRecord::hashCode();
 }
 
 bool SSLSocketOutputRecord::equals(Object$* obj) {
-	 return this->$OutputRecord::equals(obj);
+	return this->$OutputRecord::equals(obj);
 }
 
 $Object* SSLSocketOutputRecord::clone() {
-	 return this->$OutputRecord::clone();
+	return this->$OutputRecord::clone();
 }
 
 void SSLSocketOutputRecord::finalize() {

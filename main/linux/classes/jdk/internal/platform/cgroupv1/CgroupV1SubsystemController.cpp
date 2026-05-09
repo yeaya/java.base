@@ -36,7 +36,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(CgroupV1SubsystemController::convertHierachicalLimitLine($cast($String, line)));
+		return $of(CgroupV1SubsystemController::convertHierachicalLimitLine($cast($String, line)));
 	}
 };
 $Class* CgroupV1SubsystemController$$Lambda$convertHierachicalLimitLine::load$($String* name, bool initialize) {

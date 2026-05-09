@@ -92,7 +92,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Type, inst$)->getTypeName());
+		return $of($sure($Type, inst$)->getTypeName());
 	}
 };
 $Class* Executable$$Lambda$getTypeName::load$($String* name, bool initialize) {
@@ -122,7 +122,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* typeVar) override {
-		 return $of(Executable::typeVarBounds($cast($TypeVariable, typeVar)));
+		return $of(Executable::typeVarBounds($cast($TypeVariable, typeVar)));
 	}
 };
 $Class* Executable$$Lambda$typeVarBounds$1::load$($String* name, bool initialize) {
@@ -147,35 +147,35 @@ $Class* Executable$$Lambda$typeVarBounds$1::load$($String* name, bool initialize
 $Class* Executable$$Lambda$typeVarBounds$1::class$ = nullptr;
 
 bool Executable::isAnnotationPresent($Class* annotationClass) {
-	 return this->$AccessibleObject::isAnnotationPresent(annotationClass);
+	return this->$AccessibleObject::isAnnotationPresent(annotationClass);
 }
 
 $AnnotationArray* Executable::getAnnotations() {
-	 return this->$AccessibleObject::getAnnotations();
+	return this->$AccessibleObject::getAnnotations();
 }
 
 $Annotation* Executable::getDeclaredAnnotation($Class* annotationClass) {
-	 return this->$AccessibleObject::getDeclaredAnnotation(annotationClass);
+	return this->$AccessibleObject::getDeclaredAnnotation(annotationClass);
 }
 
 $AnnotationArray* Executable::getDeclaredAnnotationsByType($Class* annotationClass) {
-	 return this->$AccessibleObject::getDeclaredAnnotationsByType(annotationClass);
+	return this->$AccessibleObject::getDeclaredAnnotationsByType(annotationClass);
 }
 
 int32_t Executable::hashCode() {
-	 return this->$AccessibleObject::hashCode();
+	return this->$AccessibleObject::hashCode();
 }
 
 bool Executable::equals(Object$* obj) {
-	 return this->$AccessibleObject::equals(obj);
+	return this->$AccessibleObject::equals(obj);
 }
 
 $Object* Executable::clone() {
-	 return this->$AccessibleObject::clone();
+	return this->$AccessibleObject::clone();
 }
 
 $String* Executable::toString() {
-	 return this->$AccessibleObject::toString();
+	return this->$AccessibleObject::toString();
 }
 
 void Executable::finalize() {

@@ -61,7 +61,7 @@ public:
 		$set(this, predicate, predicate);
 	}
 	virtual $Object* get() override {
-		 return MatchOps::lambda$makeRef$0(matchKind, predicate);
+		return MatchOps::lambda$makeRef$0(matchKind, predicate);
 	}
 	$MatchOps$MatchKind* matchKind = nullptr;
 	$Predicate* predicate = nullptr;
@@ -100,7 +100,7 @@ public:
 		$set(this, predicate, predicate);
 	}
 	virtual $Object* get() override {
-		 return MatchOps::lambda$makeInt$1(matchKind, predicate);
+		return MatchOps::lambda$makeInt$1(matchKind, predicate);
 	}
 	$MatchOps$MatchKind* matchKind = nullptr;
 	$IntPredicate* predicate = nullptr;
@@ -139,7 +139,7 @@ public:
 		$set(this, predicate, predicate);
 	}
 	virtual $Object* get() override {
-		 return MatchOps::lambda$makeLong$2(matchKind, predicate);
+		return MatchOps::lambda$makeLong$2(matchKind, predicate);
 	}
 	$MatchOps$MatchKind* matchKind = nullptr;
 	$LongPredicate* predicate = nullptr;
@@ -178,7 +178,7 @@ public:
 		$set(this, predicate, predicate);
 	}
 	virtual $Object* get() override {
-		 return MatchOps::lambda$makeDouble$3(matchKind, predicate);
+		return MatchOps::lambda$makeDouble$3(matchKind, predicate);
 	}
 	$MatchOps$MatchKind* matchKind = nullptr;
 	$DoublePredicate* predicate = nullptr;

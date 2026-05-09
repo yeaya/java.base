@@ -83,7 +83,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return ConcurrentLinkedDeque::lambda$removeAll$0(c, e);
+		return ConcurrentLinkedDeque::lambda$removeAll$0(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -119,7 +119,7 @@ public:
 		$set(this, c, c);
 	}
 	virtual bool test(Object$* e) override {
-		 return ConcurrentLinkedDeque::lambda$retainAll$1(c, e);
+		return ConcurrentLinkedDeque::lambda$retainAll$1(c, e);
 	}
 	$Collection* c = nullptr;
 };
@@ -149,31 +149,31 @@ $Class* ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::load$($String* name,
 $Class* ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
 
 bool ConcurrentLinkedDeque::containsAll($Collection* c) {
-	 return this->$AbstractCollection::containsAll(c);
+	return this->$AbstractCollection::containsAll(c);
 }
 
 $ObjectArray* ConcurrentLinkedDeque::toArray($IntFunction* generator) {
-	 return this->$AbstractCollection::toArray(generator);
+	return this->$AbstractCollection::toArray(generator);
 }
 
 bool ConcurrentLinkedDeque::equals(Object$* o) {
-	 return this->$AbstractCollection::equals(o);
+	return this->$AbstractCollection::equals(o);
 }
 
 int32_t ConcurrentLinkedDeque::hashCode() {
-	 return this->$AbstractCollection::hashCode();
+	return this->$AbstractCollection::hashCode();
 }
 
 $Stream* ConcurrentLinkedDeque::stream() {
-	 return this->$AbstractCollection::stream();
+	return this->$AbstractCollection::stream();
 }
 
 $Stream* ConcurrentLinkedDeque::parallelStream() {
-	 return this->$AbstractCollection::parallelStream();
+	return this->$AbstractCollection::parallelStream();
 }
 
 $Object* ConcurrentLinkedDeque::clone() {
-	 return this->$AbstractCollection::clone();
+	return this->$AbstractCollection::clone();
 }
 
 void ConcurrentLinkedDeque::finalize() {

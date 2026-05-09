@@ -43,7 +43,7 @@ public:
 		$set(this, first, first);
 	}
 	virtual $bytes* getEntropy(int32_t entropy, int32_t minLen, int32_t maxLen, bool pr) override {
-		 return AbstractDrbg$SeederHolder::lambda$static$0(first, entropy, minLen, maxLen, pr);
+		return AbstractDrbg$SeederHolder::lambda$static$0(first, entropy, minLen, maxLen, pr);
 	}
 	$HashDrbg* first = nullptr;
 };

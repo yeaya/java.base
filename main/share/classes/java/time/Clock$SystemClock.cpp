@@ -20,7 +20,7 @@ namespace java {
 	namespace time {
 
 $Object* Clock$SystemClock::clone() {
-	 return this->$Clock::clone();
+	return this->$Clock::clone();
 }
 
 void Clock$SystemClock::finalize() {

@@ -44,7 +44,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* mref) override {
-		 return DefaultRoots::lambda$compute$0($cast($ModuleReference, mref));
+		return DefaultRoots::lambda$compute$0($cast($ModuleReference, mref));
 	}
 };
 $Class* DefaultRoots$$Lambda$lambda$compute$0::load$($String* name, bool initialize) {
@@ -74,7 +74,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($ModuleReference, inst$)->descriptor();
+		return $sure($ModuleReference, inst$)->descriptor();
 	}
 };
 $Class* DefaultRoots$$Lambda$descriptor$1::load$($String* name, bool initialize) {
@@ -105,7 +105,7 @@ public:
 		$set(this, finder2, finder2);
 	}
 	virtual bool test(Object$* descriptor) override {
-		 return DefaultRoots::lambda$compute$1(finder2, $cast($ModuleDescriptor, descriptor));
+		return DefaultRoots::lambda$compute$1(finder2, $cast($ModuleDescriptor, descriptor));
 	}
 	$ModuleFinder* finder2 = nullptr;
 };
@@ -140,7 +140,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($ModuleDescriptor, inst$)->name());
+		return $of($sure($ModuleDescriptor, inst$)->name());
 	}
 };
 $Class* DefaultRoots$$Lambda$name$3::load$($String* name, bool initialize) {
@@ -170,7 +170,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* e) override {
-		 return DefaultRoots::lambda$exportsAPI$2($cast($ModuleDescriptor$Exports, e));
+		return DefaultRoots::lambda$exportsAPI$2($cast($ModuleDescriptor$Exports, e));
 	}
 };
 $Class* DefaultRoots$$Lambda$lambda$exportsAPI$2$4::load$($String* name, bool initialize) {

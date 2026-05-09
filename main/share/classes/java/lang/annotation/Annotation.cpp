@@ -9,15 +9,15 @@ namespace java {
 		namespace annotation {
 
 bool Annotation::equals(Object$* obj) {
-	 return this->$Object::equals(obj);
+	return this->$Object::equals(obj);
 }
 
 int32_t Annotation::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $String* Annotation::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $Class* Annotation::load$($String* name, bool initialize) {

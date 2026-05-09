@@ -9,19 +9,19 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 int32_t StaticFieldsOnInterface$D::hashCode() {
-	 return this->$StaticFieldsOnInterface$B::hashCode();
+	return this->$StaticFieldsOnInterface$B::hashCode();
 }
 
 bool StaticFieldsOnInterface$D::equals(Object$* arg0) {
-	 return this->$StaticFieldsOnInterface$B::equals(arg0);
+	return this->$StaticFieldsOnInterface$B::equals(arg0);
 }
 
 $Object* StaticFieldsOnInterface$D::clone() {
-	 return this->$StaticFieldsOnInterface$B::clone();
+	return this->$StaticFieldsOnInterface$B::clone();
 }
 
 $String* StaticFieldsOnInterface$D::toString() {
-	 return this->$StaticFieldsOnInterface$B::toString();
+	return this->$StaticFieldsOnInterface$B::toString();
 }
 
 void StaticFieldsOnInterface$D::finalize() {

@@ -88,19 +88,19 @@ namespace java {
 		namespace concurrent {
 
 int32_t ForkJoinTask::hashCode() {
-	 return this->$Future::hashCode();
+	return this->$Future::hashCode();
 }
 
 bool ForkJoinTask::equals(Object$* obj) {
-	 return this->$Future::equals(obj);
+	return this->$Future::equals(obj);
 }
 
 $Object* ForkJoinTask::clone() {
-	 return this->$Future::clone();
+	return this->$Future::clone();
 }
 
 $String* ForkJoinTask::toString() {
-	 return this->$Future::toString();
+	return this->$Future::toString();
 }
 
 void ForkJoinTask::finalize() {

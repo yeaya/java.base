@@ -20,11 +20,11 @@ namespace java {
 	namespace util {
 
 bool Vector$ListItr::hasNext() {
-	 return this->$Vector$Itr::hasNext();
+	return this->$Vector$Itr::hasNext();
 }
 
 $Object* Vector$ListItr::next() {
-	 return this->$Vector$Itr::next();
+	return this->$Vector$Itr::next();
 }
 
 void Vector$ListItr::remove() {
@@ -36,19 +36,19 @@ void Vector$ListItr::forEachRemaining($Consumer* action) {
 }
 
 int32_t Vector$ListItr::hashCode() {
-	 return this->$Vector$Itr::hashCode();
+	return this->$Vector$Itr::hashCode();
 }
 
 bool Vector$ListItr::equals(Object$* obj) {
-	 return this->$Vector$Itr::equals(obj);
+	return this->$Vector$Itr::equals(obj);
 }
 
 $Object* Vector$ListItr::clone() {
-	 return this->$Vector$Itr::clone();
+	return this->$Vector$Itr::clone();
 }
 
 $String* Vector$ListItr::toString() {
-	 return this->$Vector$Itr::toString();
+	return this->$Vector$Itr::toString();
 }
 
 void Vector$ListItr::finalize() {

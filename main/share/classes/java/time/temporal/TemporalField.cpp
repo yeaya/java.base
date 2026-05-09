@@ -25,7 +25,7 @@ namespace java {
 		namespace temporal {
 
 $String* TemporalField::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 $String* TemporalField::getDisplayName($Locale* locale) {

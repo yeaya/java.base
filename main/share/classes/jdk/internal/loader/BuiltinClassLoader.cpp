@@ -147,7 +147,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$findResourceOnClassPath$0(name);
+		return $nc(inst$)->lambda$findResourceOnClassPath$0(name);
 	}
 	BuiltinClassLoader* inst$ = nullptr;
 	$String* name = nullptr;
@@ -186,7 +186,7 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$findResourcesOnClassPath$1(name);
+		return $nc(inst$)->lambda$findResourcesOnClassPath$1(name);
 	}
 	BuiltinClassLoader* inst$ = nullptr;
 	$String* name = nullptr;
@@ -226,7 +226,7 @@ public:
 		$set(this, loadedModule, loadedModule);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$findClassInModuleOrNull$2(cn, loadedModule));
+		return $of($nc(inst$)->lambda$findClassInModuleOrNull$2(cn, loadedModule));
 	}
 	BuiltinClassLoader* inst$ = nullptr;
 	$String* cn = nullptr;

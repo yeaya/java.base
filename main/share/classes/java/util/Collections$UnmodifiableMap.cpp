@@ -29,7 +29,7 @@ namespace java {
 	namespace util {
 
 $Object* Collections$UnmodifiableMap::clone() {
-	 return this->$Map::clone();
+	return this->$Map::clone();
 }
 
 void Collections$UnmodifiableMap::finalize() {

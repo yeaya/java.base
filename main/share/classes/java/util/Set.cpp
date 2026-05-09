@@ -28,11 +28,11 @@ namespace java {
 	namespace util {
 
 bool Set::equals(Object$* o) {
-	 return this->$Collection::equals(o);
+	return this->$Collection::equals(o);
 }
 
 int32_t Set::hashCode() {
-	 return this->$Collection::hashCode();
+	return this->$Collection::hashCode();
 }
 
 $Spliterator* Set::spliterator() {

@@ -27,15 +27,15 @@ namespace java {
 		namespace stream {
 
 int64_t StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::estimateSize() {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::estimateSize();
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::estimateSize();
 }
 
 int32_t StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::characteristics() {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::characteristics();
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::characteristics();
 }
 
 bool StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::tryAdvance($Consumer* action) {
-	 return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(action);
+	return $as($Spliterator$OfDouble, this)->$Spliterator$OfDouble::tryAdvance(action);
 }
 
 void StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::forEachRemaining($Consumer* action) {
@@ -43,31 +43,31 @@ void StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::forEachRemaining(
 }
 
 int64_t StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::getExactSizeIfKnown() {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::getExactSizeIfKnown();
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::getExactSizeIfKnown();
 }
 
 bool StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::hasCharacteristics(int32_t characteristics) {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::hasCharacteristics(characteristics);
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::hasCharacteristics(characteristics);
 }
 
 $Comparator* StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::getComparator() {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::getComparator();
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::getComparator();
 }
 
 int32_t StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::hashCode() {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::hashCode();
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::hashCode();
 }
 
 bool StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::equals(Object$* obj) {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::equals(obj);
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::clone() {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::clone();
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::clone();
 }
 
 $String* StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::toString() {
-	 return this->$StreamSpliterators$InfiniteSupplyingSpliterator::toString();
+	return this->$StreamSpliterators$InfiniteSupplyingSpliterator::toString();
 }
 
 void StreamSpliterators$InfiniteSupplyingSpliterator$OfDouble::finalize() {

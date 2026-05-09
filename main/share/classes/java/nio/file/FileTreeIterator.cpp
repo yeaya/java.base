@@ -40,19 +40,19 @@ namespace java {
 		namespace file {
 
 int32_t FileTreeIterator::hashCode() {
-	 return this->$Iterator::hashCode();
+	return this->$Iterator::hashCode();
 }
 
 bool FileTreeIterator::equals(Object$* obj) {
-	 return this->$Iterator::equals(obj);
+	return this->$Iterator::equals(obj);
 }
 
 $Object* FileTreeIterator::clone() {
-	 return this->$Iterator::clone();
+	return this->$Iterator::clone();
 }
 
 $String* FileTreeIterator::toString() {
-	 return this->$Iterator::toString();
+	return this->$Iterator::toString();
 }
 
 void FileTreeIterator::finalize() {

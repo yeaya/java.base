@@ -14,19 +14,19 @@ namespace java {
 		namespace spec {
 
 int32_t DSAParameterSpec::hashCode() {
-	 return this->$AlgorithmParameterSpec::hashCode();
+	return this->$AlgorithmParameterSpec::hashCode();
 }
 
 bool DSAParameterSpec::equals(Object$* obj) {
-	 return this->$AlgorithmParameterSpec::equals(obj);
+	return this->$AlgorithmParameterSpec::equals(obj);
 }
 
 $Object* DSAParameterSpec::clone() {
-	 return this->$AlgorithmParameterSpec::clone();
+	return this->$AlgorithmParameterSpec::clone();
 }
 
 $String* DSAParameterSpec::toString() {
-	 return this->$AlgorithmParameterSpec::toString();
+	return this->$AlgorithmParameterSpec::toString();
 }
 
 void DSAParameterSpec::finalize() {

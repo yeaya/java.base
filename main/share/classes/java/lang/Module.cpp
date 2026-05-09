@@ -161,7 +161,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* m1, Object$* m2) override {
-		 return Module::lambda$implAddExportsOrOpens$0($cast(Module, m1), $cast(Module, m2));
+		return Module::lambda$implAddExportsOrOpens$0($cast(Module, m1), $cast(Module, m2));
 	}
 };
 $Class* Module$$Lambda$lambda$implAddExportsOrOpens$0::load$($String* name, bool initialize) {
@@ -192,7 +192,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* p) override {
-		 return $nc(inst$)->lambda$getPackages$1($cast($Package, p));
+		return $nc(inst$)->lambda$getPackages$1($cast($Package, p));
 	}
 	Module* inst$ = nullptr;
 };
@@ -227,7 +227,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Package, inst$)->getName());
+		return $of($sure($Package, inst$)->getName());
 	}
 };
 $Class* Module$$Lambda$getName$2::load$($String* name, bool initialize) {
@@ -258,7 +258,7 @@ public:
 		$set(this, cf, cf);
 	}
 	virtual bool test(Object$* l) override {
-		 return Module::lambda$findModule$2(cf, $cast($ModuleLayer, l));
+		return Module::lambda$findModule$2(cf, $cast($ModuleLayer, l));
 	}
 	$Configuration* cf = nullptr;
 };
@@ -294,7 +294,7 @@ public:
 		$set(this, dn, dn);
 	}
 	virtual $Object* apply(Object$* layer) override {
-		 return Module::lambda$findModule$3(dn, $cast($ModuleLayer, layer));
+		return Module::lambda$findModule$3(dn, $cast($ModuleLayer, layer));
 	}
 	$String* dn = nullptr;
 };
@@ -330,7 +330,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->loadModuleInfoClass());
+		return $of($nc(inst$)->loadModuleInfoClass());
 	}
 	Module* inst$ = nullptr;
 };

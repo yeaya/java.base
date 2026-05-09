@@ -104,7 +104,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return $of(Instant::from(temporal));
+		return $of(Instant::from(temporal));
 	}
 };
 $Class* Instant$$Lambda$from::load$($String* name, bool initialize) {
@@ -129,7 +129,7 @@ $Class* Instant$$Lambda$from::load$($String* name, bool initialize) {
 $Class* Instant$$Lambda$from::class$ = nullptr;
 
 $Object* Instant::clone() {
-	 return this->$Temporal::clone();
+	return this->$Temporal::clone();
 }
 
 void Instant::finalize() {

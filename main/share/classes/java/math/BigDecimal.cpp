@@ -101,7 +101,7 @@ namespace java {
 	namespace math {
 
 $Object* BigDecimal::clone() {
-	 return this->$Number::clone();
+	return this->$Number::clone();
 }
 
 void BigDecimal::finalize() {

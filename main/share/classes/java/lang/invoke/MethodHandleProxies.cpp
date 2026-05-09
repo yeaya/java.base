@@ -80,7 +80,7 @@ public:
 		$set(this, self, self);
 	}
 	virtual $Object* apply(Object$* mk) override {
-		 return MethodHandleProxies::lambda$callDefaultMethod$0(intfc, self, $cast($Method, mk));
+		return MethodHandleProxies::lambda$callDefaultMethod$0(intfc, self, $cast($Method, mk));
 	}
 	$Class* intfc = nullptr;
 	$Object* self = nullptr;

@@ -51,19 +51,19 @@ namespace sun {
 		namespace ssl {
 
 $String* SSLEngineOutputRecord::toString() {
-	 return this->$OutputRecord::toString();
+	return this->$OutputRecord::toString();
 }
 
 int32_t SSLEngineOutputRecord::hashCode() {
-	 return this->$OutputRecord::hashCode();
+	return this->$OutputRecord::hashCode();
 }
 
 bool SSLEngineOutputRecord::equals(Object$* obj) {
-	 return this->$OutputRecord::equals(obj);
+	return this->$OutputRecord::equals(obj);
 }
 
 $Object* SSLEngineOutputRecord::clone() {
-	 return this->$OutputRecord::clone();
+	return this->$OutputRecord::clone();
 }
 
 void SSLEngineOutputRecord::finalize() {

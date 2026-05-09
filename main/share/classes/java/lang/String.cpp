@@ -164,7 +164,7 @@ public:
 		$set(this, spaces, spaces);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(String::lambda$indent$0(spaces, $cast(String, s)));
+		return $of(String::lambda$indent$0(spaces, $cast(String, s)));
 	}
 	String* spaces = nullptr;
 };
@@ -199,7 +199,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(String::lambda$indent$1($cast(String, s)));
+		return $of(String::lambda$indent$1($cast(String, s)));
 	}
 };
 $Class* String$$Lambda$lambda$indent$1$1::load$(String* name, bool initialize) {
@@ -230,7 +230,7 @@ public:
 		this->n = n;
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(String::lambda$indent$2(n, $cast(String, s)));
+		return $of(String::lambda$indent$2(n, $cast(String, s)));
 	}
 	int32_t n = 0;
 };
@@ -266,7 +266,7 @@ public:
 		this->outdent = outdent;
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(String::lambda$stripIndent$3(outdent, $cast(String, line)));
+		return $of(String::lambda$stripIndent$3(outdent, $cast(String, line)));
 	}
 	int32_t outdent = 0;
 };
@@ -296,7 +296,7 @@ $Class* String$$Lambda$lambda$stripIndent$3$3::load$(String* name, bool initiali
 $Class* String$$Lambda$lambda$stripIndent$3$3::class$ = nullptr;
 
 $Object* String::clone() {
-	 return this->$Serializable::clone();
+	return this->$Serializable::clone();
 }
 
 void String::finalize() {

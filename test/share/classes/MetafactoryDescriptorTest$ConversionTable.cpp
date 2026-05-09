@@ -30,7 +30,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* f) override {
-		 return MetafactoryDescriptorTest$ConversionTable::lambda$put$0($cast($Class, f));
+		return MetafactoryDescriptorTest$ConversionTable::lambda$put$0($cast($Class, f));
 	}
 };
 $Class* MetafactoryDescriptorTest$ConversionTable$$Lambda$lambda$put$0::load$($String* name, bool initialize) {

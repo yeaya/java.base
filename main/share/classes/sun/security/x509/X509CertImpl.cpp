@@ -250,7 +250,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* x) override {
-		 return $of($nc(inst$)->lambda$getFingerprint$0($cast($String, x)));
+		return $of($nc(inst$)->lambda$getFingerprint$0($cast($String, x)));
 	}
 	X509CertImpl* inst$ = nullptr;
 };
@@ -280,15 +280,15 @@ $Class* X509CertImpl$$Lambda$lambda$getFingerprint$0::load$($String* name, bool 
 $Class* X509CertImpl$$Lambda$lambda$getFingerprint$0::class$ = nullptr;
 
 bool X509CertImpl::equals(Object$* other) {
-	 return this->$X509Certificate::equals(other);
+	return this->$X509Certificate::equals(other);
 }
 
 int32_t X509CertImpl::hashCode() {
-	 return this->$X509Certificate::hashCode();
+	return this->$X509Certificate::hashCode();
 }
 
 $Object* X509CertImpl::clone() {
-	 return this->$X509Certificate::clone();
+	return this->$X509Certificate::clone();
 }
 
 void X509CertImpl::finalize() {

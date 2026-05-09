@@ -29,19 +29,19 @@ namespace sun {
 			namespace provider {
 
 int32_t CalendarDataProviderImpl::hashCode() {
-	 return this->$CalendarDataProvider::hashCode();
+	return this->$CalendarDataProvider::hashCode();
 }
 
 bool CalendarDataProviderImpl::equals(Object$* obj) {
-	 return this->$CalendarDataProvider::equals(obj);
+	return this->$CalendarDataProvider::equals(obj);
 }
 
 $Object* CalendarDataProviderImpl::clone() {
-	 return this->$CalendarDataProvider::clone();
+	return this->$CalendarDataProvider::clone();
 }
 
 $String* CalendarDataProviderImpl::toString() {
-	 return this->$CalendarDataProvider::toString();
+	return this->$CalendarDataProvider::toString();
 }
 
 void CalendarDataProviderImpl::finalize() {

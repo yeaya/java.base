@@ -123,7 +123,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* m1, Object$* m2) override {
-		 return Collectors::lambda$uniqKeysMapMerger$0($cast($Map, m1), $cast($Map, m2));
+		return Collectors::lambda$uniqKeysMapMerger$0($cast($Map, m1), $cast($Map, m2));
 	}
 };
 $Class* Collectors$$Lambda$lambda$uniqKeysMapMerger$0::load$($String* name, bool initialize) {
@@ -192,7 +192,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* i) override {
-		 return Collectors::lambda$castingIdentity$2(i);
+		return Collectors::lambda$castingIdentity$2(i);
 	}
 };
 $Class* Collectors$$Lambda$lambda$castingIdentity$2$2::load$($String* name, bool initialize) {
@@ -252,7 +252,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* r1, Object$* r2) override {
-		 return Collectors::lambda$toCollection$3($cast($Collection, r1), $cast($Collection, r2));
+		return Collectors::lambda$toCollection$3($cast($Collection, r1), $cast($Collection, r2));
 	}
 };
 $Class* Collectors$$Lambda$lambda$toCollection$3$4::load$($String* name, bool initialize) {
@@ -282,7 +282,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($ArrayList));
+		return $of($new($ArrayList));
 	}
 };
 $Class* Collectors$$Lambda$ArrayList$5::load$($String* name, bool initialize) {
@@ -342,7 +342,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return $of(Collectors::lambda$toList$4($cast($ArrayList, left), $cast($ArrayList, right)));
+		return $of(Collectors::lambda$toList$4($cast($ArrayList, left), $cast($ArrayList, right)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$toList$4$7::load$($String* name, bool initialize) {
@@ -372,7 +372,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* list) override {
-		 return Collectors::lambda$toUnmodifiableList$6($cast($ArrayList, list));
+		return Collectors::lambda$toUnmodifiableList$6($cast($ArrayList, list));
 	}
 };
 $Class* Collectors$$Lambda$lambda$toUnmodifiableList$6$8::load$($String* name, bool initialize) {
@@ -402,7 +402,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($HashSet));
+		return $of($new($HashSet));
 	}
 };
 $Class* Collectors$$Lambda$HashSet$9::load$($String* name, bool initialize) {
@@ -462,7 +462,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return $of(Collectors::lambda$toSet$7($cast($HashSet, left), $cast($HashSet, right)));
+		return $of(Collectors::lambda$toSet$7($cast($HashSet, left), $cast($HashSet, right)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$toSet$7$11::load$($String* name, bool initialize) {
@@ -492,7 +492,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* set) override {
-		 return Collectors::lambda$toUnmodifiableSet$9($cast($HashSet, set));
+		return Collectors::lambda$toUnmodifiableSet$9($cast($HashSet, set));
 	}
 };
 $Class* Collectors$$Lambda$lambda$toUnmodifiableSet$9$12::load$($String* name, bool initialize) {
@@ -522,7 +522,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($StringBuilder));
+		return $of($new($StringBuilder));
 	}
 };
 $Class* Collectors$$Lambda$StringBuilder$13::load$($String* name, bool initialize) {
@@ -582,7 +582,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* r1, Object$* r2) override {
-		 return $of(Collectors::lambda$joining$10($cast($StringBuilder, r1), $cast($StringBuilder, r2)));
+		return $of(Collectors::lambda$joining$10($cast($StringBuilder, r1), $cast($StringBuilder, r2)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$joining$10$15::load$($String* name, bool initialize) {
@@ -612,7 +612,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($StringBuilder, inst$)->toString());
+		return $of($sure($StringBuilder, inst$)->toString());
 	}
 };
 $Class* Collectors$$Lambda$toString$16::load$($String* name, bool initialize) {
@@ -645,7 +645,7 @@ public:
 		$set(this, suffix, suffix);
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$joining$11(delimiter, prefix, suffix);
+		return Collectors::lambda$joining$11(delimiter, prefix, suffix);
 	}
 	$CharSequence* delimiter = nullptr;
 	$CharSequence* prefix = nullptr;
@@ -714,7 +714,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$, Object$* other) override {
-		 return $sure($StringJoiner, inst$)->merge($cast($StringJoiner, other));
+		return $sure($StringJoiner, inst$)->merge($cast($StringJoiner, other));
 	}
 };
 $Class* Collectors$$Lambda$merge$19::load$($String* name, bool initialize) {
@@ -744,7 +744,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($StringJoiner, inst$)->toString());
+		return $of($sure($StringJoiner, inst$)->toString());
 	}
 };
 $Class* Collectors$$Lambda$toString$20::load$($String* name, bool initialize) {
@@ -775,7 +775,7 @@ public:
 		$set(this, mergeFunction, mergeFunction);
 	}
 	virtual $Object* apply(Object$* m1, Object$* m2) override {
-		 return Collectors::lambda$mapMerger$12(mergeFunction, $cast($Map, m1), $cast($Map, m2));
+		return Collectors::lambda$mapMerger$12(mergeFunction, $cast($Map, m1), $cast($Map, m2));
 	}
 	$BinaryOperator* mergeFunction = nullptr;
 };
@@ -927,7 +927,7 @@ public:
 	void init$() {
 	}
 	virtual int64_t applyAsLong(Object$* e) override {
-		 return Collectors::lambda$counting$17(e);
+		return Collectors::lambda$counting$17(e);
 	}
 };
 $Class* Collectors$$Lambda$lambda$counting$17$25::load$($String* name, bool initialize) {
@@ -957,7 +957,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$summingInt$18();
+		return Collectors::lambda$summingInt$18();
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingInt$18$26::load$($String* name, bool initialize) {
@@ -1023,7 +1023,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return Collectors::lambda$summingInt$20($cast($ints, a), $cast($ints, b));
+		return Collectors::lambda$summingInt$20($cast($ints, a), $cast($ints, b));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingInt$20$28::load$($String* name, bool initialize) {
@@ -1053,7 +1053,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a) override {
-		 return $of(Collectors::lambda$summingInt$21($cast($ints, a)));
+		return $of(Collectors::lambda$summingInt$21($cast($ints, a)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingInt$21$29::load$($String* name, bool initialize) {
@@ -1083,7 +1083,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$summingLong$22();
+		return Collectors::lambda$summingLong$22();
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingLong$22$30::load$($String* name, bool initialize) {
@@ -1149,7 +1149,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return Collectors::lambda$summingLong$24($cast($longs, a), $cast($longs, b));
+		return Collectors::lambda$summingLong$24($cast($longs, a), $cast($longs, b));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingLong$24$32::load$($String* name, bool initialize) {
@@ -1179,7 +1179,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a) override {
-		 return $of(Collectors::lambda$summingLong$25($cast($longs, a)));
+		return $of(Collectors::lambda$summingLong$25($cast($longs, a)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingLong$25$33::load$($String* name, bool initialize) {
@@ -1209,7 +1209,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$summingDouble$26();
+		return Collectors::lambda$summingDouble$26();
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingDouble$26$34::load$($String* name, bool initialize) {
@@ -1275,7 +1275,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return Collectors::lambda$summingDouble$28($cast($doubles, a), $cast($doubles, b));
+		return Collectors::lambda$summingDouble$28($cast($doubles, a), $cast($doubles, b));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingDouble$28$36::load$($String* name, bool initialize) {
@@ -1305,7 +1305,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a) override {
-		 return $of(Collectors::lambda$summingDouble$29($cast($doubles, a)));
+		return $of(Collectors::lambda$summingDouble$29($cast($doubles, a)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summingDouble$29$37::load$($String* name, bool initialize) {
@@ -1335,7 +1335,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$averagingInt$30();
+		return Collectors::lambda$averagingInt$30();
 	}
 };
 $Class* Collectors$$Lambda$lambda$averagingInt$30$38::load$($String* name, bool initialize) {
@@ -1401,7 +1401,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return Collectors::lambda$averagingInt$32($cast($longs, a), $cast($longs, b));
+		return Collectors::lambda$averagingInt$32($cast($longs, a), $cast($longs, b));
 	}
 };
 $Class* Collectors$$Lambda$lambda$averagingInt$32$40::load$($String* name, bool initialize) {
@@ -1431,7 +1431,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a) override {
-		 return $of(Collectors::lambda$averagingInt$33($cast($longs, a)));
+		return $of(Collectors::lambda$averagingInt$33($cast($longs, a)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$averagingInt$33$41::load$($String* name, bool initialize) {
@@ -1497,7 +1497,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$averagingDouble$38();
+		return Collectors::lambda$averagingDouble$38();
 	}
 };
 $Class* Collectors$$Lambda$lambda$averagingDouble$38$43::load$($String* name, bool initialize) {
@@ -1563,7 +1563,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return Collectors::lambda$averagingDouble$40($cast($doubles, a), $cast($doubles, b));
+		return Collectors::lambda$averagingDouble$40($cast($doubles, a), $cast($doubles, b));
 	}
 };
 $Class* Collectors$$Lambda$lambda$averagingDouble$40$45::load$($String* name, bool initialize) {
@@ -1593,7 +1593,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a) override {
-		 return $of(Collectors::lambda$averagingDouble$41($cast($doubles, a)));
+		return $of(Collectors::lambda$averagingDouble$41($cast($doubles, a)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$averagingDouble$41$46::load$($String* name, bool initialize) {
@@ -1660,7 +1660,7 @@ public:
 		$set(this, op, op);
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return Collectors::lambda$reducing$43(op, $cast($ObjectArray, a), $cast($ObjectArray, b));
+		return Collectors::lambda$reducing$43(op, $cast($ObjectArray, a), $cast($ObjectArray, b));
 	}
 	$BinaryOperator* op = nullptr;
 };
@@ -1695,7 +1695,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a) override {
-		 return Collectors::lambda$reducing$44($cast($ObjectArray, a));
+		return Collectors::lambda$reducing$44($cast($ObjectArray, a));
 	}
 };
 $Class* Collectors$$Lambda$lambda$reducing$44$49::load$($String* name, bool initialize) {
@@ -1726,7 +1726,7 @@ public:
 		$set(this, identity, identity);
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$boxSupplier$45(identity);
+		return Collectors::lambda$boxSupplier$45(identity);
 	}
 	$Object* identity = nullptr;
 };
@@ -1762,7 +1762,7 @@ public:
 		$set(this, op, op);
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$reducing$46(op);
+		return Collectors::lambda$reducing$46(op);
 	}
 	$BinaryOperator* op = nullptr;
 };
@@ -1827,7 +1827,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a, Object$* b) override {
-		 return Collectors::lambda$reducing$47($cast($Collectors$1OptionalBox, a), $cast($Collectors$1OptionalBox, b));
+		return Collectors::lambda$reducing$47($cast($Collectors$1OptionalBox, a), $cast($Collectors$1OptionalBox, b));
 	}
 };
 $Class* Collectors$$Lambda$lambda$reducing$47$53::load$($String* name, bool initialize) {
@@ -1857,7 +1857,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* a) override {
-		 return Collectors::lambda$reducing$48($cast($Collectors$1OptionalBox, a));
+		return Collectors::lambda$reducing$48($cast($Collectors$1OptionalBox, a));
 	}
 };
 $Class* Collectors$$Lambda$lambda$reducing$48$54::load$($String* name, bool initialize) {
@@ -1926,7 +1926,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($HashMap));
+		return $of($new($HashMap));
 	}
 };
 $Class* Collectors$$Lambda$HashMap$56::load$($String* name, bool initialize) {
@@ -1999,7 +1999,7 @@ public:
 		$set(this, downstreamFinisher, downstreamFinisher);
 	}
 	virtual $Object* apply(Object$* intermediate) override {
-		 return Collectors::lambda$groupingBy$55(downstreamFinisher, $cast($Map, intermediate));
+		return Collectors::lambda$groupingBy$55(downstreamFinisher, $cast($Map, intermediate));
 	}
 	$Function* downstreamFinisher = nullptr;
 };
@@ -2034,7 +2034,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($ConcurrentHashMap));
+		return $of($new($ConcurrentHashMap));
 	}
 };
 $Class* Collectors$$Lambda$ConcurrentHashMap$59::load$($String* name, bool initialize) {
@@ -2149,7 +2149,7 @@ public:
 		$set(this, downstreamFinisher, downstreamFinisher);
 	}
 	virtual $Object* apply(Object$* intermediate) override {
-		 return Collectors::lambda$groupingByConcurrent$61(downstreamFinisher, $cast($ConcurrentMap, intermediate));
+		return Collectors::lambda$groupingByConcurrent$61(downstreamFinisher, $cast($ConcurrentMap, intermediate));
 	}
 	$Function* downstreamFinisher = nullptr;
 };
@@ -2224,7 +2224,7 @@ public:
 		$set(this, op, op);
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return Collectors::lambda$partitioningBy$63(op, $cast($Collectors$Partition, left), $cast($Collectors$Partition, right));
+		return Collectors::lambda$partitioningBy$63(op, $cast($Collectors$Partition, left), $cast($Collectors$Partition, right));
 	}
 	$BinaryOperator* op = nullptr;
 };
@@ -2260,7 +2260,7 @@ public:
 		$set(this, downstream, downstream);
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$partitioningBy$64(downstream);
+		return Collectors::lambda$partitioningBy$64(downstream);
 	}
 	$Collector* downstream = nullptr;
 };
@@ -2296,7 +2296,7 @@ public:
 		$set(this, downstream, downstream);
 	}
 	virtual $Object* apply(Object$* par) override {
-		 return Collectors::lambda$partitioningBy$65(downstream, $cast($Collectors$Partition, par));
+		return Collectors::lambda$partitioningBy$65(downstream, $cast($Collectors$Partition, par));
 	}
 	$Collector* downstream = nullptr;
 };
@@ -2331,7 +2331,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* map) override {
-		 return Collectors::lambda$toUnmodifiableMap$66($cast($Map, map));
+		return Collectors::lambda$toUnmodifiableMap$66($cast($Map, map));
 	}
 };
 $Class* Collectors$$Lambda$lambda$toUnmodifiableMap$66$67::load$($String* name, bool initialize) {
@@ -2361,7 +2361,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* map) override {
-		 return Collectors::lambda$toUnmodifiableMap$67($cast($HashMap, map));
+		return Collectors::lambda$toUnmodifiableMap$67($cast($HashMap, map));
 	}
 };
 $Class* Collectors$$Lambda$lambda$toUnmodifiableMap$67$68::load$($String* name, bool initialize) {
@@ -2475,7 +2475,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $new($IntSummaryStatistics);
+		return $new($IntSummaryStatistics);
 	}
 };
 $Class* Collectors$$Lambda$IntSummaryStatistics$71::load$($String* name, bool initialize) {
@@ -2541,7 +2541,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* l, Object$* r) override {
-		 return Collectors::lambda$summarizingInt$71($cast($IntSummaryStatistics, l), $cast($IntSummaryStatistics, r));
+		return Collectors::lambda$summarizingInt$71($cast($IntSummaryStatistics, l), $cast($IntSummaryStatistics, r));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summarizingInt$71$73::load$($String* name, bool initialize) {
@@ -2571,7 +2571,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of($new($LongSummaryStatistics));
+		return $of($new($LongSummaryStatistics));
 	}
 };
 $Class* Collectors$$Lambda$LongSummaryStatistics$74::load$($String* name, bool initialize) {
@@ -2637,7 +2637,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* l, Object$* r) override {
-		 return $of(Collectors::lambda$summarizingLong$73($cast($LongSummaryStatistics, l), $cast($LongSummaryStatistics, r)));
+		return $of(Collectors::lambda$summarizingLong$73($cast($LongSummaryStatistics, l), $cast($LongSummaryStatistics, r)));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summarizingLong$73$76::load$($String* name, bool initialize) {
@@ -2667,7 +2667,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $new($DoubleSummaryStatistics);
+		return $new($DoubleSummaryStatistics);
 	}
 };
 $Class* Collectors$$Lambda$DoubleSummaryStatistics$77::load$($String* name, bool initialize) {
@@ -2733,7 +2733,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* l, Object$* r) override {
-		 return Collectors::lambda$summarizingDouble$75($cast($DoubleSummaryStatistics, l), $cast($DoubleSummaryStatistics, r));
+		return Collectors::lambda$summarizingDouble$75($cast($DoubleSummaryStatistics, l), $cast($DoubleSummaryStatistics, r));
 	}
 };
 $Class* Collectors$$Lambda$lambda$summarizingDouble$75$79::load$($String* name, bool initialize) {
@@ -2772,7 +2772,7 @@ public:
 		$set(this, merger, merger);
 	}
 	virtual $Object* get() override {
-		 return Collectors::lambda$teeing0$76(c1Supplier, c2Supplier, c1Accumulator, c2Accumulator, c1Combiner, c2Combiner, c1Finisher, c2Finisher, merger);
+		return Collectors::lambda$teeing0$76(c1Supplier, c2Supplier, c1Accumulator, c2Accumulator, c1Combiner, c2Combiner, c1Finisher, c2Finisher, merger);
 	}
 	$Supplier* c1Supplier = nullptr;
 	$Supplier* c2Supplier = nullptr;
@@ -2853,7 +2853,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$, Object$* other) override {
-		 return $sure($Collectors$1PairBox, inst$)->combine($cast($Collectors$1PairBox, other));
+		return $sure($Collectors$1PairBox, inst$)->combine($cast($Collectors$1PairBox, other));
 	}
 };
 $Class* Collectors$$Lambda$combine$82::load$($String* name, bool initialize) {
@@ -2883,7 +2883,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($Collectors$1PairBox, inst$)->get();
+		return $sure($Collectors$1PairBox, inst$)->get();
 	}
 };
 $Class* Collectors$$Lambda$get$83::load$($String* name, bool initialize) {
@@ -2914,7 +2914,7 @@ public:
 		$set(this, downstreamFinisher, downstreamFinisher);
 	}
 	virtual $Object* apply(Object$* k, Object$* v) override {
-		 return Collectors::lambda$groupingBy$54(downstreamFinisher, k, v);
+		return Collectors::lambda$groupingBy$54(downstreamFinisher, k, v);
 	}
 	$Function* downstreamFinisher = nullptr;
 };
@@ -2950,7 +2950,7 @@ public:
 		$set(this, downstreamSupplier, downstreamSupplier);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return Collectors::lambda$groupingBy$52(downstreamSupplier, k);
+		return Collectors::lambda$groupingBy$52(downstreamSupplier, k);
 	}
 	$Supplier* downstreamSupplier = nullptr;
 };

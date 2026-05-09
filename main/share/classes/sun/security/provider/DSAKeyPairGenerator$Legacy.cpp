@@ -30,19 +30,19 @@ namespace sun {
 		namespace provider {
 
 int32_t DSAKeyPairGenerator$Legacy::hashCode() {
-	 return this->$DSAKeyPairGenerator::hashCode();
+	return this->$DSAKeyPairGenerator::hashCode();
 }
 
 bool DSAKeyPairGenerator$Legacy::equals(Object$* obj) {
-	 return this->$DSAKeyPairGenerator::equals(obj);
+	return this->$DSAKeyPairGenerator::equals(obj);
 }
 
 $Object* DSAKeyPairGenerator$Legacy::clone() {
-	 return this->$DSAKeyPairGenerator::clone();
+	return this->$DSAKeyPairGenerator::clone();
 }
 
 $String* DSAKeyPairGenerator$Legacy::toString() {
-	 return this->$DSAKeyPairGenerator::toString();
+	return this->$DSAKeyPairGenerator::toString();
 }
 
 void DSAKeyPairGenerator$Legacy::finalize() {

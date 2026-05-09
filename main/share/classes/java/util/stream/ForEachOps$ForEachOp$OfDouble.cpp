@@ -27,19 +27,19 @@ namespace java {
 		namespace stream {
 
 int32_t ForEachOps$ForEachOp$OfDouble::hashCode() {
-	 return this->$ForEachOps$ForEachOp::hashCode();
+	return this->$ForEachOps$ForEachOp::hashCode();
 }
 
 bool ForEachOps$ForEachOp$OfDouble::equals(Object$* obj) {
-	 return this->$ForEachOps$ForEachOp::equals(obj);
+	return this->$ForEachOps$ForEachOp::equals(obj);
 }
 
 $Object* ForEachOps$ForEachOp$OfDouble::clone() {
-	 return this->$ForEachOps$ForEachOp::clone();
+	return this->$ForEachOps$ForEachOp::clone();
 }
 
 $String* ForEachOps$ForEachOp$OfDouble::toString() {
-	 return this->$ForEachOps$ForEachOp::toString();
+	return this->$ForEachOps$ForEachOp::toString();
 }
 
 void ForEachOps$ForEachOp$OfDouble::finalize() {
@@ -55,7 +55,7 @@ void ForEachOps$ForEachOp$OfDouble::end() {
 }
 
 bool ForEachOps$ForEachOp$OfDouble::cancellationRequested() {
-	 return this->$ForEachOps$ForEachOp::cancellationRequested();
+	return this->$ForEachOps$ForEachOp::cancellationRequested();
 }
 
 void ForEachOps$ForEachOp$OfDouble::accept(int32_t value) {
@@ -71,7 +71,7 @@ void ForEachOps$ForEachOp$OfDouble::accept(Object$* t) {
 }
 
 $Consumer* ForEachOps$ForEachOp$OfDouble::andThen($Consumer* after) {
-	 return this->$ForEachOps$ForEachOp::andThen(after);
+	return this->$ForEachOps$ForEachOp::andThen(after);
 }
 
 void ForEachOps$ForEachOp$OfDouble::init$($DoubleConsumer* consumer, bool ordered) {

@@ -51,7 +51,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return $nc(inst$)->lambda$thenComparing$36697e65$1(other, c1, c2);
+		return $nc(inst$)->lambda$thenComparing$36697e65$1(other, c1, c2);
 	}
 	Comparator* inst$ = nullptr;
 	Comparator* other = nullptr;
@@ -90,7 +90,7 @@ public:
 		$set(this, keyExtractor, keyExtractor);
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Comparator::lambda$comparing$ea9a8b3a$1(keyComparator, keyExtractor, c1, c2);
+		return Comparator::lambda$comparing$ea9a8b3a$1(keyComparator, keyExtractor, c1, c2);
 	}
 	Comparator* keyComparator = nullptr;
 	$Function* keyExtractor = nullptr;
@@ -128,7 +128,7 @@ public:
 		$set(this, keyExtractor, keyExtractor);
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Comparator::lambda$comparing$77a9974f$1(keyExtractor, c1, c2);
+		return Comparator::lambda$comparing$77a9974f$1(keyExtractor, c1, c2);
 	}
 	$Function* keyExtractor = nullptr;
 };
@@ -164,7 +164,7 @@ public:
 		$set(this, keyExtractor, keyExtractor);
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Comparator::lambda$comparingInt$7b0bb60$1(keyExtractor, c1, c2);
+		return Comparator::lambda$comparingInt$7b0bb60$1(keyExtractor, c1, c2);
 	}
 	$ToIntFunction* keyExtractor = nullptr;
 };
@@ -200,7 +200,7 @@ public:
 		$set(this, keyExtractor, keyExtractor);
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Comparator::lambda$comparingLong$6043328a$1(keyExtractor, c1, c2);
+		return Comparator::lambda$comparingLong$6043328a$1(keyExtractor, c1, c2);
 	}
 	$ToLongFunction* keyExtractor = nullptr;
 };
@@ -236,7 +236,7 @@ public:
 		$set(this, keyExtractor, keyExtractor);
 	}
 	virtual int32_t compare(Object$* c1, Object$* c2) override {
-		 return Comparator::lambda$comparingDouble$8dcf42ea$1(keyExtractor, c1, c2);
+		return Comparator::lambda$comparingDouble$8dcf42ea$1(keyExtractor, c1, c2);
 	}
 	$ToDoubleFunction* keyExtractor = nullptr;
 };
@@ -266,7 +266,7 @@ $Class* Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5::load$($String* n
 $Class* Comparator$$Lambda$lambda$comparingDouble$8dcf42ea$1$5::class$ = nullptr;
 
 bool Comparator::equals(Object$* obj) {
-	 return this->$Object::equals(obj);
+	return this->$Object::equals(obj);
 }
 
 Comparator* Comparator::reversed() {

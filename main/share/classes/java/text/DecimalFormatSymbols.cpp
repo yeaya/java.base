@@ -62,7 +62,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(int32_t c) override {
-		 return DecimalFormatSymbols::lambda$findNonFormatChar$0(c);
+		return DecimalFormatSymbols::lambda$findNonFormatChar$0(c);
 	}
 };
 $Class* DecimalFormatSymbols$$Lambda$lambda$findNonFormatChar$0::load$($String* name, bool initialize) {
@@ -87,7 +87,7 @@ $Class* DecimalFormatSymbols$$Lambda$lambda$findNonFormatChar$0::load$($String* 
 $Class* DecimalFormatSymbols$$Lambda$lambda$findNonFormatChar$0::class$ = nullptr;
 
 $String* DecimalFormatSymbols::toString() {
-	 return this->$Cloneable::toString();
+	return this->$Cloneable::toString();
 }
 
 void DecimalFormatSymbols::finalize() {

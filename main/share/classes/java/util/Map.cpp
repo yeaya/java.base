@@ -43,11 +43,11 @@ namespace java {
 	namespace util {
 
 bool Map::equals(Object$* o) {
-	 return this->$Object::equals(o);
+	return this->$Object::equals(o);
 }
 
 int32_t Map::hashCode() {
-	 return this->$Object::hashCode();
+	return this->$Object::hashCode();
 }
 
 $Object* Map::getOrDefault(Object$* key, Object$* defaultValue) {

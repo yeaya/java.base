@@ -59,7 +59,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $new($ArrayIndexOutOfBoundsException, $cast($String, s));
+		return $new($ArrayIndexOutOfBoundsException, $cast($String, s));
 	}
 };
 $Class* VarHandleByteArrayAsInts$ArrayHandle$$Lambda$ArrayIndexOutOfBoundsException::load$($String* name, bool initialize) {

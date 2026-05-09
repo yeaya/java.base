@@ -180,7 +180,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return DateTimeFormatterBuilder::lambda$static$0(temporal);
+		return DateTimeFormatterBuilder::lambda$static$0(temporal);
 	}
 };
 $Class* DateTimeFormatterBuilder$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

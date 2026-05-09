@@ -93,7 +93,7 @@ public:
 	void init$() {
 	}
 	virtual bool accept(Object$* e) override {
-		 return WindowsFileCopy::lambda$ensureEmptyDir$0($cast($Path, e));
+		return WindowsFileCopy::lambda$ensureEmptyDir$0($cast($Path, e));
 	}
 };
 $Class* WindowsFileCopy$$Lambda$lambda$ensureEmptyDir$0::load$($String* name, bool initialize) {

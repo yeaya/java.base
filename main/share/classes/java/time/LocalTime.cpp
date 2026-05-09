@@ -121,7 +121,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
-		 return $of(LocalTime::from(temporal));
+		return $of(LocalTime::from(temporal));
 	}
 };
 $Class* LocalTime$$Lambda$from::load$($String* name, bool initialize) {
@@ -146,7 +146,7 @@ $Class* LocalTime$$Lambda$from::load$($String* name, bool initialize) {
 $Class* LocalTime$$Lambda$from::class$ = nullptr;
 
 $Object* LocalTime::clone() {
-	 return this->$Temporal::clone();
+	return this->$Temporal::clone();
 }
 
 void LocalTime::finalize() {

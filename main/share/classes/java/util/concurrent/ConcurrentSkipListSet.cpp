@@ -85,7 +85,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(ConcurrentSkipListSet::lambda$setMap$0());
+		return $of(ConcurrentSkipListSet::lambda$setMap$0());
 	}
 };
 $Class* ConcurrentSkipListSet$$Lambda$lambda$setMap$0::load$($String* name, bool initialize) {
@@ -110,47 +110,47 @@ $Class* ConcurrentSkipListSet$$Lambda$lambda$setMap$0::load$($String* name, bool
 $Class* ConcurrentSkipListSet$$Lambda$lambda$setMap$0::class$ = nullptr;
 
 int32_t ConcurrentSkipListSet::hashCode() {
-	 return this->$AbstractSet::hashCode();
+	return this->$AbstractSet::hashCode();
 }
 
 $ObjectArray* ConcurrentSkipListSet::toArray() {
-	 return this->$AbstractSet::toArray();
+	return this->$AbstractSet::toArray();
 }
 
 $ObjectArray* ConcurrentSkipListSet::toArray($ObjectArray* a) {
-	 return this->$AbstractSet::toArray(a);
+	return this->$AbstractSet::toArray(a);
 }
 
 bool ConcurrentSkipListSet::containsAll($Collection* c) {
-	 return this->$AbstractSet::containsAll(c);
+	return this->$AbstractSet::containsAll(c);
 }
 
 bool ConcurrentSkipListSet::addAll($Collection* c) {
-	 return this->$AbstractSet::addAll(c);
+	return this->$AbstractSet::addAll(c);
 }
 
 bool ConcurrentSkipListSet::retainAll($Collection* c) {
-	 return this->$AbstractSet::retainAll(c);
+	return this->$AbstractSet::retainAll(c);
 }
 
 $String* ConcurrentSkipListSet::toString() {
-	 return this->$AbstractSet::toString();
+	return this->$AbstractSet::toString();
 }
 
 $ObjectArray* ConcurrentSkipListSet::toArray($IntFunction* generator) {
-	 return this->$AbstractSet::toArray(generator);
+	return this->$AbstractSet::toArray(generator);
 }
 
 bool ConcurrentSkipListSet::removeIf($Predicate* filter) {
-	 return this->$AbstractSet::removeIf(filter);
+	return this->$AbstractSet::removeIf(filter);
 }
 
 $Stream* ConcurrentSkipListSet::stream() {
-	 return this->$AbstractSet::stream();
+	return this->$AbstractSet::stream();
 }
 
 $Stream* ConcurrentSkipListSet::parallelStream() {
-	 return this->$AbstractSet::parallelStream();
+	return this->$AbstractSet::parallelStream();
 }
 
 void ConcurrentSkipListSet::forEach($Consumer* action) {

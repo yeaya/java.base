@@ -60,43 +60,43 @@ namespace java {
 		namespace concurrent {
 
 bool SynchronousQueue::add(Object$* e) {
-	 return this->$AbstractQueue::add(e);
+	return this->$AbstractQueue::add(e);
 }
 
 $Object* SynchronousQueue::remove() {
-	 return this->$AbstractQueue::remove();
+	return this->$AbstractQueue::remove();
 }
 
 $Object* SynchronousQueue::element() {
-	 return this->$AbstractQueue::element();
+	return this->$AbstractQueue::element();
 }
 
 bool SynchronousQueue::addAll($Collection* c) {
-	 return this->$AbstractQueue::addAll(c);
+	return this->$AbstractQueue::addAll(c);
 }
 
 $ObjectArray* SynchronousQueue::toArray($IntFunction* generator) {
-	 return this->$AbstractQueue::toArray(generator);
+	return this->$AbstractQueue::toArray(generator);
 }
 
 bool SynchronousQueue::removeIf($Predicate* filter) {
-	 return this->$AbstractQueue::removeIf(filter);
+	return this->$AbstractQueue::removeIf(filter);
 }
 
 bool SynchronousQueue::equals(Object$* o) {
-	 return this->$AbstractQueue::equals(o);
+	return this->$AbstractQueue::equals(o);
 }
 
 int32_t SynchronousQueue::hashCode() {
-	 return this->$AbstractQueue::hashCode();
+	return this->$AbstractQueue::hashCode();
 }
 
 $Stream* SynchronousQueue::stream() {
-	 return this->$AbstractQueue::stream();
+	return this->$AbstractQueue::stream();
 }
 
 $Stream* SynchronousQueue::parallelStream() {
-	 return this->$AbstractQueue::parallelStream();
+	return this->$AbstractQueue::parallelStream();
 }
 
 void SynchronousQueue::forEach($Consumer* action) {
@@ -104,7 +104,7 @@ void SynchronousQueue::forEach($Consumer* action) {
 }
 
 $Object* SynchronousQueue::clone() {
-	 return this->$AbstractQueue::clone();
+	return this->$AbstractQueue::clone();
 }
 
 void SynchronousQueue::finalize() {

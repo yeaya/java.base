@@ -114,7 +114,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* x$0) override {
-		 return $of(ModulePatcher::lambda$new$0($cast($String, x$0)));
+		return $of(ModulePatcher::lambda$new$0($cast($String, x$0)));
 	}
 };
 $Class* ModulePatcher$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
@@ -145,7 +145,7 @@ public:
 		this->isAutomatic = isAutomatic;
 	}
 	virtual bool test(Object$* e) override {
-		 return ModulePatcher::lambda$patchIfNeeded$1(isAutomatic, $cast($JarEntry, e));
+		return ModulePatcher::lambda$patchIfNeeded$1(isAutomatic, $cast($JarEntry, e));
 	}
 	bool isAutomatic = false;
 };
@@ -181,7 +181,7 @@ public:
 		$set(this, file, file);
 	}
 	virtual $Object* apply(Object$* e) override {
-		 return $of(ModulePatcher::lambda$patchIfNeeded$2(file, $cast($JarEntry, e)));
+		return $of(ModulePatcher::lambda$patchIfNeeded$2(file, $cast($JarEntry, e)));
 	}
 	$Path* file = nullptr;
 };
@@ -216,7 +216,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* name) override {
-		 return $Checks::isPackageName($cast($String, name));
+		return $Checks::isPackageName($cast($String, name));
 	}
 };
 $Class* ModulePatcher$$Lambda$isPackageName$3::load$($String* name, bool initialize) {
@@ -282,7 +282,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* path, Object$* attrs) override {
-		 return ModulePatcher::lambda$patchIfNeeded$3($cast($Path, path), $cast($BasicFileAttributes, attrs));
+		return ModulePatcher::lambda$patchIfNeeded$3($cast($Path, path), $cast($BasicFileAttributes, attrs));
 	}
 };
 $Class* ModulePatcher$$Lambda$lambda$patchIfNeeded$3$5::load$($String* name, bool initialize) {
@@ -314,7 +314,7 @@ public:
 		this->isAutomatic = isAutomatic;
 	}
 	virtual bool test(Object$* path) override {
-		 return $nc(inst$)->lambda$patchIfNeeded$4(isAutomatic, $cast($Path, path));
+		return $nc(inst$)->lambda$patchIfNeeded$4(isAutomatic, $cast($Path, path));
 	}
 	ModulePatcher* inst$ = nullptr;
 	bool isAutomatic = false;
@@ -352,7 +352,7 @@ public:
 		$set(this, top, top);
 	}
 	virtual $Object* apply(Object$* path) override {
-		 return $of(ModulePatcher::lambda$patchIfNeeded$5(top, $cast($Path, path)));
+		return $of(ModulePatcher::lambda$patchIfNeeded$5(top, $cast($Path, path)));
 	}
 	$Path* top = nullptr;
 };
@@ -641,7 +641,7 @@ public:
 		$set(this, mref, mref);
 	}
 	virtual $Object* get() override {
-		 return ModulePatcher::lambda$patchIfNeeded$6(paths, mref);
+		return ModulePatcher::lambda$patchIfNeeded$6(paths, mref);
 	}
 	$List* paths = nullptr;
 	$ModuleReference* mref = nullptr;

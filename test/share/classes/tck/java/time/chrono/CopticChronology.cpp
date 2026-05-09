@@ -46,19 +46,19 @@ namespace tck {
 			namespace chrono {
 
 bool CopticChronology::equals(Object$* arg0) {
-	 return this->$AbstractChronology::equals(arg0);
+	return this->$AbstractChronology::equals(arg0);
 }
 
 int32_t CopticChronology::hashCode() {
-	 return this->$AbstractChronology::hashCode();
+	return this->$AbstractChronology::hashCode();
 }
 
 $String* CopticChronology::toString() {
-	 return this->$AbstractChronology::toString();
+	return this->$AbstractChronology::toString();
 }
 
 $Object* CopticChronology::clone() {
-	 return this->$AbstractChronology::clone();
+	return this->$AbstractChronology::clone();
 }
 
 void CopticChronology::finalize() {

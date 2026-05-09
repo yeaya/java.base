@@ -44,7 +44,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(SealedObjectForKeyProtector$DeserializationChecker::lambda$static$0());
+		return $of(SealedObjectForKeyProtector$DeserializationChecker::lambda$static$0());
 	}
 };
 $Class* SealedObjectForKeyProtector$DeserializationChecker$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

@@ -40,7 +40,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0());
+		return $of(DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0());
 	}
 };
 $Class* DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::load$($String* name, bool initialize) {

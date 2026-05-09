@@ -80,7 +80,7 @@ public:
 		this->val = val;
 	}
 	virtual bool test(Object$* k) override {
-		 return DateTimeFormatterBuilder$DayPeriodPrinterParser::lambda$format$0(val, $cast($DateTimeFormatterBuilder$DayPeriod, k));
+		return DateTimeFormatterBuilder$DayPeriodPrinterParser::lambda$format$0(val, $cast($DateTimeFormatterBuilder$DayPeriod, k));
 	}
 	int64_t val = 0;
 };
@@ -116,7 +116,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* key) override {
-		 return $nc(inst$)->get(key);
+		return $nc(inst$)->get(key);
 	}
 	$Map* inst$ = nullptr;
 };
@@ -151,7 +151,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* loc) override {
-		 return DateTimeFormatterBuilder$DayPeriodPrinterParser::lambda$findDayPeriodStore$2($cast($Locale, loc));
+		return DateTimeFormatterBuilder$DayPeriodPrinterParser::lambda$findDayPeriodStore$2($cast($Locale, loc));
 	}
 };
 $Class* DateTimeFormatterBuilder$DayPeriodPrinterParser$$Lambda$lambda$findDayPeriodStore$2$2::load$($String* name, bool initialize) {

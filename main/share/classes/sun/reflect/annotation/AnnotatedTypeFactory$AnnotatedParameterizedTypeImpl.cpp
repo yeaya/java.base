@@ -68,7 +68,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($ofnc(inst$)->toString());
+		return $of($ofnc(inst$)->toString());
 	}
 };
 $Class* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString::load$($String* name, bool initialize) {
@@ -93,39 +93,39 @@ $Class* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString::lo
 $Class* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl$$Lambda$toString::class$ = nullptr;
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getAnnotations() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
 }
 
 $Annotation* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getAnnotation($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotation(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotation(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getAnnotationsByType($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByType(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotationsByType(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getDeclaredAnnotations() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotations();
 }
 
 $Annotation* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getDeclaredAnnotation($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotation(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotation(annotation);
 }
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getDeclaredAnnotationsByType($Class* annotation) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotationsByType(annotation);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getDeclaredAnnotationsByType(annotation);
 }
 
 $Type* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::getType() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getType();
 }
 
 bool AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::isAnnotationPresent($Class* annotationClass) {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::isAnnotationPresent(annotationClass);
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::isAnnotationPresent(annotationClass);
 }
 
 $Object* AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::clone() {
-	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::clone();
+	return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::clone();
 }
 
 void AnnotatedTypeFactory$AnnotatedParameterizedTypeImpl::finalize() {

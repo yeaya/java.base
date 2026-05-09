@@ -33,19 +33,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t SessionTicketExtension$T12CHSessionTicketProducer::hashCode() {
-	 return this->$SupportedGroupsExtension$SupportedGroups::hashCode();
+	return this->$SupportedGroupsExtension$SupportedGroups::hashCode();
 }
 
 bool SessionTicketExtension$T12CHSessionTicketProducer::equals(Object$* obj) {
-	 return this->$SupportedGroupsExtension$SupportedGroups::equals(obj);
+	return this->$SupportedGroupsExtension$SupportedGroups::equals(obj);
 }
 
 $Object* SessionTicketExtension$T12CHSessionTicketProducer::clone() {
-	 return this->$SupportedGroupsExtension$SupportedGroups::clone();
+	return this->$SupportedGroupsExtension$SupportedGroups::clone();
 }
 
 $String* SessionTicketExtension$T12CHSessionTicketProducer::toString() {
-	 return this->$SupportedGroupsExtension$SupportedGroups::toString();
+	return this->$SupportedGroupsExtension$SupportedGroups::toString();
 }
 
 void SessionTicketExtension$T12CHSessionTicketProducer::finalize() {

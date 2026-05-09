@@ -11,19 +11,19 @@ namespace sun {
 		namespace ssl {
 
 int32_t SSLKeyAgreement::hashCode() {
-	 return this->$SSLPossessionGenerator::hashCode();
+	return this->$SSLPossessionGenerator::hashCode();
 }
 
 bool SSLKeyAgreement::equals(Object$* obj) {
-	 return this->$SSLPossessionGenerator::equals(obj);
+	return this->$SSLPossessionGenerator::equals(obj);
 }
 
 $Object* SSLKeyAgreement::clone() {
-	 return this->$SSLPossessionGenerator::clone();
+	return this->$SSLPossessionGenerator::clone();
 }
 
 $String* SSLKeyAgreement::toString() {
-	 return this->$SSLPossessionGenerator::toString();
+	return this->$SSLPossessionGenerator::toString();
 }
 
 void SSLKeyAgreement::finalize() {

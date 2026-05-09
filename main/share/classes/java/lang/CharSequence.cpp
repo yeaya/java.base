@@ -52,7 +52,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$chars$0();
+		return $nc(inst$)->lambda$chars$0();
 	}
 	CharSequence* inst$ = nullptr;
 };
@@ -88,7 +88,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->lambda$codePoints$1();
+		return $nc(inst$)->lambda$codePoints$1();
 	}
 	CharSequence* inst$ = nullptr;
 };
@@ -118,7 +118,7 @@ $Class* CharSequence$$Lambda$lambda$codePoints$1$1::load$($String* name, bool in
 $Class* CharSequence$$Lambda$lambda$codePoints$1$1::class$ = nullptr;
 
 $String* CharSequence::toString() {
-	 return this->$Object::toString();
+	return this->$Object::toString();
 }
 
 bool CharSequence::isEmpty() {

@@ -58,7 +58,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $System$LoggerFinder::getLoggerFinder();
+		return $System$LoggerFinder::getLoggerFinder();
 	}
 };
 $Class* LazyLoggers$$Lambda$getLoggerFinder::load$($String* name, bool initialize) {
@@ -90,7 +90,7 @@ public:
 		$set(this, module, module);
 	}
 	virtual $Object* run() override {
-		 return LazyLoggers::lambda$getLoggerFromFinder$0(name, module);
+		return LazyLoggers::lambda$getLoggerFromFinder$0(name, module);
 	}
 	$String* name = nullptr;
 	$Module* module = nullptr;

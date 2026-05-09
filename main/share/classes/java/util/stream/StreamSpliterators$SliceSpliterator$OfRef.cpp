@@ -58,31 +58,31 @@ $Class* StreamSpliterators$SliceSpliterator$OfRef$$Lambda$lambda$tryAdvance$0::l
 $Class* StreamSpliterators$SliceSpliterator$OfRef$$Lambda$lambda$tryAdvance$0::class$ = nullptr;
 
 $Spliterator* StreamSpliterators$SliceSpliterator$OfRef::trySplit() {
-	 return this->$StreamSpliterators$SliceSpliterator::trySplit();
+	return this->$StreamSpliterators$SliceSpliterator::trySplit();
 }
 
 int64_t StreamSpliterators$SliceSpliterator$OfRef::estimateSize() {
-	 return this->$StreamSpliterators$SliceSpliterator::estimateSize();
+	return this->$StreamSpliterators$SliceSpliterator::estimateSize();
 }
 
 int32_t StreamSpliterators$SliceSpliterator$OfRef::characteristics() {
-	 return this->$StreamSpliterators$SliceSpliterator::characteristics();
+	return this->$StreamSpliterators$SliceSpliterator::characteristics();
 }
 
 int32_t StreamSpliterators$SliceSpliterator$OfRef::hashCode() {
-	 return this->$StreamSpliterators$SliceSpliterator::hashCode();
+	return this->$StreamSpliterators$SliceSpliterator::hashCode();
 }
 
 bool StreamSpliterators$SliceSpliterator$OfRef::equals(Object$* obj) {
-	 return this->$StreamSpliterators$SliceSpliterator::equals(obj);
+	return this->$StreamSpliterators$SliceSpliterator::equals(obj);
 }
 
 $Object* StreamSpliterators$SliceSpliterator$OfRef::clone() {
-	 return this->$StreamSpliterators$SliceSpliterator::clone();
+	return this->$StreamSpliterators$SliceSpliterator::clone();
 }
 
 $String* StreamSpliterators$SliceSpliterator$OfRef::toString() {
-	 return this->$StreamSpliterators$SliceSpliterator::toString();
+	return this->$StreamSpliterators$SliceSpliterator::toString();
 }
 
 void StreamSpliterators$SliceSpliterator$OfRef::finalize() {

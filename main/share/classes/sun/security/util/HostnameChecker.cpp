@@ -90,7 +90,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* d) override {
-		 return HostnameChecker::lambda$hasIllegalWildcard$0($cast($RegisteredDomain, d));
+		return HostnameChecker::lambda$hasIllegalWildcard$0($cast($RegisteredDomain, d));
 	}
 };
 $Class* HostnameChecker$$Lambda$lambda$hasIllegalWildcard$0::load$($String* name, bool initialize) {
@@ -120,7 +120,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($RegisteredDomain, inst$)->publicSuffix());
+		return $of($sure($RegisteredDomain, inst$)->publicSuffix());
 	}
 };
 $Class* HostnameChecker$$Lambda$publicSuffix$1::load$($String* name, bool initialize) {

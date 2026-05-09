@@ -74,7 +74,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ReaderBulkReadContract::lambda$args$0($cast($String, s)));
+		return $of(ReaderBulkReadContract::lambda$args$0($cast($String, s)));
 	}
 };
 $Class* ReaderBulkReadContract$$Lambda$lambda$args$0::load$($String* name, bool initialize) {
@@ -104,7 +104,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ReaderBulkReadContract::lambda$args$1($cast($String, s)));
+		return $of(ReaderBulkReadContract::lambda$args$1($cast($String, s)));
 	}
 };
 $Class* ReaderBulkReadContract$$Lambda$lambda$args$1$1::load$($String* name, bool initialize) {
@@ -134,7 +134,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ReaderBulkReadContract::lambda$args$2($cast($String, s)));
+		return $of(ReaderBulkReadContract::lambda$args$2($cast($String, s)));
 	}
 };
 $Class* ReaderBulkReadContract$$Lambda$lambda$args$2$2::load$($String* name, bool initialize) {
@@ -164,7 +164,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ReaderBulkReadContract::lambda$args$3($cast($String, s)));
+		return $of(ReaderBulkReadContract::lambda$args$3($cast($String, s)));
 	}
 };
 $Class* ReaderBulkReadContract$$Lambda$lambda$args$3$3::load$($String* name, bool initialize) {
@@ -195,7 +195,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of($nc(inst$)->lambda$args$4($cast($String, s)));
+		return $of($nc(inst$)->lambda$args$4($cast($String, s)));
 	}
 	ReaderBulkReadContract* inst$ = nullptr;
 };
@@ -230,7 +230,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ReaderBulkReadContract::lambda$args$5($cast($String, s)));
+		return $of(ReaderBulkReadContract::lambda$args$5($cast($String, s)));
 	}
 };
 $Class* ReaderBulkReadContract$$Lambda$lambda$args$5$5::load$($String* name, bool initialize) {
@@ -260,7 +260,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ReaderBulkReadContract::lambda$args$6($cast($String, s)));
+		return $of(ReaderBulkReadContract::lambda$args$6($cast($String, s)));
 	}
 };
 $Class* ReaderBulkReadContract$$Lambda$lambda$args$6$6::load$($String* name, bool initialize) {
@@ -290,7 +290,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ReaderBulkReadContract::lambda$args$7($cast($String, s)));
+		return $of(ReaderBulkReadContract::lambda$args$7($cast($String, s)));
 	}
 };
 $Class* ReaderBulkReadContract$$Lambda$lambda$args$7$7::load$($String* name, bool initialize) {
@@ -320,7 +320,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* contents) override {
-		 return $of(ReaderBulkReadContract::createTempFileWithContents($cast($String, contents)));
+		return $of(ReaderBulkReadContract::createTempFileWithContents($cast($String, contents)));
 	}
 };
 $Class* ReaderBulkReadContract$$Lambda$createTempFileWithContents$8::load$($String* name, bool initialize) {

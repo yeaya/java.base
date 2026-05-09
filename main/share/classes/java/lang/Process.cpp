@@ -70,7 +70,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* get() override {
-		 return $nc(inst$)->waitForInternal();
+		return $nc(inst$)->waitForInternal();
 	}
 	Process* inst$ = nullptr;
 };

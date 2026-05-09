@@ -27,15 +27,15 @@ namespace java {
 		namespace constant {
 
 bool PrimitiveClassDescImpl::equals(Object$* o) {
-	 return this->$DynamicConstantDesc::equals(o);
+	return this->$DynamicConstantDesc::equals(o);
 }
 
 int32_t PrimitiveClassDescImpl::hashCode() {
-	 return this->$DynamicConstantDesc::hashCode();
+	return this->$DynamicConstantDesc::hashCode();
 }
 
 $Object* PrimitiveClassDescImpl::clone() {
-	 return this->$DynamicConstantDesc::clone();
+	return this->$DynamicConstantDesc::clone();
 }
 
 void PrimitiveClassDescImpl::finalize() {

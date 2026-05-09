@@ -45,19 +45,19 @@ namespace java {
 		namespace cert {
 
 bool X509Certificate::equals(Object$* other) {
-	 return this->$Certificate::equals(other);
+	return this->$Certificate::equals(other);
 }
 
 int32_t X509Certificate::hashCode() {
-	 return this->$Certificate::hashCode();
+	return this->$Certificate::hashCode();
 }
 
 $String* X509Certificate::toString() {
-	 return this->$Certificate::toString();
+	return this->$Certificate::toString();
 }
 
 $Object* X509Certificate::clone() {
-	 return this->$Certificate::clone();
+	return this->$Certificate::clone();
 }
 
 void X509Certificate::finalize() {

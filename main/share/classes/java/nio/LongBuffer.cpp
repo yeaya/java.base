@@ -54,7 +54,7 @@ namespace java {
 	namespace nio {
 
 $Object* LongBuffer::clone() {
-	 return this->$Buffer::clone();
+	return this->$Buffer::clone();
 }
 
 void LongBuffer::finalize() {

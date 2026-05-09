@@ -66,7 +66,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(SystemImage::findHome());
+		return $of(SystemImage::findHome());
 	}
 };
 $Class* SystemImage$$Lambda$findHome::load$($String* name, bool initialize) {

@@ -28,7 +28,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(Object$* t) override {
-		 return $nc(inst$)->lambda$and$0(other, t);
+		return $nc(inst$)->lambda$and$0(other, t);
 	}
 	Predicate* inst$ = nullptr;
 	Predicate* other = nullptr;
@@ -66,7 +66,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual bool test(Object$* t) override {
-		 return $nc(inst$)->lambda$negate$1(t);
+		return $nc(inst$)->lambda$negate$1(t);
 	}
 	Predicate* inst$ = nullptr;
 };
@@ -103,7 +103,7 @@ public:
 		$set(this, other, other);
 	}
 	virtual bool test(Object$* t) override {
-		 return $nc(inst$)->lambda$or$2(other, t);
+		return $nc(inst$)->lambda$or$2(other, t);
 	}
 	Predicate* inst$ = nullptr;
 	Predicate* other = nullptr;
@@ -140,7 +140,7 @@ public:
 	void init$() {
 	}
 	virtual bool test(Object$* obj) override {
-		 return $Objects::isNull(obj);
+		return $Objects::isNull(obj);
 	}
 };
 $Class* Predicate$$Lambda$isNull$3::load$($String* name, bool initialize) {
@@ -171,7 +171,7 @@ public:
 		$set(this, targetRef, targetRef);
 	}
 	virtual bool test(Object$* object) override {
-		 return Predicate::lambda$isEqual$3(targetRef, object);
+		return Predicate::lambda$isEqual$3(targetRef, object);
 	}
 	$Object* targetRef = nullptr;
 };

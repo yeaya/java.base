@@ -26,19 +26,19 @@ namespace sun {
 			namespace provider {
 
 int32_t CurrencyNameProviderImpl::hashCode() {
-	 return this->$CurrencyNameProvider::hashCode();
+	return this->$CurrencyNameProvider::hashCode();
 }
 
 bool CurrencyNameProviderImpl::equals(Object$* obj) {
-	 return this->$CurrencyNameProvider::equals(obj);
+	return this->$CurrencyNameProvider::equals(obj);
 }
 
 $Object* CurrencyNameProviderImpl::clone() {
-	 return this->$CurrencyNameProvider::clone();
+	return this->$CurrencyNameProvider::clone();
 }
 
 $String* CurrencyNameProviderImpl::toString() {
-	 return this->$CurrencyNameProvider::toString();
+	return this->$CurrencyNameProvider::toString();
 }
 
 void CurrencyNameProviderImpl::finalize() {

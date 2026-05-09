@@ -68,7 +68,7 @@ public:
 		$set(this, bundleName, bundleName);
 	}
 	virtual $Object* run() override {
-		 return $of(AbstractResourceBundleProvider::lambda$loadResourceBundle$0(module, bundleName));
+		return $of(AbstractResourceBundleProvider::lambda$loadResourceBundle$0(module, bundleName));
 	}
 	$Module* module = nullptr;
 	$String* bundleName = nullptr;
@@ -107,7 +107,7 @@ public:
 		$set(this, resourceName, resourceName);
 	}
 	virtual $Object* run() override {
-		 return AbstractResourceBundleProvider::lambda$loadPropertyResourceBundle$1(module, resourceName);
+		return AbstractResourceBundleProvider::lambda$loadPropertyResourceBundle$1(module, resourceName);
 	}
 	$Module* module = nullptr;
 	$String* resourceName = nullptr;

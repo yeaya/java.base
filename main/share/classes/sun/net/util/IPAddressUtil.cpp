@@ -78,7 +78,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return IPAddressUtil::lambda$toScopedAddress$0($cast($InetAddress, k));
+		return IPAddressUtil::lambda$toScopedAddress$0($cast($InetAddress, k));
 	}
 };
 $Class* IPAddressUtil$$Lambda$lambda$toScopedAddress$0::load$($String* name, bool initialize) {
@@ -109,7 +109,7 @@ public:
 		$set(this, address, address);
 	}
 	virtual $Object* run() override {
-		 return IPAddressUtil::lambda$findScopedAddress$2(address);
+		return IPAddressUtil::lambda$findScopedAddress$2(address);
 	}
 	$InetAddress* address = nullptr;
 };
@@ -144,7 +144,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $sure($NetworkInterface, inst$)->inetAddresses();
+		return $sure($NetworkInterface, inst$)->inetAddresses();
 	}
 };
 $Class* IPAddressUtil$$Lambda$inetAddresses$2::load$($String* name, bool initialize) {
@@ -175,7 +175,7 @@ public:
 		$set(this, address, address);
 	}
 	virtual bool test(Object$* a) override {
-		 return IPAddressUtil::lambda$findScopedAddress$1(address, $cast($InetAddress, a));
+		return IPAddressUtil::lambda$findScopedAddress$1(address, $cast($InetAddress, a));
 	}
 	$InetAddress* address = nullptr;
 };

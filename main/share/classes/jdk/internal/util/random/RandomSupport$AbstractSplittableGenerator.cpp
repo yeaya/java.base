@@ -36,59 +36,59 @@ namespace jdk {
 			namespace random {
 
 $IntStream* RandomSupport$AbstractSplittableGenerator::ints(int64_t streamSize) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize);
 }
 
 $IntStream* RandomSupport$AbstractSplittableGenerator::ints() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::ints();
 }
 
 $IntStream* RandomSupport$AbstractSplittableGenerator::ints(int64_t streamSize, int32_t randomNumberOrigin, int32_t randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize, randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::ints(streamSize, randomNumberOrigin, randomNumberBound);
 }
 
 $IntStream* RandomSupport$AbstractSplittableGenerator::ints(int32_t randomNumberOrigin, int32_t randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::ints(randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::ints(randomNumberOrigin, randomNumberBound);
 }
 
 $LongStream* RandomSupport$AbstractSplittableGenerator::longs(int64_t streamSize) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::longs(streamSize);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::longs(streamSize);
 }
 
 $LongStream* RandomSupport$AbstractSplittableGenerator::longs() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::longs();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::longs();
 }
 
 $LongStream* RandomSupport$AbstractSplittableGenerator::longs(int64_t streamSize, int64_t randomNumberOrigin, int64_t randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::longs(streamSize, randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::longs(streamSize, randomNumberOrigin, randomNumberBound);
 }
 
 $LongStream* RandomSupport$AbstractSplittableGenerator::longs(int64_t randomNumberOrigin, int64_t randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::longs(randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::longs(randomNumberOrigin, randomNumberBound);
 }
 
 $DoubleStream* RandomSupport$AbstractSplittableGenerator::doubles(int64_t streamSize) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(streamSize);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(streamSize);
 }
 
 $DoubleStream* RandomSupport$AbstractSplittableGenerator::doubles() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::doubles();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::doubles();
 }
 
 $DoubleStream* RandomSupport$AbstractSplittableGenerator::doubles(int64_t streamSize, double randomNumberOrigin, double randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(streamSize, randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(streamSize, randomNumberOrigin, randomNumberBound);
 }
 
 $DoubleStream* RandomSupport$AbstractSplittableGenerator::doubles(double randomNumberOrigin, double randomNumberBound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(randomNumberOrigin, randomNumberBound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::doubles(randomNumberOrigin, randomNumberBound);
 }
 
 bool RandomSupport$AbstractSplittableGenerator::isDeprecated() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::isDeprecated();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::isDeprecated();
 }
 
 bool RandomSupport$AbstractSplittableGenerator::nextBoolean() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextBoolean();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextBoolean();
 }
 
 void RandomSupport$AbstractSplittableGenerator::nextBytes($bytes* bytes) {
@@ -96,75 +96,75 @@ void RandomSupport$AbstractSplittableGenerator::nextBytes($bytes* bytes) {
 }
 
 float RandomSupport$AbstractSplittableGenerator::nextFloat() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat();
 }
 
 float RandomSupport$AbstractSplittableGenerator::nextFloat(float bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat(bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat(bound);
 }
 
 float RandomSupport$AbstractSplittableGenerator::nextFloat(float origin, float bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat(origin, bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextFloat(origin, bound);
 }
 
 double RandomSupport$AbstractSplittableGenerator::nextDouble() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble();
 }
 
 double RandomSupport$AbstractSplittableGenerator::nextDouble(double bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble(bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble(bound);
 }
 
 double RandomSupport$AbstractSplittableGenerator::nextDouble(double origin, double bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble(origin, bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextDouble(origin, bound);
 }
 
 int32_t RandomSupport$AbstractSplittableGenerator::nextInt() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt();
 }
 
 int32_t RandomSupport$AbstractSplittableGenerator::nextInt(int32_t bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt(bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt(bound);
 }
 
 int32_t RandomSupport$AbstractSplittableGenerator::nextInt(int32_t origin, int32_t bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt(origin, bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextInt(origin, bound);
 }
 
 int64_t RandomSupport$AbstractSplittableGenerator::nextLong(int64_t bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextLong(bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextLong(bound);
 }
 
 int64_t RandomSupport$AbstractSplittableGenerator::nextLong(int64_t origin, int64_t bound) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextLong(origin, bound);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextLong(origin, bound);
 }
 
 double RandomSupport$AbstractSplittableGenerator::nextGaussian() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextGaussian();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextGaussian();
 }
 
 double RandomSupport$AbstractSplittableGenerator::nextGaussian(double mean, double stddev) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextGaussian(mean, stddev);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextGaussian(mean, stddev);
 }
 
 double RandomSupport$AbstractSplittableGenerator::nextExponential() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::nextExponential();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::nextExponential();
 }
 
 int32_t RandomSupport$AbstractSplittableGenerator::hashCode() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::hashCode();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::hashCode();
 }
 
 bool RandomSupport$AbstractSplittableGenerator::equals(Object$* obj) {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::equals(obj);
+	return this->$RandomSupport$AbstractSpliteratorGenerator::equals(obj);
 }
 
 $Object* RandomSupport$AbstractSplittableGenerator::clone() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::clone();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::clone();
 }
 
 $String* RandomSupport$AbstractSplittableGenerator::toString() {
-	 return this->$RandomSupport$AbstractSpliteratorGenerator::toString();
+	return this->$RandomSupport$AbstractSpliteratorGenerator::toString();
 }
 
 void RandomSupport$AbstractSplittableGenerator::finalize() {

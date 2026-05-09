@@ -35,7 +35,7 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* _e) override {
-		 return ModuleHashesBuilder$Graph$Builder::lambda$addNode$0(_e);
+		return ModuleHashesBuilder$Graph$Builder::lambda$addNode$0(_e);
 	}
 };
 $Class* ModuleHashesBuilder$Graph$Builder$$Lambda$lambda$addNode$0::load$($String* name, bool initialize) {

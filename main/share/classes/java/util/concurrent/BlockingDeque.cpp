@@ -23,31 +23,31 @@ namespace java {
 		namespace concurrent {
 
 $ObjectArray* BlockingDeque::toArray($IntFunction* generator) {
-	 return this->$BlockingQueue::toArray(generator);
+	return this->$BlockingQueue::toArray(generator);
 }
 
 bool BlockingDeque::removeIf($Predicate* filter) {
-	 return this->$BlockingQueue::removeIf(filter);
+	return this->$BlockingQueue::removeIf(filter);
 }
 
 bool BlockingDeque::equals(Object$* o) {
-	 return this->$BlockingQueue::equals(o);
+	return this->$BlockingQueue::equals(o);
 }
 
 int32_t BlockingDeque::hashCode() {
-	 return this->$BlockingQueue::hashCode();
+	return this->$BlockingQueue::hashCode();
 }
 
 $Spliterator* BlockingDeque::spliterator() {
-	 return this->$BlockingQueue::spliterator();
+	return this->$BlockingQueue::spliterator();
 }
 
 $Stream* BlockingDeque::stream() {
-	 return this->$BlockingQueue::stream();
+	return this->$BlockingQueue::stream();
 }
 
 $Stream* BlockingDeque::parallelStream() {
-	 return this->$BlockingQueue::parallelStream();
+	return this->$BlockingQueue::parallelStream();
 }
 
 void BlockingDeque::forEach($Consumer* action) {
@@ -55,11 +55,11 @@ void BlockingDeque::forEach($Consumer* action) {
 }
 
 $Object* BlockingDeque::clone() {
-	 return this->$BlockingQueue::clone();
+	return this->$BlockingQueue::clone();
 }
 
 $String* BlockingDeque::toString() {
-	 return this->$BlockingQueue::toString();
+	return this->$BlockingQueue::toString();
 }
 
 void BlockingDeque::finalize() {

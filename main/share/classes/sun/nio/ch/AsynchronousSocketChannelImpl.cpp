@@ -98,15 +98,15 @@ namespace sun {
 		namespace ch {
 
 int32_t AsynchronousSocketChannelImpl::hashCode() {
-	 return this->$AsynchronousSocketChannel::hashCode();
+	return this->$AsynchronousSocketChannel::hashCode();
 }
 
 bool AsynchronousSocketChannelImpl::equals(Object$* obj) {
-	 return this->$AsynchronousSocketChannel::equals(obj);
+	return this->$AsynchronousSocketChannel::equals(obj);
 }
 
 $Object* AsynchronousSocketChannelImpl::clone() {
-	 return this->$AsynchronousSocketChannel::clone();
+	return this->$AsynchronousSocketChannel::clone();
 }
 
 void AsynchronousSocketChannelImpl::finalize() {

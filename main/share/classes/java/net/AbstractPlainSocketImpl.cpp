@@ -110,7 +110,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $nc(inst$)->lambda$getInputStream$0();
+		return $nc(inst$)->lambda$getInputStream$0();
 	}
 	AbstractPlainSocketImpl* inst$ = nullptr;
 };
@@ -146,7 +146,7 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$getOutputStream$1());
+		return $of($nc(inst$)->lambda$getOutputStream$1());
 	}
 	AbstractPlainSocketImpl* inst$ = nullptr;
 };
@@ -176,19 +176,19 @@ $Class* AbstractPlainSocketImpl$$Lambda$lambda$getOutputStream$1$1::load$($Strin
 $Class* AbstractPlainSocketImpl$$Lambda$lambda$getOutputStream$1$1::class$ = nullptr;
 
 $String* AbstractPlainSocketImpl::toString() {
-	 return this->$SocketImpl::toString();
+	return this->$SocketImpl::toString();
 }
 
 int32_t AbstractPlainSocketImpl::hashCode() {
-	 return this->$SocketImpl::hashCode();
+	return this->$SocketImpl::hashCode();
 }
 
 bool AbstractPlainSocketImpl::equals(Object$* obj) {
-	 return this->$SocketImpl::equals(obj);
+	return this->$SocketImpl::equals(obj);
 }
 
 $Object* AbstractPlainSocketImpl::clone() {
-	 return this->$SocketImpl::clone();
+	return this->$SocketImpl::clone();
 }
 
 void AbstractPlainSocketImpl::finalize() {
